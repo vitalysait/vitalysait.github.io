@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Мои Arduino проекты</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+            margin: 0;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 30px;
+            padding: 30px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+        h1 {
+            color: #667eea;
+            text-align: center;
+            font-size: 2.5em;
+        }
+        .project {
+            background: white;
+            border-radius: 20px;
+            padding: 25px;
+            margin: 20px 0;
+            border-left: 5px solid #667eea;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        .tg-banner {
+            background: #0088cc;
+            color: white;
+            padding: 15px;
+            text-align: center;
+            border-radius: 50px;
+            margin: 20px 0;
+        }
+        .tg-banner a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+        .components {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+        .component {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+        }
+        .shop-links {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            margin-top: 15px;
+            flex-wrap: wrap;
+        }
+        .shop-btn {
+            padding: 8px 15px;
+            border-radius: 20px;
+            text-decoration: none;
+            color: white;
+            font-size: 0.9em;
+        }
+        .wb { background: #cb11ab; }
+        .ozon { background: #005bff; }
+        .ali { background: #ff6a00; }
+        code {
+            background: #1e1e2f;
+            color: #fff;
+            padding: 20px;
+            border-radius: 15px;
+            display: block;
+            white-space: pre-wrap;
+            font-family: 'Courier New', monospace;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="tg-banner">
+            <a href="https://t.me/PROJECTARDUINOUNO" target="_blank">📱 ПОДПИШИСЬ: АРДУИНО ПРОЕКТЫ И ПАЛЬНИКИ 🔧</a>
+        </div>
+        
+        <h1>🔧 МОИ ARDUINO ПРОЕКТЫ 🔧</h1>
+        
+        <div class="project">
+            <h2>🌦️ Метеостанция на ESP8266</h2>
+            <p>🔥 Взял ESP8266 и DHT22. Сделал Telegram бота за 2 дня!</p>
+            <p>🤖 Бот показывает температуру и влажность. Сделал его приватным.</p>
+            
+            <h3>⚡ Компоненты:</h3>
+            <div class="components">
+                <div class="component">
+                    <div>🔹 ESP8266</div>
+                    <div class="shop-links">
+                        <a href="#" class="shop-btn wb">WB</a>
+                        <a href="#" class="shop-btn ozon">Ozon</a>
+                        <a href="#" class="shop-btn ali">Ali</a>
+                    </div>
+                </div>
+                <div class="component">
+                    <div>🌡️ DHT22</div>
+                    <div class="shop-links">
+                        <a href="#" class="shop-btn wb">WB</a>
+                        <a href="#" class="shop-btn ozon">Ozon</a>
+                        <a href="#" class="shop-btn ali">Ali</a>
+                    </div>
+                </div>
+            </div>
+            
+            <h3>📟 Код:</h3>
+            <code>
+#include &lt;ESP8266WiFi.h&gt;
+#include &lt;DHT.h&gt;
+
+const char* ssid = "ваш Wi-Fi";
+const char* password = "ваш пароль";
+
+DHT dht(2, DHT22);
+
+void setup() {
+    Serial.begin(115200);
+    dht.begin();
+    WiFi.begin(ssid, password);
+}
+
+void loop() {
+    float t = dht.readTemperature();
+    float h = dht.readHumidity();
+    Serial.print("Temp: ");
+    Serial.println(t);
+    delay(2000);
+}
+            </code>
+        </div>
+        
+        <div class="project">
+            <h2>🌈 RGB светодиод + ESP8266</h2>
+            <p>Подключение: GND→GND, R→D1, G→D2, B→D3</p>
+            
+            <div class="components">
+                <div class="component">
+                    <div>🔹 ESP8266</div>
+                    <div class="shop-links">
+                        <a href="#" class="shop-btn wb">WB</a>
+                        <a href="#" class="shop-btn ozon">Ozon</a>
+                        <a href="#" class="shop-btn ali">Ali</a>
+                    </div>
+                </div>
+                <div class="component">
+                    <div>🌈 RGB светодиод</div>
+                    <div class="shop-links">
+                        <a href="#" class="shop-btn wb">WB</a>
+                        <a href="#" class="shop-btn ozon">Ozon</a>
+                        <a href="#" class="shop-btn ali">Ali</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>Сделано с ❤️ для Arduino проектов</p>
+            <p>АРДУИНО ПРОЕКТЫ И ПАЛЬНИКИ © 2026</p>
+        </div>
+    </div>
+</body>
+</html>
