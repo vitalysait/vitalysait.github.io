@@ -155,6 +155,7 @@
             to { transform: translateY(0); opacity: 1; }
         }
         
+        /* ===== ИСПРАВЛЕНО НАЗВАНИЕ ===== */
         .tg-top-banner {
             background: linear-gradient(135deg, #0088cc, #005f8c);
             color: white;
@@ -173,6 +174,7 @@
             gap: 10px;
             flex-wrap: wrap;
         }
+        /* ================================ */
         
         .header {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
@@ -244,7 +246,6 @@
             display: block;
         }
         
-        /* ===== ТВОЙ ТЕКСТ ===== */
         .greeting {
             background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
             color: white;
@@ -255,6 +256,12 @@
             font-size: 1.4em;
             animation: pulse 2s infinite;
             line-height: 1.6;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+            100% { transform: scale(1); }
         }
         
         .story {
@@ -283,7 +290,6 @@
             font-weight: bold;
             font-size: 1.3em;
         }
-        /* ====================== */
         
         .components-grid {
             display: grid;
@@ -467,17 +473,21 @@
     </div>
     
     <div class="container">
+        <!-- ===== ИСПРАВЛЕНО ЗДЕСЬ ===== -->
         <div class="tg-top-banner">
             <a href="https://t.me/PROJECTARDUINOUNO" target="_blank">
-                <span>📱</span> ПОДПИШИСЬ: АРДУИНО ПРОЕКТЫ И ПАЛЬНИКИ <span>🔧</span>
+                <span>📱</span> ПОДПИШИСЬ: АРДУИНО ПРОЕКТЫ И ПАЯЛЬНИКИ <span>🔧</span>
             </a>
         </div>
+        <!-- ============================= -->
         
+        <!-- ===== ИСПРАВЛЕНО ЗДЕСЬ ===== -->
         <div class="header">
-            <h1>🔧 АРДУИНО ПРОЕКТЫ И ПАЛЬНИКИ 🔧</h1>
+            <h1>🔧 АРДУИНО ПРОЕКТЫ И ПАЯЛЬНИКИ 🔧</h1>
             <p>Метеостанция, RGB светодиод и другие проекты</p>
             <span class="badge">2026</span>
         </div>
+        <!-- ============================= -->
         
         <div class="content">
             <div class="tabs">
@@ -487,7 +497,7 @@
                 <button class="tab-btn" onclick="openTab(event, 'tab4')">⚡ 4. СКОРО</button>
             </div>
             
-            <!-- Вкладка 1 - Метеостанция с ТВОИМ ТЕКСТОМ -->
+            <!-- Вкладка 1 - Метеостанция -->
             <div id="tab1" class="tab-content active">
                 <div class="greeting">
                     👋 ВСЕМ ПРИВЕТ!
@@ -504,7 +514,9 @@
                     
                     <p>📱 Создавал его через @BotFather, написал код в Arduino IDE. Код будет ниже. Настолько понравился проект, что решил заказать печать у @Bolodechka. Пока что думаю...</p>
                     
-                    <p style="text-align: right; font-style: italic; margin-top: 30px;">АРДУИНО ПРОЕКТЫ И ПАЛЬНИКИ, 25.02.2026 21:34</p>
+                    <!-- ===== ИСПРАВЛЕНО ЗДЕСЬ ===== -->
+                    <p style="text-align: right; font-style: italic; margin-top: 30px;">АРДУИНО ПРОЕКТЫ И ПАЯЛЬНИКИ, 25.02.2026 21:34</p>
+                    <!-- ============================= -->
                 </div>
                 
                 <div class="connection-scheme">
@@ -562,7 +574,7 @@
                 </div>
                 
                 <div class="code-section">
-                    <h2>📟 ПОЛНЫЙ КОД МЕТЕОСТАНЦИИ (ТВОЙ КОД)</h2>
+                    <h2>📟 ПОЛНЫЙ КОД МЕТЕОСТАНЦИИ</h2>
                     <div class="code-block">
                         <pre>
 #include &lt;ESP8266WiFi.h&gt;
@@ -581,7 +593,7 @@ const String allowedUsers[] = {
   "123456789",
   "1234567890"  // Добавлен новый пользователь
 };
-const int totalUsers = 3;  // Изменено с 2 на 3
+const int totalUsers = 3;
 // =================================
 
 #define DHTPIN 2
@@ -614,7 +626,7 @@ void setup() {
   
   bot.sendMessage("404415869", "꧁༺ *БОТ ЗАПУЩЕН* ༻꧂", "Markdown");
   bot.sendMessage("332677564", "꧁༺ *БОТ ЗАПУЩЕН* ༻꧂", "Markdown");
-  bot.sendMessage("8473046860", "꧁༺ *БОТ ЗАПУЩЕН* ༻꧂", "Markdown"); // Добавлено уведомление для нового пользователя
+  bot.sendMessage("8473046860", "꧁༺ *БОТ ЗАПУЩЕН* ༻꧂", "Markdown");
 }
 
 void loop() {
@@ -637,8 +649,6 @@ void loop() {
         bot.sendMessage(chat, "⛔️ *НЕТ ДОСТУПА*", "Markdown");
         continue;
       }
-      
-      // ===== ВСЕ КОМАНДЫ =====
       
       if(text == "/start" || text == "/menu") {
         String msg = "";
@@ -900,9 +910,11 @@ void loop() {
             </div>
         </div>
         
+        <!-- ===== ИСПРАВЛЕНО ЗДЕСЬ ===== -->
         <div class="footer">
-            <p class="username">АРДУИНО ПРОЕКТЫ И ПАЛЬНИКИ © 2026</p>
+            <p class="username">АРДУИНО ПРОЕКТЫ И ПАЯЛЬНИКИ © 2026</p>
         </div>
+        <!-- ============================= -->
     </div>
 
     <script>
