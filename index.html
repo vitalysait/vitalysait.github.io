@@ -32,42 +32,13 @@
             border: 1px solid rgba(255, 255, 255, 0.1);
         }
         
-        body.dark-theme .story {
-            background: rgba(255, 255, 255, 0.05);
-            border-left: 5px solid #4a4a8a;
-            color: #f0f0f0;
-        }
-        
-        body.dark-theme .component-card {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid #4a4a8a;
-            color: #f0f0f0;
-        }
-        
-        body.dark-theme .code-section {
-            background: rgba(0, 0, 0, 0.7);
-        }
-        
-        body.dark-theme .code-block {
-            background: rgba(0, 0, 0, 0.9);
-        }
-        
-        body.dark-theme .tab-btn {
-            color: #ccc;
-        }
-        
-        body.dark-theme .tab-btn.active {
-            background: #4a4a8a;
-            color: white;
-        }
-        
-        body.dark-theme .connection-scheme {
-            background: rgba(255, 255, 255, 0.03);
-            border: 2px solid #4a4a8a;
-        }
-        
+        body.dark-theme .story,
+        body.dark-theme .component-card,
+        body.dark-theme .code-section,
+        body.dark-theme .connection-scheme,
         body.dark-theme .scheme-item {
             background: rgba(255, 255, 255, 0.05);
+            border-color: #4a4a8a;
             color: #f0f0f0;
         }
         
@@ -79,11 +50,8 @@
             display: flex;
             gap: 10px;
             flex-wrap: wrap;
-            justify-content: flex-end;
-            align-items: center;
             background: rgba(0, 0, 0, 0.3);
             backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
             padding: 10px 15px;
             border-radius: 50px;
             border: 1px solid rgba(255, 255, 255, 0.2);
@@ -125,12 +93,6 @@
             padding: 0 10px;
         }
         
-        .font-size-control span {
-            font-size: 14px;
-            min-width: 45px;
-            text-align: center;
-        }
-        
         .font-size-slider {
             width: 100px;
             height: 5px;
@@ -142,15 +104,6 @@
         
         .font-size-slider::-webkit-slider-thumb {
             -webkit-appearance: none;
-            width: 18px;
-            height: 18px;
-            background: white;
-            border-radius: 50%;
-            cursor: pointer;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-        }
-        
-        .font-size-slider::-moz-range-thumb {
             width: 18px;
             height: 18px;
             background: white;
@@ -173,33 +126,12 @@
             justify-content: center;
         }
         
-        .font-size-btn:hover {
-            background: rgba(255, 255, 255, 0.3);
-        }
-        
         body.phone-mode {
             padding: 10px;
         }
         
-        body.phone-mode .container {
-            border-radius: 15px;
-        }
-        
-        body.phone-mode .header h1 {
-            font-size: 1.5em;
-        }
-        
-        body.phone-mode .header p {
-            font-size: 0.9em;
-        }
-        
         body.phone-mode .content {
             padding: 15px;
-        }
-        
-        body.phone-mode .tabs {
-            gap: 3px;
-            padding: 3px;
         }
         
         body.phone-mode .tab-btn {
@@ -207,67 +139,20 @@
             font-size: 0.8em;
         }
         
-        body.phone-mode .greeting {
-            padding: 15px;
-            font-size: 1em;
-        }
-        
-        body.phone-mode .story {
-            padding: 15px;
-            font-size: 0.95em;
-        }
-        
-        body.phone-mode .component-card {
-            padding: 15px;
-        }
-        
-        body.phone-mode .component-card h3 {
-            font-size: 1.2em;
-        }
-        
-        body.phone-mode .code-section {
-            padding: 15px;
-        }
-        
-        body.phone-mode .code-section h2 {
-            font-size: 1.4em;
-        }
-        
-        body.phone-mode .code-block pre {
-            font-size: 12px;
-        }
-        
-        body.phone-mode .scheme-item {
-            padding: 10px;
-            font-size: 1em;
-        }
-        
-        body.phone-mode .footer {
-            padding: 15px;
-        }
-        
         .container {
             max-width: 1100px;
             margin: 0 auto;
             background: rgba(255, 255, 255, 0.9);
             backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
             border-radius: 30px;
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
             overflow: hidden;
             animation: slideIn 0.5s ease-out;
-            border: 1px solid rgba(255, 255, 255, 0.2);
         }
         
         @keyframes slideIn {
-            from {
-                transform: translateY(50px);
-                opacity: 0;
-            }
-            to {
-                transform: translateY(0);
-                opacity: 1;
-            }
+            from { transform: translateY(50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
         }
         
         .tg-top-banner {
@@ -301,10 +186,6 @@
             margin-bottom: 10px;
         }
         
-        .header p {
-            font-size: 1.3em;
-        }
-        
         .badge {
             background: #ff4757;
             color: white;
@@ -327,7 +208,6 @@
             padding: 10px;
             border-radius: 50px;
             backdrop-filter: blur(5px);
-            -webkit-backdrop-filter: blur(5px);
             flex-wrap: wrap;
         }
         
@@ -364,55 +244,46 @@
             display: block;
         }
         
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        
+        /* ===== ТВОЙ ТЕКСТ ===== */
         .greeting {
             background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
             color: white;
-            padding: 25px;
+            padding: 30px;
             border-radius: 20px;
             margin-bottom: 30px;
             text-align: center;
             font-size: 1.4em;
             animation: pulse 2s infinite;
-            word-break: break-word;
-        }
-        
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.02); }
-            100% { transform: scale(1); }
+            line-height: 1.6;
         }
         
         .story {
             background: rgba(255, 255, 255, 0.7);
             backdrop-filter: blur(5px);
-            -webkit-backdrop-filter: blur(5px);
-            padding: 30px;
+            padding: 35px;
             border-radius: 20px;
             margin-bottom: 30px;
-            border-left: 5px solid #667eea;
-            line-height: 1.8;
-            font-size: 1.1em;
+            border-left: 8px solid #667eea;
+            line-height: 2;
+            font-size: 1.2em;
+            white-space: pre-line;
         }
         
         .story p {
-            margin-bottom: 15px;
+            margin-bottom: 20px;
         }
         
         .highlight {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
-            padding: 15px 25px;
+            padding: 15px 30px;
             border-radius: 50px;
             display: inline-block;
-            margin: 10px 0;
+            margin: 15px 0;
             font-weight: bold;
-            font-size: 1.1em;
+            font-size: 1.3em;
         }
+        /* ====================== */
         
         .components-grid {
             display: grid;
@@ -428,11 +299,11 @@
             box-shadow: 0 10px 30px rgba(0,0,0,0.1);
             border: 2px solid rgba(102, 126, 234, 0.2);
             transition: all 0.3s;
+            text-align: center;
         }
         
         .component-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.3);
             border-color: #667eea;
         }
         
@@ -440,18 +311,10 @@
             color: #667eea;
             font-size: 1.6em;
             margin-bottom: 15px;
-            text-align: center;
-        }
-        
-        .component-card p {
-            font-size: 1.1em;
-            text-align: center;
-            margin-bottom: 15px;
         }
         
         .component-icon {
             font-size: 3em;
-            text-align: center;
             margin-bottom: 15px;
         }
         
@@ -464,14 +327,13 @@
         }
         
         .shop-btn {
-            padding: 10px 15px;
-            border-radius: 25px;
+            padding: 10px 18px;
+            border-radius: 30px;
             text-decoration: none;
             font-weight: bold;
             font-size: 0.95em;
             color: white;
             transition: all 0.3s;
-            display: inline-block;
         }
         
         .shop-btn:hover {
@@ -486,7 +348,6 @@
         .code-section {
             background: rgba(30, 30, 47, 0.9);
             backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
             border-radius: 20px;
             padding: 30px;
             margin-bottom: 30px;
@@ -506,7 +367,6 @@
             padding: 20px;
             overflow-x: auto;
             position: relative;
-            border: 1px solid rgba(255, 255, 255, 0.1);
         }
         
         pre {
@@ -515,37 +375,12 @@
             font-family: 'Courier New', monospace;
             font-size: 14px;
             line-height: 1.6;
-        }
-        
-        .code-block::before {
-            content: "C++";
-            position: absolute;
-            top: 10px;
-            right: 20px;
-            background: #667eea;
-            color: white;
-            padding: 5px 15px;
-            border-radius: 20px;
-            font-size: 12px;
-            font-weight: bold;
-        }
-        
-        .telegram-link {
-            background: linear-gradient(135deg, #0088cc 0%, #005f8c 100%);
-            color: white;
-            text-decoration: none;
-            padding: 15px 30px;
-            border-radius: 50px;
-            display: inline-block;
-            margin: 20px 0;
-            font-size: 1.2em;
-            font-weight: bold;
+            white-space: pre-wrap;
         }
         
         .connection-scheme {
             background: rgba(255, 255, 255, 0.7);
             backdrop-filter: blur(5px);
-            -webkit-backdrop-filter: blur(5px);
             padding: 30px;
             border-radius: 20px;
             margin: 30px 0;
@@ -575,30 +410,41 @@
             border-left: 4px solid #667eea;
         }
         
-        .scheme-item span {
-            font-size: 2em;
-            display: block;
-            margin-bottom: 10px;
-        }
-        
         .pin-red { color: #ff4444; font-weight: bold; }
         .pin-green { color: #44ff44; font-weight: bold; }
         .pin-blue { color: #4444ff; font-weight: bold; }
         .pin-gnd { color: #666; font-weight: bold; }
         
+        .big-soon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 500px;
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(5px);
+            border-radius: 30px;
+            margin: 30px 0;
+            border: 3px dashed #667eea;
+            animation: pulse 2s infinite;
+        }
+        
+        .big-soon h1 {
+            font-size: 8em;
+            color: #667eea;
+            text-shadow: 5px 5px 0 rgba(102, 126, 234, 0.3);
+            letter-spacing: 10px;
+        }
+        
+        @media (max-width: 768px) {
+            .big-soon h1 { font-size: 4em; }
+        }
+        
         .footer {
             background: rgba(248, 249, 250, 0.7);
             backdrop-filter: blur(5px);
-            -webkit-backdrop-filter: blur(5px);
             padding: 30px;
             text-align: center;
             border-top: 2px solid #667eea;
-        }
-        
-        .footer p {
-            color: #666;
-            margin: 5px 0;
-            font-size: 1.1em;
         }
         
         .footer .username {
@@ -606,47 +452,12 @@
             font-weight: bold;
             font-size: 1.3em;
         }
-        
-        @media (max-width: 480px) {
-            .control-panel {
-                top: 10px;
-                right: 10px;
-                padding: 8px 12px;
-            }
-            
-            .control-btn {
-                width: 40px;
-                height: 40px;
-                font-size: 18px;
-            }
-            
-            .device-btn {
-                width: auto;
-                height: 40px;
-                font-size: 13px;
-                padding: 0 12px;
-            }
-            
-            .font-size-slider {
-                width: 70px;
-            }
-            
-            .tg-top-banner {
-                font-size: 1em;
-                padding: 10px;
-            }
-            
-            .scheme-grid {
-                grid-template-columns: 1fr;
-            }
-        }
     </style>
 </head>
 <body class="computer-mode" style="--base-font-size: 18px">
     <div class="control-panel">
-        <button class="control-btn" onclick="toggleTheme()" id="themeBtn" title="Сменить тему">🌙</button>
+        <button class="control-btn" onclick="toggleTheme()" id="themeBtn">🌙</button>
         <button class="control-btn device-btn" onclick="toggleDevice()" id="deviceBtn">💻 Компьютер</button>
-        
         <div class="font-size-control">
             <button class="font-size-btn" onclick="changeFontSize(-2)">−</button>
             <input type="range" min="12" max="32" value="18" class="font-size-slider" id="fontSizeSlider" oninput="updateFontSize(this.value)">
@@ -663,73 +474,95 @@
         </div>
         
         <div class="header">
-            <h1>🔧 Мои Arduino проекты 🔧</h1>
-            <p>ESP8266, RGB, ESP32 и другие проекты</p>
-            <span class="badge">НОВЫЕ ПРОЕКТЫ 2026</span>
+            <h1>🔧 АРДУИНО ПРОЕКТЫ И ПАЛЬНИКИ 🔧</h1>
+            <p>Метеостанция, RGB светодиод и другие проекты</p>
+            <span class="badge">2026</span>
         </div>
         
         <div class="content">
             <div class="tabs">
                 <button class="tab-btn active" onclick="openTab(event, 'tab1')">📋 1. Метеостанция</button>
-                <button class="tab-btn" onclick="openTab(event, 'tab2')">💡 2. RGB + ESP8266</button>
-                <button class="tab-btn" onclick="openTab(event, 'tab3')">⚡ 3. ESP32</button>
+                <button class="tab-btn" onclick="openTab(event, 'tab2')">💡 2. RGB светодиод</button>
+                <button class="tab-btn" onclick="openTab(event, 'tab3')">🔧 3. Arduino Uno/Nano</button>
+                <button class="tab-btn" onclick="openTab(event, 'tab4')">⚡ 4. СКОРО</button>
             </div>
             
-            <!-- ВКЛАДКА 1 - МЕТЕОСТАНЦИЯ С ТЕЛЕГРАМ БОТОМ -->
+            <!-- Вкладка 1 - Метеостанция с ТВОИМ ТЕКСТОМ -->
             <div id="tab1" class="tab-content active">
                 <div class="greeting">
-                    👋 ВСЕМ ПРИВЕТ! Метеостанция на ESP8266 с Telegram ботом
+                    👋 ВСЕМ ПРИВЕТ!
                 </div>
                 
                 <div class="story">
-                    <p>🔥 Взял <strong>ESP8266</strong>, потом <strong>DHT22</strong>. Сделал Telegram бота за 2 дня!</p>
-                    <p>🤖 Бот показывает температуру и влажность. Сделал его приватным.</p>
-                    <p>📱 Создавал через @BotFather, код внизу.</p>
+                    <p>🔥 Как и обещал, расскажу про проект метеостанция. Взял ESP8266, потом DHT22. Решил сначала сделать сайт - сделал, мне не понравилось. Потом создал бота в Telegram, делал его 2 дня.</p>
+                    
+                    <p>🤖 Бот показывает температуру и влажность. Сделал его приватным. Прошил ESP, подключил к повербанку, взял коробку, вырезал отверстия, просунул датчик - и понеслась!</p>
+                    
+                    <div style="text-align: center;">
+                        <span class="highlight">✨ СТАЛ ДОБАВЛЯТЬ В БОТА ПРИКОЛЫ ✨</span>
+                    </div>
+                    
+                    <p>📱 Создавал его через @BotFather, написал код в Arduino IDE. Код будет ниже. Настолько понравился проект, что решил заказать печать у @Bolodechka. Пока что думаю...</p>
+                    
+                    <p style="text-align: right; font-style: italic; margin-top: 30px;">АРДУИНО ПРОЕКТЫ И ПАЛЬНИКИ, 25.02.2026 21:34</p>
                 </div>
                 
                 <div class="connection-scheme">
                     <h2>🔌 СХЕМА ПОДКЛЮЧЕНИЯ DHT22</h2>
                     <div class="scheme-grid">
-                        <div class="scheme-item">
-                            <span>🔴</span>
-                            <strong class="pin-red">VCC → 3.3V</strong>
-                        </div>
-                        <div class="scheme-item">
-                            <span>⚫</span>
-                            <strong class="pin-gnd">GND → GND</strong>
-                        </div>
-                        <div class="scheme-item">
-                            <span>🔵</span>
-                            <strong>DATA → D2 (GPIO4)</strong>
-                        </div>
+                        <div class="scheme-item"><span>🔴</span><strong class="pin-red">VCC → 3.3V</strong></div>
+                        <div class="scheme-item"><span>⚫</span><strong class="pin-gnd">GND → GND</strong></div>
+                        <div class="scheme-item"><span>🔵</span><strong>DATA → D2 (GPIO4)</strong></div>
+                        <div class="scheme-item"><span>⚡</span><strong>Резистор 10кОм</strong></div>
                     </div>
                 </div>
                 
-                <h2 style="color: #667eea; margin: 30px 0 20px; text-align: center;">⚡ КОМПОНЕНТЫ ⚡</h2>
+                <h2 style="color: #667eea; margin: 30px 0 20px; text-align: center;">⚡ КОМПОНЕНТЫ МЕТЕОСТАНЦИИ ⚡</h2>
                 
                 <div class="components-grid">
                     <div class="component-card">
                         <div class="component-icon">🔹</div>
                         <h3>ESP8266</h3>
                         <div class="shop-buttons">
-                            <a href="https://www.wildberries.ru/catalog/0/search.aspx?search=esp8266" target="_blank" class="shop-btn wb">WB</a>
+                            <a href="https://www.wildberries.ru/catalog/0/search.aspx?search=esp8266" target="_blank" class="shop-btn wb">Wildberries</a>
                             <a href="https://www.ozon.ru/search/?text=esp8266" target="_blank" class="shop-btn ozon">Ozon</a>
-                            <a href="https://aliexpress.ru/wholesale?SearchText=esp8266" target="_blank" class="shop-btn aliexpress">Ali</a>
+                            <a href="https://aliexpress.ru/wholesale?SearchText=esp8266" target="_blank" class="shop-btn aliexpress">AliExpress</a>
                         </div>
                     </div>
+                    
                     <div class="component-card">
                         <div class="component-icon">🌡️</div>
-                        <h3>DHT22</h3>
+                        <h3>Датчик DHT22</h3>
                         <div class="shop-buttons">
-                            <a href="https://www.wildberries.ru/catalog/0/search.aspx?search=dht22" target="_blank" class="shop-btn wb">WB</a>
+                            <a href="https://www.wildberries.ru/catalog/0/search.aspx?search=dht22" target="_blank" class="shop-btn wb">Wildberries</a>
                             <a href="https://www.ozon.ru/search/?text=dht22" target="_blank" class="shop-btn ozon">Ozon</a>
-                            <a href="https://aliexpress.ru/wholesale?SearchText=dht22" target="_blank" class="shop-btn aliexpress">Ali</a>
+                            <a href="https://aliexpress.ru/wholesale?SearchText=dht22" target="_blank" class="shop-btn aliexpress">AliExpress</a>
+                        </div>
+                    </div>
+                    
+                    <div class="component-card">
+                        <div class="component-icon">⚡</div>
+                        <h3>Резисторы 10кОм</h3>
+                        <div class="shop-buttons">
+                            <a href="https://www.wildberries.ru/catalog/0/search.aspx?search=резисторы+10кОм" target="_blank" class="shop-btn wb">Wildberries</a>
+                            <a href="https://www.ozon.ru/search/?text=резисторы+10кОм" target="_blank" class="shop-btn ozon">Ozon</a>
+                            <a href="https://aliexpress.ru/wholesale?SearchText=10k+resistor" target="_blank" class="shop-btn aliexpress">AliExpress</a>
+                        </div>
+                    </div>
+                    
+                    <div class="component-card">
+                        <div class="component-icon">🔋</div>
+                        <h3>Повербанк</h3>
+                        <div class="shop-buttons">
+                            <a href="https://www.wildberries.ru/catalog/0/search.aspx?search=повербанк" target="_blank" class="shop-btn wb">Wildberries</a>
+                            <a href="https://www.ozon.ru/search/?text=повербанк" target="_blank" class="shop-btn ozon">Ozon</a>
+                            <a href="https://aliexpress.ru/wholesale?SearchText=powerbank" target="_blank" class="shop-btn aliexpress">AliExpress</a>
                         </div>
                     </div>
                 </div>
                 
                 <div class="code-section">
-                    <h2>📟 КОД МЕТЕОСТАНЦИИ С TELEGRAM</h2>
+                    <h2>📟 ПОЛНЫЙ КОД МЕТЕОСТАНЦИИ (ТВОЙ КОД)</h2>
                     <div class="code-block">
                         <pre>
 #include &lt;ESP8266WiFi.h&gt;
@@ -737,10 +570,21 @@
 #include &lt;UniversalTelegramBot.h&gt;
 #include &lt;DHT.h&gt;
 
-const char* ssid = "ваш Wi-Fi";
-const char* password = "ваш пароль";
-#define BOT_TOKEN "токен_бота"
-#define DHTPIN 4  // D2
+// ========== ТВОИ ДАННЫЕ ==========
+const char* ssid = "ваш WiFI";
+const char* password = "пароль от него";
+#define BOT_TOKEN "8530454620:AAE-HtR87zyZ91dSYn9auueMH3eeoGard4o"
+
+// ID разрешенных пользователей
+const String allowedUsers[] = {
+  "1234567890",//ID
+  "123456789",
+  "1234567890"  // Добавлен новый пользователь
+};
+const int totalUsers = 3;  // Изменено с 2 на 3
+// =================================
+
+#define DHTPIN 2
 #define DHTTYPE DHT22
 
 DHT dht(DHTPIN, DHTTYPE);
@@ -751,20 +595,33 @@ float temperature = 0;
 float humidity = 0;
 unsigned long lastTime = 0;
 
+bool isAllowed(String chat_id) {
+  for(int i = 0; i < totalUsers; i++) {
+    if(allowedUsers[i] == chat_id) return true;
+  }
+  return false;
+}
+
 void setup() {
   Serial.begin(115200);
   dht.begin();
   client.setInsecure();
   
   WiFi.begin(ssid, password);
-  while (WiFi.status() != WL_CONNECTED) delay(500);
+  while (WiFi.status() != WL_CONNECTED) {
+    delay(500);
+  }
+  
+  bot.sendMessage("404415869", "꧁༺ *БОТ ЗАПУЩЕН* ༻꧂", "Markdown");
+  bot.sendMessage("332677564", "꧁༺ *БОТ ЗАПУЩЕН* ༻꧂", "Markdown");
+  bot.sendMessage("8473046860", "꧁༺ *БОТ ЗАПУЩЕН* ༻꧂", "Markdown"); // Добавлено уведомление для нового пользователя
 }
 
 void loop() {
   if(millis() - lastTime > 5000) {
     float t = dht.readTemperature();
     float h = dht.readHumidity();
-    if(!isnan(t) && !isnan(h)) {
+    if(!isnan(t) &amp;&amp; !isnan(h)) {
       temperature = t;
       humidity = h;
     }
@@ -774,14 +631,131 @@ void loop() {
     for(int i = 0; i < msgCount; i++) {
       String chat = bot.messages[i].chat_id;
       String text = bot.messages[i].text;
+      String name = bot.messages[i].from_name;
       
-      if(text == "/temp") {
-        bot.sendMessage(chat, "🌡 Температура: " + String(temperature, 1) + "°C", "");
+      if(!isAllowed(chat)) {
+        bot.sendMessage(chat, "⛔️ *НЕТ ДОСТУПА*", "Markdown");
+        continue;
       }
-      else if(text == "/hum") {
-        bot.sendMessage(chat, "💧 Влажность: " + String(humidity, 1) + "%", "");
+      
+      // ===== ВСЕ КОМАНДЫ =====
+      
+      if(text == "/start" || text == "/menu") {
+        String msg = "";
+        String upperName = String(name);
+        upperName.toUpperCase();
+        
+        msg += "꧁༺ *ДОБРО ПОЖАЛОВАТЬ* ༻꧂\n\n";
+        msg += "*ПРИВЕТ, " + upperName + "*\n";
+        msg += "╔══════════════════╗\n";
+        msg += "║  *🌡 /TEMP*       ║\n";
+        msg += "║  *💧 /HUM*        ║\n";
+        msg += "║  *📊 /ALL*        ║\n";
+        msg += "║  *📋 /STYLE*      ║\n";
+        msg += "║  *📡 /STATUS*     ║\n";
+        msg += "║  *❓ /HELP*       ║\n";
+        msg += "╚══════════════════╝";
+        bot.sendMessage(chat, msg, "Markdown");
+      }
+      
+      else if(text == "/temp" || text == "/TEMP") {
+        String msg = "";
+        msg += "꧁༺ *ТЕМПЕРАТУРА* ༻꧂\n\n";
+        msg += "┏━━━━━━━━━━━━┓\n";
+        msg += "┃  *🌡  " + String(temperature, 1) + "°C*\n";
+        msg += "┃            ┃\n";
+        msg += "┗━━━━━━━━━━━━┛";
+        bot.sendMessage(chat, msg, "Markdown");
+      }
+      
+      else if(text == "/hum" || text == "/HUM") {
+        String msg = "";
+        msg += "꧁༺ *ВЛАЖНОСТЬ* ༻꧂\n\n";
+        msg += "┏━━━━━━━━━━━━┓\n";
+        msg += "┃  *💧  " + String(humidity, 1) + "%*\n";
+        msg += "┃            ┃\n";
+        msg += "┗━━━━━━━━━━━━┛";
+        bot.sendMessage(chat, msg, "Markdown");
+      }
+      
+      else if(text == "/all" || text == "/ALL") {
+        String msg = "";
+        msg += "꧁༺ *ВСЕ ДАННЫЕ* ༻꧂\n\n";
+        msg += "╔══════════════════╗\n";
+        msg += "║  *🌡 ТЕМПЕРАТУРА*\n";
+        msg += "║  *" + String(temperature, 1) + "°C*\n";
+        msg += "╠══════════════════╣\n";
+        msg += "║  *💧 ВЛАЖНОСТЬ*\n";
+        msg += "║  *" + String(humidity, 1) + "%*\n";
+        msg += "╚══════════════════╝\n\n";
+        
+        msg += "┌──────────────┐\n";
+        msg += "│ ";
+        if(temperature < 0) msg += "*❄️ МОРОЗ*";
+        else if(temperature < 10) msg += "*🌨 ХОЛОДНО*";
+        else if(temperature < 20) msg += "*🌥 СВЕЖО*";
+        else if(temperature < 30) msg += "*☀️ ТЕПЛО*";
+        else msg += "*🔥 ЖАРА*";
+        msg += "\n";
+        msg += "└──────────────┘";
+        
+        bot.sendMessage(chat, msg, "Markdown");
+      }
+
+      else if(text == "/style" || text == "/STYLE") {
+        String msg = "";
+        msg += "꧁༺ *НАШ СТИЛЬ* ༻꧂\n\n";
+        msg += "┏━━━━━━━━━━━━━━━━┓\n";
+        msg += "┃ *꧁༺ ТЕКСТ ༻꧂*    ┃\n";
+        msg += "┃ *꧁༒ ПРИМЕР ༒꧂*   ┃\n";
+        msg += "┃ *꧁☂️︎シ︎✰*          ┃\n";
+        msg += "┃ *ঔৣ☬✞*           ┃\n";
+        msg += "┗━━━━━━━━━━━━━━━━┛\n\n";
+        msg += "*✨ КАК ИСПОЛЬЗОВАТЬ:*\n";
+        msg += "*СКОПИРУЙ ꧁༺ И ༻꧂*\n";
+        msg += "*И ВСТАВЬ СВОЙ ТЕКСТ*";
+        bot.sendMessage(chat, msg, "Markdown");
+      }
+      
+      else if(text == "/status" || text == "/STATUS") {
+        String msg = "";
+        msg += "꧁༺ *СТАТУС* ༻꧂\n\n";
+        msg += "┏━━━━━━━━━━━━━━━━┓\n";
+        msg += "┃ *📶 WI-FI: " + String(ssid) + "*\n";
+        msg += "┃ *🌐 IP: " + WiFi.localIP().toString() + "*\n";
+        msg += "┃ *⏱️ РАБОТА: " + String(millis()/60000) + " МИН*\n";
+        msg += "┃ *📡 СИГНАЛ: " + String(WiFi.RSSI()) + " DBM*\n";
+        msg += "┗━━━━━━━━━━━━━━━━┛";
+        bot.sendMessage(chat, msg, "Markdown");
+      }
+      
+      else if(text == "/help" || text == "/HELP") {
+        String msg = "";
+        msg += "꧁༺ *ПОМОЩЬ* ༻꧂\n\n";
+        msg += "┌────────────────┐\n";
+        msg += "│ *🌡 /TEMP*      │\n";
+        msg += "│ *💧 /HUM*       │\n";
+        msg += "│ *📊 /ALL*       │\n";
+        msg += "│ *📋 /STYLE*     │\n";
+        msg += "│ *📡 /STATUS*    │\n";
+        msg += "│ *📋 /MENU*      │\n";
+        msg += "└────────────────┘";
+        bot.sendMessage(chat, msg, "Markdown");
+      }
+      
+      else {
+        String msg = "";
+        msg += "꧁༺ *ОШИБКА* ༻꧂\n\n";
+        msg += "┏━━━━━━━━━━━━━━━━┓\n";
+        msg += "┃ *❓ НЕИЗВЕСТНАЯ* ┃\n";
+        msg += "┃ *   КОМАНДА*    ┃\n";
+        msg += "┠────────────────┨\n";
+        msg += "┃ *НАПИШИ /MENU*  ┃\n";
+        msg += "┗━━━━━━━━━━━━━━━━┛";
+        bot.sendMessage(chat, msg, "Markdown");
       }
     }
+    
     lastTime = millis();
   }
 }
@@ -790,61 +764,28 @@ void loop() {
                 </div>
             </div>
             
-            <!-- ВКЛАДКА 2 - RGB + ESP8266 -->
+            <!-- Вкладка 2 - RGB светодиод -->
             <div id="tab2" class="tab-content">
                 <div class="greeting">🌈 RGB светодиод + ESP8266</div>
                 
                 <div class="connection-scheme">
-                    <h2>🔌 СХЕМА ПОДКЛЮЧЕНИЯ</h2>
+                    <h2>🔌 СХЕМА ПОДКЛЮЧЕНИЯ RGB</h2>
                     <div class="scheme-grid">
-                        <div class="scheme-item">
-                            <span>⚫</span>
-                            <strong class="pin-gnd">GND → GND</strong>
-                        </div>
-                        <div class="scheme-item">
-                            <span>🔴</span>
-                            <strong class="pin-red">R → D1 (GPIO5)</strong>
-                        </div>
-                        <div class="scheme-item">
-                            <span>🟢</span>
-                            <strong class="pin-green">G → D2 (GPIO4)</strong>
-                        </div>
-                        <div class="scheme-item">
-                            <span>🔵</span>
-                            <strong class="pin-blue">B → D3 (GPIO0)</strong>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="components-grid">
-                    <div class="component-card">
-                        <div class="component-icon">🔹</div>
-                        <h3>ESP8266</h3>
-                        <div class="shop-buttons">
-                            <a href="#" class="shop-btn wb">WB</a>
-                            <a href="#" class="shop-btn ozon">Ozon</a>
-                            <a href="#" class="shop-btn aliexpress">Ali</a>
-                        </div>
-                    </div>
-                    <div class="component-card">
-                        <div class="component-icon">🌈</div>
-                        <h3>RGB светодиод</h3>
-                        <div class="shop-buttons">
-                            <a href="#" class="shop-btn wb">WB</a>
-                            <a href="#" class="shop-btn ozon">Ozon</a>
-                            <a href="#" class="shop-btn aliexpress">Ali</a>
-                        </div>
+                        <div class="scheme-item"><span>⚫</span><strong class="pin-gnd">GND → GND</strong></div>
+                        <div class="scheme-item"><span>🔴</span><strong class="pin-red">R → D1 + 220 Ом</strong></div>
+                        <div class="scheme-item"><span>🟢</span><strong class="pin-green">G → D2 + 220 Ом</strong></div>
+                        <div class="scheme-item"><span>🔵</span><strong class="pin-blue">B → D3 + 220 Ом</strong></div>
                     </div>
                 </div>
                 
                 <div class="code-section">
-                    <h2>📟 КОД УПРАВЛЕНИЯ RGB</h2>
+                    <h2>📟 КОД ДЛЯ RGB</h2>
                     <div class="code-block">
                         <pre>
 #include &lt;ESP8266WiFi.h&gt;
 
-const char* ssid = "ваш Wi-Fi";
-const char* password = "ваш пароль";
+const char* ssid = "твой_WiFi";
+const char* password = "твой_пароль";
 
 const int redPin = D1;
 const int greenPin = D2;
@@ -859,9 +800,17 @@ void setup() {
   pinMode(greenPin, OUTPUT);
   pinMode(bluePin, OUTPUT);
   
-  WiFi.begin(ssid, password);
-  while (WiFi.status() != WL_CONNECTED) delay(500);
+  digitalWrite(redPin, LOW);
+  digitalWrite(greenPin, LOW);
+  digitalWrite(bluePin, LOW);
   
+  WiFi.begin(ssid, password);
+  while (WiFi.status() != WL_CONNECTED) {
+    delay(500);
+    Serial.print(".");
+  }
+  
+  Serial.println("\nIP адрес: " + WiFi.localIP().toString());
   server.begin();
 }
 
@@ -869,19 +818,41 @@ void loop() {
   WiFiClient client = server.available();
   if (!client) return;
   
+  while(!client.available()) delay(1);
+  
   String request = client.readStringUntil('\r');
   client.flush();
   
   if (request.indexOf("/red=on") != -1) digitalWrite(redPin, HIGH);
   if (request.indexOf("/red=off") != -1) digitalWrite(redPin, LOW);
+  if (request.indexOf("/green=on") != -1) digitalWrite(greenPin, HIGH);
+  if (request.indexOf("/green=off") != -1) digitalWrite(greenPin, LOW);
+  if (request.indexOf("/blue=on") != -1) digitalWrite(bluePin, HIGH);
+  if (request.indexOf("/blue=off") != -1) digitalWrite(bluePin, LOW);
   
   client.println("HTTP/1.1 200 OK");
   client.println("Content-Type: text/html");
-  client.println("");
-  client.println("<!DOCTYPE HTML><html>");
-  client.println("<body><h1>RGB</h1>");
-  client.println("<a href='/red=on'>🔴 ON</a><br>");
-  client.println("<a href='/red=off'>⚫ OFF</a>");
+  client.println("Connection: close");
+  client.println();
+  
+  client.println("<!DOCTYPE HTML>");
+  client.println("<html>");
+  client.println("<head><meta charset='UTF-8'></head>");
+  client.println("<body style='text-align:center;font-family:Arial;'>");
+  client.println("<h1>🌈 RGB УПРАВЛЕНИЕ</h1>");
+  
+  client.println("<h2>КРАСНЫЙ</h2>");
+  client.println("<a href='/red=on'><button>ВКЛ</button></a>");
+  client.println("<a href='/red=off'><button>ВЫКЛ</button></a>");
+  
+  client.println("<h2>ЗЕЛЕНЫЙ</h2>");
+  client.println("<a href='/green=on'><button>ВКЛ</button></a>");
+  client.println("<a href='/green=off'><button>ВЫКЛ</button></a>");
+  
+  client.println("<h2>СИНИЙ</h2>");
+  client.println("<a href='/blue=on'><button>ВКЛ</button></a>");
+  client.println("<a href='/blue=off'><button>ВЫКЛ</button></a>");
+  
   client.println("</body></html>");
 }
                         </pre>
@@ -889,211 +860,85 @@ void loop() {
                 </div>
             </div>
             
-            <!-- ВКЛАДКА 3 - ESP32 -->
+            <!-- Вкладка 3 - Arduino Uno/Nano -->
             <div id="tab3" class="tab-content">
-                <div class="greeting">⚡ ESP32 - Три проекта</div>
+                <div class="greeting">🔧 Arduino Uno и Nano</div>
                 
-                <!-- Проект 1: Мигание -->
-                <div class="code-section">
-                    <h2>📟 1. ESP32 - Мигание светодиодом</h2>
-                    <div class="connection-scheme" style="margin-top: 0;">
-                        <div class="scheme-grid">
-                            <div class="scheme-item">
-                                <span>🔴</span>
-                                <strong class="pin-red">LED + → GPIO 2</strong>
-                            </div>
-                            <div class="scheme-item">
-                                <span>⚫</span>
-                                <strong class="pin-gnd">LED - → GND</strong>
-                            </div>
-                        </div>
+                <div class="connection-scheme">
+                    <h2>🔌 ПРОЕКТ 1: Мигание светодиодом</h2>
+                    <div class="scheme-grid">
+                        <div class="scheme-item"><span>🔴</span><strong class="pin-red">LED + → Pin 13</strong></div>
+                        <div class="scheme-item"><span>⚫</span><strong class="pin-gnd">LED - → GND</strong></div>
+                        <div class="scheme-item"><span>⚡</span><strong>Резистор 220 Ом</strong></div>
                     </div>
+                </div>
+                
+                <div class="code-section">
+                    <h2>📟 КОД Blink</h2>
                     <div class="code-block">
                         <pre>
 void setup() {
-  pinMode(2, OUTPUT);
+  pinMode(13, OUTPUT);
 }
 
 void loop() {
-  digitalWrite(2, HIGH);
+  digitalWrite(13, HIGH);
   delay(1000);
-  digitalWrite(2, LOW);
+  digitalWrite(13, LOW);
   delay(1000);
 }
                         </pre>
                     </div>
                 </div>
-                
-                <!-- Проект 2: Wi-Fi сканер -->
-                <div class="code-section">
-                    <h2>📟 2. ESP32 - Сканер Wi-Fi сетей</h2>
-                    <div class="code-block">
-                        <pre>
-#include &lt;WiFi.h&gt;
-
-void setup() {
-  Serial.begin(115200);
-  WiFi.mode(WIFI_STA);
-  WiFi.disconnect();
-  delay(100);
-}
-
-void loop() {
-  Serial.println("Сканирование...");
-  int n = WiFi.scanNetworks();
-  for (int i = 0; i < n; i++) {
-    Serial.print(i + 1);
-    Serial.print(": ");
-    Serial.print(WiFi.SSID(i));
-    Serial.print(" (");
-    Serial.print(WiFi.RSSI(i));
-    Serial.println(" dBm)");
-  }
-  delay(5000);
-}
-                        </pre>
-                    </div>
-                </div>
-                
-                <!-- Проект 3: Web сервер -->
-                <div class="code-section">
-                    <h2>📟 3. ESP32 - Web сервер</h2>
-                    <div class="connection-scheme" style="margin-top: 0;">
-                        <div class="scheme-grid">
-                            <div class="scheme-item">
-                                <span>🔴</span>
-                                <strong class="pin-red">LED + → GPIO 2</strong>
-                            </div>
-                            <div class="scheme-item">
-                                <span>⚫</span>
-                                <strong class="pin-gnd">LED - → GND</strong>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="code-block">
-                        <pre>
-#include &lt;WiFi.h&gt;
-
-const char* ssid = "ваш Wi-Fi";
-const char* password = "ваш пароль";
-
-WiFiServer server(80);
-
-void setup() {
-  Serial.begin(115200);
-  pinMode(2, OUTPUT);
-  
-  WiFi.begin(ssid, password);
-  while (WiFi.status() != WL_CONNECTED) delay(500);
-  
-  server.begin();
-}
-
-void loop() {
-  WiFiClient client = server.available();
-  if (!client) return;
-  
-  String request = client.readStringUntil('\r');
-  client.flush();
-  
-  if (request.indexOf("/on") != -1) digitalWrite(2, HIGH);
-  if (request.indexOf("/off") != -1) digitalWrite(2, LOW);
-  
-  client.println("HTTP/1.1 200 OK");
-  client.println("Content-Type: text/html");
-  client.println("");
-  client.println("&lt;!DOCTYPE HTML&gt;&lt;html&gt;");
-  client.println("&lt;body&gt;&lt;h1&gt;ESP32&lt;/h1&gt;");
-  client.println("&lt;a href='/on'&gt;ВКЛ&lt;/a&gt;&lt;br&gt;");
-  client.println("&lt;a href='/off'&gt;ВЫКЛ&lt;/a&gt;");
-  client.println("&lt;/body&gt;&lt;/html&gt;");
-}
-                        </pre>
-                    </div>
-                </div>
-                
-                <h2 style="color: #667eea; margin: 30px 0 20px; text-align: center;">⚡ КОМПОНЕНТЫ ДЛЯ ESP32 ⚡</h2>
-                
-                <div class="components-grid">
-                    <div class="component-card">
-                        <div class="component-icon">🔹</div>
-                        <h3>ESP32</h3>
-                        <div class="shop-buttons">
-                            <a href="https://www.wildberries.ru/catalog/0/search.aspx?search=esp32" target="_blank" class="shop-btn wb">WB</a>
-                            <a href="https://www.ozon.ru/search/?text=esp32" target="_blank" class="shop-btn ozon">Ozon</a>
-                            <a href="https://aliexpress.ru/wholesale?SearchText=esp32" target="_blank" class="shop-btn aliexpress">Ali</a>
-                        </div>
-                    </div>
-                    <div class="component-card">
-                        <div class="component-icon">💡</div>
-                        <h3>Светодиоды</h3>
-                        <div class="shop-buttons">
-                            <a href="#" class="shop-btn wb">WB</a>
-                            <a href="#" class="shop-btn ozon">Ozon</a>
-                            <a href="#" class="shop-btn aliexpress">Ali</a>
-                        </div>
-                    </div>
+            </div>
+            
+            <!-- Вкладка 4 - СКОРО -->
+            <div id="tab4" class="tab-content">
+                <div class="big-soon">
+                    <h1>СКОРО...</h1>
                 </div>
             </div>
         </div>
         
         <div class="footer">
-            <p>Сделано с ❤️ для Arduino проектов</p>
             <p class="username">АРДУИНО ПРОЕКТЫ И ПАЛЬНИКИ © 2026</p>
         </div>
     </div>
 
     <script>
         function toggleTheme() {
-            const body = document.body;
-            const themeBtn = document.getElementById('themeBtn');
-            body.classList.toggle('dark-theme');
-            themeBtn.textContent = body.classList.contains('dark-theme') ? '☀️' : '🌙';
-            localStorage.setItem('theme', body.classList.contains('dark-theme') ? 'dark' : 'light');
+            document.body.classList.toggle('dark-theme');
+            document.getElementById('themeBtn').textContent = 
+                document.body.classList.contains('dark-theme') ? '☀️' : '🌙';
+            localStorage.setItem('theme', document.body.classList.contains('dark-theme') ? 'dark' : 'light');
         }
         
         function toggleDevice() {
-            const body = document.body;
-            const deviceBtn = document.getElementById('deviceBtn');
-            
-            if (body.classList.contains('computer-mode')) {
-                body.classList.remove('computer-mode');
-                body.classList.add('phone-mode');
-                deviceBtn.innerHTML = '📱 Телефон';
-            } else {
-                body.classList.remove('phone-mode');
-                body.classList.add('computer-mode');
-                deviceBtn.innerHTML = '💻 Компьютер';
-            }
-            
-            localStorage.setItem('device', body.classList.contains('phone-mode') ? 'phone' : 'computer');
+            document.body.classList.toggle('phone-mode');
+            document.body.classList.toggle('computer-mode');
+            document.getElementById('deviceBtn').innerHTML = 
+                document.body.classList.contains('phone-mode') ? '📱 Телефон' : '💻 Компьютер';
+            localStorage.setItem('device', document.body.classList.contains('phone-mode') ? 'phone' : 'computer');
         }
         
         function updateFontSize(size) {
             document.body.style.setProperty('--base-font-size', size + 'px');
             document.getElementById('fontSizeValue').textContent = size + 'px';
-            document.getElementById('fontSizeSlider').value = size;
             localStorage.setItem('fontSize', size);
         }
         
         function changeFontSize(delta) {
-            const currentSize = parseInt(document.getElementById('fontSizeSlider').value);
-            const newSize = Math.min(32, Math.max(12, currentSize + delta));
-            updateFontSize(newSize);
+            let size = parseInt(document.getElementById('fontSizeSlider').value) + delta;
+            size = Math.min(32, Math.max(12, size));
+            document.getElementById('fontSizeSlider').value = size;
+            updateFontSize(size);
         }
         
         function openTab(evt, tabName) {
-            var i, tabContent, tabBtns;
-            tabContent = document.getElementsByClassName("tab-content");
-            for (i = 0; i < tabContent.length; i++) {
-                tabContent[i].className = tabContent[i].className.replace(" active", "");
-            }
-            tabBtns = document.getElementsByClassName("tab-btn");
-            for (i = 0; i < tabBtns.length; i++) {
-                tabBtns[i].className = tabBtns[i].className.replace(" active", "");
-            }
-            document.getElementById(tabName).className += " active";
-            evt.currentTarget.className += " active";
+            document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+            document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+            document.getElementById(tabName).classList.add('active');
+            evt.currentTarget.classList.add('active');
         }
         
         const savedTheme = localStorage.getItem('theme');
@@ -1106,13 +951,15 @@ void loop() {
         }
         
         if (savedDevice === 'phone') {
-            document.body.classList.remove('computer-mode');
             document.body.classList.add('phone-mode');
+            document.body.classList.remove('computer-mode');
             document.getElementById('deviceBtn').innerHTML = '📱 Телефон';
         }
         
         if (savedFontSize) {
-            updateFontSize(savedFontSize);
+            document.body.style.setProperty('--base-font-size', savedFontSize + 'px');
+            document.getElementById('fontSizeSlider').value = savedFontSize;
+            document.getElementById('fontSizeValue').textContent = savedFontSize + 'px';
         }
     </script>
 </body>
