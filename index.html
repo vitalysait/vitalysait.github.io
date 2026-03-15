@@ -180,7 +180,8 @@
         }
         
         .container {
-            max-width: 1100px;
+            max-width: 1400px;  /* УВЕЛИЧИЛ ШИРИНУ */
+            width: 95%;
             margin: 0 auto;
             background: rgba(255, 255, 255, 0.7);
             backdrop-filter: blur(15px);
@@ -282,8 +283,9 @@
             color: #333;
             cursor: pointer;
             transition: all 0.3s;
-            min-width: 120px;
+            min-width: 150px;  /* УВЕЛИЧИЛ МИНИМАЛЬНУЮ ШИРИНУ */
             border: 1px solid rgba(255, 255, 255, 0.2);
+            white-space: nowrap;
         }
         
         .tab-btn:hover {
@@ -328,6 +330,7 @@
             animation: pulse 2s infinite;
             border: 1px solid rgba(255, 255, 255, 0.3);
             box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+            word-wrap: break-word;
         }
         
         @keyframes pulse {
@@ -348,6 +351,7 @@
             font-size: 1.2em;
             border: 1px solid rgba(255, 255, 255, 0.3);
             box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            word-wrap: break-word;
         }
         
         .story p {
@@ -371,7 +375,7 @@
         
         .components-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));  /* УВЕЛИЧИЛ МИНИМАЛЬНУЮ ШИРИНУ */
             gap: 25px;
             margin: 35px 0;
         }
@@ -386,6 +390,7 @@
             border: 1px solid rgba(255, 255, 255, 0.3);
             transition: all 0.3s;
             text-align: center;
+            word-wrap: break-word;
         }
         
         .component-card:hover {
@@ -400,11 +405,13 @@
             font-size: 1.6em;
             margin-bottom: 15px;
             text-shadow: 0 2px 5px rgba(255,255,255,0.3);
+            word-wrap: break-word;
         }
         
         .component-card p {
             margin-bottom: 15px;
             font-size: 1em;
+            word-wrap: break-word;
         }
         
         .component-icon {
@@ -432,6 +439,7 @@
             backdrop-filter: blur(5px);
             -webkit-backdrop-filter: blur(5px);
             border: 1px solid rgba(255, 255, 255, 0.2);
+            white-space: nowrap;
         }
         
         .shop-btn:hover {
@@ -461,6 +469,7 @@
             font-size: 1.8em;
             text-align: center;
             text-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            word-wrap: break-word;
         }
         
         .code-block {
@@ -481,6 +490,7 @@
             font-size: 14px;
             line-height: 1.6;
             white-space: pre-wrap;
+            word-wrap: break-word;
         }
         
         .connection-scheme {
@@ -499,6 +509,7 @@
             margin-bottom: 20px;
             font-size: 2em;
             text-align: center;
+            word-wrap: break-word;
         }
         
         .scheme-grid {
@@ -518,6 +529,7 @@
             font-size: 1.2em;
             border-left: 4px solid rgba(102, 126, 234, 0.8);
             border: 1px solid rgba(255, 255, 255, 0.3);
+            word-wrap: break-word;
         }
         
         .pin-red { color: #ff4444; font-weight: bold; }
@@ -547,7 +559,29 @@
         }
         
         @media (max-width: 768px) {
-            .big-soon h1 { font-size: 4em; }
+            .container {
+                width: 100%;
+                padding: 0;
+            }
+            
+            .big-soon h1 { 
+                font-size: 4em; 
+            }
+            
+            .scheme-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .tab-btn {
+                min-width: 100%;
+                white-space: normal;
+            }
+            
+            .shop-btn {
+                white-space: normal;
+                font-size: 0.85em;
+                padding: 8px 12px;
+            }
         }
         
         .footer {
@@ -1017,7 +1051,7 @@ void setup() {
     <title>RGB управление</title>
     <style>
         body { font-family: Arial; text-align: center; background: linear-gradient(135deg, #667eea, #764ba2); padding: 20px; }
-        .container { max-width: 400px; margin: 0 auto; background: white; padding: 30px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.3); }
+        .container { max-width: 500px; margin: 0 auto; background: white; padding: 30px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.3); }
         h1 { color: #333; }
         .preview { width: 100px; height: 100px; border-radius: 50%; margin: 20px auto; border: 3px solid white; box-shadow: 0 5px 15px rgba(0,0,0,0.3); }
         .slider-group { margin: 20px 0; }
@@ -1026,7 +1060,7 @@ void setup() {
         .red input { background: linear-gradient(90deg, #000, #ff0000); }
         .green input { background: linear-gradient(90deg, #000, #00ff00); }
         .blue input { background: linear-gradient(90deg, #000, #0000ff); }
-        .color-btn { padding: 10px 20px; margin: 5px; border: none; border-radius: 10px; color: white; font-weight: bold; cursor: pointer; }
+        .color-btn { padding: 10px 15px; margin: 3px; border: none; border-radius: 10px; color: white; font-weight: bold; cursor: pointer; font-size: 0.9em; }
         .off-btn { background: #ff4757; color: white; padding: 15px 30px; border: none; border-radius: 30px; font-size: 1.2em; cursor: pointer; width: 100%; }
         .ip { margin-top: 20px; padding: 10px; background: #f0f0f0; border-radius: 10px; }
     </style>
