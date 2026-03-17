@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Мои Arduino проекты</title>
+    <title>Ардуино проекты и паяльники</title>
     
     <!-- Яндекс.Метрика -->
     <script type="text/javascript" >
@@ -273,10 +273,64 @@
             padding: 40px;
         }
         
-        .tabs {
+        /* Главные вкладки сайта */
+        .main-tabs {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 40px;
+            background: rgba(255, 255, 255, 0.25);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            padding: 15px;
+            border-radius: 60px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        
+        .main-tab-btn {
+            padding: 18px 35px;
+            border: none;
+            background: rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border-radius: 50px;
+            font-size: 1.3em;
+            font-weight: bold;
+            color: #333;
+            cursor: pointer;
+            transition: all 0.3s;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            min-width: 200px;
+        }
+        
+        .main-tab-btn:hover {
+            background: rgba(255, 255, 255, 0.5);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+        
+        .main-tab-btn.active {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            border-color: white;
+        }
+        
+        .main-tab-content {
+            display: none;
+            animation: fadeIn 0.5s;
+        }
+        
+        .main-tab-content.active {
+            display: block;
+        }
+        
+        /* Внутренние табы проектов */
+        .project-tabs {
             display: flex;
             gap: 10px;
-            margin-bottom: 30px;
+            margin: 30px 0;
             background: rgba(255, 255, 255, 0.25);
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
@@ -286,7 +340,7 @@
             flex-wrap: wrap;
         }
         
-        .tab-btn {
+        .project-tab-btn {
             flex: 1;
             padding: 15px 25px;
             border: none;
@@ -304,13 +358,13 @@
             white-space: nowrap;
         }
         
-        .tab-btn:hover {
+        .project-tab-btn:hover {
             background: rgba(255, 255, 255, 0.4);
             transform: translateY(-2px);
             box-shadow: 0 8px 25px rgba(0,0,0,0.1);
         }
         
-        .tab-btn.active {
+        .project-tab-btn.active {
             background: rgba(102, 126, 234, 0.7);
             backdrop-filter: blur(8px);
             -webkit-backdrop-filter: blur(8px);
@@ -319,12 +373,12 @@
             border: 1px solid rgba(255, 255, 255, 0.3);
         }
         
-        .tab-content {
+        .project-content {
             display: none;
             animation: fadeIn 0.5s;
         }
         
-        .tab-content.active {
+        .project-content.active {
             display: block;
         }
         
@@ -549,7 +603,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            min-height: 500px;
+            min-height: 400px;
             background: rgba(255, 255, 255, 0.6);
             backdrop-filter: blur(15px);
             -webkit-backdrop-filter: blur(15px);
@@ -559,8 +613,8 @@
             animation: pulse 2s infinite;
         }
         
-        .big-soon h1 {
-            font-size: 8em;
+        .big-soon h2 {
+            font-size: 5em;
             color: #667eea;
             text-shadow: 5px 5px 0 rgba(102, 126, 234, 0.3);
             letter-spacing: 10px;
@@ -621,13 +675,19 @@
                 padding: 20px;
             }
             
-            .tabs {
+            .main-tab-btn {
+                padding: 12px 25px;
+                font-size: 1.1em;
+                min-width: 150px;
+            }
+            
+            .project-tabs {
                 flex-direction: column;
                 gap: 5px;
                 padding: 8px;
             }
             
-            .tab-btn {
+            .project-tab-btn {
                 min-width: 100%;
                 white-space: normal;
                 padding: 12px;
@@ -694,11 +754,11 @@
             }
             
             .big-soon {
-                min-height: 300px;
+                min-height: 250px;
             }
             
-            .big-soon h1 {
-                font-size: 4em;
+            .big-soon h2 {
+                font-size: 3em;
                 letter-spacing: 5px;
             }
             
@@ -754,89 +814,98 @@
         </div>
         
         <div class="content">
-            <div class="tabs">
-                <button class="tab-btn active" onclick="openTab('tab1')"><span id="tab1Text">📋 1. Метеостанция</span></button>
-                <button class="tab-btn" onclick="openTab('tab2')"><span id="tab2Text">💡 2. RGB светодиод</span></button>
-                <button class="tab-btn" onclick="openTab('tab3')"><span id="tab3Text">🔧 3. Arduino Uno/Nano</span></button>
-                <button class="tab-btn" onclick="openTab('tab4')"><span id="tab4Text">⚡ 4. СКОРО</span></button>
+            <!-- ГЛАВНЫЕ ВКЛАДКИ: ПРОЕКТЫ и ОБЗОРЫ+ТОВАРЫ -->
+            <div class="main-tabs">
+                <button class="main-tab-btn active" onclick="openMainTab('projects')" id="mainTabProjects">🔧 Проекты</button>
+                <button class="main-tab-btn" onclick="openMainTab('reviews')" id="mainTabReviews">📺 Обзоры + 🛒 Товары</button>
             </div>
             
-            <!-- Вкладка 1 - Метеостанция (без изменений) -->
-            <div id="tab1" class="tab-content active">
-                <div class="greeting" id="greeting1">👋 ВСЕМ ПРИВЕТ!</div>
-                
-                <div class="story" id="story1">
-                    <p>🔥 Как и обещал, расскажу про проект метеостанция. Взял ESP8266, потом DHT22. Решил сначала сделать сайт - сделал, мне не понравилось. Потом создал бота в Telegram, делал его 2 дня.</p>
-                    <p>🤖 Бот показывает температуру и влажность. Сделал его приватным. Прошил ESP, подключил к повербанку, взял коробку, вырезал отверстия, просунул датчик - и понеслась!</p>
-                    <div style="text-align: center;">
-                        <span class="highlight" id="highlight1">✨ СТАЛ ДОБАВЛЯТЬ В БОТА ПРИКОЛЫ ✨</span>
-                    </div>
-                    <p id="story2">📱 Создавал его через @BotFather, написал код в Arduino IDE. Код будет ниже. Настолько понравился проект, что решил заказать печать у @Bolodechka. Пока что думаю...</p>
-                    <p style="text-align: right; font-style: italic; margin-top: 30px;" id="signature">АРДУИНО ПРОЕКТЫ И ПАЯЛЬНИКИ, 25.02.2026 21:34</p>
+            <!-- ВКЛАДКА ПРОЕКТЫ -->
+            <div id="projects" class="main-tab-content active">
+                <!-- Внутренние вкладки проектов -->
+                <div class="project-tabs">
+                    <button class="project-tab-btn active" onclick="openProjectTab('project1')"><span id="projectTab1">📋 1. Метеостанция</span></button>
+                    <button class="project-tab-btn" onclick="openProjectTab('project2')"><span id="projectTab2">💡 2. RGB светодиод</span></button>
+                    <button class="project-tab-btn" onclick="openProjectTab('project3')"><span id="projectTab3">🔧 3. Arduino Uno/Nano</span></button>
+                    <button class="project-tab-btn" onclick="openProjectTab('project4')"><span id="projectTab4">⚡ 4. СКОРО</span></button>
                 </div>
                 
-                <div class="connection-scheme">
-                    <h2 id="schemeTitle1">🔌 СХЕМА ПОДКЛЮЧЕНИЯ DHT22</h2>
-                    <div class="scheme-grid">
-                        <div class="scheme-item"><span>🔴</span><strong class="pin-red"><span id="pin1">VCC → 3.3V</span></strong></div>
-                        <div class="scheme-item"><span>⚫</span><strong class="pin-gnd"><span id="pin2">GND → GND</span></strong></div>
-                        <div class="scheme-item"><span>🔵</span><strong><span id="pin3">DATA → D2 (GPIO4)</span></strong></div>
-                        <div class="scheme-item"><span>⚡</span><strong><span id="pin4">Резистор 10кОм</span></strong></div>
+                <!-- Проект 1 - Метеостанция -->
+                <div id="project1" class="project-content active">
+                    <div class="greeting" id="greeting1">👋 ВСЕМ ПРИВЕТ!</div>
+                    
+                    <div class="story" id="story1">
+                        <p>🔥 Как и обещал, расскажу про проект метеостанция. Взял ESP8266, потом DHT22. Решил сначала сделать сайт - сделал, мне не понравилось. Потом создал бота в Telegram, делал его 2 дня.</p>
+                        <p>🤖 Бот показывает температуру и влажность. Сделал его приватным. Прошил ESP, подключил к повербанку, взял коробку, вырезал отверстия, просунул датчик - и понеслась!</p>
+                        <div style="text-align: center;">
+                            <span class="highlight" id="highlight1">✨ СТАЛ ДОБАВЛЯТЬ В БОТА ПРИКОЛЫ ✨</span>
+                        </div>
+                        <p id="story2">📱 Создавал его через @BotFather, написал код в Arduino IDE. Код будет ниже. Настолько понравился проект, что решил заказать печать у @Bolodechka. Пока что думаю...</p>
+                        <p style="text-align: right; font-style: italic; margin-top: 30px;" id="signature">АРДУИНО ПРОЕКТЫ И ПАЯЛЬНИКИ, 25.02.2026 21:34</p>
                     </div>
-                </div>
-                
-                <h2 style="color: #667eea; margin: 30px 0 20px; text-align: center;" id="componentsTitle">⚡ КОМПОНЕНТЫ МЕТЕОСТАНЦИИ ⚡</h2>
-                
-                <div class="components-grid">
-                    <div class="component-card">
-                        <div class="component-icon">🔹</div>
-                        <h3 id="comp1">ESP8266 D1 Mini V2</h3>
-                        <p>NodeMcu Lua ESP-12 (CH340) Type-C</p>
-                        <div class="shop-buttons">
-                            <a href="https://www.wildberries.ru/catalog/0/search.aspx?search=esp8266+d1+mini+v2" target="_blank" class="shop-btn wb">Wildberries</a>
-                            <a href="https://www.ozon.ru/search/?text=esp8266+d1+mini+v2" target="_blank" class="shop-btn ozon">Ozon</a>
-                            <a href="https://aliexpress.ru/wholesale?SearchText=esp8266+d1+mini+v2" target="_blank" class="shop-btn aliexpress">AliExpress</a>
+                    
+                    <div class="connection-scheme">
+                        <h2 id="schemeTitle1">🔌 СХЕМА ПОДКЛЮЧЕНИЯ DHT22</h2>
+                        <div class="scheme-grid">
+                            <div class="scheme-item"><span>🔴</span><strong class="pin-red"><span id="pin1">VCC → 3.3V</span></strong></div>
+                            <div class="scheme-item"><span>⚫</span><strong class="pin-gnd"><span id="pin2">GND → GND</span></strong></div>
+                            <div class="scheme-item"><span>🔵</span><strong><span id="pin3">DATA → D2 (GPIO4)</span></strong></div>
+                            <div class="scheme-item"><span>⚡</span><strong><span id="pin4">Резистор 10кОм</span></strong></div>
                         </div>
                     </div>
                     
-                    <div class="component-card">
-                        <div class="component-icon">🌡️</div>
-                        <h3 id="comp2">Датчик DHT22</h3>
-                        <p>Температура и влажность</p>
-                        <div class="shop-buttons">
-                            <a href="https://www.wildberries.ru/catalog/0/search.aspx?search=dht22" target="_blank" class="shop-btn wb">Wildberries</a>
-                            <a href="https://www.ozon.ru/search/?text=dht22" target="_blank" class="shop-btn ozon">Ozon</a>
-                            <a href="https://aliexpress.ru/wholesale?SearchText=dht22" target="_blank" class="shop-btn aliexpress">AliExpress</a>
+                    <h2 style="color: #667eea; margin: 30px 0 20px; text-align: center;" id="componentsTitle">⚡ КОМПОНЕНТЫ МЕТЕОСТАНЦИИ ⚡</h2>
+                    
+                    <div class="components-grid">
+                        <div class="component-card">
+                            <div class="component-icon">🔹</div>
+                            <h3 id="comp1">ESP8266 D1 Mini V2</h3>
+                            <p>NodeMcu Lua ESP-12 (CH340) Type-C</p>
+                            <div class="shop-buttons">
+                                <a href="https://www.wildberries.ru/catalog/0/search.aspx?search=esp8266+d1+mini+v2" target="_blank" class="shop-btn wb">Wildberries</a>
+                                <a href="https://www.ozon.ru/search/?text=esp8266+d1+mini+v2" target="_blank" class="shop-btn ozon">Ozon</a>
+                                <a href="https://aliexpress.ru/wholesale?SearchText=esp8266+d1+mini+v2" target="_blank" class="shop-btn aliexpress">AliExpress</a>
+                            </div>
+                        </div>
+                        
+                        <div class="component-card">
+                            <div class="component-icon">🌡️</div>
+                            <h3 id="comp2">Датчик DHT22</h3>
+                            <p>Температура и влажность</p>
+                            <div class="shop-buttons">
+                                <a href="https://www.wildberries.ru/catalog/0/search.aspx?search=dht22" target="_blank" class="shop-btn wb">Wildberries</a>
+                                <a href="https://www.ozon.ru/search/?text=dht22" target="_blank" class="shop-btn ozon">Ozon</a>
+                                <a href="https://aliexpress.ru/wholesale?SearchText=dht22" target="_blank" class="shop-btn aliexpress">AliExpress</a>
+                            </div>
+                        </div>
+                        
+                        <div class="component-card">
+                            <div class="component-icon">⚡</div>
+                            <h3 id="comp3">Резисторы 10кОм</h3>
+                            <p>Для подтяжки данных</p>
+                            <div class="shop-buttons">
+                                <a href="https://www.wildberries.ru/catalog/0/search.aspx?search=резисторы+10кОм" target="_blank" class="shop-btn wb">Wildberries</a>
+                                <a href="https://www.ozon.ru/search/?text=резисторы+10кОм" target="_blank" class="shop-btn ozon">Ozon</a>
+                                <a href="https://aliexpress.ru/wholesale?SearchText=10k+resistor" target="_blank" class="shop-btn aliexpress">AliExpress</a>
+                            </div>
+                        </div>
+                        
+                        <div class="component-card">
+                            <div class="component-icon">🔋</div>
+                            <h3 id="comp4">Повербанк</h3>
+                            <p>Для автономного питания</p>
+                            <div class="shop-buttons">
+                                <a href="https://www.wildberries.ru/catalog/0/search.aspx?search=повербанк" target="_blank" class="shop-btn wb">Wildberries</a>
+                                <a href="https://www.ozon.ru/search/?text=повербанк" target="_blank" class="shop-btn ozon">Ozon</a>
+                                <a href="https://aliexpress.ru/wholesale?SearchText=powerbank" target="_blank" class="shop-btn aliexpress">AliExpress</a>
+                            </div>
                         </div>
                     </div>
                     
-                    <div class="component-card">
-                        <div class="component-icon">⚡</div>
-                        <h3 id="comp3">Резисторы 10кОм</h3>
-                        <p>Для подтяжки данных</p>
-                        <div class="shop-buttons">
-                            <a href="https://www.wildberries.ru/catalog/0/search.aspx?search=резисторы+10кОм" target="_blank" class="shop-btn wb">Wildberries</a>
-                            <a href="https://www.ozon.ru/search/?text=резисторы+10кОм" target="_blank" class="shop-btn ozon">Ozon</a>
-                            <a href="https://aliexpress.ru/wholesale?SearchText=10k+resistor" target="_blank" class="shop-btn aliexpress">AliExpress</a>
-                        </div>
-                    </div>
-                    
-                    <div class="component-card">
-                        <div class="component-icon">🔋</div>
-                        <h3 id="comp4">Повербанк</h3>
-                        <p>Для автономного питания</p>
-                        <div class="shop-buttons">
-                            <a href="https://www.wildberries.ru/catalog/0/search.aspx?search=повербанк" target="_blank" class="shop-btn wb">Wildberries</a>
-                            <a href="https://www.ozon.ru/search/?text=повербанк" target="_blank" class="shop-btn ozon">Ozon</a>
-                            <a href="https://aliexpress.ru/wholesale?SearchText=powerbank" target="_blank" class="shop-btn aliexpress">AliExpress</a>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="code-section">
-                    <h2 id="codeTitle1">📟 ПОЛНЫЙ КОД МЕТЕОСТАНЦИИ</h2>
-                    <div class="code-block">
-                        <pre>
+                    <div class="code-section">
+                        <h2 id="codeTitle1">📟 ПОЛНЫЙ КОД МЕТЕОСТАНЦИИ</h2>
+                        <div class="code-block">
+                            <pre>
 #include &lt;ESP8266WiFi.h&gt;
 #include &lt;WiFiClientSecure.h&gt;
 #include &lt;UniversalTelegramBot.h&gt;
@@ -1029,85 +1098,85 @@ void loop() {
     lastTime = millis();
   }
 }
-                        </pre>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Вкладка 2 - RGB светодиод (ВАШ КОД + КАРТОЧКИ) -->
-            <div id="tab2" class="tab-content">
-                <div class="greeting" id="greeting2">🌈 RGB светодиод + ESP8266 (таймер, 2 темы, 7 режимов)</div>
-                
-                <!-- КАРТОЧКИ С КОМПОНЕНТАМИ -->
-                <h2 style="color: #667eea; margin: 30px 0 20px; text-align: center;" id="componentsTitle2">⚡ КОМПОНЕНТЫ ДЛЯ ПРОЕКТА ⚡</h2>
-                
-                <div class="components-grid">
-                    <!-- ESP8266 D1 Mini V2 -->
-                    <div class="component-card">
-                        <div class="component-icon">🔹</div>
-                        <h3>ESP8266 D1 Mini V2</h3>
-                        <p>NodeMcu Lua ESP-12 (CH340) Type-C</p>
-                        <div class="shop-buttons">
-                            <a href="https://www.wildberries.ru/catalog/0/search.aspx?search=esp8266+d1+mini+v2" target="_blank" class="shop-btn wb">Wildberries</a>
-                            <a href="https://www.ozon.ru/search/?text=esp8266+d1+mini+v2" target="_blank" class="shop-btn ozon">Ozon</a>
-                            <a href="https://aliexpress.ru/wholesale?SearchText=esp8266+d1+mini+v2" target="_blank" class="shop-btn aliexpress">AliExpress</a>
-                        </div>
-                    </div>
-                    
-                    <!-- RGB модуль KY-016 (HW-479) -->
-                    <div class="component-card">
-                        <div class="component-icon">🌈</div>
-                        <h3>RGB модуль KY-016 (HW-479)</h3>
-                        <p>Светодиодный модуль для Arduino</p>
-                        <div class="shop-buttons">
-                            <a href="https://www.wildberries.ru/catalog/0/search.aspx?search=ky-016+arduino" target="_blank" class="shop-btn wb">Wildberries</a>
-                            <a href="https://www.ozon.ru/search/?text=ky-016+arduino" target="_blank" class="shop-btn ozon">Ozon</a>
-                            <a href="https://aliexpress.ru/wholesale?SearchText=ky-016" target="_blank" class="shop-btn aliexpress">AliExpress</a>
-                        </div>
-                    </div>
-                    
-                    <!-- Коробка распределительная -->
-                    <div class="component-card">
-                        <div class="component-icon">📦</div>
-                        <h3>Коробка распределительная</h3>
-                        <p>65x65x50 мм, IP54, распаячная</p>
-                        <div class="shop-buttons">
-                            <a href="https://www.wildberries.ru/catalog/0/search.aspx?search=коробка+распределительная+65x65" target="_blank" class="shop-btn wb">Wildberries</a>
-                            <a href="https://www.ozon.ru/search/?text=коробка+распределительная+65x65" target="_blank" class="shop-btn ozon">Ozon</a>
-                            <a href="https://aliexpress.ru/wholesale?SearchText=junction+box+65x65" target="_blank" class="shop-btn aliexpress">AliExpress</a>
-                        </div>
-                    </div>
-                    
-                    <!-- Резисторы 220 Ом -->
-                    <div class="component-card">
-                        <div class="component-icon">⚡</div>
-                        <h3>Резисторы 220 Ом</h3>
-                        <p>3 штуки для каждого канала</p>
-                        <div class="shop-buttons">
-                            <a href="https://www.wildberries.ru/catalog/0/search.aspx?search=резисторы+220+ом" target="_blank" class="shop-btn wb">Wildberries</a>
-                            <a href="https://www.ozon.ru/search/?text=резисторы+220+ом" target="_blank" class="shop-btn ozon">Ozon</a>
-                            <a href="https://aliexpress.ru/wholesale?SearchText=220+ohm+resistor" target="_blank" class="shop-btn aliexpress">AliExpress</a>
-                        </div>
-                    </div>
-                    
-                    <!-- Провода -->
-                    <div class="component-card">
-                        <div class="component-icon">🔌</div>
-                        <h3>Соединительные провода</h3>
-                        <p>Папа-мама, мама-мама</p>
-                        <div class="shop-buttons">
-                            <a href="https://www.wildberries.ru/catalog/0/search.aspx?search=провода+для+arduino" target="_blank" class="shop-btn wb">Wildberries</a>
-                            <a href="https://www.ozon.ru/search/?text=провода+для+arduino" target="_blank" class="shop-btn ozon">Ozon</a>
-                            <a href="https://aliexpress.ru/wholesale?SearchText=dupont+cable" target="_blank" class="shop-btn aliexpress">AliExpress</a>
+                            </pre>
                         </div>
                     </div>
                 </div>
                 
-                <!-- ВАШ КОД -->
-                <div class="code-section">
-                    <h2 id="codeTitle2">📟 ПОЛНЫЙ СКЕТЧ RGB (СКОПИРУЙ В ARDUINO IDE)</h2>
-                    <div class="code-block">
-                        <pre>
+                <!-- Проект 2 - RGB светодиод (ваш код + карточки) -->
+                <div id="project2" class="project-content">
+                    <div class="greeting" id="greeting2">🌈 RGB светодиод + ESP8266 (таймер, 2 темы, 7 режимов)</div>
+                    
+                    <!-- КАРТОЧКИ С КОМПОНЕНТАМИ -->
+                    <h2 style="color: #667eea; margin: 30px 0 20px; text-align: center;" id="componentsTitle2">⚡ КОМПОНЕНТЫ ДЛЯ ПРОЕКТА ⚡</h2>
+                    
+                    <div class="components-grid">
+                        <!-- ESP8266 D1 Mini V2 -->
+                        <div class="component-card">
+                            <div class="component-icon">🔹</div>
+                            <h3>ESP8266 D1 Mini V2</h3>
+                            <p>NodeMcu Lua ESP-12 (CH340) Type-C</p>
+                            <div class="shop-buttons">
+                                <a href="https://www.wildberries.ru/catalog/0/search.aspx?search=esp8266+d1+mini+v2" target="_blank" class="shop-btn wb">Wildberries</a>
+                                <a href="https://www.ozon.ru/search/?text=esp8266+d1+mini+v2" target="_blank" class="shop-btn ozon">Ozon</a>
+                                <a href="https://aliexpress.ru/wholesale?SearchText=esp8266+d1+mini+v2" target="_blank" class="shop-btn aliexpress">AliExpress</a>
+                            </div>
+                        </div>
+                        
+                        <!-- RGB модуль KY-016 (HW-479) -->
+                        <div class="component-card">
+                            <div class="component-icon">🌈</div>
+                            <h3>RGB модуль KY-016 (HW-479)</h3>
+                            <p>Светодиодный модуль для Arduino</p>
+                            <div class="shop-buttons">
+                                <a href="https://www.wildberries.ru/catalog/0/search.aspx?search=ky-016+arduino" target="_blank" class="shop-btn wb">Wildberries</a>
+                                <a href="https://www.ozon.ru/search/?text=ky-016+arduino" target="_blank" class="shop-btn ozon">Ozon</a>
+                                <a href="https://aliexpress.ru/wholesale?SearchText=ky-016" target="_blank" class="shop-btn aliexpress">AliExpress</a>
+                            </div>
+                        </div>
+                        
+                        <!-- Коробка распределительная -->
+                        <div class="component-card">
+                            <div class="component-icon">📦</div>
+                            <h3>Коробка распределительная</h3>
+                            <p>65x65x50 мм, IP54, распаячная</p>
+                            <div class="shop-buttons">
+                                <a href="https://www.wildberries.ru/catalog/0/search.aspx?search=коробка+распределительная+65x65" target="_blank" class="shop-btn wb">Wildberries</a>
+                                <a href="https://www.ozon.ru/search/?text=коробка+распределительная+65x65" target="_blank" class="shop-btn ozon">Ozon</a>
+                                <a href="https://aliexpress.ru/wholesale?SearchText=junction+box+65x65" target="_blank" class="shop-btn aliexpress">AliExpress</a>
+                            </div>
+                        </div>
+                        
+                        <!-- Резисторы 220 Ом -->
+                        <div class="component-card">
+                            <div class="component-icon">⚡</div>
+                            <h3>Резисторы 220 Ом</h3>
+                            <p>3 штуки для каждого канала</p>
+                            <div class="shop-buttons">
+                                <a href="https://www.wildberries.ru/catalog/0/search.aspx?search=резисторы+220+ом" target="_blank" class="shop-btn wb">Wildberries</a>
+                                <a href="https://www.ozon.ru/search/?text=резисторы+220+ом" target="_blank" class="shop-btn ozon">Ozon</a>
+                                <a href="https://aliexpress.ru/wholesale?SearchText=220+ohm+resistor" target="_blank" class="shop-btn aliexpress">AliExpress</a>
+                            </div>
+                        </div>
+                        
+                        <!-- Провода -->
+                        <div class="component-card">
+                            <div class="component-icon">🔌</div>
+                            <h3>Соединительные провода</h3>
+                            <p>Папа-мама, мама-мама</p>
+                            <div class="shop-buttons">
+                                <a href="https://www.wildberries.ru/catalog/0/search.aspx?search=провода+для+arduino" target="_blank" class="shop-btn wb">Wildberries</a>
+                                <a href="https://www.ozon.ru/search/?text=провода+для+arduino" target="_blank" class="shop-btn ozon">Ozon</a>
+                                <a href="https://aliexpress.ru/wholesale?SearchText=dupont+cable" target="_blank" class="shop-btn aliexpress">AliExpress</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- ВАШ КОД -->
+                    <div class="code-section">
+                        <h2 id="codeTitle2">📟 ПОЛНЫЙ СКЕТЧ RGB (СКОПИРУЙ В ARDUINO IDE)</h2>
+                        <div class="code-block">
+                            <pre>
 #include &lt;ESP8266WiFi.h&gt;
 #include &lt;ESP8266WebServer.h&gt;
 
@@ -1927,28 +1996,28 @@ void loop() {
     }
   }
 }
-                        </pre>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Вкладка 3 - Arduino Uno/Nano (без изменений) -->
-            <div id="tab3" class="tab-content">
-                <div class="greeting" id="greeting3">🔧 Arduino Uno и Nano</div>
-                
-                <div class="connection-scheme">
-                    <h2 id="schemeTitle3">🔌 ПРОЕКТ 1: Мигание светодиодом</h2>
-                    <div class="scheme-grid">
-                        <div class="scheme-item"><span>🔴</span><strong class="pin-red"><span id="blinkPin1">LED + → Pin 13</span></strong></div>
-                        <div class="scheme-item"><span>⚫</span><strong class="pin-gnd"><span id="blinkPin2">LED - → GND</span></strong></div>
-                        <div class="scheme-item"><span>⚡</span><strong><span id="blinkPin3">Резистор 220 Ом</span></strong></div>
+                            </pre>
+                        </div>
                     </div>
                 </div>
                 
-                <div class="code-section">
-                    <h2 id="codeTitle3">📟 КОД Blink</h2>
-                    <div class="code-block">
-                        <pre>
+                <!-- Проект 3 - Arduino Uno/Nano -->
+                <div id="project3" class="project-content">
+                    <div class="greeting" id="greeting3">🔧 Arduino Uno и Nano</div>
+                    
+                    <div class="connection-scheme">
+                        <h2 id="schemeTitle3">🔌 ПРОЕКТ 1: Мигание светодиодом</h2>
+                        <div class="scheme-grid">
+                            <div class="scheme-item"><span>🔴</span><strong class="pin-red"><span id="blinkPin1">LED + → Pin 13</span></strong></div>
+                            <div class="scheme-item"><span>⚫</span><strong class="pin-gnd"><span id="blinkPin2">LED - → GND</span></strong></div>
+                            <div class="scheme-item"><span>⚡</span><strong><span id="blinkPin3">Резистор 220 Ом</span></strong></div>
+                        </div>
+                    </div>
+                    
+                    <div class="code-section">
+                        <h2 id="codeTitle3">📟 КОД Blink</h2>
+                        <div class="code-block">
+                            <pre>
 void setup() {
   pinMode(13, OUTPUT);
 }
@@ -1959,15 +2028,133 @@ void loop() {
   digitalWrite(13, LOW);
   delay(1000);
 }
-                        </pre>
+                            </pre>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Проект 4 - СКОРО -->
+                <div id="project4" class="project-content">
+                    <div class="big-soon">
+                        <h2 id="soonText">СКОРО...</h2>
                     </div>
                 </div>
             </div>
             
-            <!-- Вкладка 4 - СКОРО (без изменений) -->
-            <div id="tab4" class="tab-content">
-                <div class="big-soon">
-                    <h1 id="soonText">СКОРО...</h1>
+            <!-- ВКЛАДКА ОБЗОРЫ И ТОВАРЫ (вместе) -->
+            <div id="reviews" class="main-tab-content">
+                <div class="greeting">📺 ОБЗОРЫ И 🛒 ТОВАРЫ</div>
+                
+                <!-- НОВЫЙ ОБЗОР: НОЖ WORKPRO (улучшенный текст) -->
+                <div class="story" style="margin-bottom: 40px;">
+                    <h3 style="color: #667eea; margin-bottom: 15px;">🔪 Нож WORKPRO — то, чего часто не хватает</h3>
+                    <p>🔥 Удобный ножик с упором на лезвии — мелочь, а как выручает! Именно этой детали иногда не хватает в обычных канцелярских ножах. Работать стало комфортнее и безопаснее.</p>
+                    <p>📦 В комплекте уже есть запасные лезвия, которые удобно хранить прямо в рукоятке — своего рода «багажник» всегда под рукой.</p>
+                    <p>👍 Очень доволен покупкой, рекомендую!</p>
+                    <div class="shop-buttons" style="margin-top: 20px;">
+                        <a href="https://ozon.ru/t/q4d9SQw" target="_blank" class="shop-btn ozon">OZON</a>
+                        <a href="https://ali.click/a50531d" target="_blank" class="shop-btn aliexpress">AliExpress</a>
+                    </div>
+                </div>
+                
+                <h2 style="color: #667eea; margin: 30px 0 20px; text-align: center;">⚡ ГДЕ КУПИТЬ КОМПОНЕНТЫ ⚡</h2>
+                
+                <div class="components-grid">
+                    <!-- ESP8266 D1 Mini V2 -->
+                    <div class="component-card">
+                        <div class="component-icon">🔹</div>
+                        <h3>ESP8266 D1 Mini V2</h3>
+                        <p>NodeMcu Lua ESP-12 (CH340) Type-C</p>
+                        <div class="shop-buttons">
+                            <a href="https://www.wildberries.ru/catalog/0/search.aspx?search=esp8266+d1+mini+v2" target="_blank" class="shop-btn wb">Wildberries</a>
+                            <a href="https://www.ozon.ru/search/?text=esp8266+d1+mini+v2" target="_blank" class="shop-btn ozon">Ozon</a>
+                            <a href="https://aliexpress.ru/wholesale?SearchText=esp8266+d1+mini+v2" target="_blank" class="shop-btn aliexpress">AliExpress</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Датчик DHT22 -->
+                    <div class="component-card">
+                        <div class="component-icon">🌡️</div>
+                        <h3>Датчик DHT22</h3>
+                        <p>Температура и влажность</p>
+                        <div class="shop-buttons">
+                            <a href="https://www.wildberries.ru/catalog/0/search.aspx?search=dht22" target="_blank" class="shop-btn wb">Wildberries</a>
+                            <a href="https://www.ozon.ru/search/?text=dht22" target="_blank" class="shop-btn ozon">Ozon</a>
+                            <a href="https://aliexpress.ru/wholesale?SearchText=dht22" target="_blank" class="shop-btn aliexpress">AliExpress</a>
+                        </div>
+                    </div>
+                    
+                    <!-- RGB модуль KY-016 -->
+                    <div class="component-card">
+                        <div class="component-icon">🌈</div>
+                        <h3>RGB модуль KY-016</h3>
+                        <p>Светодиодный модуль HW-479</p>
+                        <div class="shop-buttons">
+                            <a href="https://www.wildberries.ru/catalog/0/search.aspx?search=ky-016+arduino" target="_blank" class="shop-btn wb">Wildberries</a>
+                            <a href="https://www.ozon.ru/search/?text=ky-016+arduino" target="_blank" class="shop-btn ozon">Ozon</a>
+                            <a href="https://aliexpress.ru/wholesale?SearchText=ky-016" target="_blank" class="shop-btn aliexpress">AliExpress</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Коробка распределительная -->
+                    <div class="component-card">
+                        <div class="component-icon">📦</div>
+                        <h3>Коробка распределительная</h3>
+                        <p>65x65x50 мм, IP54</p>
+                        <div class="shop-buttons">
+                            <a href="https://www.wildberries.ru/catalog/0/search.aspx?search=коробка+распределительная+65x65" target="_blank" class="shop-btn wb">Wildberries</a>
+                            <a href="https://www.ozon.ru/search/?text=коробка+распределительная+65x65" target="_blank" class="shop-btn ozon">Ozon</a>
+                            <a href="https://aliexpress.ru/wholesale?SearchText=junction+box+65x65" target="_blank" class="shop-btn aliexpress">AliExpress</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Набор резисторов -->
+                    <div class="component-card">
+                        <div class="component-icon">⚡</div>
+                        <h3>Набор резисторов</h3>
+                        <p>от 10 Ом до 1 МОм, 600 шт</p>
+                        <div class="shop-buttons">
+                            <a href="https://www.wildberries.ru/catalog/0/search.aspx?search=набор+резисторов" target="_blank" class="shop-btn wb">Wildberries</a>
+                            <a href="https://www.ozon.ru/search/?text=набор+резисторов" target="_blank" class="shop-btn ozon">Ozon</a>
+                            <a href="https://aliexpress.ru/wholesale?SearchText=resistor+kit" target="_blank" class="shop-btn aliexpress">AliExpress</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Провода DuPont -->
+                    <div class="component-card">
+                        <div class="component-icon">🔌</div>
+                        <h3>Провода DuPont</h3>
+                        <p>папа-папа, мама-мама, 120 шт</p>
+                        <div class="shop-buttons">
+                            <a href="https://www.wildberries.ru/catalog/0/search.aspx?search=провода+dupont" target="_blank" class="shop-btn wb">Wildberries</a>
+                            <a href="https://www.ozon.ru/search/?text=провода+dupont" target="_blank" class="shop-btn ozon">Ozon</a>
+                            <a href="https://aliexpress.ru/wholesale?SearchText=dupont+cable" target="_blank" class="shop-btn aliexpress">AliExpress</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Arduino Uno R3 -->
+                    <div class="component-card">
+                        <div class="component-icon">🔧</div>
+                        <h3>Arduino Uno R3</h3>
+                        <p>совместимый, USB кабель</p>
+                        <div class="shop-buttons">
+                            <a href="https://www.wildberries.ru/catalog/0/search.aspx?search=arduino+uno" target="_blank" class="shop-btn wb">Wildberries</a>
+                            <a href="https://www.ozon.ru/search/?text=arduino+uno" target="_blank" class="shop-btn ozon">Ozon</a>
+                            <a href="https://aliexpress.ru/wholesale?SearchText=arduino+uno" target="_blank" class="shop-btn aliexpress">AliExpress</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Повербанк -->
+                    <div class="component-card">
+                        <div class="component-icon">🔋</div>
+                        <h3>Повербанк 10000 mAh</h3>
+                        <p>для автономных проектов</p>
+                        <div class="shop-buttons">
+                            <a href="https://www.wildberries.ru/catalog/0/search.aspx?search=повербанк+10000" target="_blank" class="shop-btn wb">Wildberries</a>
+                            <a href="https://www.ozon.ru/search/?text=повербанк+10000" target="_blank" class="shop-btn ozon">Ozon</a>
+                            <a href="https://aliexpress.ru/wholesale?SearchText=powerbank+10000" target="_blank" class="shop-btn aliexpress">AliExpress</a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1987,10 +2174,12 @@ void loop() {
                 mainTitle: '🔧 АРДУИНО ПРОЕКТЫ И ПАЯЛЬНИКИ 🔧',
                 mainDesc: 'Метеостанция, RGB светодиод и другие проекты',
                 badge: '2026',
-                tab1: '📋 1. Метеостанция',
-                tab2: '💡 2. RGB светодиод',
-                tab3: '🔧 3. Arduino Uno/Nano',
-                tab4: '⚡ 4. СКОРО',
+                mainTabProjects: '🔧 Проекты',
+                mainTabReviews: '📺 Обзоры + 🛒 Товары',
+                projectTab1: '📋 1. Метеостанция',
+                projectTab2: '💡 2. RGB светодиод',
+                projectTab3: '🔧 3. Arduino Uno/Nano',
+                projectTab4: '⚡ 4. СКОРО',
                 greeting1: '👋 ВСЕМ ПРИВЕТ!',
                 story1p1: '🔥 Как и обещал, расскажу про проект метеостанция. Взял ESP8266, потом DHT22. Решил сначала сделать сайт - сделал, мне не понравилось. Потом создал бота в Telegram, делал его 2 дня.',
                 story1p2: '🤖 Бот показывает температуру и влажность. Сделал его приватным. Прошил ESP, подключил к повербанку, взял коробку, вырезал отверстия, просунул датчик - и понеслась!',
@@ -2026,10 +2215,12 @@ void loop() {
                 mainTitle: '🔧 ARDUINO PROJECTS AND SOLDERING 🔧',
                 mainDesc: 'Weather station, RGB LED and other projects',
                 badge: '2026',
-                tab1: '📋 1. Weather Station',
-                tab2: '💡 2. RGB LED',
-                tab3: '🔧 3. Arduino Uno/Nano',
-                tab4: '⚡ 4. SOON',
+                mainTabProjects: '🔧 Projects',
+                mainTabReviews: '📺 Reviews + 🛒 Shop',
+                projectTab1: '📋 1. Weather Station',
+                projectTab2: '💡 2. RGB LED',
+                projectTab3: '🔧 3. Arduino Uno/Nano',
+                projectTab4: '⚡ 4. SOON',
                 greeting1: '👋 HELLO EVERYONE!',
                 story1p1: '🔥 As promised, I\'ll tell you about the weather station project. I took ESP8266, then DHT22. First I decided to make a website - I did it, I didn\'t like it. Then I created a Telegram bot, it took 2 days.',
                 story1p2: '🤖 The bot shows temperature and humidity. I made it private. Flashed ESP, connected to power bank, took a box, cut holes, put the sensor in - and away we go!',
@@ -2075,10 +2266,12 @@ void loop() {
             document.getElementById('mainTitle').textContent = t.mainTitle;
             document.getElementById('mainDesc').textContent = t.mainDesc;
             document.getElementById('badge').textContent = t.badge;
-            document.getElementById('tab1Text').textContent = t.tab1;
-            document.getElementById('tab2Text').textContent = t.tab2;
-            document.getElementById('tab3Text').textContent = t.tab3;
-            document.getElementById('tab4Text').textContent = t.tab4;
+            document.getElementById('mainTabProjects').textContent = t.mainTabProjects;
+            document.getElementById('mainTabReviews').textContent = t.mainTabReviews;
+            document.getElementById('projectTab1').textContent = t.projectTab1;
+            document.getElementById('projectTab2').textContent = t.projectTab2;
+            document.getElementById('projectTab3').textContent = t.projectTab3;
+            document.getElementById('projectTab4').textContent = t.projectTab4;
             document.getElementById('greeting1').textContent = t.greeting1;
             
             const storyElem = document.getElementById('story1');
@@ -2169,23 +2362,63 @@ void loop() {
             updateFontSize(size);
         }
         
-        function openTab(tabId) {
-            document.querySelectorAll('.tab-content').forEach(tab => {
+        // Переключение главных вкладок (Проекты, Обзоры+Товары)
+        function openMainTab(tabId) {
+            document.querySelectorAll('.main-tab-content').forEach(tab => {
                 tab.classList.remove('active');
             });
             
-            document.querySelectorAll('.tab-btn').forEach(btn => {
+            document.querySelectorAll('.main-tab-btn').forEach(btn => {
                 btn.classList.remove('active');
             });
             
             document.getElementById(tabId).classList.add('active');
             event.target.classList.add('active');
+            
+            // Сохраняем открытую главную вкладку
+            localStorage.setItem('mainTab', tabId);
         }
         
+        // Переключение внутренних вкладок проектов
+        function openProjectTab(tabId) {
+            document.querySelectorAll('.project-content').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            document.querySelectorAll('.project-tab-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            
+            document.getElementById(tabId).classList.add('active');
+            event.target.classList.add('active');
+            
+            // Сохраняем открытый проект
+            localStorage.setItem('projectTab', tabId);
+        }
+        
+        // Загрузка сохранённых вкладок
+        const savedMainTab = localStorage.getItem('mainTab');
+        const savedProjectTab = localStorage.getItem('projectTab');
         const savedTheme = localStorage.getItem('theme');
         const savedDevice = localStorage.getItem('device');
         const savedFontSize = localStorage.getItem('fontSize');
         const savedLang = localStorage.getItem('language');
+        
+        if (savedMainTab) {
+            // Активируем сохранённую главную вкладку
+            document.querySelectorAll('.main-tab-content').forEach(tab => tab.classList.remove('active'));
+            document.querySelectorAll('.main-tab-btn').forEach(btn => btn.classList.remove('active'));
+            document.getElementById(savedMainTab).classList.add('active');
+            document.querySelector(`[onclick="openMainTab('${savedMainTab}')"]`).classList.add('active');
+        }
+        
+        if (savedProjectTab && savedMainTab === 'projects') {
+            // Активируем сохранённый проект, если открыта вкладка проектов
+            document.querySelectorAll('.project-content').forEach(tab => tab.classList.remove('active'));
+            document.querySelectorAll('.project-tab-btn').forEach(btn => btn.classList.remove('active'));
+            document.getElementById(savedProjectTab).classList.add('active');
+            document.querySelector(`[onclick="openProjectTab('${savedProjectTab}')"]`).classList.add('active');
+        }
         
         if (savedTheme === 'dark') {
             document.body.classList.add('dark-theme');
@@ -2210,4 +2443,4 @@ void loop() {
         }
     </script>
 </body>
-    </html>
+</html>
