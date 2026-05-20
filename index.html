@@ -972,12 +972,13 @@
             
             <!-- ВКЛАДКА ПРОЕКТЫ -->
             <div id="projects" class="main-tab-content active">
-                <div class="project-tabs">
-                    <button class="project-tab-btn active" onclick="openProjectTab('project1')"><span id="projectTab1">📋 1. Метеостанция</span></button>
-                    <button class="project-tab-btn" onclick="openProjectTab('project2')"><span id="projectTab2">💡 2. RGB светодиод</span></button>
-                    <button class="project-tab-btn" onclick="openProjectTab('project3')"><span id="projectTab3">🔧 3. Arduino Uno/Nano</span></button>
-                    <button class="project-tab-btn" onclick="openProjectTab('project4')"><span id="projectTab4">🔢 4. МЕМ SIX SEVEN</span></button>
-                </div>
+<div class="project-tabs">
+    <button class="project-tab-btn active" onclick="openProjectTab('project1')"><span id="projectTab1">📋 1. Метеостанция</span></button>
+    <button class="project-tab-btn" onclick="openProjectTab('project2')"><span id="projectTab2">💡 2. RGB светодиод</span></button>
+    <button class="project-tab-btn" onclick="openProjectTab('project3')"><span id="projectTab3">🔧 3. Arduino Uno/Nano</span></button>
+    <button class="project-tab-btn" onclick="openProjectTab('project4')"><span id="projectTab4">🔢 4. МЕМ SIX SEVEN</span></button>
+    <button class="project-tab-btn" onclick="openProjectTab('project5')"><span id="projectTab5">📏 5. Измерение расстояния</span></button>
+</div>
                 
                 <!-- Проект 1 - Метеостанция (ПОЛНЫЙ КОД) -->
                 <div id="project1" class="project-content active">
@@ -1341,10 +1342,111 @@ void setup() {
 void loop() {}</pre>
                         </div>
                     </div>
-                </div>
-            </div>
-            
-            <!-- ВКЛАДКА ОБЗОРЫ И ТОВАРЫ -->
+</div>
+</div>
+
+             <!-- Проект 5 - Измерение расстояния HC-SR04 с LCD -->
+             <div id="project5" class="project-content">
+                 <div class="greeting" id="greeting5">📏 Измерение расстояния с помощью HC-SR04 и LCD 1602</div>
+                 <div class="connection-scheme">
+                     <h2 id="schemeTitle5">🔌 СХЕМА ПОДКЛЮЧЕНИЯ HC-SR04 И LCD1602 К ARDUINO UNO</h2>
+                     <div class="scheme-grid">
+                         <div class="scheme-item"><span>🔴</span><strong class="pin-red"><span id="hcSr04Vcc">VCC HC-SR04 → 5V</span></strong></div>
+                         <div class="scheme-item"><span>⚫</span><strong class="pin-gnd"><span id="hcSr04Gnd">GND HC-SR04 → GND</span></strong></div>
+                         <div class="scheme-item"><span>🟡</span><strong><span id="hcSr04Trig">Trig HC-SR04 → Pin 9</span></strong></div>
+                         <div class="scheme-item"><span>🔵</span><strong><span id="hcSr04Echo">Echo HC-SR04 → Pin 10</span></strong></div>
+                         <div class="scheme-item"><span>🟢</span><strong><span id="lcdVcc">VCC LCD1602 → 5V</span></strong></div>
+                         <div class="scheme-item"><span>⚫</span><strong class="pin-gnd"><span id="lcdGnd">GND LCD1602 → GND</span></strong></div>
+                         <div class="scheme-item"><span>🟡</span><strong><span id="lcdSda">SDA LCD1602 → A4</span></strong></div>
+                         <div class="scheme-item"><span>🟢</span><strong><span id="lcdScl">SCL LCD1602 → A5</span></strong></div>
+                     </div>
+                 </div>
+                 <h2 style="color: #667eea; margin: 30px 0 20px; text-align: center;" id="componentsTitle5">⚡ КОМПОНЕНТЫ ДЛЯ ПРОЕКТА ⚡</h2>
+                 <div class="components-grid">
+                     <div class="component-card"><div class="component-icon">🔧</div><h3>Arduino Uno R3</h3><p>Оригинальный или совместимый</p><div class="shop-buttons"><a href="https://www.wildberries.ru/catalog/0/search.aspx?search=arduino+uno" target="_blank" class="shop-btn wb">Wildberries</a><a href="https://www.ozon.ru/search/?text=arduino+uno" target="_blank" class="shop-btn ozon">Ozon</a><a href="https://aliexpress.ru/wholesale?SearchText=arduino+uno" target="_blank" class="shop-btn aliexpress">AliExpress</a></div></div>
+                     <div class="component-card"><div class="component-icon">📡</div><h3>HC-SR04 Ультразвуковой датчик расстояния</h3><p>Измеряет расстояние от 2см до 4м</p><div class="shop-buttons"><a href="https://www.wildberries.ru/catalog/0/search.aspx?search=hc-sr04" target="_blank" class="shop-btn wb">Wildberries</a><a href="https://www.ozon.ru/search/?text=hc-sr04" target="_blank" class="shop-btn ozon">Ozon</a><a href="https://aliexpress.ru/wholesale?SearchText=hc+sr04+ultrasonic" target="_blank" class="shop-btn aliexpress">AliExpress</a></div></div>
+                     <div class="component-card"><div class="component-icon">📟</div><h3>LCD1602 I2C</h3><p>16x2 символов, синий экран</p><div class="shop-buttons"><a href="https://www.wildberries.ru/catalog/0/search.aspx?search=lcd1602+i2c" target="_blank" class="shop-btn wb">Wildberries</a><a href="https://www.ozon.ru/search/?text=lcd1602+i2c" target="_blank" class="shop-btn ozon">Ozon</a><a href="https://aliexpress.ru/wholesale?SearchText=lcd1602+i2c" target="_blank" class="shop-btn aliexpress">AliExpress</a></div></div>
+                     <div class="component-card"><div class="component-icon">🔌</div><h3>Провода DuPont</h3><p>Мама-папа, 6 штук для подключения</p><div class="shop-buttons"><a href="https://www.wildberries.ru/catalog/0/search.aspx?search=провода+dupont" target="_blank" class="shop-btn wb">Wildberries</a><a href="https://www.ozon.ru/search/?text=провода+dupont" target="_blank" class="shop-btn ozon">Ozon</a><a href="https://aliexpress.ru/wholesale?SearchText=dupont+cable" target="_blank" class="shop-btn aliexpress">AliExpress</a></div></div>
+                 </div>
+                 <div class="code-section">
+                     <div class="code-header"><h2 id="codeTitle5">📟 КОД: ИЗМЕРЕНИЕ РАССТОЯНИЯ HC-SR04 НА LCD</h2><button class="copy-btn" onclick="copyCode('code5')" id="copyBtn5">📋 COPY</button></div>
+                     <div class="code-block">
+                         <pre id="code5">#include &lt;Wire.h&gt;
+#include &lt;LiquidCrystal_I2C.h&gt;
+
+// Настройка LCD
+LiquidCrystal_I2C lcd(0x27, 16, 2);
+
+// Пины для HC-SR04
+#define TRIG_PIN 9
+#define ECHO_PIN 10
+
+void setup() {
+  // Инициализация LCD
+  lcd.init();
+  lcd.backlight();
+  
+  // Настройка пинов HC-SR04
+  pinMode(TRIG_PIN, OUTPUT);
+  pinMode(ECHO_PIN, INPUT);
+  
+  // Очистка экрана и вывод заголовка
+  lcd.clear();
+  lcd.setCursor(0, 0);
+  lcd.print("Дальномер");
+  lcd.setCursor(0, 1);
+  lcd.print("Готов к работе");
+  delay(2000);
+}
+
+void loop() {
+  // Генерируем ультразвуковой импульс
+  digitalWrite(TRIG_PIN, LOW);
+  delayMicroseconds(2);
+  digitalWrite(TRIG_PIN, HIGH);
+  delayMicroseconds(10);
+  digitalWrite(TRIG_PIN, LOW);
+  
+  // Измеряем время Echo сигнала
+  long duration = pulseIn(ECHO_PIN, HIGH);
+  
+  // Рассчитываем расстояние в сантиметрах
+  // Звук проходит туда и обратно, поэтому делим на 2
+  // Скорость звука ~343 м/с = 0.0343 см/мкс
+  float distance = duration * 0.0343 / 2;
+  
+  // Выводим результат на LCD
+  lcd.clear();
+  lcd.setCursor(0, 0);
+  lcd.print("Расстояние:");
+  
+  // Форматируем вывод с 1 знаком после запятой
+  lcd.setCursor(0, 1);
+  if (distance >= 400 || distance <= 2) {
+    lcd.print("Out of range");
+  } else {
+    lcd.print(distance);
+    lcd.print(" cm");
+    
+    // Добавляем визуальную индикацию
+    if (distance < 10) {
+      lcd.setCursor(13, 1);
+      lcd.print("!!");
+    } else if (distance < 30) {
+      lcd.setCursor(13, 1);
+      lcd.print("!");
+    }
+  }
+  
+  // Небольшая задержка перед следующим измерением
+  delay(500);
+}
+</pre>
+                     </div>
+                 </div>
+             </div>
+
+             <!-- ВКЛАДКА ОБЗОРЫ И ТОВАРЫ -->
             <div id="reviews" class="main-tab-content">
                 <div class="greeting" id="reviewsGreeting">📺 ОБЗОРЫ И 🛒 ТОВАРЫ</div>
                 
@@ -1450,6 +1552,7 @@ void loop() {}</pre>
                 projectTab2: '💡 2. RGB светодиод',
                 projectTab3: '🔧 3. Arduino Uno/Nano',
                 projectTab4: '🔢 4. МЕМ SIX SEVEN',
+projectTab5: '📏 5. Измерение расстояния',
                 greeting1: '👋 ВСЕМ ПРИВЕТ!',
                 story1p1: '🔥 Как и обещал, расскажу про проект метеостанция. Взял ESP8266, потом DHT22. Решил сначала сделать сайт - сделал, мне не понравилось. Потом создал бота в Telegram, делал его 2 дня.',
                 story1p2: '🤖 Бот показывает температуру и влажность. Сделал его приватным. Прошил ESP, подключил к повербанку, взял коробку, вырезал отверстия, просунул датчик - и понеслась!',
@@ -1547,6 +1650,33 @@ void loop() {}</pre>
                 projectTab2: '💡 2. RGB LED',
                 projectTab3: '🔧 3. Arduino Uno/Nano',
                 projectTab4: '🔢 4. MEME SIX SEVEN',
+projectTab5: '📏 5. Distance Measurement',
+greeting5: '👋 HELLO EVERYONE!',
+story5p1: '🔥 In this project, I\'ll show you how to measure distance using the HC-SR04 ultrasonic sensor and display the results on an LCD1602 screen.',
+story5p2: '📏 The HC-SR04 sensor emits ultrasonic waves and measures the time it takes for the echo to return, allowing us to calculate distance with good accuracy.',
+highlight5: '✨ PERFECT FOR ROBOTICS AND AUTOMATION PROJECTS ✨',
+story3: '📱 Created it via @BotFather, wrote the code in Arduino IDE.',
+signature5: 'ARDUINO PROJECTS AND SOLDERING, 25.02.2026 21:34',
+schemeTitle5: '🔌 HC-SR04 AND LCD1602 CONNECTION TO ARDUINO UNO',
+hcSr04Vcc: 'VCC HC-SR04 → 5V',
+hcSr04Gnd: 'GND HC-SR04 → GND',
+hcSr04Trig: 'Trig HC-SR04 → Pin 9',
+hcSr04Echo: 'Echo HC-SR04 → Pin 10',
+lcdVcc: 'VCC LCD1602 → 5V',
+lcdGnd: 'GND LCD1602 → GND',
+lcdSda: 'SDA LCD1602 → A4',
+lcdScl: 'SCL LCD1602 → A5',
+componentsTitle5: '⚡ PROJECT COMPONENTS ⚡',
+comp5: 'Arduino Uno R3',
+comp5desc: 'Original or compatible board',
+comp6: 'HC-SR04 Ultrasonic Distance Sensor',
+comp6desc: 'Measures distance from 2cm to 4m',
+comp7: 'LCD1602 I2C',
+comp7desc: '16x2 characters, blue screen',
+comp8: 'DuPont Wires',
+comp8desc: 'Male-to-female, 6 pieces for connection',
+codeTitle5: '📟 FULL DISTANCE MEASUREMENT CODE',
+projectTab5: '📏 5. Distance Measurement',
                 greeting1: '👋 HELLO EVERYONE!',
                 story1p1: '🔥 As promised, I\'ll tell you about the weather station project.',
                 story1p2: '🤖 The bot shows temperature and humidity.',
@@ -1653,6 +1783,31 @@ void loop() {}</pre>
             document.getElementById('projectTab2').textContent = t.projectTab2;
             document.getElementById('projectTab3').textContent = t.projectTab3;
             document.getElementById('projectTab4').textContent = t.projectTab4;
+document.getElementById('projectTab5').textContent = t.projectTab5;
+document.getElementById('greeting5').textContent = t.greeting5;
+document.getElementById('story5p1').textContent = t.story5p1;
+document.getElementById('story5p2').textContent = t.story5p2;
+document.getElementById('highlight5').textContent = t.highlight5;
+document.getElementById('signature5').textContent = t.signature5;
+document.getElementById('schemeTitle5').textContent = t.schemeTitle5;
+document.getElementById('hcSr04Vcc').textContent = t.hcSr04Vcc;
+document.getElementById('hcSr04Gnd').textContent = t.hcSr04Gnd;
+document.getElementById('hcSr04Trig').textContent = t.hcSr04Trig;
+document.getElementById('hcSr04Echo').textContent = t.hcSr04Echo;
+document.getElementById('lcdVcc').textContent = t.lcdVcc;
+document.getElementById('lcdGnd').textContent = t.lcdGnd;
+document.getElementById('lcdSda').textContent = t.lcdSda;
+document.getElementById('lcdScl').textContent = t.lcdScl;
+document.getElementById('componentsTitle5').textContent = t.componentsTitle5;
+document.getElementById('comp5').textContent = t.comp5;
+document.getElementById('comp5desc').textContent = t.comp5desc;
+document.getElementById('comp6').textContent = t.comp6;
+document.getElementById('comp6desc').textContent = t.comp6desc;
+document.getElementById('comp7').textContent = t.comp7;
+document.getElementById('comp7desc').textContent = t.comp7desc;
+document.getElementById('comp8').textContent = t.comp8;
+document.getElementById('comp8desc').textContent = t.comp8desc;
+document.getElementById('codeTitle5').textContent = t.codeTitle5;
             document.getElementById('greeting1').textContent = t.greeting1;
             document.getElementById('story1p1').textContent = t.story1p1;
             document.getElementById('story1p2').textContent = t.story1p2;
@@ -1734,10 +1889,11 @@ void loop() {}</pre>
             document.getElementById('videosGreeting').textContent = t.videosGreeting;
             document.getElementById('videoPlaceholderText').textContent = t.videoPlaceholderText;
             document.getElementById('footerText').textContent = t.footer;
-            document.getElementById('copyBtn1').innerHTML = t.copyBtn;
-            document.getElementById('copyBtn2').innerHTML = t.copyBtn;
-            document.getElementById('copyBtn3').innerHTML = t.copyBtn;
-            document.getElementById('copyBtn4').innerHTML = t.copyBtn;
+document.getElementById('copyBtn1').innerHTML = t.copyBtn;
+document.getElementById('copyBtn2').innerHTML = t.copyBtn;
+document.getElementById('copyBtn3').innerHTML = t.copyBtn;
+document.getElementById('copyBtn4').innerHTML = t.copyBtn;
+document.getElementById('copyBtn5').innerHTML = t.copyBtn;
         }
         
         function toggleTheme() {
