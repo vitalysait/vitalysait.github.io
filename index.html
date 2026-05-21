@@ -953,6 +953,133 @@
                 <button class="main-tab-btn active" onclick="openMainTab('projects')" id="mainTabProjects">🔧 Проекты</button>
                 <button class="main-tab-btn" onclick="openMainTab('reviews')" id="mainTabReviews">📺 Обзоры + 🛒 Товары</button>
                 <button class="main-tab-btn" onclick="openMainTab('videos')" id="mainTabVideos">📺 Видео</button>
+                <button class="main-tab-btn" onclick="openMainTab('instructions')" id="mainTabInstructions">📖 Инструкции</button>
+            </div>
+            
+            <!-- СОДЕРЖИМОЕ ВКЛАДКИ ИНСТРУКЦИИ -->
+            <div id="instructions" class="main-tab-content">
+                <!-- Инструкция 1: Arduino IDE -->
+                <div class="story">
+                    <h2>📖 Начало работы с Arduino IDE</h2>
+                    <p>Полное руководство по скачиванию и установке Arduino IDE на Windows и Linux.</p>
+                </div>
+                
+                <div class="story" style="margin-bottom: 40px;">
+                    <h3 style="color: #667eea; margin-bottom: 15px;">🔻 Шаг 1: Скачивание Arduino IDE</h3>
+                    <p><strong>Официальный сайт (требует VPN):</strong></p>
+                    <p style="margin-left: 20px;">🌐 <a href="https://www.arduino.cc/en/software" target="_blank" style="color: #667eea; font-weight: bold;">https://www.arduino.cc/en/software</a></p>
+                    <p><strong>Альтернатива от Amperka (без VPN):</strong></p>
+                    <p style="margin-left: 20px;">🌐 <a href="https://amperka.ru/page/arduino-ide" target="_blank" style="color: #667eea; font-weight: bold;">https://amperka.ru/page/arduino-ide</a></p>
+                    <p style="color: #666; font-style: italic; margin-top: 15px;">💡 Обе версии идентичны. Выберите что вам удобнее!</p>
+                </div>
+                
+                <div class="story" style="margin-bottom: 40px; background: rgba(255, 255, 255, 0.15); border-left: 8px solid #667eea;">
+                    <h3 style="color: #667eea; margin-bottom: 15px;">🪟 Установка на Windows</h3>
+                    
+                    <p><strong>Вариант 1: Установка через установщик</strong></p>
+                    <ol style="margin-left: 30px; line-height: 1.8;">
+                        <li>Скачайте файл <code style="background: rgba(0,0,0,0.2); padding: 3px 8px; border-radius: 5px;">ArduinoSetup.exe</code> с сайта</li>
+                        <li>Дважды кликните по установщику</li>
+                        <li>Нажмите <strong>"I Agree"</strong> (согласиться с лицензией)</li>
+                        <li>Выберите компоненты для установки (оставьте всё по умолчанию)</li>
+                        <li>Нажмите <strong>"Next"</strong> несколько раз</li>
+                        <li>Выберите папку для установки (рекомендуется <code style="background: rgba(0,0,0,0.2); padding: 3px 8px; border-radius: 5px;">C:\Program Files\Arduino</code>)</li>
+                        <li>Ждите завершения установки (может занять 5-10 минут)</li>
+                        <li>На рабочем столе появится ярлык <strong>Arduino IDE</strong></li>
+                    </ol>
+                    
+                    <p style="margin-top: 20px;"><strong>Вариант 2: Портативная версия (без установки)</strong></p>
+                    <ol style="margin-left: 30px; line-height: 1.8;">
+                        <li>Скачайте файл <code style="background: rgba(0,0,0,0.2); padding: 3px 8px; border-radius: 5px;">arduino-ide_windows.zip</code></li>
+                        <li>Откройте <strong>Проводник</strong> (File Explorer)</li>
+                        <li>Правой кнопкой мыши кликните на архив → <strong>"Извлечь всё"</strong></li>
+                        <li>Выберите папку (например, <code style="background: rgba(0,0,0,0.2); padding: 3px 8px; border-radius: 5px;">C:\Arduino IDE</code>)</li>
+                        <li>Запустите файл <code style="background: rgba(0,0,0,0.2); padding: 3px 8px; border-radius: 5px;">arduino-ide.exe</code></li>
+                    </ol>
+                    
+                    <p style="margin-top: 20px; color: #ff7675; font-weight: bold;">⚠️ Важно для Windows:</p>
+                    <ul style="margin-left: 30px; color: #ff7675;">
+                        <li>Если Arduino не узнаёт ваш COM-порт — скачайте драйверы USB FTDI или CH340</li>
+                        <li>В Диспетчере устройств может появиться "Unknown Device" — это нормально, нужны драйверы</li>
+                        <li>После установки драйверов перезагрузите компьютер</li>
+                    </ul>
+                </div>
+                
+                <div class="story" style="margin-bottom: 40px; background: rgba(255, 255, 255, 0.15); border-left: 8px solid #667eea;">
+                    <h3 style="color: #667eea; margin-bottom: 15px;">🐧 Установка на Linux</h3>
+                    
+                    <p><strong>Ubuntu/Debian (самый простой способ):</strong></p>
+                    <p style="margin-top: 10px; margin-bottom: 15px;">Откройте <strong>Терминал</strong> (Ctrl+Alt+T) и выполните команду:</p>
+                    <div class="code-block" style="background: rgba(30, 30, 47, 0.9); padding: 15px; border-radius: 15px; margin-bottom: 15px;">
+                        <pre style="color: #a6ff7a; font-size: 13px; margin: 0;">sudo apt update && sudo apt install arduino -y</pre>
+                    </div>
+                    
+                    <p><strong>Или установите через snap:</strong></p>
+                    <div class="code-block" style="background: rgba(30, 30, 47, 0.9); padding: 15px; border-radius: 15px; margin-bottom: 15px;">
+                        <pre style="color: #a6ff7a; font-size: 13px; margin: 0;">sudo snap install arduino</pre>
+                    </div>
+                    
+                    <p style="margin-top: 20px;"><strong>Fedora/CentOS/RHEL:</strong></p>
+                    <div class="code-block" style="background: rgba(30, 30, 47, 0.9); padding: 15px; border-radius: 15px; margin-bottom: 15px;">
+                        <pre style="color: #a6ff7a; font-size: 13px; margin: 0;">sudo dnf install arduino -y</pre>
+                    </div>
+                    
+                    <p style="margin-top: 20px;"><strong>Arch Linux:</strong></p>
+                    <div class="code-block" style="background: rgba(30, 30, 47, 0.9); padding: 15px; border-radius: 15px; margin-bottom: 15px;">
+                        <pre style="color: #a6ff7a; font-size: 13px; margin: 0;">sudo pacman -S arduino -y</pre>
+                    </div>
+                    
+                    <p><strong>Ручная установка (через архив):</strong></p>
+                    <ol style="margin-left: 30px; line-height: 1.8; margin-top: 15px;">
+                        <li>Скачайте <code style="background: rgba(0,0,0,0.2); padding: 3px 8px; border-radius: 5px;">arduino-ide_linux64.tar.xz</code></li>
+                        <li>Откройте Терминал в папке со скачиванием</li>
+                        <li>Выполните команду распаковки:</li>
+                    </ol>
+                    <div class="code-block" style="background: rgba(30, 30, 47, 0.9); padding: 15px; border-radius: 15px; margin-bottom: 15px; margin-left: 30px;">
+                        <pre style="color: #a6ff7a; font-size: 13px; margin: 0;">tar -xf arduino-ide_linux64.tar.xz -C ~/</pre>
+                    </div>
+                    
+                    <ol style="margin-left: 30px; line-height: 1.8;">
+                        <li>Запустите Arduino IDE:</li>
+                    </ol>
+                    <div class="code-block" style="background: rgba(30, 30, 47, 0.9); padding: 15px; border-radius: 15px; margin-bottom: 15px; margin-left: 30px;">
+                        <pre style="color: #a6ff7a; font-size: 13px; margin: 0;">~/arduino-ide/arduino-ide</pre>
+                    </div>
+                    
+                    <p style="margin-top: 20px; color: #ff7675; font-weight: bold;">⚠️ Важно для Linux:</p>
+                    <ul style="margin-left: 30px; color: #ff7675;">
+                        <li>Для доступа к USB-портам, добавьте пользователя в группу <code style="background: rgba(0,0,0,0.2); padding: 3px 8px; border-radius: 5px;">dialout</code>:</li>
+                    </ul>
+                    <div class="code-block" style="background: rgba(30, 30, 47, 0.9); padding: 15px; border-radius: 15px; margin-bottom: 15px; margin-left: 30px;">
+                        <pre style="color: #a6ff7a; font-size: 13px; margin: 0;">sudo usermod -a -G dialout $USER</pre>
+                    </div>
+                    <ul style="margin-left: 30px; color: #ff7675;">
+                        <li>После этого перезагрузитесь или выполните: <code style="background: rgba(0,0,0,0.2); padding: 3px 8px; border-radius: 5px;">newgrp dialout</code></li>
+                    </ul>
+                </div>
+                
+                <div class="story" style="margin-bottom: 40px;">
+                    <h3 style="color: #667eea; margin-bottom: 15px;">✅ Проверка установки</h3>
+                    <p><strong>Запустите Arduino IDE и проверьте:</strong></p>
+                    <ol style="margin-left: 30px; line-height: 1.8;">
+                        <li>Откройте <strong>Файл → Примеры → 01. Basics → Blink</strong></li>
+                        <li>Подключите Arduino к компьютеру через USB</li>
+                        <li>Выберите тип платы: <strong>Инструменты → Плата → Arduino Uno</strong> (или ваша плата)</li>
+                        <li>Выберите COM-порт: <strong>Инструменты → Порт → COM3 (или другой)</strong></li>
+                        <li>Нажмите кнопку <strong>Загрузить</strong> (стрелка вправо)</li>
+                        <li>Если светодиод на плате начал мигать — всё работает! ✨</li>
+                    </ol>
+                </div>
+                
+                <div class="story" style="background: rgba(102, 126, 234, 0.2); border-left: 8px solid #667eea;">
+                    <h3 style="color: #667eea; margin-bottom: 15px;">📚 Полезные ссылки</h3>
+                    <ul style="margin-left: 20px;">
+                        <li>📖 <a href="https://docs.arduino.cc/software/ide-v2" target="_blank" style="color: #667eea; font-weight: bold;">Официальная документация Arduino IDE v2</a></li>
+                        <li>🛠️ <a href="https://docs.arduino.cc/hardware/all" target="_blank" style="color: #667eea; font-weight: bold;">Поддерживаемые платы и датчики</a></li>
+                        <li>🔌 <a href="https://docs.arduino.cc/hardware/uno-rev3" target="_blank" style="color: #667eea; font-weight: bold;">Документация Arduino Uno</a></li>
+                        <li>📝 <a href="https://docs.arduino.cc/language-reference/" target="_blank" style="color: #667eea; font-weight: bold;">Справочник Arduino (язык программирования)</a></li>
+                    </ul>
+                </div>
             </div>
             
             <!-- РЕКЛАМНЫЙ БЛОК CITRUS -->
@@ -1005,12 +1132,11 @@
                         </div>
                     </div>
                     <h2 style="color: #667eea; margin: 30px 0 20px; text-align: center;" id="componentsTitle">⚡ КОМПОНЕНТЫ МЕТЕОСТАНЦИИ ⚡</h2>
-                    <div class="components-grid">
-                        <div class="component-card"><div class="component-icon">🔹</div><h3 id="comp1">ESP8266 D1 Mini V2</h3><p id="comp1desc">NodeMcu Lua ESP-12 (CH340) Type-C</p><div class="shop-buttons"><a href="https://www.wildberries.ru/catalog/0/search.aspx?search=esp8266+d1+mini+v2" target="_blank" class="shop-btn wb">Wildberries</a><a href="https://www.ozon.ru/search/?text=esp8266+d1+mini+v2" target="_blank" class="shop-btn ozon">Ozon</a><a href="https://aliexpress.ru/wholesale?SearchText=esp8266+d1+mini+v2" target="_blank" class="shop-btn aliexpress">AliExpress</a></div></div>
-                        <div class="component-card"><div class="component-icon">🌡️</div><h3 id="comp2">Датчик DHT22</h3><p id="comp2desc">Температура и влажность</p><div class="shop-buttons"><a href="https://www.wildberries.ru/catalog/0/search.aspx?search=dht22" target="_blank" class="shop-btn wb">Wildberries</a><a href="https://www.ozon.ru/search/?text=dht22" target="_blank" class="shop-btn ozon">Ozon</a><a href="https://aliexpress.ru/wholesale?SearchText=dht22" target="_blank" class="shop-btn aliexpress">AliExpress</a></div></div>
-                        <div class="component-card"><div class="component-icon">⚡</div><h3 id="comp3">Резисторы 10кОм</h3><p id="comp3desc">Для подтяжки данных</p><div class="shop-buttons"><a href="https://www.wildberries.ru/catalog/0/search.aspx?search=резисторы+10кОм" target="_blank" class="shop-btn wb">Wildberries</a><a href="https://www.ozon.ru/search/?text=резисторы+10кОм" target="_blank" class="shop-btn ozon">Ozon</a><a href="https://aliexpress.ru/wholesale?SearchText=10k+resistor" target="_blank" class="shop-btn aliexpress">AliExpress</a></div></div>
-                        <div class="component-card"><div class="component-icon">🔋</div><h3 id="comp4">Повербанк</h3><p id="comp4desc">Для автономного питания</p><div class="shop-buttons"><a href="https://www.wildberries.ru/catalog/0/search.aspx?search=повербанк" target="_blank" class="shop-btn wb">Wildberries</a><a href="https://www.ozon.ru/search/?text=повербанк" target="_blank" class="shop-btn ozon">Ozon</a><a href="https://aliexpress.ru/wholesale?SearchText=powerbank" target="_blank" class="shop-btn aliexpress">AliExpress</a></div></div>
-                    </div>
+<div class="components-grid">
+                         <div class="component-card"><div class="component-icon">🔹</div><h3 id="comp1">ESP8266 D1 Mini V2</h3><p id="comp1desc">NodeMcu Lua ESP-12 (CH340) Type-C</p><div class="shop-buttons"><a href="https://www.wildberries.ru/catalog/0/search.aspx?search=esp8266+d1+mini+v2" target="_blank" class="shop-btn wb">Wildberries</a><a href="https://www.ozon.ru/search/?text=esp8266+d1+mini+v2" target="_blank" class="shop-btn ozon">Ozon</a><a href="https://aliexpress.ru/wholesale?SearchText=esp8266+d1+mini+v2" target="_blank" class="shop-btn aliexpress">AliExpress</a></div></div>
+                         <div class="component-card"><div class="component-icon">🌡️</div><h3 id="comp2">Датчик DHT22</h3><p id="comp2desc">Температура и влажность</p><div class="shop-buttons"><a href="https://www.wildberries.ru/catalog/0/search.aspx?search=dht22" target="_blank" class="shop-btn wb">Wildberries</a><a href="https://www.ozon.ru/search/?text=dht22" target="_blank" class="shop-btn ozon">Ozon</a><a href="https://aliexpress.ru/wholesale?SearchText=dht22" target="_blank" class="shop-btn aliexpress">AliExpress</a></div></div>
+                         <div class="component-card"><div class="component-icon">🔋</div><h3 id="comp3">Повербанк</h3><p id="comp3desc">Для автономного питания</p><div class="shop-buttons"><a href="https://www.wildberries.ru/catalog/0/search.aspx?search=повербанк" target="_blank" class="shop-btn wb">Wildberries</a><a href="https://www.ozon.ru/search/?text=повербанк" target="_blank" class="shop-btn ozon">Ozon</a><a href="https://aliexpress.ru/wholesale?SearchText=powerbank" target="_blank" class="shop-btn aliexpress">AliExpress</a></div></div>
+                     </div>
                     <div class="code-section">
                         <div class="code-header"><h2 id="codeTitle1">📟 ПОЛНЫЙ КОД МЕТЕОСТАНЦИИ</h2><button class="copy-btn" onclick="copyCode('code1')" id="copyBtn1">📋 COPY</button></div>
                         <div class="code-block">
@@ -1022,7 +1148,7 @@
 // ========== ТВОИ ДАННЫЕ ==========
 const char* ssid = "ваш WiFI";
 const char* password = "пароль от него";
-#define BOT_TOKEN "8530454620:AAE-HtR87zyZ91dSYn9auueMH3eeoGard4o"
+#define BOT_TOKEN "узнать в BotFather"
 
 // ID разрешенных пользователей
 const String allowedUsers[] = {
@@ -1782,10 +1908,11 @@ void drawMatrix(const byte image[8]) {
                     <p id="review1p1"><strong>Описание:</strong> Удобный ножик с упором на лезвии — мелочь, а как выручает! Именно этой детали иногда не хватает в обычных канцелярских ножах. Работать стало комфортнее и безопаснее.</p>
                     <p id="review1p2"><strong>Комплектация:</strong> В комплекте уже есть запасные лезвия, которые удобно хранить прямо в рукоятке — своего рода «багажник» всегда под рукой.</p>
                     <p id="review1p3"><strong>Вердикт:</strong> Очень доволен покупкой, рекомендую для резки картона, бумаги, пластика и обоев. Лезвия меняются легко, держатся долго. Для дома, гаража или мастерской — мастхэв.</p>
-                    <div class="shop-buttons">
-                        <a href="https://ozon.ru/t/q4d9SQw" target="_blank" class="shop-btn ozon" id="review1Ozon">OZON</a>
-                        <a href="https://ali.click/a50531d" target="_blank" class="shop-btn aliexpress" id="review1Ali">AliExpress</a>
-                    </div>
+<div class="shop-buttons">
+                         <a href="https://ozon.ru/t/q4d9SQw" target="_blank" class="shop-btn ozon" id="review1Ozon">OZON</a>
+                         <a href="https://ali.click/a50531d" target="_blank" class="shop-btn aliexpress" id="review1Ali">AliExpress</a>
+                         <a href="https://www.wildberries.ru/catalog/0/search.aspx?search=workpro+knife" target="_blank" class="shop-btn wb" id="review1Wb">Wildberries</a>
+                     </div>
                 </div>
                 
                 <div class="story" style="margin-bottom: 40px;">
@@ -1793,9 +1920,11 @@ void drawMatrix(const byte image[8]) {
                     <p id="review2p1"><strong>Описание:</strong> Универсальный инструмент, который пригодится в любом хозяйстве. Идеально подходит для резки металла (листовой, трубы, профили), пластика и сантехнических материалов. Справляется даже с толстым пластиком и алюминием.</p>
                     <p id="review2p2"><strong>Особенности:</strong> Особенно удобен для подготовки деталей перед пайкой или сваркой — убирает заусенцы, выравнивает края, делает кромки аккуратными и безопасными. Заменяет сразу несколько инструментов в мастерской.</p>
                     <p id="review2p3"><strong>Вердикт:</strong> Компактный, лёгкий, всегда под рукой. Для самодельщика, электрика, сантехника — просто незаменимая вещь. Качество сборки отличное, лезвия держат заточку долго. Рекомендую всем, кто любит мастерить!</p>
-                    <div class="shop-buttons">
-                        <a href="https://ozon.ru/t/3hcBgCc" target="_blank" class="shop-btn ozon" id="review2Ozon">OZON</a>
-                    </div>
+<div class="shop-buttons">
+                         <a href="https://ozon.ru/t/3hcBgCc" target="_blank" class="shop-btn ozon" id="review2Ozon">OZON</a>
+                         <a href="https://aliexpress.ru/wholesale?SearchText=deburring+tool" target="_blank" class="shop-btn aliexpress" id="review2Ali">AliExpress</a>
+                         <a href="https://www.wildberries.ru/catalog/0/search.aspx?search=инструмент+удаления+неровностей" target="_blank" class="shop-btn wb" id="review2Wb">Wildberries</a>
+                     </div>
                 </div>
                 
                 <div class="story" style="margin-bottom: 40px;">
@@ -1804,10 +1933,11 @@ void drawMatrix(const byte image[8]) {
                     <p id="review3p2"><strong>Преимущества:</strong> Благодаря турбонаддуву пламя не гаснет на ветру, горит стабильно и горячо (до 1300°C). Можно регулировать интенсивность — от деликатного прогрева до мощного факела. Идеально для работы на улице или в продуваемых помещениях.</p>
                     <p id="review3p3"><strong>Хозяйственное применение:</strong> Многоразовая, заправляется обычным газом для зажигалок. В хозяйстве пригодится не только для электроники, но и для розжига мангала, кулинарных работ (карамелизация), подпаливания ниток и многого другого.</p>
                     <p id="review3p4"><strong>Вердикт:</strong> Компактная, стильная, удобно лежит в руке. Очень доволен покупкой! Рекомендую для пайки и дома, и в поездках.</p>
-                    <div class="shop-buttons">
-                        <a href="https://ozon.ru/t/8q63Xa2" target="_blank" class="shop-btn ozon" id="review3Ozon">OZON</a>
-                        <a href="https://ali.click/gg65312" target="_blank" class="shop-btn aliexpress" id="review3Ali">AliExpress</a>
-                    </div>
+<div class="shop-buttons">
+                         <a href="https://ozon.ru/t/8q63Xa2" target="_blank" class="shop-btn ozon" id="review3Ozon">OZON</a>
+                         <a href="https://ali.click/gg65312" target="_blank" class="shop-btn aliexpress" id="review3Ali">AliExpress</a>
+                         <a href="https://www.wildberries.ru/catalog/0/search.aspx?search=турбозажигалка" target="_blank" class="shop-btn wb" id="review3Wb">Wildberries</a>
+                     </div>
                 </div>
                 
                 <div class="story" style="margin-bottom: 40px;">
@@ -1816,25 +1946,40 @@ void drawMatrix(const byte image[8]) {
                     <p id="review4p2"><strong>Питание:</strong> Потребляет всего 20 ватт, поэтому его можно спокойно питать от повербанка (через USB). Это делает паяльник идеальным для выездных работ или когда розетка далеко.</p>
                     <p id="review4p3"><strong>Аксессуары:</strong> 🔋 Всё для автономной пайки: повербанк (ссылка в блоке выше), кейс для паяльника (чтобы носить с собой без риска повредить), специальный провод (подходит для всех паяльников этого типа).</p>
                     <p id="review4p4"><strong>Вердикт:</strong> Очень доволен покупкой — рекомендую и паяльник, и весь комплект для автономной работы! Отличный вариант для начинающих и продвинутых радиолюбителей.</p>
-                    <div class="shop-buttons">
-                        <a href="https://ozon.ru/t/ho0SNiN" target="_blank" class="shop-btn ozon" id="review4Ozon">OZON (паяльник)</a>
-                    </div>
+<div class="shop-buttons">
+                         <a href="https://ozon.ru/t/ho0SNiN" target="_blank" class="shop-btn ozon" id="review4Ozon">OZON (паяльник)</a>
+                         <a href="https://aliexpress.ru/wholesale?SearchText=fmchip+fm03+soldering+iron" target="_blank" class="shop-btn aliexpress" id="review4Ali">AliExpress</a>
+                         <a href="https://www.wildberries.ru/catalog/0/search.aspx?search=fmchip+паяльник" target="_blank" class="shop-btn wb" id="review4Wb">Wildberries</a>
+                     </div>
                 </div>
                 
-                <div class="story" style="margin-bottom: 40px;">
-                    <h3 style="color: #667eea; margin-bottom: 15px;" id="review5Title">🚀 M5 Stick C Plus 2</h3>
-                    <p id="review5p1"><strong>Описание:</strong> Потрясающий подарок! Этот маленький «умный брелок» — полноценный ESP32-компьютер с цветным экраном, аккумулятором и кучей датчиков. Идеален для экспериментов: мониторинг, управление умным домом, носимые гаджеты и даже ретро-игры.</p>
-                    <p id="review5p2"><strong>Характеристики:</strong> Встроенный гироскоп, ИК-передатчик, микрофон и кнопки управления. Работает с Arduino IDE, MicroPython и Blockly. Программируется через USB-C, можно менять прошивки и загружать свои проекты.</p>
+                    <div class="story" style="margin-bottom: 40px;">
+                        <h3 style="color: #667eea; margin-bottom: 15px;" id="review5Title">🚀 M5 Stick C Plus 2</h3>
+                        <p id="review5p1"><strong>Описание:</strong> Потрясающий подарок! Этот маленький «умный брелок» — полноценный ESP32-компьютер с цветным экраном, аккумулятором и кучей датчиков. Идеален для экспериментов: мониторинг, управление умным домом, носимые гаджеты и даже ретро-игры.</p>
+                        <p id="review5p2"><strong>Характеристики:</strong> Встроенный гироскоп, ИК-передатчик, микрофон и кнопки управления. Работает с Arduino IDE, MicroPython и Blockly. Программируется через USB-C, можно менять прошивки и загружать свои проекты.</p>
                     <p id="review5p3"><strong>Что внутри:</strong> ESP32-PICO-V3-02, 4MB Flash, 520KB RAM, 1.14″ LCD 135x240, вибромотор, RGB LED, 120mAh батареи. Время работы до 2 часов, заряжается от любого повербанка.</p>
                     <p id="review5p4"><strong>Идеи для проектов:</strong> Можно сделать портативную метеостанцию, трекер активности, пульт для ПК, умную розетку, брелок для дома и даже простые игры.</p>
-                    <p id="review5p5"><strong>Вердикт:</strong> Для самодельщика и программиста — идеальный гаджет. Компактный, функциональный, с отличной поддержкой сообщества. Рекомендую!</p>
-                    <div class="shop-buttons">
-                        <a href="https://www.wildberries.ru/catalog/375883856/detail.aspx?size=547837802" target="_blank" class="shop-btn wb" id="review5Wb">Wildberries</a>
-                        <a href="https://aliexpress.ru/item/1_128464654.html?sku_id=5000000428152522" target="_blank" class="shop-btn aliexpress" id="review5Ali">AliExpress</a>
-                    </div>
-                </div>
-                
-                <h2 style="color: #667eea; margin: 30px 0 20px; text-align: center;" id="shopTitle">⚡ ГДЕ КУПИТЬ КОМПОНЕНТЫ ⚡</h2>
+<p id="review5p5"><strong>Вердикт:</strong> Для самодельщика и программиста — идеальный гаджет. Компактный, функциональный, с отличной поддержкой сообщества. Рекомендую!</p>
+                      <div class="shop-buttons">
+                          <a href="https://www.wildberries.ru/catalog/375883856/detail.aspx?size=547837802" target="_blank" class="shop-btn wb" id="review5Wb">Wildberries</a>
+                          <a href="https://aliexpress.ru/item/1_128464654.html?sku_id=5000000428152522" target="_blank" class="shop-btn aliexpress" id="review5Ali">AliExpress</a>
+                          <a href="https://ozon.ru/t/M5StickPlus2" target="_blank" class="shop-btn ozon" id="review5Ozon">OZON</a>
+                      </div>
+                 </div>
+                  
+                  <div class="story" style="margin-bottom: 40px;">
+                     <h3 style="color: #667eea; margin-bottom: 15px;" id="review6Title">🔌 Мультиметр Aneng 620A</h3>
+                     <p id="review6p1"><strong>Описание:</strong> Надёжный цифровой мультиметр с точностью измерения до 0.01V/0.1mA. Отличен для проверки цепей питания, измерения напряжения, тока и сопротивления. Диапазон измерения: 6000 сч/ед, автодиапазон, подсветка экрана.</p>
+                     <p id="review6p2"><strong>Особенности:</strong> Защита от перенапряжения, функция держания значения (Hold), индикатор заряда батареи, автоматическое выключение. Маленький размер — удобен в мастерской и на выезде.</p>
+                     <p id="review6p3"><strong>Вердикт:</strong> Лучший выбор для радиолюбителя и мастера. Точный, прочный, долго работает от батарейки. Рекомендую всем, кто любит сам диагностировать схемы!</p>
+                     <div class="shop-buttons">
+                         <a href="https://ozon.ru/t/Aneng620A" target="_blank" class="shop-btn ozon" id="review6Ozon">OZON</a>
+                         <a href="https://aliexpress.ru/wholesale?SearchText=aneng+620a+multimeter" target="_blank" class="shop-btn aliexpress" id="review6Ali">AliExpress</a>
+                         <a href="https://www.wildberries.ru/catalog/0/search.aspx?search=aneng+620a+мультиметр" target="_blank" class="shop-btn wb" id="review6Wb">Wildberries</a>
+                     </div>
+                 </div>
+                 
+                 <h2 style="color: #667eea; margin: 30px 0 20px; text-align: center;" id="shopTitle">⚡ ГДЕ КУПИТЬ КОМПОНЕНТЫ ⚡</h2>
                 <div class="components-grid">
                     <div class="component-card"><div class="component-icon">🔹</div><h3>ESP8266 D1 Mini V2</h3><div class="shop-buttons"><a href="#" class="shop-btn wb">Wildberries</a><a href="#" class="shop-btn ozon">Ozon</a><a href="#" class="shop-btn aliexpress">AliExpress</a></div></div>
                     <div class="component-card"><div class="component-icon">🌡️</div><h3>Датчик DHT22</h3><div class="shop-buttons"><a href="#" class="shop-btn wb">Wildberries</a><a href="#" class="shop-btn ozon">Ozon</a><a href="#" class="shop-btn aliexpress">AliExpress</a></div></div>
@@ -1874,6 +2019,7 @@ void drawMatrix(const byte image[8]) {
                 badge: '2026',
                 mainTabProjects: '🔧 Проекты',
                 mainTabReviews: '📺 Обзоры + 🛒 Товары',
+                mainTabInstructions: '📖 Инструкции',
                 mainTabVideos: '📺 Видео',
                 projectTab1: '📋 1. Метеостанция',
                 projectTab2: '💡 2. RGB светодиод',
@@ -1894,13 +2040,11 @@ projectTab5: '📏 5. Измерение расстояния',
                 componentsTitle: '⚡ КОМПОНЕНТЫ МЕТЕОСТАНЦИИ ⚡',
                 comp1: 'ESP8266 D1 Mini V2',
                 comp1desc: 'NodeMcu Lua ESP-12 (CH340) Type-C',
-                comp2: 'Датчик DHT22',
-                comp2desc: 'Температура и влажность',
-                comp3: 'Резисторы 10кОм',
-                comp3desc: 'Для подтяжки данных',
-                comp4: 'Повербанк',
-                comp4desc: 'Для автономного питания',
-                codeTitle1: '📟 ПОЛНЫЙ КОД МЕТЕОСТАНЦИИ',
+comp2: 'Датчик DHT22',
+                 comp2desc: 'Температура и влажность',
+                 comp3: 'Повербанк',
+                 comp3desc: 'Для автономного питания',
+                 codeTitle1: '📟 ПОЛНЫЙ КОД МЕТЕОСТАНЦИИ',
                 greeting2: '🌈 RGB светодиод + ESP8266 (режим точки доступа)',
                 schemeTitle2: '🔌 СХЕМА ПОДКЛЮЧЕНИЯ RGB МОДУЛЯ KY-016 (HW-479)',
                 rgbPin1: 'GND → GND',
@@ -1929,35 +2073,49 @@ projectTab5: '📏 5. Измерение расстояния',
                 review1p1: '<strong>Описание:</strong> Удобный ножик с упором на лезвии — мелочь, а как выручает! Именно этой детали иногда не хватает в обычных канцелярских ножах. Работать стало комфортнее и безопаснее.',
                 review1p2: '<strong>Комплектация:</strong> В комплекте уже есть запасные лезвия, которые удобно хранить прямо в рукоятке — своего рода «багажник» всегда под рукой.',
                 review1p3: '<strong>Вердикт:</strong> Очень доволен покупкой, рекомендую для резки картона, бумаги, пластика и обоев. Лезвия меняются легко, держатся долго. Для дома, гаража или мастерской — мастхэв.',
-                review1Ozon: 'OZON',
-                review1Ali: 'AliExpress',
-                review2Title: '🛠️ Инструмент для удаления неровностей',
+review1Ozon: 'OZON',
+                 review1Ali: 'AliExpress',
+                 review1Wb: 'Wildberries',
+                 review2Title: '🛠️ Инструмент для удаления неровностей',
                 review2p1: '<strong>Описание:</strong> Универсальный инструмент, который пригодится в любом хозяйстве. Идеально подходит для резки металла (листовой, трубы, профили), пластика и сантехнических материалов. Справляется даже с толстым пластиком и алюминием.',
                 review2p2: '<strong>Особенности:</strong> Особенно удобен для подготовки деталей перед пайкой или сваркой — убирает заусенцы, выравнивает края, делает кромки аккуратными и безопасными. Заменяет сразу несколько инструментов в мастерской.',
                 review2p3: '<strong>Вердикт:</strong> Компактный, лёгкий, всегда под рукой. Для самодельщика, электрика, сантехника — просто незаменимая вещь. Качество сборки отличное, лезвия держат заточку долго. Рекомендую всем, кто любит мастерить!',
-                review2Ozon: 'OZON',
-                review3Title: '🔥 Турбозажигалка',
+review2Ozon: 'OZON',
+                 review2Ali: 'AliExpress',
+                 review2Wb: 'Wildberries',
+                 review3Title: '🔥 Турбозажигалка',
                 review3p1: '<strong>Описание:</strong> Мощная турбозажигалка с ветрозащитой — настоящая находка для радиолюбителя и мастера. Отлично подходит для усадки термоусадочных трубок при пайке проводов, обжигания оплётки, удаления заусенцев на пластике.',
                 review3p2: '<strong>Преимущества:</strong> Благодаря турбонаддуву пламя не гаснет на ветру, горит стабильно и горячо (до 1300°C). Можно регулировать интенсивность — от деликатного прогрева до мощного факела. Идеально для работы на улице или в продуваемых помещениях.',
                 review3p3: '<strong>Хозяйственное применение:</strong> Многоразовая, заправляется обычным газом для зажигалок. В хозяйстве пригодится не только для электроники, но и для розжига мангала, кулинарных работ (карамелизация), подпаливания ниток и многого другого.',
                 review3p4: '<strong>Вердикт:</strong> Компактная, стильная, удобно лежит в руке. Очень доволен покупкой! Рекомендую для пайки и дома, и в поездках.',
-                review3Ozon: 'OZON',
-                review3Ali: 'AliExpress',
-                review4Title: '🖋️ Паяльник FMCHIP FM03',
+review3Ozon: 'OZON',
+                 review3Ali: 'AliExpress',
+                 review3Wb: 'Wildberries',
+                 review4Title: '🖋️ Паяльник FMCHIP FM03',
                 review4p1: '<strong>Описание:</strong> Очень дешёвый, но при этом современный цифровой паяльник с качественным жалом. Отлично реагирует на отвод тепла и мгновенно задирает мощность, чтобы температура не падала. С таким паяльником работать одно удовольствие — никаких провалов температуры на массивных контактах.',
                 review4p2: '<strong>Питание:</strong> Потребляет всего 20 ватт, поэтому его можно спокойно питать от повербанка (через USB). Это делает паяльник идеальным для выездных работ или когда розетка далеко.',
                 review4p3: '<strong>Аксессуары:</strong> 🔋 Всё для автономной пайки: повербанк (ссылка в блоке выше), кейс для паяльника (чтобы носить с собой без риска повредить), специальный провод (подходит для всех паяльников этого типа).',
                 review4p4: '<strong>Вердикт:</strong> Очень доволен покупкой — рекомендую и паяльник, и весь комплект для автономной работы! Отличный вариант для начинающих и продвинутых радиолюбителей.',
-                review4Ozon: 'OZON (паяльник)',
-                review5Title: '🚀 M5 Stick C Plus 2',
+review4Ozon: 'OZON (паяльник)',
+                 review4Ali: 'AliExpress',
+                 review4Wb: 'Wildberries',
+                 review5Title: '🚀 M5 Stick C Plus 2',
                 review5p1: '<strong>Описание:</strong> Потрясающий подарок! Этот маленький «умный брелок» — полноценный ESP32-компьютер с цветным экраном, аккумулятором и кучей датчиков. Идеален для экспериментов: мониторинг, управление умным домом, носимые гаджеты и даже ретро-игры.',
                 review5p2: '<strong>Характеристики:</strong> Встроенный гироскоп, ИК-передатчик, микрофон и кнопки управления. Работает с Arduino IDE, MicroPython и Blockly. Программируется через USB-C, можно менять прошивки и загружать свои проекты.',
                 review5p3: '<strong>Что внутри:</strong> ESP32-PICO-V3-02, 4MB Flash, 520KB RAM, 1.14″ LCD 135x240, вибромотор, RGB LED, 120mAh батареи. Время работы до 2 часов, заряжается от любого повербанка.',
                 review5p4: '<strong>Идеи для проектов:</strong> Можно сделать портативную метеостанцию, трекер активности, пульт для ПК, умную розетку, брелок для дома и даже простые игры.',
                 review5p5: '<strong>Вердикт:</strong> Для самодельщика и программиста — идеальный гаджет. Компактный, функциональный, с отличной поддержкой сообщества. Рекомендую!',
-                review5Wb: 'Wildberries',
-                review5Ali: 'AliExpress',
-                shopTitle: '⚡ ГДЕ КУПИТЬ КОМПОНЕНТЫ ⚡',
+review5Wb: 'Wildberries',
+                 review5Ali: 'AliExpress',
+                 review5Ozon: 'OZON',
+                 review6Title: '🔌 Мультиметр Aneng 620A',
+                 review6p1: '<strong>Описание:</strong> Надёжный цифровой мультиметр с точностью измерения до 0.01V/0.1мА. Отличен для проверки цепей питания, измерения напряжения, тока и сопротивления. Диапазон измерения: 6000 сч/ед, автодиапазон, подсветка экрана.',
+                 review6p2: '<strong>Особенности:</strong> Защита от перенапряжения, функция держания значения (Hold), индикатор заряда батареи, автоматическое выключение. Маленький размер — удобен в мастерской и на выезде.',
+                 review6p3: '<strong>Вердикт:</strong> Лучший выбор для радиолюбителя и мастера. Точный, прочный, долго работает от батарейки. Рекомендую всем, кто любит сам диагностировать схемы!',
+review6Ozon: 'OZON',
+                  review6Ali: 'AliExpress',
+                  review6Wb: 'Wildberries',
+                  shopTitle: '⚡ ГДЕ КУПИТЬ КОМПОНЕНТЫ ⚡',
                 videosGreeting: '📺 ПОСЛЕДНИЕ ВИДЕО С КАНАЛА',
                 videoPlaceholderText: 'Видео скоро появится. Пожалуйста, подождите!',
                 footer: 'АРДУИНО ПРОЕКТЫ И ПАЯЛЬНИКИ © 2026',
@@ -1972,6 +2130,7 @@ projectTab5: '📏 5. Измерение расстояния',
                 badge: '2026',
                 mainTabProjects: '🔧 Projects',
                 mainTabReviews: '📺 Reviews + 🛒 Shop',
+                mainTabInstructions: '📖 Instructions',
                 mainTabVideos: '📺 Videos',
                 projectTab1: '📋 1. Weather Station',
                 projectTab2: '💡 2. RGB LED',
@@ -2053,35 +2212,48 @@ projectTab5: '📏 5. Distance Measurement',
                 review1p1: '<strong>Description:</strong> Convenient knife with a blade stop - a small thing, but how it helps!',
                 review1p2: '<strong>What\'s included:</strong> Spare blades stored right in the handle.',
                 review1p3: '<strong>Verdict:</strong> Very pleased with the purchase, I recommend it!',
-                review1Ozon: 'OZON',
-                review1Ali: 'AliExpress',
-                review2Title: '🛠️ Deburring tool',
+review1Ozon: 'OZON',
+                 review1Ali: 'AliExpress',
+                 review1Wb: 'Wildberries',
+                 review2Title: '🛠️ Deburring tool',
                 review2p1: '<strong>Description:</strong> A universal tool for cutting metal, plastic and plumbing materials.',
                 review2p2: '<strong>Features:</strong> Removes burrs, evens edges, makes edges neat and safe.',
                 review2p3: '<strong>Verdict:</strong> Compact, lightweight, always at hand. Highly recommended!',
-                review2Ozon: 'OZON',
-                review3Title: '🔥 Turbo lighter',
+review2Ozon: 'OZON',
+                 review2Wb: 'Wildberries',
+                 review3Title: '🔥 Turbo lighter',
                 review3p1: '<strong>Description:</strong> Powerful turbo lighter with wind protection.',
                 review3p2: '<strong>Advantages:</strong> The flame does not go out in the wind, burns steadily and hot.',
                 review3p3: '<strong>Use cases:</strong> Refillable, great for electronics, lighting fires.',
                 review3p4: '<strong>Verdict:</strong> Compact, stylish, comfortable in the hand.',
-                review3Ozon: 'OZON',
-                review3Ali: 'AliExpress',
-                review4Title: '🖋️ FMCHIP FM03 Soldering Iron',
+review3Ozon: 'OZON',
+                 review3Ali: 'AliExpress',
+                 review3Wb: 'Wildberries',
+                 review4Title: '🖋️ FMCHIP FM03 Soldering Iron',
                 review4p1: '<strong>Description:</strong> Very cheap, but modern digital soldering iron.',
                 review4p2: '<strong>Power:</strong> Consumes only 20 watts, can be powered from a power bank.',
                 review4p3: '<strong>Accessories:</strong> 🔋 Everything for autonomous soldering.',
                 review4p4: '<strong>Verdict:</strong> Very pleased with the purchase - I recommend it!',
-                review4Ozon: 'OZON (soldering iron)',
-                review5Title: '🚀 M5 Stick C Plus 2',
+review4Ozon: 'OZON (soldering iron)',
+                 review4Ali: 'AliExpress',
+                 review4Wb: 'Wildberries',
+                 review5Title: '🚀 M5 Stick C Plus 2',
                 review5p1: '<strong>Description:</strong> Amazing gift! Full-fledged ESP32 computer.',
                 review5p2: '<strong>Specs:</strong> Built-in gyroscope, IR transmitter, microphone.',
                 review5p3: '<strong>Inside:</strong> ESP32-PICO-V3-02, 4MB Flash, 520KB RAM.',
                 review5p4: '<strong>Project ideas:</strong> Portable weather station, activity tracker, PC remote.',
                 review5p5: '<strong>Verdict:</strong> For a DIYer and programmer - an ideal gadget.',
-                review5Wb: 'Wildberries',
-                review5Ali: 'AliExpress',
-                shopTitle: '⚡ WHERE TO BUY COMPONENTS ⚡',
+review5Wb: 'Wildberries',
+                  review5Ali: 'AliExpress',
+                  review5Ozon: 'OZON',
+                  review6Title: '🔌 Aneng 620A Multimeter',
+                 review6p1: '<strong>Description:</strong> Reliable digital multimeter with measurement accuracy up to 0.01V/0.1mA. Great for checking power circuits, measuring voltage, current and resistance. Measurement range: 6000 counts, autoranging, backlit screen.',
+                 review6p2: '<strong>Features:</strong> Overvoltage protection, hold value function, battery charge indicator, auto-off. Compact size - convenient in the workshop and on the go.',
+                 review6p3: '<strong>Verdict:</strong> Best choice for radio enthusiast and craftsman. Accurate, durable, long battery life. Recommended for everyone who likes to diagnose circuits themselves!',
+review6Ozon: 'OZON',
+                  review6Ali: 'AliExpress',
+                  review6Wb: 'Wildberries',
+                  shopTitle: '⚡ WHERE TO BUY COMPONENTS ⚡',
                 videosGreeting: '📺 LATEST VIDEOS FROM THE CHANNEL',
                 videoPlaceholderText: 'Video will appear soon. Please wait!',
                 footer: 'ARDUINO PROJECTS AND SOLDERING © 2026',
@@ -2105,6 +2277,7 @@ projectTab5: '📏 5. Distance Measurement',
             document.getElementById('badge').textContent = t.badge;
             document.getElementById('mainTabProjects').textContent = t.mainTabProjects;
             document.getElementById('mainTabReviews').textContent = t.mainTabReviews;
+            document.getElementById('mainTabInstructions').textContent = t.mainTabInstructions;
             document.getElementById('mainTabVideos').textContent = t.mainTabVideos;
             document.getElementById('projectTab1').textContent = t.projectTab1;
             document.getElementById('projectTab2').textContent = t.projectTab2;
@@ -2184,35 +2357,49 @@ document.getElementById('codeTitle5').textContent = t.codeTitle5;
             document.getElementById('review1p1').innerHTML = t.review1p1;
             document.getElementById('review1p2').innerHTML = t.review1p2;
             document.getElementById('review1p3').innerHTML = t.review1p3;
-            document.getElementById('review1Ozon').textContent = t.review1Ozon;
-            document.getElementById('review1Ali').textContent = t.review1Ali;
-            document.getElementById('review2Title').textContent = t.review2Title;
+document.getElementById('review1Ozon').textContent = t.review1Ozon;
+             document.getElementById('review1Ali').textContent = t.review1Ali;
+             document.getElementById('review1Wb').textContent = t.review1Wb;
+             document.getElementById('review2Title').textContent = t.review2Title;
             document.getElementById('review2p1').innerHTML = t.review2p1;
             document.getElementById('review2p2').innerHTML = t.review2p2;
             document.getElementById('review2p3').innerHTML = t.review2p3;
-            document.getElementById('review2Ozon').textContent = t.review2Ozon;
-            document.getElementById('review3Title').textContent = t.review3Title;
+document.getElementById('review2Ozon').textContent = t.review2Ozon;
+             document.getElementById('review2Ali').textContent = t.review2Ali;
+             document.getElementById('review2Wb').textContent = t.review2Wb;
+             document.getElementById('review3Title').textContent = t.review3Title;
             document.getElementById('review3p1').innerHTML = t.review3p1;
             document.getElementById('review3p2').innerHTML = t.review3p2;
             document.getElementById('review3p3').innerHTML = t.review3p3;
             document.getElementById('review3p4').innerHTML = t.review3p4;
-            document.getElementById('review3Ozon').textContent = t.review3Ozon;
-            document.getElementById('review3Ali').textContent = t.review3Ali;
-            document.getElementById('review4Title').textContent = t.review4Title;
+document.getElementById('review3Ozon').textContent = t.review3Ozon;
+             document.getElementById('review3Ali').textContent = t.review3Ali;
+             document.getElementById('review3Wb').textContent = t.review3Wb;
+             document.getElementById('review4Title').textContent = t.review4Title;
             document.getElementById('review4p1').innerHTML = t.review4p1;
             document.getElementById('review4p2').innerHTML = t.review4p2;
             document.getElementById('review4p3').innerHTML = t.review4p3;
             document.getElementById('review4p4').innerHTML = t.review4p4;
-            document.getElementById('review4Ozon').textContent = t.review4Ozon;
-            document.getElementById('review5Title').textContent = t.review5Title;
+document.getElementById('review4Ozon').textContent = t.review4Ozon;
+             document.getElementById('review4Ali').textContent = t.review4Ali;
+             document.getElementById('review4Wb').textContent = t.review4Wb;
+             document.getElementById('review5Title').textContent = t.review5Title;
             document.getElementById('review5p1').innerHTML = t.review5p1;
             document.getElementById('review5p2').innerHTML = t.review5p2;
             document.getElementById('review5p3').innerHTML = t.review5p3;
             document.getElementById('review5p4').innerHTML = t.review5p4;
             document.getElementById('review5p5').innerHTML = t.review5p5;
-            document.getElementById('review5Wb').textContent = t.review5Wb;
-            document.getElementById('review5Ali').textContent = t.review5Ali;
-            document.getElementById('shopTitle').textContent = t.shopTitle;
+document.getElementById('review5Wb').textContent = t.review5Wb;
+             document.getElementById('review5Ali').textContent = t.review5Ali;
+             document.getElementById('review5Ozon').textContent = t.review5Ozon;
+             document.getElementById('review6Title').textContent = t.review6Title;
+             document.getElementById('review6p1').innerHTML = t.review6p1;
+             document.getElementById('review6p2').innerHTML = t.review6p2;
+             document.getElementById('review6p3').innerHTML = t.review6p3;
+document.getElementById('review6Ozon').textContent = t.review6Ozon;
+             document.getElementById('review6Ali').textContent = t.review6Ali;
+             document.getElementById('review6Wb').textContent = t.review6Wb;
+             document.getElementById('shopTitle').textContent = t.shopTitle;
             document.getElementById('videosGreeting').textContent = t.videosGreeting;
             document.getElementById('videoPlaceholderText').textContent = t.videoPlaceholderText;
             document.getElementById('footerText').textContent = t.footer;
@@ -2221,6 +2408,7 @@ document.getElementById('copyBtn2').innerHTML = t.copyBtn;
 document.getElementById('copyBtn3').innerHTML = t.copyBtn;
 document.getElementById('copyBtn4').innerHTML = t.copyBtn;
 document.getElementById('copyBtn5').innerHTML = t.copyBtn;
+document.getElementById('copyBtn6').innerHTML = t.copyBtn;
         }
         
         function toggleTheme() {
@@ -2263,45 +2451,28 @@ document.getElementById('copyBtn5').innerHTML = t.copyBtn;
             }, 2000);
         }
         
-        function openMainTab(tabId) {
-            document.querySelectorAll('.main-tab-content').forEach(tab => tab.classList.remove('active'));
-            document.querySelectorAll('.main-tab-btn').forEach(btn => btn.classList.remove('active'));
-            document.getElementById(tabId).classList.add('active');
-            event.target.classList.add('active');
-            localStorage.setItem('mainTab', tabId);
-        }
+function openMainTab(tabId) {
+             document.querySelectorAll('.main-tab-content').forEach(tab => tab.classList.remove('active'));
+             document.querySelectorAll('.main-tab-btn').forEach(btn => btn.classList.remove('active'));
+             document.getElementById(tabId).classList.add('active');
+             event.target.classList.add('active');
+         }
         
-        function openProjectTab(tabId) {
-            document.querySelectorAll('.project-content').forEach(tab => tab.classList.remove('active'));
-            document.querySelectorAll('.project-tab-btn').forEach(btn => btn.classList.remove('active'));
-            document.getElementById(tabId).classList.add('active');
-            const buttons = document.querySelectorAll('.project-tab-btn');
-            buttons.forEach(btn => {
-                if (btn.getAttribute('onclick') && btn.getAttribute('onclick').includes(tabId)) {
-                    btn.classList.add('active');
-                }
-            });
-            localStorage.setItem('projectTab', tabId);
-        }
+function openProjectTab(tabId) {
+             document.querySelectorAll('.project-content').forEach(tab => tab.classList.remove('active'));
+             document.querySelectorAll('.project-tab-btn').forEach(btn => btn.classList.remove('active'));
+             document.getElementById(tabId).classList.add('active');
+             const buttons = document.querySelectorAll('.project-tab-btn');
+             buttons.forEach(btn => {
+                 if (btn.getAttribute('onclick') && btn.getAttribute('onclick').includes(tabId)) {
+                     btn.classList.add('active');
+                 }
+             });
+         }
         
-        const savedMainTab = localStorage.getItem('mainTab');
-        const savedProjectTab = localStorage.getItem('projectTab');
-        const savedTheme = localStorage.getItem('theme');
-        const savedFontSize = localStorage.getItem('fontSize');
-        const savedLang = localStorage.getItem('language');
-        
-        if (savedMainTab) {
-            document.querySelectorAll('.main-tab-content').forEach(tab => tab.classList.remove('active'));
-            document.querySelectorAll('.main-tab-btn').forEach(btn => btn.classList.remove('active'));
-            document.getElementById(savedMainTab).classList.add('active');
-            document.querySelector(`[onclick="openMainTab('${savedMainTab}')"]`).classList.add('active');
-        }
-        if (savedProjectTab && savedMainTab === 'projects') {
-            document.querySelectorAll('.project-content').forEach(tab => tab.classList.remove('active'));
-            document.querySelectorAll('.project-tab-btn').forEach(btn => btn.classList.remove('active'));
-            document.getElementById(savedProjectTab).classList.add('active');
-            document.querySelector(`[onclick="openProjectTab('${savedProjectTab}')"]`).classList.add('active');
-        }
+const savedTheme = localStorage.getItem('theme');
+         const savedFontSize = localStorage.getItem('fontSize');
+         const savedLang = localStorage.getItem('language');
         if (savedTheme === 'dark') {
             document.body.classList.add('dark-theme');
             document.getElementById('themeBtn').textContent = '☀️';
