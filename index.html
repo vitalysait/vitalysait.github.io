@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ардуино проекты и паяльники</title>
+    <title id="pageTitle">Ардуино проекты и паяльники</title>
     
     <!-- Яндекс.Метрика -->
     <script type="text/javascript" >
@@ -927,7 +927,7 @@
         </div>
     </div>
     
-    <div class="copy-notification" id="copyNotification">📋 Скопировано!</div>
+    <div class="copy-notification" id="copyNotification">📋 <span id="copyNotificationText">Скопировано!</span></div>
     
     <div class="container">
         <div class="tg-top-banner">
@@ -959,6 +959,7 @@
             
             <!-- СОДЕРЖИМОЕ ВКЛАДКИ ИНСТРУКЦИИ -->
             <div id="instructions" class="main-tab-content">
+                <div id="instructionsContent">
                 <!-- Инструкция 1: Arduino IDE -->
                 <div class="story">
                     <h2>📖 Начало работы с Arduino IDE</h2>
@@ -1081,11 +1082,12 @@
                         <li>📝 <a href="https://docs.arduino.cc/language-reference/" target="_blank" style="color: #667eea; font-weight: bold;">Справочник Arduino (язык программирования)</a></li>
                     </ul>
                 </div>
+                </div>
             </div>
             
             <!-- РЕКЛАМНЫЙ БЛОК CITRUS -->
             <div class="volna-ad-block">
-                <div class="volna-banner">
+                <div id="citrusAdContent" class="volna-banner">
                     <div class="volna-content">
                         <div class="volna-title">🍋 CITRUS</div>
                         <div class="volna-tagline">Игровая платформа. Легко. Быстро. Эффективно.</div>
@@ -1266,7 +1268,7 @@ void loop() {
                         </div>
                     </div>
                     <h2 style="color: #667eea; margin: 30px 0 20px; text-align: center;" id="componentsTitle2">⚡ КОМПОНЕНТЫ ДЛЯ ПРОЕКТА ⚡</h2>
-                    <div class="components-grid">
+                    <div id="project2Components" class="components-grid">
                         <div class="component-card"><div class="component-icon">🔹</div><h3>ESP8266 D1 Mini V2</h3><p>NodeMcu Lua ESP-12 (CH340) Type-C</p><div class="shop-buttons"><a href="https://www.wildberries.ru/catalog/0/search.aspx?search=esp8266+d1+mini+v2" target="_blank" class="shop-btn wb">Wildberries</a><a href="https://www.ozon.ru/search/?text=esp8266+d1+mini+v2" target="_blank" class="shop-btn ozon">Ozon</a><a href="https://aliexpress.ru/wholesale?SearchText=esp8266+d1+mini+v2" target="_blank" class="shop-btn aliexpress">AliExpress</a></div></div>
                         <div class="component-card"><div class="component-icon">🌈</div><h3>RGB модуль KY-016 (HW-479)</h3><p>Светодиодный модуль для Arduino</p><div class="shop-buttons"><a href="https://www.wildberries.ru/catalog/0/search.aspx?search=ky-016+arduino" target="_blank" class="shop-btn wb">Wildberries</a><a href="https://www.ozon.ru/search/?text=ky-016+arduino" target="_blank" class="shop-btn ozon">Ozon</a><a href="https://aliexpress.ru/wholesale?SearchText=ky-016" target="_blank" class="shop-btn aliexpress">AliExpress</a></div></div>
                         <div class="component-card"><div class="component-icon">📦</div><h3>Коробка распределительная</h3><p>65x65x50 мм, IP54, распаячная</p><div class="shop-buttons"><a href="https://www.wildberries.ru/catalog/0/search.aspx?search=коробка+распределительная+65x65" target="_blank" class="shop-btn wb">Wildberries</a><a href="https://www.ozon.ru/search/?text=коробка+распределительная+65x65" target="_blank" class="shop-btn ozon">Ozon</a><a href="https://aliexpress.ru/wholesale?SearchText=junction+box+65x65" target="_blank" class="shop-btn aliexpress">AliExpress</a></div></div>
@@ -1420,10 +1422,10 @@ void loop() {
                             <div class="scheme-item"><span>🟡</span><strong><span id="lcdPin3">SDA → A4</span></strong></div>
                             <div class="scheme-item"><span>🟢</span><strong><span id="lcdPin4">SCL → A5</span></strong></div>
                         </div>
-                        <p style="text-align: center; margin-top: 15px; color: #ff4757; font-weight: bold;">⚠️ Для работы нужна библиотека LiquidCrystal_I2C</p>
+                        <p style="text-align: center; margin-top: 15px; color: #ff4757; font-weight: bold;">⚠️ <span id="lcdLibWarning">Для работы нужна библиотека LiquidCrystal_I2C</span></p>
                     </div>
                     <h2 style="color: #667eea; margin: 30px 0 20px; text-align: center;" id="componentsTitle4">⚡ КОМПОНЕНТЫ ДЛЯ ПРОЕКТА ⚡</h2>
-                    <div class="components-grid">
+                    <div id="project4Components" class="components-grid">
                         <div class="component-card"><div class="component-icon">🔧</div><h3>Arduino Uno R3</h3><p>Оригинальный или совместимый</p><div class="shop-buttons"><a href="https://www.wildberries.ru/catalog/0/search.aspx?search=arduino+uno" target="_blank" class="shop-btn wb">Wildberries</a><a href="https://www.ozon.ru/search/?text=arduino+uno" target="_blank" class="shop-btn ozon">Ozon</a><a href="https://aliexpress.ru/wholesale?SearchText=arduino+uno" target="_blank" class="shop-btn aliexpress">AliExpress</a></div></div>
                         <div class="component-card"><div class="component-icon">📟</div><h3>LCD1602 I2C</h3><p>16x2 символов, синий экран</p><div class="shop-buttons"><a href="https://www.wildberries.ru/catalog/0/search.aspx?search=lcd1602+i2c" target="_blank" class="shop-btn wb">Wildberries</a><a href="https://www.ozon.ru/search/?text=lcd1602+i2c" target="_blank" class="shop-btn ozon">Ozon</a><a href="https://aliexpress.ru/wholesale?SearchText=lcd1602+i2c" target="_blank" class="shop-btn aliexpress">AliExpress</a></div></div>
                         <div class="component-card"><div class="component-icon">🔌</div><h3>Провода DuPont</h3><p>Папа-папа, 4 штуки</p><div class="shop-buttons"><a href="https://www.wildberries.ru/catalog/0/search.aspx?search=провода+dupont" target="_blank" class="shop-btn wb">Wildberries</a><a href="https://www.ozon.ru/search/?text=провода+dupont" target="_blank" class="shop-btn ozon">Ozon</a><a href="https://aliexpress.ru/wholesale?SearchText=dupont+cable" target="_blank" class="shop-btn aliexpress">AliExpress</a></div></div>
@@ -1487,18 +1489,18 @@ void loop() {}</pre>
                          <div class="scheme-item"><span>⚫</span><strong class="pin-gnd"><span id="hcSr04Gnd">GND HC-SR04 → GND</span></strong></div>
                          <div class="scheme-item"><span>🟡</span><strong><span id="hcSr04Trig">Trig HC-SR04 → Pin 9</span></strong></div>
                          <div class="scheme-item"><span>🔵</span><strong><span id="hcSr04Echo">Echo HC-SR04 → Pin 10</span></strong></div>
-                         <div class="scheme-item"><span>🟢</span><strong><span id="lcdVcc">VCC LCD1602 → 5V</span></strong></div>
-                         <div class="scheme-item"><span>⚫</span><strong class="pin-gnd"><span id="lcdGnd">GND LCD1602 → GND</span></strong></div>
-                         <div class="scheme-item"><span>🟡</span><strong><span id="lcdSda">SDA LCD1602 → A4</span></strong></div>
-                         <div class="scheme-item"><span>🟢</span><strong><span id="lcdScl">SCL LCD1602 → A5</span></strong></div>
+                           <div class="scheme-item"><span>🟢</span><strong><span id="lcd6Vcc">VCC LCD1602 → 5V</span></strong></div>
+                           <div class="scheme-item"><span>⚫</span><strong class="pin-gnd"><span id="lcd6Gnd">GND LCD1602 → GND</span></strong></div>
+                           <div class="scheme-item"><span>🟡</span><strong><span id="lcd6Sda">SDA LCD1602 → A4</span></strong></div>
+                           <div class="scheme-item"><span>🟢</span><strong><span id="lcd6Scl">SCL LCD1602 → A5</span></strong></div>
                      </div>
                  </div>
                  <h2 style="color: #667eea; margin: 30px 0 20px; text-align: center;" id="componentsTitle5">⚡ КОМПОНЕНТЫ ДЛЯ ПРОЕКТА ⚡</h2>
                  <div class="components-grid">
-                     <div class="component-card"><div class="component-icon">🔧</div><h3>Arduino Uno R3</h3><p>Оригинальный или совместимый</p><div class="shop-buttons"><a href="https://www.wildberries.ru/catalog/0/search.aspx?search=arduino+uno" target="_blank" class="shop-btn wb">Wildberries</a><a href="https://www.ozon.ru/search/?text=arduino+uno" target="_blank" class="shop-btn ozon">Ozon</a><a href="https://aliexpress.ru/wholesale?SearchText=arduino+uno" target="_blank" class="shop-btn aliexpress">AliExpress</a></div></div>
-                     <div class="component-card"><div class="component-icon">📡</div><h3>HC-SR04 Ультразвуковой датчик расстояния</h3><p>Измеряет расстояние от 2см до 4м</p><div class="shop-buttons"><a href="https://www.wildberries.ru/catalog/0/search.aspx?search=hc-sr04" target="_blank" class="shop-btn wb">Wildberries</a><a href="https://www.ozon.ru/search/?text=hc-sr04" target="_blank" class="shop-btn ozon">Ozon</a><a href="https://aliexpress.ru/wholesale?SearchText=hc+sr04+ultrasonic" target="_blank" class="shop-btn aliexpress">AliExpress</a></div></div>
-                     <div class="component-card"><div class="component-icon">📟</div><h3>LCD1602 I2C</h3><p>16x2 символов, синий экран</p><div class="shop-buttons"><a href="https://www.wildberries.ru/catalog/0/search.aspx?search=lcd1602+i2c" target="_blank" class="shop-btn wb">Wildberries</a><a href="https://www.ozon.ru/search/?text=lcd1602+i2c" target="_blank" class="shop-btn ozon">Ozon</a><a href="https://aliexpress.ru/wholesale?SearchText=lcd1602+i2c" target="_blank" class="shop-btn aliexpress">AliExpress</a></div></div>
-                     <div class="component-card"><div class="component-icon">🔌</div><h3>Провода DuPont</h3><p>Мама-папа, 6 штук для подключения</p><div class="shop-buttons"><a href="https://www.wildberries.ru/catalog/0/search.aspx?search=провода+dupont" target="_blank" class="shop-btn wb">Wildberries</a><a href="https://www.ozon.ru/search/?text=провода+dupont" target="_blank" class="shop-btn ozon">Ozon</a><a href="https://aliexpress.ru/wholesale?SearchText=dupont+cable" target="_blank" class="shop-btn aliexpress">AliExpress</a></div></div>
+                      <div class="component-card"><div class="component-icon">🔧</div><h3 id="comp5">Arduino Uno R3</h3><p id="comp5desc">Оригинальный или совместимый</p><div class="shop-buttons"><a href="https://www.wildberries.ru/catalog/0/search.aspx?search=arduino+uno" target="_blank" class="shop-btn wb">Wildberries</a><a href="https://www.ozon.ru/search/?text=arduino+uno" target="_blank" class="shop-btn ozon">Ozon</a><a href="https://aliexpress.ru/wholesale?SearchText=arduino+uno" target="_blank" class="shop-btn aliexpress">AliExpress</a></div></div>
+                      <div class="component-card"><div class="component-icon">📡</div><h3 id="comp6">HC-SR04 Ультразвуковой датчик расстояния</h3><p id="comp6desc">Измеряет расстояние от 2см до 4м</p><div class="shop-buttons"><a href="https://www.wildberries.ru/catalog/0/search.aspx?search=hc-sr04" target="_blank" class="shop-btn wb">Wildberries</a><a href="https://www.ozon.ru/search/?text=hc-sr04" target="_blank" class="shop-btn ozon">Ozon</a><a href="https://aliexpress.ru/wholesale?SearchText=hc+sr04+ultrasonic" target="_blank" class="shop-btn aliexpress">AliExpress</a></div></div>
+                      <div class="component-card"><div class="component-icon">📟</div><h3 id="comp7">LCD1602 I2C</h3><p id="comp7desc">16x2 символов, синий экран</p><div class="shop-buttons"><a href="https://www.wildberries.ru/catalog/0/search.aspx?search=lcd1602+i2c" target="_blank" class="shop-btn wb">Wildberries</a><a href="https://www.ozon.ru/search/?text=lcd1602+i2c" target="_blank" class="shop-btn ozon">Ozon</a><a href="https://aliexpress.ru/wholesale?SearchText=lcd1602+i2c" target="_blank" class="shop-btn aliexpress">AliExpress</a></div></div>
+                      <div class="component-card"><div class="component-icon">🔌</div><h3 id="comp8">Провода DuPont</h3><p id="comp8desc">Мама-папа, 6 штук для подключения</p><div class="shop-buttons"><a href="https://www.wildberries.ru/catalog/0/search.aspx?search=провода+dupont" target="_blank" class="shop-btn wb">Wildberries</a><a href="https://www.ozon.ru/search/?text=провода+dupont" target="_blank" class="shop-btn ozon">Ozon</a><a href="https://aliexpress.ru/wholesale?SearchText=dupont+cable" target="_blank" class="shop-btn aliexpress">AliExpress</a></div></div>
                  </div>
                  <div class="code-section">
                      <div class="code-header"><h2 id="codeTitle5">📟 КОД: ИЗМЕРЕНИЕ РАССТОЯНИЯ HC-SR04 НА LCD</h2><button class="copy-btn" onclick="copyCode('code5')" id="copyBtn5">📋 COPY</button></div>
@@ -1606,15 +1608,15 @@ void loop() {
                       </div>
                   </div>
                   <h2 style="color: #667eea; margin: 30px 0 20px; text-align: center;" id="componentsTitle6">⚡ КОМПОНЕНТЫ ДЛЯ ПРОЕКТА ⚡</h2>
-                  <div class="components-grid">
-                      <div class="component-card"><div class="component-icon">🔧</div><h3>Arduino Nano</h3><p>Компактная версия Arduino Uno</p><div class="shop-buttons"><a href="https://www.wildberries.ru/catalog/0/search.aspx?search=arduino+nano" target="_blank" class="shop-btn wb">Wildberries</a><a href="https://www.ozon.ru/search/?text=arduino+nano" target="_blank" class="shop-btn ozon">Ozon</a><a href="https://aliexpress.ru/wholesale?SearchText=arduino+nano" target="_blank" class="shop-btn aliexpress">AliExpress</a></div></div>
-                      <div class="component-card"><div class="component-icon">⌨️</div><h3>Мембранная клавиатура 4x4</h3><p>16 кнопок для ввода кодов</p><div class="shop-buttons"><a href="https://www.wildberries.ru/catalog/0/search.aspx?search=клавиатура+4x4" target="_blank" class="shop-btn wb">Wildberries</a><a href="https://www.ozon.ru/search/?text=клавиатура+4x4" target="_blank" class="shop-btn ozon">Ozon</a><a href="https://aliexpress.ru/wholesale?SearchText=4x4+membrane+keypad" target="_blank" class="shop-btn aliexpress">AliExpress</a></div></div>
-                      <div class="component-card"><div class="component-icon">📟</div><h3>LCD1602 I2C</h3><p>16x2 символов, синий экран</p><div class="shop-buttons"><a href="https://www.wildberries.ru/catalog/0/search.aspx?search=lcd1602+i2c" target="_blank" class="shop-btn wb">Wildberries</a><a href="https://www.ozon.ru/search/?text=lcd1602+i2c" target="_blank" class="shop-btn ozon">Ozon</a><a href="https://aliexpress.ru/wholesale?SearchText=lcd1602+i2c" target="_blank" class="shop-btn aliexpress">AliExpress</a></div></div>
-                      <div class="component-card"><div class="component-icon">🔊</div><h3>Пьезоизлучатель (зуммер)</h3><p>Для звуковых сигналов</p><div class="shop-buttons"><a href="https://www.wildberries.ru/catalog/0/search.aspx?search=зуммер+пьезо" target="_blank" class="shop-btn wb">Wildberries</a><a href="https://www.ozon.ru/search/?text=зуммер+пьезо" target="_blank" class="shop-btn ozon">Ozon</a><a href="https://aliexpress.ru/wholesale?SearchText=piezo+buzzer" target="_blank" class="shop-btn aliexpress">AliExpress</a></div></div>
-                       <div class="component-card"><div class="component-icon">🔴</div><h3>Красный светодиод</h3><p>5 мм, для индикации статуса</p><div class="shop-buttons"><a href="https://www.wildberries.ru/catalog/0/search.aspx?search=светодиод+красный+5мм" target="_blank" class="shop-btn wb">Wildberries</a><a href="https://www.ozon.ru/search/?text=светодиод+красный+5мм" target="_blank" class="shop-btn ozon">Ozon</a><a href="https://aliexpress.ru/wholesale?SearchText=red+led+5mm" target="_blank" class="shop-btn aliexpress">AliExpress</a></div></div>
-                       <div class="component-card"><div class="component-icon">🔌</div><h3>Провода DuPont</h3><p>Разные типы, 20 штук</p><div class="shop-buttons"><a href="https://www.wildberries.ru/catalog/0/search.aspx?search=провода+dupont" target="_blank" class="shop-btn wb">Wildberries</a><a href="https://www.ozon.ru/search/?text=провода+dupont" target="_blank" class="shop-btn ozon">Ozon</a><a href="https://aliexpress.ru/wholesale?SearchText=dupont+cable" target="_blank" class="shop-btn aliexpress">AliExpress</a></div></div>
-                       <div class="component-card"><div class="component-icon">🔋</div><h3>Источник питания</h3><p>7-12V блок или батарейный отсек</p><div class="shop-buttons"><a href="https://www.wildberries.ru/catalog/0/search.aspx?search=блок+питания+12v" target="_blank" class="shop-btn wb">Wildberries</a><a href="https://www.ozon.ru/search/?text=блок+питания+12v" target="_blank" class="shop-btn ozon">Ozon</a><a href="https://aliexpress.ru/wholesale?SearchText=12v+power+supply" target="_blank" class="shop-btn aliexpress">AliExpress</a></div></div>
-                  </div>
+                   <div id="project6Components" class="components-grid">
+                       <div class="component-card"><div class="component-icon">🔧</div><h3>Arduino Nano</h3><p>Компактная версия Arduino Uno</p><div class="shop-buttons"><a href="https://www.wildberries.ru/catalog/0/search.aspx?search=arduino+nano" target="_blank" class="shop-btn wb">Wildberries</a><a href="https://www.ozon.ru/search/?text=arduino+nano" target="_blank" class="shop-btn ozon">Ozon</a><a href="https://aliexpress.ru/wholesale?SearchText=arduino+nano" target="_blank" class="shop-btn aliexpress">AliExpress</a></div></div>
+                       <div class="component-card"><div class="component-icon">⌨️</div><h3>Мембранная клавиатура 4x4</h3><p>16 кнопок для ввода кодов</p><div class="shop-buttons"><a href="https://www.wildberries.ru/catalog/0/search.aspx?search=клавиатура+4x4" target="_blank" class="shop-btn wb">Wildberries</a><a href="https://www.ozon.ru/search/?text=клавиатура+4x4" target="_blank" class="shop-btn ozon">Ozon</a><a href="https://aliexpress.ru/wholesale?SearchText=4x4+membrane+keypad" target="_blank" class="shop-btn aliexpress">AliExpress</a></div></div>
+                       <div class="component-card"><div class="component-icon">📟</div><h3>LCD1602 I2C</h3><p>16x2 символов, синий экран</p><div class="shop-buttons"><a href="https://www.wildberries.ru/catalog/0/search.aspx?search=lcd1602+i2c" target="_blank" class="shop-btn wb">Wildberries</a><a href="https://www.ozon.ru/search/?text=lcd1602+i2c" target="_blank" class="shop-btn ozon">Ozon</a><a href="https://aliexpress.ru/wholesale?SearchText=lcd1602+i2c" target="_blank" class="shop-btn aliexpress">AliExpress</a></div></div>
+                       <div class="component-card"><div class="component-icon">🔊</div><h3>Пьезоизлучатель (зуммер)</h3><p>Для звуковых сигналов</p><div class="shop-buttons"><a href="https://www.wildberries.ru/catalog/0/search.aspx?search=зуммер+пьезо" target="_blank" class="shop-btn wb">Wildberries</a><a href="https://www.ozon.ru/search/?text=зуммер+пьезо" target="_blank" class="shop-btn ozon">Ozon</a><a href="https://aliexpress.ru/wholesale?SearchText=piezo+buzzer" target="_blank" class="shop-btn aliexpress">AliExpress</a></div></div>
+                        <div class="component-card"><div class="component-icon">🔴</div><h3>Красный светодиод</h3><p>5 мм, для индикации статуса</p><div class="shop-buttons"><a href="https://www.wildberries.ru/catalog/0/search.aspx?search=светодиод+красный+5мм" target="_blank" class="shop-btn wb">Wildberries</a><a href="https://www.ozon.ru/search/?text=светодиод+красный+5мм" target="_blank" class="shop-btn ozon">Ozon</a><a href="https://aliexpress.ru/wholesale?SearchText=red+led+5mm" target="_blank" class="shop-btn aliexpress">AliExpress</a></div></div>
+                        <div class="component-card"><div class="component-icon">🔌</div><h3>Провода DuPont</h3><p>Разные типы, 20 штук</p><div class="shop-buttons"><a href="https://www.wildberries.ru/catalog/0/search.aspx?search=провода+dupont" target="_blank" class="shop-btn wb">Wildberries</a><a href="https://www.ozon.ru/search/?text=провода+dupont" target="_blank" class="shop-btn ozon">Ozon</a><a href="https://aliexpress.ru/wholesale?SearchText=dupont+cable" target="_blank" class="shop-btn aliexpress">AliExpress</a></div></div>
+                        <div class="component-card"><div class="component-icon">🔋</div><h3>Источник питания</h3><p>7-12V блок или батарейный отсек</p><div class="shop-buttons"><a href="https://www.wildberries.ru/catalog/0/search.aspx?search=блок+питания+12v" target="_blank" class="shop-btn wb">Wildberries</a><a href="https://www.ozon.ru/search/?text=блок+питания+12v" target="_blank" class="shop-btn ozon">Ozon</a><a href="https://aliexpress.ru/wholesale?SearchText=12v+power+supply" target="_blank" class="shop-btn aliexpress">AliExpress</a></div></div>
+                   </div>
                   <div style="height: 1px; background: rgba(255, 255, 255, 0.2); margin: 20px 0;"></div>
                   <div class="code-section">
                       <div class="code-header"><h2 id="codeTitle6">📟 КОД: БОМБА ИЗ КС2 С КЛАВИАТУРОЙ И LCD</h2><button class="copy-btn" onclick="copyCode('code6')" id="copyBtn6">📋 COPY</button></div>
@@ -1904,6 +1906,7 @@ void drawMatrix(const byte image[8]) {
 
               <!-- ВКЛАДКА ДАТЧИКИ (ГЛАВНАЯ) -->
               <div id="sensors" class="main-tab-content">
+                  <div id="sensorsContent">
                   <div class="greeting">🧪 Датчики — подключение и примеры</div>
                   <div class="story">
                       <p>Подборка популярных датчиков с проводкой, рекомендованными библиотеками и минимальными скетчами.</p>
@@ -1990,8 +1993,9 @@ int16_t ax=Wire.read()<<8|Wire.read(); Serial.println(ax); delay(200); }</pre></
 
                       <p>Если хотите, я могу добавить пример подключения (с картинкой), полные скетчи и ссылки на библиотеки для каждого датчика по отдельности. Напишите, какие датчики приоритетнее.</p>
                   </div>
+                  </div>
               </div>
-
+              
               <div id="reviews" class="main-tab-content">
                 <div class="greeting" id="reviewsGreeting">📺 ОБЗОРЫ И 🛒 ТОВАРЫ</div>
                 
@@ -2074,9 +2078,9 @@ int16_t ax=Wire.read()<<8|Wire.read(); Serial.println(ax); delay(200); }</pre></
                  <h2 style="color: #667eea; margin: 30px 0 20px; text-align: center;" id="shopTitle">⚡ ГДЕ КУПИТЬ КОМПОНЕНТЫ ⚡</h2>
                 <div class="components-grid">
                     <div class="component-card"><div class="component-icon">🔹</div><h3>ESP8266 D1 Mini V2</h3><div class="shop-buttons"><a href="#" class="shop-btn wb">Wildberries</a><a href="#" class="shop-btn ozon">Ozon</a><a href="#" class="shop-btn aliexpress">AliExpress</a></div></div>
-                    <div class="component-card"><div class="component-icon">🌡️</div><h3>Датчик DHT22</h3><div class="shop-buttons"><a href="#" class="shop-btn wb">Wildberries</a><a href="#" class="shop-btn ozon">Ozon</a><a href="#" class="shop-btn aliexpress">AliExpress</a></div></div>
-                    <div class="component-card"><div class="component-icon">🌈</div><h3>RGB модуль KY-016</h3><div class="shop-buttons"><a href="#" class="shop-btn wb">Wildberries</a><a href="#" class="shop-btn ozon">Ozon</a><a href="#" class="shop-btn aliexpress">AliExpress</a></div></div>
-                    <div class="component-card"><div class="component-icon">📦</div><h3>Коробка распределительная</h3><div class="shop-buttons"><a href="#" class="shop-btn wb">Wildberries</a><a href="#" class="shop-btn ozon">Ozon</a><a href="#" class="shop-btn aliexpress">AliExpress</a></div></div>
+                    <div class="component-card"><div class="component-icon">🌡️</div><h3 id="shopComp1">Датчик DHT22</h3><div class="shop-buttons"><a href="#" class="shop-btn wb">Wildberries</a><a href="#" class="shop-btn ozon">Ozon</a><a href="#" class="shop-btn aliexpress">AliExpress</a></div></div>
+                    <div class="component-card"><div class="component-icon">🌈</div><h3 id="shopComp2">RGB модуль KY-016</h3><div class="shop-buttons"><a href="#" class="shop-btn wb">Wildberries</a><a href="#" class="shop-btn ozon">Ozon</a><a href="#" class="shop-btn aliexpress">AliExpress</a></div></div>
+                    <div class="component-card"><div class="component-icon">📦</div><h3 id="shopComp3">Коробка распределительная</h3><div class="shop-buttons"><a href="#" class="shop-btn wb">Wildberries</a><a href="#" class="shop-btn ozon">Ozon</a><a href="#" class="shop-btn aliexpress">AliExpress</a></div></div>
                 </div>
             </div>
             
@@ -2088,7 +2092,7 @@ int16_t ax=Wire.read()<<8|Wire.read(); Serial.println(ax); delay(200); }</pre></
                     <div class="video-placeholder"><span>⏳</span><p id="videoPlaceholderText">Видео скоро появится. Пожалуйста, подождите!</p></div>
                 </div>
                 <div style="text-align:center; margin:40px 0;">
-                    <a href="https://www.youtube.com/@ARDUINOESPPROJECT" target="_blank" style="display:inline-block; background:linear-gradient(135deg,#ff0000,#cc0000); color:white; padding:15px 40px; border-radius:50px; font-size:1.3em; font-weight:bold; text-decoration:none;">🔔 ПОДПИСАТЬСЯ НА КАНАЛ</a>
+                    <a href="https://www.youtube.com/@ARDUINOESPPROJECT" target="_blank" style="display:inline-block; background:linear-gradient(135deg,#ff0000,#cc0000); color:white; padding:15px 40px; border-radius:50px; font-size:1.3em; font-weight:bold; text-decoration:none;"><span id="subscribeBtnText">🔔 ПОДПИСАТЬСЯ НА КАНАЛ</span></a>
                 </div>
             </div>
         </div>
@@ -2104,6 +2108,7 @@ int16_t ax=Wire.read()<<8|Wire.read(); Serial.println(ax); delay(200); }</pre></
         const translations = {
             ru: {
                 langBtn: '🇬🇧 English',
+                pageTitle: 'Ардуино проекты и паяльники',
                 subscribeYoutube: 'ПОДПИШИСЬ: ARDUINO ESPPROJECT',
                 subscribeTelegram: 'ПОДПИШИСЬ: АРДУИНО ПРОЕКТЫ И ПАЯЛЬНИКИ',
                 mainTitle: '🔧 АРДУИНО ПРОЕКТЫ И ПАЯЛЬНИКИ 🔧',
@@ -2113,11 +2118,13 @@ int16_t ax=Wire.read()<<8|Wire.read(); Serial.println(ax); delay(200); }</pre></
                 mainTabReviews: '📺 Обзоры + 🛒 Товары',
                 mainTabInstructions: '📖 Инструкции',
                 mainTabVideos: '📺 Видео',
+                mainTabSensors: '🌡️ Датчики',
                 projectTab1: '📋 1. Метеостанция',
                 projectTab2: '💡 2. RGB светодиод',
                 projectTab3: '🔧 3. Arduino Uno/Nano',
                 projectTab4: '🔢 4. МЕМ SIX SEVEN',
 projectTab5: '📏 5. Измерение расстояния',
+projectTab6: '💣 6. БОМБА ИЗ КС2',
                 greeting1: '👋 ВСЕМ ПРИВЕТ!',
                 story1p1: '🔥 Как и обещал, расскажу про проект метеостанция. Взял ESP8266, потом DHT22. Решил сначала сделать сайт - сделал, мне не понравилось. Потом создал бота в Telegram, делал его 2 дня.',
                 story1p2: '🤖 Бот показывает температуру и влажность. Сделал его приватным. Прошил ESP, подключил к повербанку, взял коробку, вырезал отверстия, просунул датчик - и понеслась!',
@@ -2159,6 +2166,54 @@ comp2: 'Датчик DHT22',
                 lcdPin4: 'SCL → A5',
                 componentsTitle4: '⚡ КОМПОНЕНТЫ ДЛЯ ПРОЕКТА ⚡',
                 codeTitle4: '📟 КОД: БОЛЬШИЕ ЦИФРЫ 6 И 7 НА LCD',
+                lcdLibWarning: '⚠️ Для работы нужна библиотека LiquidCrystal_I2C',
+                greeting5: '📏 Измерение расстояния с помощью HC-SR04 и LCD 1602',
+                story5p1: '🔥 В этом проекте покажу как измерять расстояние с помощью ультразвукового датчика HC-SR04 и выводить результаты на LCD1602.',
+                story5p2: '📏 Датчик HC-SR04 испускает ультразвуковые волны и измеряет время возвращения эха, что позволяет рассчитать расстояние.',
+                highlight5: '✨ ОТЛИЧНО ПОДХОДИТ ДЛЯ РОБОТОТЕХНИКИ ✨',
+                signature5: 'АРДУИНО ПРОЕКТЫ И ПАЯЛЬНИКИ',
+                schemeTitle5: '🔌 СХЕМА ПОДКЛЮЧЕНИЯ HC-SR04 И LCD1602 К ARDUINO UNO',
+                hcSr04Vcc: 'VCC HC-SR04 → 5V',
+                hcSr04Gnd: 'GND HC-SR04 → GND',
+                hcSr04Trig: 'Trig HC-SR04 → Pin 9',
+                hcSr04Echo: 'Echo HC-SR04 → Pin 10',
+                lcdVcc: 'VCC LCD1602 → 5V',
+                lcdGnd: 'GND LCD1602 → GND',
+                lcdSda: 'SDA LCD1602 → A4',
+                lcdScl: 'SCL LCD1602 → A5',
+                componentsTitle5: '⚡ КОМПОНЕНТЫ ДЛЯ ПРОЕКТА ⚡',
+                comp5: 'Arduino Uno R3',
+                comp5desc: 'Оригинальный или совместимый',
+                comp6: 'HC-SR04 Ультразвуковой датчик расстояния',
+                comp6desc: 'Измеряет расстояние от 2см до 4м',
+                comp7: 'LCD1602 I2C',
+                comp7desc: '16x2 символов, синий экран',
+                comp8: 'Провода DuPont',
+                comp8desc: 'Мама-папа, 6 штук для подключения',
+                codeTitle5: '📟 КОД: ИЗМЕРЕНИЕ РАССТОЯНИЯ HC-SR04 НА LCD',
+                greeting6: '💣 БОМБА ИЗ КС2',
+                schemeTitle6: '🔌 СХЕМА ПОДКЛЮЧЕНИЯ КОМПОНЕНТОВ К ARDUINO NANO',
+                keyboardVcc: 'VCC Клавиатуры 4x4 → 5V',
+                keyboardGnd: 'GND Клавиатуры 4x4 → GND',
+                keyboardR1: 'R1 Клавиатуры → D7',
+                keyboardR2: 'R2 Клавиатуры → D6',
+                keyboardR3: 'R3 Клавиатуры → D5',
+                keyboardR4: 'R4 Клавиатуры → D4',
+                keyboardC1: 'C1 Клавиатуры → D3',
+                keyboardC2: 'C2 Клавиатуры → D2',
+                keyboardC3: 'C3 Клавиатуры → A0',
+                keyboardC4: 'C4 Клавиатуры → A1',
+                lcd6Vcc: 'VCC LCD1602 → 5V',
+                lcd6Gnd: 'GND LCD1602 → GND',
+                lcd6Sda: 'SDA LCD1602 → A4',
+                lcd6Scl: 'SCL LCD1602 → A5',
+                buzzerPlus: 'Плюс Зуммера → D12',
+                buzzerMinus: 'Минус Зуммера → GND',
+                ledPlus: 'Плюс Светодиода → D13',
+                ledMinus: 'Минус Светодиода → GND',
+                nanoVin: 'VIN Arduino Nano → 7-12V внешнее питание',
+                componentsTitle6: '⚡ КОМПОНЕНТЫ ДЛЯ ПРОЕКТА ⚡',
+                codeTitle6: '📟 КОД: БОМБА ИЗ КС2 С КЛАВИАТУРОЙ И LCD',
                 soonText: 'СКОРО...',
                 reviewsGreeting: '📺 ОБЗОРЫ И 🛒 ТОВАРЫ',
                 review1Title: '🔪 Нож WORKPRO',
@@ -2208,13 +2263,19 @@ review6Ozon: 'OZON',
                   review6Ali: 'AliExpress',
                   review6Wb: 'Wildberries',
                   shopTitle: '⚡ ГДЕ КУПИТЬ КОМПОНЕНТЫ ⚡',
+                  shopComp1: 'Датчик DHT22',
+                  shopComp2: 'RGB модуль KY-016',
+                  shopComp3: 'Коробка распределительная',
                 videosGreeting: '📺 ПОСЛЕДНИЕ ВИДЕО С КАНАЛА',
                 videoPlaceholderText: 'Видео скоро появится. Пожалуйста, подождите!',
+                subscribeBtnText: '🔔 ПОДПИСАТЬСЯ НА КАНАЛ',
+                copyNotificationText: 'Скопировано!',
                 footer: 'АРДУИНО ПРОЕКТЫ И ПАЯЛЬНИКИ © 2026',
                 copyBtn: '📋 COPY'
             },
             en: {
                 langBtn: '🇷🇺 Русский',
+                pageTitle: 'Arduino Projects and Soldering',
                 subscribeYoutube: 'SUBSCRIBE: ARDUINO ESPPROJECT',
                 subscribeTelegram: 'SUBSCRIBE: ARDUINO PROJECTS AND SOLDERING',
                 mainTitle: '🔧 ARDUINO PROJECTS AND SOLDERING 🔧',
@@ -2224,6 +2285,7 @@ review6Ozon: 'OZON',
                 mainTabReviews: '📺 Reviews + 🛒 Shop',
                 mainTabInstructions: '📖 Instructions',
                 mainTabVideos: '📺 Videos',
+                mainTabSensors: '🌡️ Sensors',
                 projectTab1: '📋 1. Weather Station',
                 projectTab2: '💡 2. RGB LED',
                 projectTab3: '🔧 3. Arduino Uno/Nano',
@@ -2253,8 +2315,31 @@ comp7: 'LCD1602 I2C',
 comp7desc: '16x2 characters, blue screen',
 comp8: 'DuPont Wires',
 comp8desc: 'Male-to-female, 6 pieces for connection',
-codeTitle5: '📟 FULL DISTANCE MEASUREMENT CODE',
-projectTab5: '📏 5. Distance Measurement',
+                codeTitle5: '📟 FULL DISTANCE MEASUREMENT CODE',
+                greeting6: '💣 CS2 BOMB',
+                schemeTitle6: '🔌 COMPONENT CONNECTION TO ARDUINO NANO',
+                keyboardVcc: 'VCC Keypad 4x4 → 5V',
+                keyboardGnd: 'GND Keypad 4x4 → GND',
+                keyboardR1: 'R1 Keypad → D7',
+                keyboardR2: 'R2 Keypad → D6',
+                keyboardR3: 'R3 Keypad → D5',
+                keyboardR4: 'R4 Keypad → D4',
+                keyboardC1: 'C1 Keypad → D3',
+                keyboardC2: 'C2 Keypad → D2',
+                keyboardC3: 'C3 Keypad → A0',
+                keyboardC4: 'C4 Keypad → A1',
+                lcd6Vcc: 'VCC LCD1602 → 5V',
+                lcd6Gnd: 'GND LCD1602 → GND',
+                lcd6Sda: 'SDA LCD1602 → A4',
+                lcd6Scl: 'SCL LCD1602 → A5',
+                buzzerPlus: 'Buzzer + → D12',
+                buzzerMinus: 'Buzzer - → GND',
+                ledPlus: 'LED + → D13',
+                ledMinus: 'LED - → GND',
+                nanoVin: 'VIN Arduino Nano → 7-12V external power',
+                componentsTitle6: '⚡ PROJECT COMPONENTS ⚡',
+                codeTitle6: '📟 CODE: CS2 BOMB WITH KEYPAD AND LCD',
+                projectTab6: '💣 6. CS2 BOMB',
                 greeting1: '👋 HELLO EVERYONE!',
                 story1p1: '🔥 As promised, I\'ll tell you about the weather station project.',
                 story1p2: '🤖 The bot shows temperature and humidity.',
@@ -2273,8 +2358,8 @@ projectTab5: '📏 5. Distance Measurement',
                 comp2desc: 'Temperature and humidity',
                 comp3: '10kΩ Resistors',
                 comp3desc: 'For data pull-up',
-                comp4: 'Power Bank',
-                comp4desc: 'For autonomous power',
+                comp4: '',
+                comp4desc: '',
                 codeTitle1: '📟 FULL WEATHER STATION CODE',
                 greeting2: '🌈 RGB LED + ESP8266 (access point mode)',
                 schemeTitle2: '🔌 RGB MODULE KY-016 (HW-479) CONNECTION',
@@ -2298,6 +2383,7 @@ projectTab5: '📏 5. Distance Measurement',
                 lcdPin4: 'SCL → A5',
                 componentsTitle4: '⚡ PROJECT COMPONENTS ⚡',
                 codeTitle4: '📟 CODE: BIG DIGITS 6 AND 7 ON LCD',
+                lcdLibWarning: '⚠️ LiquidCrystal_I2C library is required',
                 soonText: 'SOON...',
                 reviewsGreeting: '📺 REVIEWS AND 🛒 SHOP',
                 review1Title: '🔪 WORKPRO Knife',
@@ -2312,8 +2398,9 @@ review1Ozon: 'OZON',
                 review2p2: '<strong>Features:</strong> Removes burrs, evens edges, makes edges neat and safe.',
                 review2p3: '<strong>Verdict:</strong> Compact, lightweight, always at hand. Highly recommended!',
 review2Ozon: 'OZON',
-                 review2Wb: 'Wildberries',
-                 review3Title: '🔥 Turbo lighter',
+                  review2Ali: 'AliExpress',
+                  review2Wb: 'Wildberries',
+                  review3Title: '🔥 Turbo lighter',
                 review3p1: '<strong>Description:</strong> Powerful turbo lighter with wind protection.',
                 review3p2: '<strong>Advantages:</strong> The flame does not go out in the wind, burns steadily and hot.',
                 review3p3: '<strong>Use cases:</strong> Refillable, great for electronics, lighting fires.',
@@ -2346,12 +2433,259 @@ review6Ozon: 'OZON',
                   review6Ali: 'AliExpress',
                   review6Wb: 'Wildberries',
                   shopTitle: '⚡ WHERE TO BUY COMPONENTS ⚡',
+                  shopComp1: 'DHT22 Sensor',
+                  shopComp2: 'RGB Module KY-016',
+                  shopComp3: 'Junction Box',
                 videosGreeting: '📺 LATEST VIDEOS FROM THE CHANNEL',
                 videoPlaceholderText: 'Video will appear soon. Please wait!',
+                subscribeBtnText: '🔔 SUBSCRIBE TO CHANNEL',
+                copyNotificationText: 'Copied!',
                 footer: 'ARDUINO PROJECTS AND SOLDERING © 2026',
                 copyBtn: '📋 COPY'
             }
         };
+
+        // English content for large sections (instructions, sensors)
+        const enInstructionsHTML = `                <div class="story">
+                    <h2>📖 Getting Started with Arduino IDE</h2>
+                    <p>Complete guide to downloading and installing Arduino IDE on Windows and Linux.</p>
+                </div>
+
+                <div class="story" style="margin-bottom: 40px;">
+                    <h3 style="color: #667eea; margin-bottom: 15px;">🔻 Step 1: Download Arduino IDE</h3>
+                    <p><strong>Official website (may require VPN):</strong></p>
+                    <p style="margin-left: 20px;">🌐 <a href="https://www.arduino.cc/en/software" target="_blank" style="color: #667eea; font-weight: bold;">https://www.arduino.cc/en/software</a></p>
+                    <p><strong>Alternative from Amperka (no VPN):</strong></p>
+                    <p style="margin-left: 20px;">🌐 <a href="https://amperka.ru/page/arduino-ide" target="_blank" style="color: #667eea; font-weight: bold;">https://amperka.ru/page/arduino-ide</a></p>
+                    <p style="color: #666; font-style: italic; margin-top: 15px;">💡 Both versions are identical. Choose what suits you!</p>
+                </div>
+
+                <div class="story" style="margin-bottom: 40px; background: rgba(255, 255, 255, 0.15); border-left: 8px solid #667eea;">
+                    <h3 style="color: #667eea; margin-bottom: 15px;">🪟 Installation on Windows</h3>
+
+                    <p><strong>Option 1: Installer</strong></p>
+                    <ol style="margin-left: 30px; line-height: 1.8;">
+                        <li>Download <code style="background: rgba(0,0,0,0.2); padding: 3px 8px; border-radius: 5px;">ArduinoSetup.exe</code> from the site</li>
+                        <li>Double-click the installer</li>
+                        <li>Click <strong>"I Agree"</strong> to the license</li>
+                        <li>Select components (keep defaults)</li>
+                        <li>Click <strong>"Next"</strong> several times</li>
+                        <li>Choose installation folder (recommended <code style="background: rgba(0,0,0,0.2); padding: 3px 8px; border-radius: 5px;">C:\\Program Files\\Arduino</code>)</li>
+                        <li>Wait for installation to complete (5-10 minutes)</li>
+                        <li>The <strong>Arduino IDE</strong> shortcut will appear on your desktop</li>
+                    </ol>
+
+                    <p style="margin-top: 20px;"><strong>Option 2: Portable version (no installation)</strong></p>
+                    <ol style="margin-left: 30px; line-height: 1.8;">
+                        <li>Download <code style="background: rgba(0,0,0,0.2); padding: 3px 8px; border-radius: 5px;">arduino-ide_windows.zip</code></li>
+                        <li>Open <strong>File Explorer</strong></li>
+                        <li>Right-click the archive → <strong>"Extract All"</strong></li>
+                        <li>Choose a folder (e.g. <code style="background: rgba(0,0,0,0.2); padding: 3px 8px; border-radius: 5px;">C:\\Arduino IDE</code>)</li>
+                        <li>Run <code style="background: rgba(0,0,0,0.2); padding: 3px 8px; border-radius: 5px;">arduino-ide.exe</code></li>
+                    </ol>
+
+                    <p style="margin-top: 20px; color: #ff7675; font-weight: bold;">⚠️ Important for Windows:</p>
+                    <ul style="margin-left: 30px; color: #ff7675;">
+                        <li>If Arduino doesn't recognize your COM port — download USB FTDI or CH340 drivers</li>
+                        <li>Device Manager may show "Unknown Device" — this is normal, drivers are needed</li>
+                        <li>Restart your computer after driver installation</li>
+                    </ul>
+                </div>
+
+                <div class="story" style="margin-bottom: 40px; background: rgba(255, 255, 255, 0.15); border-left: 8px solid #667eea;">
+                    <h3 style="color: #667eea; margin-bottom: 15px;">🐧 Installation on Linux</h3>
+
+                    <p><strong>Ubuntu/Debian (easiest way):</strong></p>
+                    <p style="margin-top: 10px; margin-bottom: 15px;">Open <strong>Terminal</strong> (Ctrl+Alt+T) and run:</p>
+                    <div class="code-block" style="background: rgba(30, 30, 47, 0.9); padding: 15px; border-radius: 15px; margin-bottom: 15px;">
+                        <pre style="color: #a6ff7a; font-size: 13px; margin: 0;">sudo apt update && sudo apt install arduino -y</pre>
+                    </div>
+
+                    <p><strong>Or install via snap:</strong></p>
+                    <div class="code-block" style="background: rgba(30, 30, 47, 0.9); padding: 15px; border-radius: 15px; margin-bottom: 15px;">
+                        <pre style="color: #a6ff7a; font-size: 13px; margin: 0;">sudo snap install arduino</pre>
+                    </div>
+
+                    <p style="margin-top: 20px;"><strong>Fedora/CentOS/RHEL:</strong></p>
+                    <div class="code-block" style="background: rgba(30, 30, 47, 0.9); padding: 15px; border-radius: 15px; margin-bottom: 15px;">
+                        <pre style="color: #a6ff7a; font-size: 13px; margin: 0;">sudo dnf install arduino -y</pre>
+                    </div>
+
+                    <p style="margin-top: 20px;"><strong>Arch Linux:</strong></p>
+                    <div class="code-block" style="background: rgba(30, 30, 47, 0.9); padding: 15px; border-radius: 15px; margin-bottom: 15px;">
+                        <pre style="color: #a6ff7a; font-size: 13px; margin: 0;">sudo pacman -S arduino -y</pre>
+                    </div>
+
+                    <p><strong>Manual installation (via archive):</strong></p>
+                    <ol style="margin-left: 30px; line-height: 1.8; margin-top: 15px;">
+                        <li>Download <code style="background: rgba(0,0,0,0.2); padding: 3px 8px; border-radius: 5px;">arduino-ide_linux64.tar.xz</code></li>
+                        <li>Open Terminal in the download folder</li>
+                        <li>Extract the archive:</li>
+                    </ol>
+                    <div class="code-block" style="background: rgba(30, 30, 47, 0.9); padding: 15px; border-radius: 15px; margin-bottom: 15px; margin-left: 30px;">
+                        <pre style="color: #a6ff7a; font-size: 13px; margin: 0;">tar -xf arduino-ide_linux64.tar.xz -C ~/</pre>
+                    </div>
+
+                    <ol style="margin-left: 30px; line-height: 1.8;">
+                        <li>Run Arduino IDE:</li>
+                    </ol>
+                    <div class="code-block" style="background: rgba(30, 30, 47, 0.9); padding: 15px; border-radius: 15px; margin-bottom: 15px; margin-left: 30px;">
+                        <pre style="color: #a6ff7a; font-size: 13px; margin: 0;">~/arduino-ide/arduino-ide</pre>
+                    </div>
+
+                    <p style="margin-top: 20px; color: #ff7675; font-weight: bold;">⚠️ Important for Linux:</p>
+                    <ul style="margin-left: 30px; color: #ff7675;">
+                        <li>To access USB ports, add your user to the <code style="background: rgba(0,0,0,0.2); padding: 3px 8px; border-radius: 5px;">dialout</code> group:</li>
+                    </ul>
+                    <div class="code-block" style="background: rgba(30, 30, 47, 0.9); padding: 15px; border-radius: 15px; margin-bottom: 15px; margin-left: 30px;">
+                        <pre style="color: #a6ff7a; font-size: 13px; margin: 0;">sudo usermod -a -G dialout $USER</pre>
+                    </div>
+                    <ul style="margin-left: 30px; color: #ff7675;">
+                        <li>After that, reboot or run: <code style="background: rgba(0,0,0,0.2); padding: 3px 8px; border-radius: 5px;">newgrp dialout</code></li>
+                    </ul>
+                </div>
+
+                <div class="story" style="margin-bottom: 40px;">
+                    <h3 style="color: #667eea; margin-bottom: 15px;">✅ Verify Installation</h3>
+                    <p><strong>Launch Arduino IDE and check:</strong></p>
+                    <ol style="margin-left: 30px; line-height: 1.8;">
+                        <li>Open <strong>File → Examples → 01. Basics → Blink</strong></li>
+                        <li>Connect Arduino to your computer via USB</li>
+                        <li>Select board: <strong>Tools → Board → Arduino Uno</strong> (or your board)</li>
+                        <li>Select COM port: <strong>Tools → Port → COM3 (or other)</strong></li>
+                        <li>Click <strong>Upload</strong> (right arrow button)</li>
+                        <li>If the LED on the board starts blinking — everything works! ✨</li>
+                    </ol>
+                </div>
+
+                <div class="story" style="background: rgba(102, 126, 234, 0.2); border-left: 8px solid #667eea;">
+                    <h3 style="color: #667eea; margin-bottom: 15px;">📚 Useful Links</h3>
+                    <ul style="margin-left: 20px;">
+                        <li>📖 <a href="https://docs.arduino.cc/software/ide-v2" target="_blank" style="color: #667eea; font-weight: bold;">Official Arduino IDE v2 Documentation</a></li>
+                        <li>🛠️ <a href="https://docs.arduino.cc/hardware/all" target="_blank" style="color: #667eea; font-weight: bold;">Supported Boards and Sensors</a></li>
+                        <li>🔌 <a href="https://docs.arduino.cc/hardware/uno-rev3" target="_blank" style="color: #667eea; font-weight: bold;">Arduino Uno Documentation</a></li>
+                        <li>📝 <a href="https://docs.arduino.cc/language-reference/" target="_blank" style="color: #667eea; font-weight: bold;">Arduino Language Reference</a></li>
+                    </ul>
+                </div>`;
+
+        const enSensorsHTML = `                  <div class="greeting">🧪 Sensors — Wiring and Examples</div>
+                  <div class="story">
+                      <p>A collection of popular sensors with pinouts, recommended libraries, and minimal sketches.</p>
+
+                      <h3>DHT22 / DHT11</h3>
+                      <p>Wiring: VCC → 5V/3.3V, GND → GND, DATA → digital pin (e.g., D2). 10k resistor between VCC and DATA.</p>
+                      <p>Description: Measures temperature and relative humidity. DHT11 is cheap but limited accuracy. DHT22 is more precise and suitable for weather stations and greenhouses.</p>
+                      <p>Library: <strong>DHT sensor library</strong> (Adafruit)</p>
+                      <div class="code-block"><pre>#include &lt;DHT.h&gt;
+#define DHTPIN 2
+#define DHTTYPE DHT22
+DHT dht(DHTPIN, DHTTYPE);
+void setup(){ Serial.begin(9600); dht.begin(); }
+void loop(){ Serial.println(dht.readTemperature()); Serial.println(dht.readHumidity()); delay(2000); }</pre></div>
+
+                      <h3>DS18B20</h3>
+                      <p>Wiring: VCC → 3.3/5V, GND → GND, DATA → pin (with 4.7k resistor to VCC). Libraries: <strong>OneWire</strong> + <strong>DallasTemperature</strong>.</p>
+                      <p>Description: Digital temperature sensor on one-wire bus. Supports up to 8 sensors on one line, great for water and surface measurements.</p>
+                      <div class="code-block"><pre>#include &lt;OneWire.h&gt;
+#include &lt;DallasTemperature.h&gt;
+#define ONE_WIRE_BUS 2
+OneWire oneWire(ONE_WIRE_BUS);
+DallasTemperature sensors(&oneWire);
+void setup(){ Serial.begin(9600); sensors.begin(); }
+void loop(){ sensors.requestTemperatures(); Serial.println(sensors.getTempCByIndex(0)); delay(1000); }</pre></div>
+
+                      <h3>BME280 / BMP280</h3>
+                      <p>Wiring: I2C (SDA → A4, SCL → A5 on Uno; on ESP: SDA/D2, SCL/D1). Library: <strong>Adafruit_BME280</strong>.</p>
+                      <p>Description: BMP280 measures temperature and pressure. BME280 adds humidity — a versatile sensor for weather stations and altimeters.</p>
+                      <div class="code-block"><pre>#include &lt;Wire.h&gt;
+#include &lt;Adafruit_BME280.h&gt;
+Adafruit_BME280 bme;
+void setup(){ Serial.begin(9600); bme.begin(0x76); }
+void loop(){ Serial.println(bme.readTemperature()); Serial.println(bme.readHumidity()); Serial.println(bme.readPressure()); delay(2000); }</pre></div>
+
+                      <h3>HC-SR04 (Ultrasonic)</h3>
+                      <p>Wiring: VCC → 5V, GND → GND, TRIG → pin, ECHO → pin (use voltage divider for 3.3V MCU).</p>
+                      <p>Description: Measures distance using ultrasonic waves. Suitable for robots, parking sensors, and tank level monitoring.</p>
+                      <div class="code-block"><pre>#define TRIG 9
+#define ECHO 8
+void setup(){ Serial.begin(9600); pinMode(TRIG, OUTPUT); pinMode(ECHO, INPUT); }
+void loop(){ digitalWrite(TRIG, LOW); delayMicroseconds(2); digitalWrite(TRIG, HIGH); delayMicroseconds(10); digitalWrite(TRIG, LOW);
+long dur = pulseIn(ECHO, HIGH); Serial.println(dur/58.0); delay(200); }</pre></div>
+
+                      <h3>MQ-2 / MQ series</h3>
+                      <p>Wiring: VCC → 5V, GND → GND, AOUT → analog pin. Requires calibration.</p>
+                      <p>Description: Gas sensors. MQ-2 detects smoke, propane, butane, and methane. Best for threshold-based safety systems.</p>
+                      <div class="code-block"><pre>int sensor = A0;
+void setup(){ Serial.begin(9600); }
+void loop(){ Serial.println(analogRead(sensor)); delay(500); }</pre></div>
+
+                      <h3>PIR (Motion Sensor)</h3>
+                      <p>Wiring: VCC → 5V, GND → GND, OUT → digital pin.</p>
+                      <p>Description: Passive infrared sensor detects motion of warm objects. Used in security systems and automatic lighting.</p>
+                      <div class="code-block"><pre>int pir = 7;
+void setup(){ Serial.begin(9600); pinMode(pir, INPUT); }
+void loop(){ if(digitalRead(pir)) Serial.println("Motion"); delay(200); }</pre></div>
+
+                      <h3>BH1750 (Light Intensity)</h3>
+                      <p>Wiring: I2C. Library: <strong>BH1750</strong>.</p>
+                      <p>Description: Digital luxmeter measures illuminance in lux. Much better than cheap LDR. Ideal for automatic lighting systems.</p>
+                      <div class="code-block"><pre>#include &lt;Wire.h&gt;
+#include &lt;BH1750.h&gt;
+BH1750 lightMeter;
+void setup(){ Serial.begin(9600); Wire.begin(); lightMeter.begin(); }
+void loop(){ Serial.println(lightMeter.readLightLevel()); delay(1000); }</pre></div>
+
+                      <h3>MPU6050 (Accelerometer + Gyroscope)</h3>
+                      <p>Wiring: I2C. Library: <strong>MPU6050</strong>.</p>
+                      <p>Description: 6-axis IMU measures acceleration and angular velocity. Used in drone stabilization, gesture detection, and tilt measurement.</p>
+                      <div class="code-block"><pre>#include &lt;Wire.h&gt;
+#define MPU_ADDR 0x68
+void setup(){ Wire.begin(); Serial.begin(9600); Wire.beginTransmission(MPU_ADDR); Wire.write(0x6B); Wire.write(0); Wire.endTransmission(true); }
+void loop(){ Wire.beginTransmission(MPU_ADDR); Wire.write(0x3B); Wire.endTransmission(false); Wire.requestFrom(MPU_ADDR,6,true);
+int16_t ax=Wire.read()<<8|Wire.read(); Serial.println(ax); delay(200); }</pre></div>
+
+                      <h3>HX711 + Load Cell (Scales)</h3>
+                      <p>Wiring: HX711 DT → digital pin, SCK → digital pin. Library: <strong>HX711</strong>.</p>
+                      <p>Description: Load cell amplifier for weight measurement. Used in kitchen and industrial scales. Requires calibration.</p>
+
+                      <h3>Soil Moisture (Resistive/Capacitive)</h3>
+                      <p>Wiring: analog pin → sensor. Resistive sensors corrode quickly — prefer capacitive sensors.</p>
+                      <p>Description: Resistive sensors are cheap but rust in soil. Capacitive sensors last longer and are ideal for automatic watering systems.</p>
+
+                      <p>I can add detailed wiring diagrams, full sketches, and library links for each sensor individually. Let me know which sensors are most important to you.</p>
+                   </div>`;
+
+        const enCitrusAdContent = `                    <div class="volna-content">
+                        <div class="volna-title">🍋 CITRUS</div>
+                        <div class="volna-tagline">Gaming platform. Easy. Fast. Effective.</div>
+                        <div class="volna-description">A new gaming platform for your ideas. Join and create.</div>
+                    </div>
+                    <div class="volna-button">
+                        <a href="https://citrus-1.onrender.com/" target="_blank" class="volna-btn" rel="noopener noreferrer">
+                            <span>Join now</span>
+                            <svg class="volna-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </a>
+                    </div>`;
+
+        const enProject2Components = `<div class="component-card"><div class="component-icon">🔹</div><h3>ESP8266 D1 Mini V2</h3><p>NodeMcu Lua ESP-12 (CH340) Type-C</p><div class="shop-buttons"><a href="https://www.wildberries.ru/catalog/0/search.aspx?search=esp8266+d1+mini+v2" target="_blank" class="shop-btn wb">Wildberries</a><a href="https://www.ozon.ru/search/?text=esp8266+d1+mini+v2" target="_blank" class="shop-btn ozon">Ozon</a><a href="https://aliexpress.ru/wholesale?SearchText=esp8266+d1+mini+v2" target="_blank" class="shop-btn aliexpress">AliExpress</a></div></div>
+                        <div class="component-card"><div class="component-icon">🌈</div><h3>RGB Module KY-016 (HW-479)</h3><p>LED module for Arduino</p><div class="shop-buttons"><a href="https://www.wildberries.ru/catalog/0/search.aspx?search=ky-016+arduino" target="_blank" class="shop-btn wb">Wildberries</a><a href="https://www.ozon.ru/search/?text=ky-016+arduino" target="_blank" class="shop-btn ozon">Ozon</a><a href="https://aliexpress.ru/wholesale?SearchText=ky-016" target="_blank" class="shop-btn aliexpress">AliExpress</a></div></div>
+                        <div class="component-card"><div class="component-icon">📦</div><h3>Junction Box</h3><p>65x65x50 mm, IP54</p><div class="shop-buttons"><a href="https://www.wildberries.ru/catalog/0/search.aspx?search=коробка+распределительная+65x65" target="_blank" class="shop-btn wb">Wildberries</a><a href="https://www.ozon.ru/search/?text=коробка+распределительная+65x65" target="_blank" class="shop-btn ozon">Ozon</a><a href="https://aliexpress.ru/wholesale?SearchText=junction+box+65x65" target="_blank" class="shop-btn aliexpress">AliExpress</a></div></div>
+                        <div class="component-card"><div class="component-icon">⚡</div><h3>220Ω Resistors</h3><p>3 pieces, one for each channel</p><div class="shop-buttons"><a href="https://www.wildberries.ru/catalog/0/search.aspx?search=резисторы+220+ом" target="_blank" class="shop-btn wb">Wildberries</a><a href="https://www.ozon.ru/search/?text=резисторы+220+ом" target="_blank" class="shop-btn ozon">Ozon</a><a href="https://aliexpress.ru/wholesale?SearchText=220+ohm+resistor" target="_blank" class="shop-btn aliexpress">AliExpress</a></div></div>
+                        <div class="component-card"><div class="component-icon">🔌</div><h3>DuPont Wires</h3><p>Male-female, female-female</p><div class="shop-buttons"><a href="https://www.wildberries.ru/catalog/0/search.aspx?search=провода+для+arduino" target="_blank" class="shop-btn wb">Wildberries</a><a href="https://www.ozon.ru/search/?text=провода+для+arduino" target="_blank" class="shop-btn ozon">Ozon</a><a href="https://aliexpress.ru/wholesale?SearchText=dupont+cable" target="_blank" class="shop-btn aliexpress">AliExpress</a></div></div>`;
+
+        const enProject4Components = `<div class="component-card"><div class="component-icon">🔧</div><h3>Arduino Uno R3</h3><p>Original or compatible</p><div class="shop-buttons"><a href="https://www.wildberries.ru/catalog/0/search.aspx?search=arduino+uno" target="_blank" class="shop-btn wb">Wildberries</a><a href="https://www.ozon.ru/search/?text=arduino+uno" target="_blank" class="shop-btn ozon">Ozon</a><a href="https://aliexpress.ru/wholesale?SearchText=arduino+uno" target="_blank" class="shop-btn aliexpress">AliExpress</a></div></div>
+                        <div class="component-card"><div class="component-icon">📟</div><h3>LCD1602 I2C</h3><p>16x2 characters, blue screen</p><div class="shop-buttons"><a href="https://www.wildberries.ru/catalog/0/search.aspx?search=lcd1602+i2c" target="_blank" class="shop-btn wb">Wildberries</a><a href="https://www.ozon.ru/search/?text=lcd1602+i2c" target="_blank" class="shop-btn ozon">Ozon</a><a href="https://aliexpress.ru/wholesale?SearchText=lcd1602+i2c" target="_blank" class="shop-btn aliexpress">AliExpress</a></div></div>
+                        <div class="component-card"><div class="component-icon">🔌</div><h3>DuPont Wires</h3><p>Male-to-male, 4 pieces</p><div class="shop-buttons"><a href="https://www.wildberries.ru/catalog/0/search.aspx?search=провода+dupont" target="_blank" class="shop-btn wb">Wildberries</a><a href="https://www.ozon.ru/search/?text=провода+dupont" target="_blank" class="shop-btn ozon">Ozon</a><a href="https://aliexpress.ru/wholesale?SearchText=dupont+cable" target="_blank" class="shop-btn aliexpress">AliExpress</a></div></div>`;
+
+        const enProject6Components = `<div class="component-card"><div class="component-icon">🔧</div><h3>Arduino Nano</h3><p>Compact version of Arduino Uno</p><div class="shop-buttons"><a href="https://www.wildberries.ru/catalog/0/search.aspx?search=arduino+nano" target="_blank" class="shop-btn wb">Wildberries</a><a href="https://www.ozon.ru/search/?text=arduino+nano" target="_blank" class="shop-btn ozon">Ozon</a><a href="https://aliexpress.ru/wholesale?SearchText=arduino+nano" target="_blank" class="shop-btn aliexpress">AliExpress</a></div></div>
+                       <div class="component-card"><div class="component-icon">⌨️</div><h3>Membrane Keypad 4x4</h3><p>16 buttons for code entry</p><div class="shop-buttons"><a href="https://www.wildberries.ru/catalog/0/search.aspx?search=клавиатура+4x4" target="_blank" class="shop-btn wb">Wildberries</a><a href="https://www.ozon.ru/search/?text=клавиатура+4x4" target="_blank" class="shop-btn ozon">Ozon</a><a href="https://aliexpress.ru/wholesale?SearchText=4x4+membrane+keypad" target="_blank" class="shop-btn aliexpress">AliExpress</a></div></div>
+                       <div class="component-card"><div class="component-icon">📟</div><h3>LCD1602 I2C</h3><p>16x2 characters, blue screen</p><div class="shop-buttons"><a href="https://www.wildberries.ru/catalog/0/search.aspx?search=lcd1602+i2c" target="_blank" class="shop-btn wb">Wildberries</a><a href="https://www.ozon.ru/search/?text=lcd1602+i2c" target="_blank" class="shop-btn ozon">Ozon</a><a href="https://aliexpress.ru/wholesale?SearchText=lcd1602+i2c" target="_blank" class="shop-btn aliexpress">AliExpress</a></div></div>
+                       <div class="component-card"><div class="component-icon">🔊</div><h3>Piezo Buzzer</h3><p>For sound signals</p><div class="shop-buttons"><a href="https://www.wildberries.ru/catalog/0/search.aspx?search=зуммер+пьезо" target="_blank" class="shop-btn wb">Wildberries</a><a href="https://www.ozon.ru/search/?text=зуммер+пьезо" target="_blank" class="shop-btn ozon">Ozon</a><a href="https://aliexpress.ru/wholesale?SearchText=piezo+buzzer" target="_blank" class="shop-btn aliexpress">AliExpress</a></div></div>
+                        <div class="component-card"><div class="component-icon">🔴</div><h3>Red LED</h3><p>5 mm, for status indication</p><div class="shop-buttons"><a href="https://www.wildberries.ru/catalog/0/search.aspx?search=светодиод+красный+5мм" target="_blank" class="shop-btn wb">Wildberries</a><a href="https://www.ozon.ru/search/?text=светодиод+красный+5мм" target="_blank" class="shop-btn ozon">Ozon</a><a href="https://aliexpress.ru/wholesale?SearchText=red+led+5mm" target="_blank" class="shop-btn aliexpress">AliExpress</a></div></div>
+                        <div class="component-card"><div class="component-icon">🔌</div><h3>DuPont Wires</h3><p>Various types, 20 pieces</p><div class="shop-buttons"><a href="https://www.wildberries.ru/catalog/0/search.aspx?search=провода+dupont" target="_blank" class="shop-btn wb">Wildberries</a><a href="https://www.ozon.ru/search/?text=провода+dupont" target="_blank" class="shop-btn ozon">Ozon</a><a href="https://aliexpress.ru/wholesale?SearchText=dupont+cable" target="_blank" class="shop-btn aliexpress">AliExpress</a></div></div>
+                        <div class="component-card"><div class="component-icon">🔋</div><h3>Power Supply</h3><p>7-12V adapter or battery pack</p><div class="shop-buttons"><a href="https://www.wildberries.ru/catalog/0/search.aspx?search=блок+питания+12v" target="_blank" class="shop-btn wb">Wildberries</a><a href="https://www.ozon.ru/search/?text=блок+питания+12v" target="_blank" class="shop-btn ozon">Ozon</a><a href="https://aliexpress.ru/wholesale?SearchText=12v+power+supply" target="_blank" class="shop-btn aliexpress">AliExpress</a></div></div>`;
 
         function toggleLanguage() {
             currentLang = currentLang === 'ru' ? 'en' : 'ru';
@@ -2366,16 +2700,19 @@ review6Ozon: 'OZON',
             document.getElementById('subscribeTelegram').textContent = t.subscribeTelegram;
             document.getElementById('mainTitle').textContent = t.mainTitle;
             document.getElementById('mainDesc').textContent = t.mainDesc;
+            document.getElementById('pageTitle').textContent = t.pageTitle;
             document.getElementById('badge').textContent = t.badge;
             document.getElementById('mainTabProjects').textContent = t.mainTabProjects;
             document.getElementById('mainTabReviews').textContent = t.mainTabReviews;
             document.getElementById('mainTabInstructions').textContent = t.mainTabInstructions;
             document.getElementById('mainTabVideos').textContent = t.mainTabVideos;
+            document.getElementById('mainTabSensors').textContent = t.mainTabSensors;
             document.getElementById('projectTab1').textContent = t.projectTab1;
             document.getElementById('projectTab2').textContent = t.projectTab2;
             document.getElementById('projectTab3').textContent = t.projectTab3;
             document.getElementById('projectTab4').textContent = t.projectTab4;
 document.getElementById('projectTab5').textContent = t.projectTab5;
+document.getElementById('projectTab6').textContent = t.projectTab6;
 document.getElementById('greeting5').textContent = t.greeting5;
 document.getElementById('story5p1').textContent = t.story5p1;
 document.getElementById('story5p2').textContent = t.story5p2;
@@ -2400,6 +2737,29 @@ document.getElementById('comp7desc').textContent = t.comp7desc;
 document.getElementById('comp8').textContent = t.comp8;
 document.getElementById('comp8desc').textContent = t.comp8desc;
 document.getElementById('codeTitle5').textContent = t.codeTitle5;
+            document.getElementById('greeting6').textContent = t.greeting6;
+            document.getElementById('schemeTitle6').textContent = t.schemeTitle6;
+            document.getElementById('keyboardVcc').textContent = t.keyboardVcc;
+            document.getElementById('keyboardGnd').textContent = t.keyboardGnd;
+            document.getElementById('keyboardR1').textContent = t.keyboardR1;
+            document.getElementById('keyboardR2').textContent = t.keyboardR2;
+            document.getElementById('keyboardR3').textContent = t.keyboardR3;
+            document.getElementById('keyboardR4').textContent = t.keyboardR4;
+            document.getElementById('keyboardC1').textContent = t.keyboardC1;
+            document.getElementById('keyboardC2').textContent = t.keyboardC2;
+            document.getElementById('keyboardC3').textContent = t.keyboardC3;
+            document.getElementById('keyboardC4').textContent = t.keyboardC4;
+            document.getElementById('lcd6Vcc').textContent = t.lcd6Vcc;
+            document.getElementById('lcd6Gnd').textContent = t.lcd6Gnd;
+            document.getElementById('lcd6Sda').textContent = t.lcd6Sda;
+            document.getElementById('lcd6Scl').textContent = t.lcd6Scl;
+            document.getElementById('buzzerPlus').textContent = t.buzzerPlus;
+            document.getElementById('buzzerMinus').textContent = t.buzzerMinus;
+            document.getElementById('ledPlus').textContent = t.ledPlus;
+            document.getElementById('ledMinus').textContent = t.ledMinus;
+            document.getElementById('nanoVin').textContent = t.nanoVin;
+            document.getElementById('componentsTitle6').textContent = t.componentsTitle6;
+            document.getElementById('codeTitle6').textContent = t.codeTitle6;
             document.getElementById('greeting1').textContent = t.greeting1;
             document.getElementById('story1p1').textContent = t.story1p1;
             document.getElementById('story1p2').textContent = t.story1p2;
@@ -2418,8 +2778,6 @@ document.getElementById('codeTitle5').textContent = t.codeTitle5;
             document.getElementById('comp2desc').textContent = t.comp2desc;
             document.getElementById('comp3').textContent = t.comp3;
             document.getElementById('comp3desc').textContent = t.comp3desc;
-            document.getElementById('comp4').textContent = t.comp4;
-            document.getElementById('comp4desc').textContent = t.comp4desc;
             document.getElementById('codeTitle1').textContent = t.codeTitle1;
             document.getElementById('greeting2').textContent = t.greeting2;
             document.getElementById('schemeTitle2').textContent = t.schemeTitle2;
@@ -2443,7 +2801,7 @@ document.getElementById('codeTitle5').textContent = t.codeTitle5;
             document.getElementById('lcdPin4').textContent = t.lcdPin4;
             document.getElementById('componentsTitle4').textContent = t.componentsTitle4;
             document.getElementById('codeTitle4').textContent = t.codeTitle4;
-            document.getElementById('soonText').textContent = t.soonText;
+            const soonEl = document.getElementById('soonText'); if (soonEl) soonEl.textContent = t.soonText;
             document.getElementById('reviewsGreeting').textContent = t.reviewsGreeting;
             document.getElementById('review1Title').textContent = t.review1Title;
             document.getElementById('review1p1').innerHTML = t.review1p1;
@@ -2492,8 +2850,13 @@ document.getElementById('review6Ozon').textContent = t.review6Ozon;
              document.getElementById('review6Ali').textContent = t.review6Ali;
              document.getElementById('review6Wb').textContent = t.review6Wb;
              document.getElementById('shopTitle').textContent = t.shopTitle;
+            document.getElementById('shopComp1').textContent = t.shopComp1;
+            document.getElementById('shopComp2').textContent = t.shopComp2;
+            document.getElementById('shopComp3').textContent = t.shopComp3;
             document.getElementById('videosGreeting').textContent = t.videosGreeting;
             document.getElementById('videoPlaceholderText').textContent = t.videoPlaceholderText;
+            document.getElementById('subscribeBtnText').textContent = t.subscribeBtnText;
+            document.getElementById('copyNotificationText').textContent = t.copyNotificationText;
             document.getElementById('footerText').textContent = t.footer;
 document.getElementById('copyBtn1').innerHTML = t.copyBtn;
 document.getElementById('copyBtn2').innerHTML = t.copyBtn;
@@ -2501,6 +2864,48 @@ document.getElementById('copyBtn3').innerHTML = t.copyBtn;
 document.getElementById('copyBtn4').innerHTML = t.copyBtn;
 document.getElementById('copyBtn5').innerHTML = t.copyBtn;
 document.getElementById('copyBtn6').innerHTML = t.copyBtn;
+            
+            // LCD library warning
+            document.getElementById('lcdLibWarning').textContent = t.lcdLibWarning;
+
+            // Large content sections (instructions, sensors)
+            if (currentLang === 'en') {
+                if (document.getElementById('instructionsContent')) {
+                    document.getElementById('instructionsContent').innerHTML = enInstructionsHTML;
+                }
+                if (document.getElementById('sensorsContent')) {
+                    document.getElementById('sensorsContent').innerHTML = enSensorsHTML;
+                }
+                if (document.getElementById('citrusAdContent')) {
+                    document.getElementById('citrusAdContent').innerHTML = enCitrusAdContent;
+                }
+                if (document.getElementById('project2Components')) {
+                    document.getElementById('project2Components').innerHTML = enProject2Components;
+                }
+                if (document.getElementById('project4Components')) {
+                    document.getElementById('project4Components').innerHTML = enProject4Components;
+                }
+                if (document.getElementById('project6Components')) {
+                    document.getElementById('project6Components').innerHTML = enProject6Components;
+                }
+            } else {
+                if (window.__ruInstructionsContent) {
+                    document.getElementById('instructionsContent').innerHTML = window.__ruInstructionsContent;
+                    document.getElementById('sensorsContent').innerHTML = window.__ruSensorsContent;
+                }
+                if (window.__ruCitrusAdContent) {
+                    document.getElementById('citrusAdContent').innerHTML = window.__ruCitrusAdContent;
+                }
+                if (window.__ruProject2Components) {
+                    document.getElementById('project2Components').innerHTML = window.__ruProject2Components;
+                }
+                if (window.__ruProject4Components) {
+                    document.getElementById('project4Components').innerHTML = window.__ruProject4Components;
+                }
+                if (window.__ruProject6Components) {
+                    document.getElementById('project6Components').innerHTML = window.__ruProject6Components;
+                }
+            }
         }
         
         function toggleTheme() {
@@ -2547,7 +2952,7 @@ function openMainTab(tabId) {
              document.querySelectorAll('.main-tab-content').forEach(tab => tab.classList.remove('active'));
              document.querySelectorAll('.main-tab-btn').forEach(btn => btn.classList.remove('active'));
              document.getElementById(tabId).classList.add('active');
-             event.target.classList.add('active');
+             if (event && event.target) event.target.classList.add('active');
          }
         
 function openProjectTab(tabId) {
@@ -2562,6 +2967,14 @@ function openProjectTab(tabId) {
              });
          }
         
+// Save initial RU content for large sections (before any language switch)
+         window.__ruInstructionsContent = document.getElementById('instructionsContent') ? document.getElementById('instructionsContent').innerHTML : '';
+         window.__ruSensorsContent = document.getElementById('sensorsContent') ? document.getElementById('sensorsContent').innerHTML : '';
+         window.__ruCitrusAdContent = document.getElementById('citrusAdContent') ? document.getElementById('citrusAdContent').innerHTML : '';
+         window.__ruProject2Components = document.getElementById('project2Components') ? document.getElementById('project2Components').innerHTML : '';
+         window.__ruProject4Components = document.getElementById('project4Components') ? document.getElementById('project4Components').innerHTML : '';
+         window.__ruProject6Components = document.getElementById('project6Components') ? document.getElementById('project6Components').innerHTML : '';
+         
 const savedTheme = localStorage.getItem('theme');
          const savedFontSize = localStorage.getItem('fontSize');
          const savedLang = localStorage.getItem('language');
