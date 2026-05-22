@@ -949,12 +949,13 @@
         </div>
         
         <div class="content">
-            <div class="main-tabs">
-                <button class="main-tab-btn active" onclick="openMainTab('projects')" id="mainTabProjects">🔧 Проекты</button>
-                <button class="main-tab-btn" onclick="openMainTab('reviews')" id="mainTabReviews">📺 Обзоры + 🛒 Товары</button>
-                <button class="main-tab-btn" onclick="openMainTab('videos')" id="mainTabVideos">📺 Видео</button>
-                <button class="main-tab-btn" onclick="openMainTab('instructions')" id="mainTabInstructions">📖 Инструкции</button>
-            </div>
+<div class="main-tabs">
+    <button class="main-tab-btn" onclick="openMainTab('projects')" id="mainTabProjects">🔧 Проекты</button>
+    <button class="main-tab-btn" onclick="openMainTab('reviews')" id="mainTabReviews">📺 Обзоры + 🛒 Товары</button>
+    <button class="main-tab-btn" onclick="openMainTab('videos')" id="mainTabVideos">📺 Видео</button>
+    <button class="main-tab-btn" onclick="openMainTab('instructions')" id="mainTabInstructions">📖 Инструкции</button>
+    <button class="main-tab-btn" onclick="openMainTab('sensors')" id="mainTabSensors">🌡️ Датчики</button>
+</div>
             
             <!-- СОДЕРЖИМОЕ ВКЛАДКИ ИНСТРУКЦИИ -->
             <div id="instructions" class="main-tab-content">
@@ -1148,7 +1149,7 @@
 // ========== ТВОИ ДАННЫЕ ==========
 const char* ssid = "ваш WiFI";
 const char* password = "пароль от него";
-#define BOT_TOKEN "узнать в BotFather"
+#define BOT_TOKEN "узнать в BotFather когда создаещь бота"
 
 // ID разрешенных пользователей
 const String allowedUsers[] = {
@@ -1900,7 +1901,98 @@ void drawMatrix(const byte image[8]) {
               </div>
 
               <!-- ВКЛАДКА ОБЗОРЫ И ТОВАРЫ -->
-            <div id="reviews" class="main-tab-content">
+
+              <!-- ВКЛАДКА ДАТЧИКИ (ГЛАВНАЯ) -->
+              <div id="sensors" class="main-tab-content">
+                  <div class="greeting">🧪 Датчики — подключение и примеры</div>
+                  <div class="story">
+                      <p>Подборка популярных датчиков с проводкой, рекомендованными библиотеками и минимальными скетчами.</p>
+
+                      <h3>DHT22 / DHT11</h3>
+                      <p>Wiring: VCC → 5V/3.3V, GND → GND, DATA → цифровой пин (например D2). Резистор 10k между VCC и DATA.</p>
+                      <p>Описание: Этот модуль измеряет температуру и относительную влажность. DHT11 дешёвый, но имеет ограниченную точность и интервал обновления 1 секунда. DHT22 точнее, поддерживает более широкий диапазон и подходит для домашних метеостанций и теплиц.</p>
+                      <p>Library: <strong>DHT sensor library</strong> (Adafruit)</p>
+                      <div class="code-block"><pre>#include &lt;DHT.h&gt;
+#define DHTPIN 2
+#define DHTTYPE DHT22
+DHT dht(DHTPIN, DHTTYPE);
+void setup(){ Serial.begin(9600); dht.begin(); }
+void loop(){ Serial.println(dht.readTemperature()); Serial.println(dht.readHumidity()); delay(2000); }</pre></div>
+
+                      <h3>DS18B20</h3>
+                      <p>Wiring: VCC → 3.3/5V, GND → GND, DATA → пин (с резистором 4.7k к VCC). Libraries: <strong>OneWire</strong> + <strong>DallasTemperature</strong>.</p>
+                      <p>Описание: Цифровой датчик температуры на одной проводной шине. Он удобен для измерений в воде и на поверхности, поддерживает до 8 датчиков на одной линии и легко масштабируется для распределённого мониторинга.</p>
+                      <div class="code-block"><pre>#include &lt;OneWire.h&gt;
+#include &lt;DallasTemperature.h&gt;
+#define ONE_WIRE_BUS 2
+OneWire oneWire(ONE_WIRE_BUS);
+DallasTemperature sensors(&oneWire);
+void setup(){ Serial.begin(9600); sensors.begin(); }
+void loop(){ sensors.requestTemperatures(); Serial.println(sensors.getTempCByIndex(0)); delay(1000); }</pre></div>
+
+                      <h3>BME280 / BMP280</h3>
+                      <p>Wiring: I2C (SDA → A4, SCL → A5 на Uno; на ESP: SDA/D2, SCL/D1). Library: <strong>Adafruit_BME280</strong>.</p>
+                      <p>Описание: BMP280 измеряет температуру и давление. BME280 добавляет влажность, поэтому это универсальный датчик для метеостанций, прогноза погоды и высотомеров в домашних проектах.</p>
+                      <div class="code-block"><pre>#include &lt;Wire.h&gt;
+#include &lt;Adafruit_BME280.h&gt;
+Adafruit_BME280 bme;
+void setup(){ Serial.begin(9600); bme.begin(0x76); }
+void loop(){ Serial.println(bme.readTemperature()); Serial.println(bme.readHumidity()); Serial.println(bme.readPressure()); delay(2000); }</pre></div>
+
+                      <h3>HC-SR04 (ультразвук)</h3>
+                      <p>Wiring: VCC → 5V, GND → GND, TRIG → пин, ECHO → пин (используйте уровень защиты при 3.3V MCU).</p>
+                      <p>Описание: Ультразвуковой дальномер измеряет расстояние по времени отклика звукового импульса. Подходит для роботов, автоматического парктроника и контроля заполнения ёмкостей, но не работает с мягкими и узкими объектами.</p>
+                      <div class="code-block"><pre>#define TRIG 9
+#define ECHO 8
+void setup(){ Serial.begin(9600); pinMode(TRIG, OUTPUT); pinMode(ECHO, INPUT); }
+void loop(){ digitalWrite(TRIG, LOW); delayMicroseconds(2); digitalWrite(TRIG, HIGH); delayMicroseconds(10); digitalWrite(TRIG, LOW);
+long dur = pulseIn(ECHO, HIGH); Serial.println(dur/58.0); delay(200); }</pre></div>
+
+                      <h3>MQ-2 / MQ-серия</h3>
+                      <p>Wiring: VCC → 5V, GND → GND, AOUT → аналоговый пин. Требует калибровки; используйте аналоговое значение для порогов.</p>
+                      <p>Описание: Газовые сенсоры на основе металлооксидов. MQ-2 подходит для дыма, пропана, бутана и метана. Они дешевы, но требуют прогрева и бережной настройки, поэтому лучше использовать в пороговых охранных системах, а не в качестве точного газоанализа.</p>
+                      <div class="code-block"><pre>int sensor = A0;
+void setup(){ Serial.begin(9600); }
+void loop(){ Serial.println(analogRead(sensor)); delay(500); }</pre></div>
+
+                      <h3>PIR (датчик движения)</h3>
+                      <p>Wiring: VCC → 5V, GND → GND, OUT → цифровой пин.</p>
+                      <p>Описание: Пассивный инфракрасный датчик фиксирует движение тепловых объектов. Используется в охранных системах, автоматическом освещении и энергосбережении. Работает стабильно при установке на стену или потолок.</p>
+                      <div class="code-block"><pre>int pir = 7;
+void setup(){ Serial.begin(9600); pinMode(pir, INPUT); }
+void loop(){ if(digitalRead(pir)) Serial.println("Motion"); delay(200); }</pre></div>
+
+                      <h3>BH1750 (освещённость)</h3>
+                      <p>Wiring: I2C. Library: <strong>BH1750</strong>.</p>
+                      <p>Описание: Цифровой люксметр измеряет освещённость в люксах и даёт стабильный результат, гораздо лучше чем дешевый LDR. Идеален для систем автоматического освещения и мониторинга дневного освещения.</p>
+                      <div class="code-block"><pre>#include &lt;Wire.h&gt;
+#include &lt;BH1750.h&gt;
+BH1750 lightMeter;
+void setup(){ Serial.begin(9600); Wire.begin(); lightMeter.begin(); }
+void loop(){ Serial.println(lightMeter.readLightLevel()); delay(1000); }</pre></div>
+
+                      <h3>MPU6050 (акселерометр + гироскоп)</h3>
+                      <p>Wiring: I2C. Library: <strong>MPU6050</strong> или <strong>Wire + DMP</strong>.</p>
+                      <p>Описание: 6-осевой IMU измеряет ускорение и угловые скорости. Применяется в стабилизации дронов, детекции жестов и измерении наклона. Требует калибровки и фильтрации для точных данных.</p>
+                      <div class="code-block"><pre>#include &lt;Wire.h&gt;
+#define MPU_ADDR 0x68
+void setup(){ Wire.begin(); Serial.begin(9600); Wire.beginTransmission(MPU_ADDR); Wire.write(0x6B); Wire.write(0); Wire.endTransmission(true); }
+void loop(){ Wire.beginTransmission(MPU_ADDR); Wire.write(0x3B); Wire.endTransmission(false); Wire.requestFrom(MPU_ADDR,6,true);
+int16_t ax=Wire.read()<<8|Wire.read(); Serial.println(ax); delay(200); }</pre></div>
+
+                      <h3>HX711 + тензодатчик (весы)</h3>
+                      <p>Wiring: HX711 DT → цифровой пин, SCK → цифровой пин. Library: <strong>HX711</strong>.</p>
+                      <p>Описание: Усилитель для тензодатчика позволяет измерять силу и вес с хорошей точностью. Этот модуль используется в кухонных и промышленных весах, требует тарировки и калибровки, но даёт стабильные результаты при правильной настройке.</p>
+
+                      <h3>Soil moisture (резистивный/емкостной)</h3>
+                      <p>Wiring: аналоговый пин → датчик; для резистивного — осторожно с коррозией, лучше использовать емкостной датчик.</p>
+                      <p>Описание: Резистивные датчики дешевы, но быстро ржавеют в земле. Емкостные работают дольше и точнее, идеально подходят для автополива и контроля влажности почвы.</p>
+
+                      <p>Если хотите, я могу добавить пример подключения (с картинкой), полные скетчи и ссылки на библиотеки для каждого датчика по отдельности. Напишите, какие датчики приоритетнее.</p>
+                  </div>
+              </div>
+
+              <div id="reviews" class="main-tab-content">
                 <div class="greeting" id="reviewsGreeting">📺 ОБЗОРЫ И 🛒 ТОВАРЫ</div>
                 
                 <div class="story" style="margin-bottom: 40px;">
