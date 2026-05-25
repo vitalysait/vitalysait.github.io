@@ -23,319 +23,425 @@
     <noscript><div><img src="https://mc.yandex.ru/watch/107081093" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
     
     <style>
-        /* Стили (те же, что и ранее, без изменений) */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    -webkit-tap-highlight-color: transparent;
-    transition: font-size 0.3s;
-}
-        
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@400;600;700&display=swap');
+
+        :root {
+            --neon-yellow: #FFE100;
+            --neon-cyan: #00E5FF;
+            --neon-pink: #FF0080;
+            --neon-purple: #BC00FF;
+            --dark-bg: #050508;
+            --dark-panel: #0a0a12;
+            --cyber-font: 'Rajdhani', 'Orbitron', sans-serif;
+            --glow-yellow: 0 0 10px #FFE100, 0 0 20px rgba(255,225,0,0.6), 0 0 40px rgba(255,225,0,0.3);
+            --glow-cyan: 0 0 10px #00E5FF, 0 0 20px rgba(0,229,255,0.6), 0 0 40px rgba(0,229,255,0.3);
+            --glow-pink: 0 0 10px #FF0080, 0 0 20px rgba(255,0,128,0.6), 0 0 40px rgba(255,0,128,0.3);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            font-family: var(--cyber-font);
             min-height: 100vh;
             padding: 0;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            transition: all 0.3s;
+            background: var(--dark-bg);
             --base-font-size: 18px;
             font-size: var(--base-font-size);
             position: relative;
+            color: #d0d0d0;
         }
-        
+
+        /* Active scanlines */
         body::before {
             content: "";
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iMzAwIj48ZmlsdGVyIGlkPSJmIj48ZmVUdXJidWxlbmNlIHR5cGU9ImZyYWN0YWxOb2lzZSIgYmFzZUZyZXF1ZW5jeT0iLjc0IiBudW1PY3RhdmVzPSIzIiAvPjwvZmlsdGVyPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbHRlcj0idXJsKCNmKSIgb3BhY2l0eT0iMC4wNCIgLz48L3N2Zz4=');
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background-image: 
+                linear-gradient(rgba(255,225,0,0.06) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,225,0,0.06) 1px, transparent 1px);
+            background-size: 30px 30px;
             pointer-events: none;
             z-index: 1;
         }
-        
+
+        /* CRT horizontal scanlines overlay */
+        body::after {
+            content: "";
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: repeating-linear-gradient(
+                0deg,
+                transparent,
+                transparent 2px,
+                rgba(255,225,0,0.015) 2px,
+                rgba(255,225,0,0.015) 4px
+            );
+            pointer-events: none;
+            z-index: 1;
+        }
+
         body.dark-theme {
-            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            background: var(--dark-bg);
         }
-        
+
         body.dark-theme .container {
-            background: rgba(0, 0, 0, 0.6);
-            backdrop-filter: blur(15px);
-            -webkit-backdrop-filter: blur(15px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            background: var(--dark-panel);
+            border: 2px solid rgba(255,225,0,0.25);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.9), 0 0 60px rgba(255,225,0,0.06);
         }
-        
+
         body.dark-theme .story,
         body.dark-theme .component-card,
         body.dark-theme .code-section,
         body.dark-theme .connection-scheme,
         body.dark-theme .scheme-item {
-            background: rgba(255, 255, 255, 0.08);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border-color: rgba(255, 255, 255, 0.15);
-            color: #f0f0f0;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+            background: rgba(8, 8, 14, 0.95);
+            border-color: rgba(255,225,0,0.12);
+            color: #d0d0d0;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
         }
-        
+
+        /* ===== GLITCH KEYFRAMES ===== */
+        @keyframes glitch {
+            0% { text-shadow: 2px 0 var(--neon-pink), -2px 0 var(--neon-cyan); transform: translate(0); }
+            1% { text-shadow: -3px 0 var(--neon-pink), 3px 0 var(--neon-cyan); transform: translate(-1px, 1px); }
+            2% { text-shadow: 3px 0 var(--neon-pink), -3px 0 var(--neon-cyan); transform: translate(1px, -1px); }
+            3% { text-shadow: -2px 0 var(--neon-pink), 2px 0 var(--neon-cyan); transform: translate(0); }
+            100% { text-shadow: 2px 0 var(--neon-pink), -2px 0 var(--neon-cyan); transform: translate(0); }
+        }
+
+        @keyframes flicker {
+            0% { opacity: 1; }
+            2% { opacity: 0.7; }
+            3% { opacity: 1; }
+            10% { opacity: 0.9; }
+            11% { opacity: 1; }
+            20% { opacity: 0.85; }
+            21% { opacity: 1; }
+            100% { opacity: 1; }
+        }
+
+        @keyframes neonPulse {
+            0% { box-shadow: 0 0 5px rgba(255,225,0,0.4), 0 0 15px rgba(255,225,0,0.2); }
+            50% { box-shadow: 0 0 20px rgba(255,225,0,0.7), 0 0 50px rgba(255,225,0,0.4), 0 0 80px rgba(255,225,0,0.2); }
+            100% { box-shadow: 0 0 5px rgba(255,225,0,0.4), 0 0 15px rgba(255,225,0,0.2); }
+        }
+
+        @keyframes borderFlicker {
+            0% { border-color: rgba(255,225,0,0.4); }
+            5% { border-color: rgba(255,0,128,0.4); }
+            10% { border-color: rgba(255,225,0,0.4); }
+            20% { border-color: rgba(0,229,255,0.3); }
+            21% { border-color: rgba(255,225,0,0.4); }
+            100% { border-color: rgba(255,225,0,0.4); }
+        }
+
+        @keyframes scanline {
+            0% { transform: translateY(-100%); }
+            100% { transform: translateY(100vh); }
+        }
+
+        @keyframes staticNoise {
+            0% { opacity: 0.02; }
+            50% { opacity: 0.06; }
+            100% { opacity: 0.02; }
+        }
+
+        /* Moving scanline bar */
+        .container::after {
+            content: "";
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 3px;
+            background: linear-gradient(90deg, transparent, rgba(255,225,0,0.3), transparent);
+            animation: scanline 4s linear infinite;
+            pointer-events: none;
+            z-index: 999;
+        }
+
         .control-panel {
             position: fixed;
             top: 20px;
             right: 20px;
             z-index: 1000;
             display: flex;
-            gap: 10px;
+            gap: 8px;
             flex-wrap: wrap;
-            background: rgba(255, 255, 255, 0.25);
-            backdrop-filter: blur(15px);
-            -webkit-backdrop-filter: blur(15px);
-            padding: 12px 18px;
-            border-radius: 60px;
-            border: 1px solid rgba(255, 255, 255, 0.35);
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+            background: rgba(5, 5, 8, 0.95);
+            padding: 10px 15px;
+            border: 2px solid var(--neon-yellow);
+            box-shadow: var(--glow-yellow), inset 0 0 20px rgba(255,225,0,0.05);
         }
-        
+
         .control-btn {
-            background: rgba(255, 255, 255, 0.3);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            border: 2px solid rgba(255, 255, 255, 0.4);
-            color: white;
+            background: transparent;
+            border: 2px solid rgba(0, 229, 255, 0.4);
+            color: var(--neon-cyan);
             width: 45px;
             height: 45px;
-            border-radius: 50%;
             cursor: pointer;
             font-size: 20px;
             display: flex;
             align-items: center;
             justify-content: center;
-            transition: all 0.3s;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.15s;
+            text-shadow: 0 0 8px var(--neon-cyan);
         }
-        
+
         .control-btn:hover {
-            transform: scale(1.1);
-            background: rgba(255, 255, 255, 0.4);
-            border-color: rgba(255, 255, 255, 0.6);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+            background: rgba(0, 229, 255, 0.15);
+            border-color: var(--neon-cyan);
+            box-shadow: var(--glow-cyan), inset 0 0 20px rgba(0,229,255,0.1);
+            transform: scale(1.15);
         }
-        
+
         .language-btn {
             width: auto;
             padding: 0 20px;
-            border-radius: 30px;
-            font-size: 14px;
+            font-size: 13px;
             gap: 5px;
-            background: rgba(255, 255, 255, 0.3);
+            font-family: var(--cyber-font);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
         }
-        
+
         .font-size-control {
             display: flex;
             align-items: center;
             gap: 8px;
-            color: white;
-            padding: 0 10px;
-            background: rgba(255, 255, 255, 0.2);
-            backdrop-filter: blur(8px);
-            -webkit-backdrop-filter: blur(8px);
-            border-radius: 40px;
-            padding: 5px 10px;
+            color: var(--neon-yellow);
+            padding: 3px 10px;
+            border: 1px solid rgba(255,225,0,0.3);
         }
-        
+
         .font-size-slider {
-            width: 100px;
-            height: 5px;
+            width: 80px;
+            height: 4px;
             -webkit-appearance: none;
-            background: rgba(255, 255, 255, 0.4);
-            border-radius: 5px;
+            background: rgba(255,225,0,0.25);
             outline: none;
         }
-        
+
         .font-size-slider::-webkit-slider-thumb {
             -webkit-appearance: none;
-            width: 18px;
-            height: 18px;
-            background: white;
-            border-radius: 50%;
+            width: 16px;
+            height: 16px;
+            background: var(--neon-yellow);
             cursor: pointer;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+            box-shadow: 0 0 12px var(--neon-yellow);
         }
-        
+
         .font-size-btn {
-            background: rgba(255, 255, 255, 0.3);
-            backdrop-filter: blur(8px);
-            -webkit-backdrop-filter: blur(8px);
-            border: none;
-            color: white;
-            width: 30px;
-            height: 30px;
-            border-radius: 50%;
+            background: transparent;
+            border: 1px solid var(--neon-yellow);
+            color: var(--neon-yellow);
+            width: 28px;
+            height: 28px;
             cursor: pointer;
-            font-size: 18px;
+            font-size: 16px;
             font-weight: bold;
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
         }
-        
-.container {
-             width: 100%;
-             margin: 0 auto;
-             background: rgba(255, 255, 255, 0.25);
-             backdrop-filter: blur(20px);
-             -webkit-backdrop-filter: blur(20px);
-             border-radius: 0;
-             box-shadow: 0 25px 60px rgba(0, 0, 0, 0.3);
-             overflow: hidden;
-             animation: slideIn 0.5s ease-out;
-             border: 1px solid rgba(255, 255, 255, 0.4);
-             position: relative;
-             z-index: 2;
-             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-         }
-         
-         .container:hover {
-             backdrop-filter: blur(25px);
-             -webkit-backdrop-filter: blur(25px);
-             border-color: rgba(255, 255, 255, 0.5);
-         }
-        
+
+        .container {
+            width: 100%;
+            margin: 0 auto;
+            background: rgba(10, 10, 18, 0.98);
+            border-radius: 0;
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.9), 0 0 40px rgba(255,225,0,0.04);
+            overflow: hidden;
+            animation: slideIn 0.5s ease-out, borderFlicker 8s infinite;
+            border: 2px solid rgba(255,225,0,0.25);
+            position: relative;
+            z-index: 2;
+        }
+
+        .container:hover {
+            border-color: rgba(255,225,0,0.5);
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.9), 0 0 60px rgba(255,225,0,0.08);
+        }
+
         @keyframes slideIn {
             from { transform: translateY(50px); opacity: 0; }
             to { transform: translateY(0); opacity: 1; }
         }
-        
+
+        /* ===== TOP BANNER ===== */
         .tg-top-banner {
-            background: linear-gradient(135deg, rgba(0, 136, 204, 0.8), rgba(0, 95, 140, 0.8));
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            color: white;
+            background: linear-gradient(90deg, rgba(255,225,0,0.08), rgba(0,229,255,0.08), rgba(255,0,128,0.08));
+            color: var(--neon-yellow);
             text-align: center;
-            padding: 18px;
-            font-size: 1.3em;
-            font-weight: bold;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 12px;
+            font-size: 1em;
+            font-weight: 700;
+            border-bottom: 2px solid rgba(255,225,0,0.2);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            position: relative;
+            overflow: hidden;
         }
-        
+
+        .tg-top-banner::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: repeating-linear-gradient(90deg, transparent, transparent 20px, rgba(255,225,0,0.02) 20px, rgba(255,225,0,0.02) 21px);
+            pointer-events: none;
+        }
+
         .tg-top-banner .banner-links {
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 30px;
+            gap: 25px;
             flex-wrap: wrap;
+            position: relative;
+            z-index: 1;
         }
-        
+
         .tg-top-banner a {
-            color: white;
+            color: #bbb;
             text-decoration: none;
             display: flex;
             align-items: center;
             gap: 8px;
-            transition: opacity 0.2s;
+            transition: all 0.15s;
+            font-weight: 600;
+            letter-spacing: 1px;
         }
-        
+
         .tg-top-banner a:hover {
-            opacity: 0.9;
-            text-decoration: underline;
+            color: var(--neon-yellow);
+            text-shadow: 0 0 12px var(--neon-yellow), 0 0 30px rgba(255,225,0,0.4);
+            transform: scale(1.05);
         }
-        
+
         .tg-top-banner .separator {
-            color: rgba(255, 255, 255, 0.4);
-            font-size: 1.5em;
-            line-height: 1;
+            color: rgba(255,225,0,0.25);
+            font-size: 1.2em;
         }
-        
+
+        /* ===== HEADER ===== */
         .header {
-            background: linear-gradient(135deg, rgba(102, 126, 234, 0.8), rgba(118, 75, 162, 0.8));
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
+            background: linear-gradient(135deg, rgba(255,225,0,0.1), rgba(255,0,128,0.1));
             color: white;
-            padding: 45px;
+            padding: 40px 30px;
             text-align: center;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            border-bottom: 2px solid rgba(255,225,0,0.15);
+            position: relative;
+            overflow: hidden;
         }
-        
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 3px;
+            background: linear-gradient(90deg, transparent, var(--neon-yellow), var(--neon-cyan), var(--neon-pink), transparent);
+        }
+
+        .header::after {
+            content: '';
+            position: absolute;
+            bottom: 0; left: 0;
+            width: 100%; height: 1px;
+            background: linear-gradient(90deg, transparent, var(--neon-yellow), transparent);
+            animation: neonPulse 3s infinite;
+        }
+
         .header h1 {
-            font-size: 2.8em;
+            font-size: 3em;
             margin-bottom: 10px;
-            text-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            text-shadow: 0 0 30px rgba(255,225,0,0.6), 0 0 60px rgba(255,225,0,0.3);
+            color: var(--neon-yellow);
+            font-weight: 900;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            animation: glitch 4s infinite, flicker 6s infinite;
         }
-        
+
+        .header p {
+            color: #aaa;
+            letter-spacing: 2px;
+            font-size: 1.1em;
+        }
+
         .badge {
-            background: rgba(255, 71, 87, 0.8);
-            backdrop-filter: blur(8px);
-            -webkit-backdrop-filter: blur(8px);
-            color: white;
-            padding: 8px 25px;
-            border-radius: 40px;
+            background: transparent;
+            color: var(--neon-yellow);
+            padding: 8px 30px;
             font-size: 1em;
             display: inline-block;
             margin-top: 15px;
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            border: 2px solid var(--neon-yellow);
+            box-shadow: var(--glow-yellow), inset 0 0 15px rgba(255,225,0,0.1);
+            font-weight: 900;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            animation: neonPulse 2s infinite;
         }
-        
+
         .content {
-            padding: 40px;
+            padding: 35px;
         }
-        
-        /* Главные вкладки сайта */
+
+        /* ===== MAIN TABS ===== */
         .main-tabs {
             display: flex;
-            gap: 15px;
-            margin-bottom: 40px;
-            background: rgba(255, 255, 255, 0.25);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            padding: 15px;
-            border-radius: 60px;
-            border: 1px solid rgba(255, 255, 255, 0.3);
+            gap: 10px;
+            margin-bottom: 35px;
+            background: rgba(5, 5, 10, 0.9);
+            padding: 12px;
+            border: 2px solid rgba(255,225,0,0.15);
             flex-wrap: wrap;
             justify-content: center;
         }
-        
+
         .main-tab-btn {
-            padding: 18px 35px;
-            border: none;
-            background: rgba(255, 255, 255, 0.3);
-            backdrop-filter: blur(8px);
-            -webkit-backdrop-filter: blur(8px);
-            border-radius: 50px;
-            font-size: 1.3em;
-            font-weight: bold;
-            color: #333;
+            padding: 14px 28px;
+            background: transparent;
+            font-size: 1.1em;
+            font-weight: 700;
+            color: #666;
             cursor: pointer;
-            transition: all 0.3s;
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            min-width: 200px;
+            transition: all 0.15s;
+            border: 2px solid rgba(255,225,0,0.08);
+            min-width: 160px;
+            font-family: var(--cyber-font);
+            text-transform: uppercase;
+            letter-spacing: 2px;
         }
-        
+
         .main-tab-btn:hover {
-            background: rgba(255, 255, 255, 0.5);
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+            background: rgba(255,225,0,0.1);
+            transform: scale(1.05);
+            color: var(--neon-yellow);
+            border-color: var(--neon-yellow);
+            box-shadow: var(--glow-yellow);
         }
-        
+
         .main-tab-btn.active {
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            color: white;
-            border-color: white;
+            background: rgba(255,225,0,0.18);
+            color: var(--neon-yellow);
+            border-color: var(--neon-yellow);
+            box-shadow: var(--glow-yellow), inset 0 0 20px rgba(255,225,0,0.08);
         }
-        
-        .main-tab-content {
-            display: none;
-            animation: fadeIn 0.5s;
-        }
-        
-        .main-tab-content.active {
-            display: block;
-        }
-        
-        /* Стили для видео */
+
+        .main-tab-content { display: none; animation: fadeIn 0.5s; }
+        .main-tab-content.active { display: block; }
+
+        /* ===== VIDEO ===== */
         .video-container {
             position: relative;
             padding-bottom: 56.25%;
@@ -343,572 +449,573 @@
             overflow: hidden;
             max-width: 100%;
             margin: 30px 0;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-            background: linear-gradient(135deg, #667eea20, #764ba220);
+            box-shadow: 0 0 30px rgba(0,229,255,0.1);
+            background: var(--dark-panel);
+            border: 2px solid rgba(0,229,255,0.15);
         }
-        
+
         .video-container iframe {
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
             border: none;
-            border-radius: 20px;
         }
-        
+
         .video-placeholder {
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            background: linear-gradient(135deg, #667eea30, #764ba230);
-            backdrop-filter: blur(5px);
-            border-radius: 20px;
-            color: white;
+            background: rgba(5, 5, 10, 0.95);
+            color: #ccc;
             text-align: center;
             padding: 20px;
             pointer-events: none;
         }
-        
-        .video-placeholder span {
-            font-size: 3em;
-            margin-bottom: 15px;
-        }
-        
+
+        .video-placeholder span { font-size: 3em; margin-bottom: 15px; }
         .video-placeholder p {
             font-size: 1.2em;
             max-width: 80%;
-            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+            text-shadow: 0 0 15px rgba(0,229,255,0.5);
         }
-        
+
         .video-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 25px;
             margin: 35px 0;
         }
-        
+
         .video-card {
-            background: rgba(255, 255, 255, 0.65);
-            backdrop-filter: blur(12px);
-            border-radius: 20px;
+            background: rgba(8, 8, 14, 0.95);
             padding: 20px;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            transition: all 0.3s;
+            box-shadow: 0 0 15px rgba(0,0,0,0.5);
+            border: 2px solid rgba(0, 229, 255, 0.1);
+            transition: all 0.2s;
         }
-        
+
         .video-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 25px 45px rgba(102, 126, 234, 0.25);
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 0 35px rgba(0, 229, 255, 0.25);
+            border-color: var(--neon-cyan);
         }
-        
-        .video-card .video-container {
-            margin: 0 0 15px 0;
-        }
-        
+
+        .video-card .video-container { margin: 0 0 15px 0; }
+
         .video-card h3 {
-            color: #667eea;
+            color: var(--neon-cyan);
             font-size: 1.2em;
             margin: 0;
             text-align: center;
+            text-shadow: 0 0 10px rgba(0,229,255,0.3);
         }
-        
-        /* Внутренние табы проектов */
+
+        /* ===== PROJECT TABS ===== */
         .project-tabs {
             display: flex;
-            gap: 10px;
+            gap: 8px;
             margin: 30px 0;
-            background: rgba(255, 255, 255, 0.25);
-            backdrop-filter: blur(12px);
-            padding: 12px;
-            border-radius: 60px;
-            border: 1px solid rgba(255, 255, 255, 0.3);
+            background: rgba(5, 5, 10, 0.9);
+            padding: 10px;
+            border: 2px solid rgba(0, 229, 255, 0.12);
             flex-wrap: wrap;
         }
-        
-.project-tab-btn {
-    flex: 1;
-    padding: 15px 25px;
-    border: none;
-    background: rgba(255, 255, 255, 0.25);
-    backdrop-filter: blur(8px);
-    border-radius: 50px;
-    font-size: 1.1em;
-    font-weight: bold;
-    color: #333;
-    cursor: pointer;
-    transition: all 0.3s;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    white-space: normal;
-    word-wrap: break-word;
-    text-align: center;
-    min-width: 120px;
-    max-width: 200px;
-}
-        
+
+        .project-tab-btn {
+            flex: 1;
+            padding: 10px 18px;
+            background: transparent;
+            font-size: 0.95em;
+            font-weight: 700;
+            color: #555;
+            cursor: pointer;
+            transition: all 0.15s;
+            border: 2px solid rgba(0, 229, 255, 0.06);
+            white-space: normal;
+            word-wrap: break-word;
+            text-align: center;
+            min-width: 100px;
+            max-width: 200px;
+            font-family: var(--cyber-font);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
         .project-tab-btn:hover {
-            background: rgba(255, 255, 255, 0.4);
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            background: rgba(0, 229, 255, 0.1);
+            transform: scale(1.05);
+            color: var(--neon-cyan);
+            border-color: var(--neon-cyan);
+            box-shadow: var(--glow-cyan);
         }
-        
+
         .project-tab-btn.active {
-            background: rgba(102, 126, 234, 0.7);
-            color: white;
-            box-shadow: 0 5px 20px rgba(102, 126, 234, 0.4);
-            border: 1px solid rgba(255, 255, 255, 0.3);
+            background: rgba(0, 229, 255, 0.18);
+            color: var(--neon-cyan);
+            border-color: var(--neon-cyan);
+            box-shadow: var(--glow-cyan), inset 0 0 20px rgba(0,229,255,0.08);
         }
-        
-        .project-content {
-            display: none;
-            animation: fadeIn 0.5s;
-        }
-        
-        .project-content.active {
-            display: block;
-        }
-        
+
+        .project-content { display: none; animation: fadeIn 0.5s; }
+        .project-content.active { display: block; }
+
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
         }
-        
+
+        /* ===== GREETING ===== */
         .greeting {
-            background: linear-gradient(135deg, rgba(240, 147, 251, 0.8), rgba(245, 87, 108, 0.8));
-            backdrop-filter: blur(12px);
-            color: white;
-            padding: 30px;
-            border-radius: 30px;
+            background: linear-gradient(135deg, rgba(255,225,0,0.15), rgba(255,0,128,0.15));
+            color: var(--neon-yellow);
+            padding: 24px;
             margin-bottom: 30px;
             text-align: center;
-            font-size: 1.4em;
-            animation: pulse 2s infinite;
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
-        }
-        
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.02); }
-            100% { transform: scale(1); }
-        }
-        
-.story {
-             background: rgba(255, 255, 255, 0.15);
-             backdrop-filter: blur(15px);
-             padding: 35px;
-             border-radius: 30px;
-             margin-bottom: 30px;
-             border-left: 8px solid rgba(102, 126, 234, 0.8);
-             line-height: 2;
-             font-size: 1.2em;
-             border: 1px solid rgba(255, 255, 255, 0.25);
-             box-shadow: 0 15px 35px rgba(0,0,0,0.15);
-             transition: all 0.3s;
-         }
-         
-         .story:hover {
-             backdrop-filter: blur(20px);
-             border-color: rgba(255, 255, 255, 0.35);
-         }
-        
-        .story p {
-            margin-bottom: 20px;
-        }
-        
-        .story ul {
-            margin-left: 20px;
-            margin-bottom: 15px;
-            line-height: 1.8;
-        }
-        
-        .story li {
-            margin-bottom: 5px;
-        }
-        
-        .story a {
-            color: #667eea;
-            text-decoration: none;
-            font-weight: bold;
-        }
-        
-        .story a:hover {
-            text-decoration: underline;
-        }
-        
-        .highlight {
-            background: linear-gradient(135deg, rgba(102, 126, 234, 0.8), rgba(118, 75, 162, 0.8));
-            backdrop-filter: blur(8px);
-            color: white;
-            padding: 15px 35px;
-            border-radius: 60px;
-            display: inline-block;
-            margin: 15px 0;
-            font-weight: bold;
             font-size: 1.3em;
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+            font-weight: 700;
+            border: 2px solid rgba(255,225,0,0.25);
+            box-shadow: 0 0 25px rgba(255,225,0,0.05), inset 0 0 30px rgba(255,225,0,0.03);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            text-shadow: 0 0 15px rgba(255,225,0,0.4);
         }
-        
+
+        /* ===== STORY ===== */
+        .story {
+            background: rgba(8, 8, 14, 0.9);
+            padding: 28px;
+            margin-bottom: 28px;
+            border-left: 4px solid var(--neon-cyan);
+            line-height: 1.9;
+            font-size: 1.15em;
+            border: 2px solid rgba(0, 229, 255, 0.08);
+            box-shadow: 0 0 15px rgba(0, 229, 255, 0.02);
+            transition: all 0.2s;
+        }
+
+        .story:hover {
+            border-color: rgba(0, 229, 255, 0.3);
+            box-shadow: 0 0 30px rgba(0, 229, 255, 0.06), inset 0 0 20px rgba(0,229,255,0.02);
+            transform: translateX(3px);
+        }
+
+        .story p { margin-bottom: 18px; }
+
+        .story ul { margin-left: 20px; margin-bottom: 15px; line-height: 1.8; }
+        .story li { margin-bottom: 5px; }
+
+        .story a {
+            color: var(--neon-cyan);
+            text-decoration: none;
+            font-weight: 700;
+            transition: all 0.15s;
+        }
+        .story a:hover {
+            text-shadow: 0 0 10px var(--neon-cyan), 0 0 25px rgba(0,229,255,0.4);
+            color: #fff;
+        }
+
+        .highlight {
+            background: linear-gradient(135deg, rgba(255,225,0,0.2), rgba(255,0,128,0.2));
+            color: var(--neon-yellow);
+            padding: 10px 28px;
+            display: inline-block;
+            margin: 12px 0;
+            font-weight: 700;
+            font-size: 1.1em;
+            border: 2px solid var(--neon-yellow);
+            box-shadow: var(--glow-yellow);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        /* ===== COMPONENTS ===== */
         .components-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
-            margin: 35px 0;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
         }
-        
+
         .component-card {
-            background: rgba(255, 255, 255, 0.65);
-            backdrop-filter: blur(12px);
-            border-radius: 30px;
-            padding: 30px;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            transition: all 0.3s;
+            background: rgba(8, 8, 14, 0.95);
+            padding: 24px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.5);
+            border: 2px solid rgba(255,225,0,0.1);
+            transition: all 0.2s;
             text-align: center;
+            position: relative;
+            overflow: hidden;
         }
-        
+
+        .component-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 2px;
+            background: linear-gradient(90deg, transparent, var(--neon-yellow), transparent);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .component-card:hover::before {
+            opacity: 1;
+        }
+
         .component-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 25px 45px rgba(102, 126, 234, 0.25);
-            background: rgba(255, 255, 255, 0.75);
-            border-color: rgba(255, 255, 255, 0.5);
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 0 35px rgba(255,225,0,0.2), var(--glow-yellow);
+            background: rgba(10, 10, 20, 0.98);
+            border-color: var(--neon-yellow);
         }
-        
+
         .component-card h3 {
-            color: #667eea;
-            font-size: 1.6em;
-            margin-bottom: 15px;
-            text-shadow: 0 2px 5px rgba(255,255,255,0.3);
+            color: var(--neon-yellow);
+            font-size: 1.4em;
+            margin-bottom: 12px;
+            text-shadow: 0 0 12px rgba(255,225,0,0.3);
         }
-        
-        .component-card p {
-            margin-bottom: 15px;
-            font-size: 1em;
-        }
-        
-        .component-icon {
-            font-size: 3em;
-            margin-bottom: 15px;
-        }
-        
+
+        .component-card p { margin-bottom: 12px; font-size: 0.95em; }
+        .component-icon { font-size: 2.8em; margin-bottom: 12px; }
+
         .shop-buttons {
             display: flex;
-            gap: 10px;
+            gap: 8px;
             justify-content: center;
-            margin-top: 20px;
+            margin-top: 18px;
             flex-wrap: wrap;
         }
-        
+
         .shop-btn {
-            padding: 10px 20px;
-            border-radius: 40px;
+            padding: 8px 16px;
             text-decoration: none;
-            font-weight: bold;
-            font-size: 0.95em;
-            color: white;
-            transition: all 0.3s;
-            background: rgba(0, 0, 0, 0.3);
-            backdrop-filter: blur(5px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            font-weight: 700;
+            font-size: 0.85em;
+            color: #fff;
+            transition: all 0.15s;
+            background: rgba(5, 5, 10, 0.9);
+            border: 2px solid rgba(255,225,0,0.2);
             white-space: nowrap;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
-        
+
         .shop-btn:hover {
-            transform: scale(1.05);
-            background: rgba(0, 0, 0, 0.4);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+            transform: scale(1.1);
+            border-color: var(--neon-yellow);
+            box-shadow: var(--glow-yellow);
         }
-        
-        .wb { background: rgba(203, 17, 171, 0.7); }
-        .ozon { background: rgba(0, 91, 255, 0.7); }
-        .aliexpress { background: rgba(255, 106, 0, 0.7); }
-        
+
+        .wb { border-color: rgba(255,0,128,0.4); }
+        .wb:hover { border-color: var(--neon-pink); box-shadow: var(--glow-pink); }
+        .ozon { border-color: rgba(0,229,255,0.4); }
+        .ozon:hover { border-color: var(--neon-cyan); box-shadow: var(--glow-cyan); }
+        .aliexpress { border-color: rgba(255,225,0,0.4); }
+        .aliexpress:hover { border-color: var(--neon-yellow); box-shadow: var(--glow-yellow); }
+
+        /* ===== CODE ===== */
         .code-section {
-            background: rgba(30, 30, 47, 0.7);
-            backdrop-filter: blur(15px);
-            border-radius: 30px;
-            padding: 35px;
-            margin-bottom: 35px;
-            box-shadow: 0 25px 45px rgba(0,0,0,0.3);
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            background: rgba(5, 5, 10, 0.98);
+            padding: 28px;
+            margin-bottom: 30px;
+            box-shadow: 0 0 30px rgba(0,0,0,0.5);
+            border: 2px solid rgba(0, 229, 255, 0.1);
+            position: relative;
         }
-        
+
+        .code-section::before {
+            content: '// CODE';
+            position: absolute;
+            top: -10px; right: 20px;
+            color: rgba(0,229,255,0.15);
+            font-size: 0.7em;
+            font-weight: 700;
+            letter-spacing: 3px;
+            background: var(--dark-bg);
+            padding: 0 10px;
+        }
+
         .code-header {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            margin-bottom: 20px;
+            margin-bottom: 18px;
             flex-wrap: wrap;
-            gap: 15px;
+            gap: 12px;
         }
-        
+
         .code-header h2 {
-            color: white;
-            font-size: 1.8em;
+            color: var(--neon-cyan);
+            font-size: 1.5em;
             text-align: center;
-            text-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            text-shadow: 0 0 15px rgba(0,229,255,0.3);
             margin: 0;
             flex: 1;
+            letter-spacing: 1px;
         }
-        
+
         .copy-btn {
-            background: rgba(255, 255, 255, 0.2);
-            border: 2px solid rgba(255, 255, 255, 0.3);
-            color: white;
-            padding: 10px 20px;
-            border-radius: 40px;
-            font-size: 1em;
-            font-weight: bold;
+            background: transparent;
+            border: 2px solid var(--neon-cyan);
+            color: var(--neon-cyan);
+            padding: 8px 18px;
+            font-size: 0.9em;
+            font-weight: 700;
             cursor: pointer;
-            transition: all 0.3s;
+            transition: all 0.15s;
             display: flex;
             align-items: center;
             gap: 8px;
-            backdrop-filter: blur(5px);
+            font-family: var(--cyber-font);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: 0 0 8px var(--neon-cyan);
         }
-        
+
         .copy-btn:hover {
-            background: rgba(255, 255, 255, 0.3);
-            transform: scale(1.05);
-            border-color: rgba(255, 255, 255, 0.5);
+            background: rgba(0, 229, 255, 0.15);
+            transform: scale(1.1);
+            box-shadow: var(--glow-cyan);
         }
-        
+
         .copy-btn.copied {
-            background: #4CAF50;
-            border-color: white;
+            background: rgba(0, 229, 255, 0.2);
+            border-color: var(--neon-cyan);
+            color: #fff;
         }
-        
+
         .code-block {
-            background: rgba(45, 45, 58, 0.7);
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
-            padding: 25px;
+            background: rgba(0, 0, 0, 0.85);
+            padding: 22px;
             overflow-x: auto;
             position: relative;
-            border: 1px solid rgba(255, 255, 255, 0.15);
+            border: 2px solid rgba(0, 229, 255, 0.06);
+            border-left: 4px solid var(--neon-yellow);
         }
-        
+
         pre {
             margin: 0;
-            color: #e6e6e6;
+            color: #a8ff60;
             font-family: 'Courier New', monospace;
-            font-size: 14px;
-            line-height: 1.6;
+            font-size: 13px;
+            line-height: 1.5;
             white-space: pre-wrap;
             word-wrap: break-word;
         }
-        
+
+        /* ===== CONNECTION SCHEME ===== */
         .connection-scheme {
-            background: rgba(255, 255, 255, 0.6);
-            backdrop-filter: blur(12px);
-            padding: 35px;
-            border-radius: 30px;
-            margin: 30px 0;
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            background: rgba(8, 8, 14, 0.9);
+            padding: 28px;
+            margin: 28px 0;
+            border: 2px solid rgba(255,225,0,0.15);
+            box-shadow: 0 0 20px rgba(255,225,0,0.03);
         }
-        
+
         .connection-scheme h2 {
-            color: #667eea;
-            margin-bottom: 20px;
-            font-size: 2em;
+            color: var(--neon-yellow);
+            margin-bottom: 18px;
+            font-size: 1.7em;
             text-align: center;
+            text-shadow: 0 0 15px rgba(255,225,0,0.3);
+            letter-spacing: 3px;
         }
-        
+
         .scheme-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 15px;
-            margin-top: 20px;
+            gap: 12px;
+            margin-top: 18px;
         }
-        
+
         .scheme-item {
-            background: rgba(255, 255, 255, 0.7);
-            backdrop-filter: blur(8px);
-            padding: 20px;
-            border-radius: 20px;
+            background: rgba(5, 5, 10, 0.9);
+            padding: 16px;
             text-align: center;
-            font-size: 1.2em;
-            border-left: 4px solid rgba(102, 126, 234, 0.8);
-            border: 1px solid rgba(255, 255, 255, 0.3);
+            font-size: 1.05em;
+            border: 2px solid rgba(0, 229, 255, 0.08);
+            border-left: 4px solid var(--neon-cyan);
+            transition: all 0.2s;
         }
-        
-        .pin-red { color: #ff4444; font-weight: bold; }
-        .pin-green { color: #44ff44; font-weight: bold; }
-        .pin-blue { color: #4444ff; font-weight: bold; }
-        .pin-gnd { color: #666; font-weight: bold; }
-        
+
+        .scheme-item:hover {
+            border-color: var(--neon-cyan);
+            box-shadow: var(--glow-cyan), inset 0 0 15px rgba(0,229,255,0.05);
+            transform: scale(1.03);
+        }
+
+        .pin-red { color: #ff3333; font-weight: bold; text-shadow: 0 0 8px rgba(255,51,51,0.5); }
+        .pin-green { color: #33ff33; font-weight: bold; text-shadow: 0 0 8px rgba(51,255,51,0.5); }
+        .pin-blue { color: #00ccff; font-weight: bold; text-shadow: 0 0 8px rgba(0,204,255,0.5); }
+        .pin-gnd { color: #777; font-weight: bold; }
+
         .big-soon {
             display: flex;
             align-items: center;
             justify-content: center;
-            min-height: 400px;
-            background: rgba(255, 255, 255, 0.6);
-            backdrop-filter: blur(15px);
-            border-radius: 40px;
+            min-height: 350px;
+            background: rgba(5, 5, 10, 0.95);
             margin: 30px 0;
-            border: 3px dashed rgba(102, 126, 234, 0.6);
-            animation: pulse 2s infinite;
+            border: 3px solid var(--neon-yellow);
+            animation: neonPulse 2s infinite;
         }
-        
+
         .big-soon h2 {
-            font-size: 5em;
-            color: #667eea;
-            text-shadow: 5px 5px 0 rgba(102, 126, 234, 0.3);
-            letter-spacing: 10px;
+            font-size: 4em;
+            color: var(--neon-yellow);
+            text-shadow: 0 0 30px rgba(255,225,0,0.5), 0 0 60px rgba(255,225,0,0.3), 0 0 100px rgba(255,225,0,0.1);
+            letter-spacing: 20px;
+            font-weight: 900;
+            animation: flicker 4s infinite;
         }
-        
-        /* Рекламный блок Волна */
-        .volna-ad-block {
-            max-width: 100%;
-            margin: 0 0 40px 0;
-            font-family: inherit;
-        }
+
+        /* ===== AD BLOCK ===== */
+        .volna-ad-block { max-width: 100%; margin: 0 0 40px 0; }
         .volna-banner {
-            background: linear-gradient(145deg, #ffffff, #f8faff);
-            border-radius: 32px;
-            padding: 28px 24px;
+            background: rgba(8, 8, 14, 0.95);
+            padding: 26px 22px;
             display: flex;
             flex-wrap: wrap;
             align-items: center;
             justify-content: space-between;
             gap: 20px;
-            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.05);
-            border: 1px solid rgba(102, 126, 234, 0.2);
+            box-shadow: 0 0 20px rgba(0,0,0,0.5);
+            border: 2px solid rgba(255,225,0,0.15);
         }
-        .volna-content {
-            flex: 2;
-            min-width: 180px;
+        .volna-content { flex: 2; min-width: 180px; }
+        .volna-title {
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: var(--neon-yellow);
+            text-shadow: 0 0 20px rgba(255,225,0,0.5), 0 0 40px rgba(255,225,0,0.2);
+            margin-bottom: 8px;
+            letter-spacing: 3px;
         }
-.volna-title {
-             font-size: 1.8rem;
-             font-weight: 900;
-             background: linear-gradient(135deg, #f59e0b, #fbbf24);
-             -webkit-background-clip: text;
-             background-clip: text;
-             color: transparent;
-             margin-bottom: 8px;
-         }
         .volna-tagline {
             font-size: 1rem;
-            color: #4b5563;
+            color: #999;
             margin-bottom: 12px;
             font-weight: 700;
+            letter-spacing: 1px;
         }
-        .volna-description {
-            font-size: 0.9rem;
-            color: #6c727f;
-        }
+        .volna-description { font-size: 0.9rem; color: #777; }
         .volna-btn {
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
-            color: white;
+            background: transparent;
+            color: var(--neon-cyan);
             text-decoration: none;
             padding: 12px 28px;
-            border-radius: 60px;
-            font-weight: 600;
-            transition: all 0.3s;
-            box-shadow: 0 4px 12px rgba(59,130,246,0.25);
+            font-weight: 700;
+            transition: all 0.15s;
             white-space: nowrap;
+            border: 2px solid var(--neon-cyan);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: 0 0 10px var(--neon-cyan);
         }
         .volna-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(59,130,246,0.35);
-            background: linear-gradient(135deg, #2563eb, #7c3aed);
+            transform: scale(1.1);
+            box-shadow: var(--glow-cyan);
+            background: rgba(0,229,255,0.15);
+            color: #fff;
         }
-        .volna-arrow {
-            transition: transform 0.2s;
-        }
-        .volna-btn:hover .volna-arrow {
-            transform: translateX(4px);
-        }
+        .volna-arrow { transition: transform 0.2s; }
+        .volna-btn:hover .volna-arrow { transform: translateX(6px); }
+
         @media (max-width: 640px) {
-            .volna-banner {
-                flex-direction: column;
-                text-align: center;
-            }
+            .volna-banner { flex-direction: column; text-align: center; }
             .volna-title { font-size: 1.6rem; }
             .volna-btn { padding: 10px 24px; }
         }
-        
+
+        /* ===== FOOTER ===== */
         .footer {
-            background: rgba(248, 249, 250, 0.6);
-            backdrop-filter: blur(12px);
-            padding: 35px;
+            background: rgba(5, 5, 8, 0.98);
+            padding: 30px;
             text-align: center;
-            border-top: 1px solid rgba(102, 126, 234, 0.4);
+            border-top: 2px solid rgba(255,225,0,0.15);
+            position: relative;
         }
-        
+
+        .footer::before {
+            content: '';
+            position: absolute;
+            top: -2px; left: 0;
+            width: 100%; height: 2px;
+            background: linear-gradient(90deg, transparent, var(--neon-yellow), var(--neon-pink), transparent);
+        }
+
         .footer .username {
-            color: #667eea;
-            font-weight: bold;
-            font-size: 1.3em;
+            color: var(--neon-yellow);
+            font-weight: 700;
+            font-size: 1.2em;
+            text-shadow: 0 0 15px rgba(255,225,0,0.4);
+            letter-spacing: 3px;
         }
-        
+
+        /* ===== COPY NOTIFICATION ===== */
         .copy-notification {
             position: fixed;
             bottom: 30px;
             left: 50%;
             transform: translateX(-50%) translateY(100px);
-            background: rgba(0, 0, 0, 0.8);
-            backdrop-filter: blur(10px);
-            color: white;
+            background: rgba(5, 5, 8, 0.98);
+            color: var(--neon-yellow);
             padding: 15px 30px;
-            border-radius: 50px;
             font-size: 1.1em;
-            font-weight: bold;
+            font-weight: 700;
             z-index: 2000;
             transition: transform 0.3s;
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+            border: 2px solid var(--neon-yellow);
+            box-shadow: var(--glow-yellow), inset 0 0 20px rgba(255,225,0,0.05);
+            text-transform: uppercase;
+            letter-spacing: 3px;
         }
-        
+
         .copy-notification.show {
             transform: translateX(-50%) translateY(0);
         }
-        
+
+        /* ===== RESPONSIVE ===== */
         @media (max-width: 768px) {
-            .control-panel { right: 10px; top: 10px; padding: 8px 12px; }
-            .control-btn { width: 40px; height: 40px; font-size: 18px; }
-            .language-btn { padding: 0 12px; font-size: 12px; }
-            .font-size-control { padding: 3px 8px; }
-            .font-size-slider { width: 70px; }
-            .header h1 { font-size: 1.8em; }
-            .header { padding: 25px; }
-            .content { padding: 20px; }
-            .main-tab-btn { padding: 12px 20px; font-size: 1.1em; min-width: 120px; }
-            .project-tabs { flex-direction: column; gap: 5px; padding: 8px; }
-            .project-tab-btn { min-width: 100%; white-space: normal; padding: 12px; font-size: 1em; }
-            .greeting { padding: 20px; font-size: 1.2em; }
-            .story { padding: 20px; font-size: 1em; }
-            .components-grid { grid-template-columns: 1fr; gap: 15px; }
-            .component-card { padding: 20px; }
-            .component-card h3 { font-size: 1.4em; }
-            .shop-buttons { flex-direction: column; gap: 5px; }
+            .control-panel { right: 8px; top: 8px; padding: 6px 10px; gap: 5px; }
+            .control-btn { width: 36px; height: 36px; font-size: 16px; }
+            .language-btn { padding: 0 10px; font-size: 11px; }
+            .font-size-control { padding: 2px 8px; }
+            .font-size-slider { width: 60px; }
+            .header { padding: 25px 15px; }
+            .header h1 { font-size: 1.8em; letter-spacing: 3px; }
+            .content { padding: 18px; }
+            .main-tab-btn { padding: 10px 16px; font-size: 1em; min-width: 100px; }
+            .project-tabs { flex-direction: column; gap: 4px; padding: 6px; }
+            .project-tab-btn { min-width: 100%; padding: 10px; font-size: 0.9em; }
+            .greeting { padding: 18px; font-size: 1.1em; letter-spacing: 2px; }
+            .story { padding: 18px; font-size: 1em; }
+            .components-grid { grid-template-columns: 1fr; gap: 12px; }
+            .component-card { padding: 18px; }
+            .component-card h3 { font-size: 1.3em; }
+            .shop-buttons { flex-direction: column; gap: 4px; }
             .shop-btn { white-space: normal; text-align: center; }
-            .code-section { padding: 20px; }
-            .code-header h2 { font-size: 1.4em; }
-            .copy-btn { padding: 8px 15px; font-size: 0.9em; }
-            .connection-scheme { padding: 20px; }
-            .connection-scheme h2 { font-size: 1.6em; }
-            .scheme-grid { grid-template-columns: 1fr; gap: 10px; }
-            .scheme-item { padding: 15px; font-size: 1em; }
-            .big-soon { min-height: 250px; }
-            .big-soon h2 { font-size: 3em; letter-spacing: 5px; }
+            .code-section { padding: 18px; }
+            .code-header h2 { font-size: 1.3em; }
+            .copy-btn { padding: 6px 14px; font-size: 0.85em; }
+            .connection-scheme { padding: 18px; }
+            .connection-scheme h2 { font-size: 1.4em; }
+            .scheme-grid { grid-template-columns: 1fr; gap: 8px; }
+            .scheme-item { padding: 12px; font-size: 0.95em; }
+            .big-soon { min-height: 200px; }
+            .big-soon h2 { font-size: 2.5em; letter-spacing: 10px; }
             .footer { padding: 20px; }
-            .footer .username { font-size: 1.1em; }
-            .tg-top-banner .banner-links { gap: 15px; }
+            .footer .username { font-size: 1em; letter-spacing: 2px; }
+            .tg-top-banner { padding: 10px; font-size: 0.85em; letter-spacing: 2px; }
+            .tg-top-banner .banner-links { gap: 12px; }
             .tg-top-banner .separator { display: none; }
             .video-grid { grid-template-columns: 1fr; }
             .video-placeholder p { font-size: 1em; }
@@ -971,16 +1078,16 @@
                 </div>
                 
                 <div class="story" style="margin-bottom: 40px;">
-                    <h3 style="color: #667eea; margin-bottom: 15px;">🔻 Шаг 1: Скачивание Arduino IDE</h3>
+                    <h3 style="color: #FFE100; margin-bottom: 15px;">🔻 Шаг 1: Скачивание Arduino IDE</h3>
                     <p><strong>Официальный сайт (требует VPN):</strong></p>
-                    <p style="margin-left: 20px;">🌐 <a href="https://www.arduino.cc/en/software" target="_blank" style="color: #667eea; font-weight: bold;">https://www.arduino.cc/en/software</a></p>
+                    <p style="margin-left: 20px;">🌐 <a href="https://www.arduino.cc/en/software" target="_blank" style="color: #FFE100; font-weight: bold;">https://www.arduino.cc/en/software</a></p>
                     <p><strong>Альтернатива от Amperka (без VPN):</strong></p>
-                    <p style="margin-left: 20px;">🌐 <a href="https://amperka.ru/page/arduino-ide" target="_blank" style="color: #667eea; font-weight: bold;">https://amperka.ru/page/arduino-ide</a></p>
+                    <p style="margin-left: 20px;">🌐 <a href="https://amperka.ru/page/arduino-ide" target="_blank" style="color: #FFE100; font-weight: bold;">https://amperka.ru/page/arduino-ide</a></p>
                     <p style="color: #666; font-style: italic; margin-top: 15px;">💡 Обе версии идентичны. Выберите что вам удобнее!</p>
                 </div>
                 
-                <div class="story" style="margin-bottom: 40px; background: rgba(255, 255, 255, 0.15); border-left: 8px solid #667eea;">
-                    <h3 style="color: #667eea; margin-bottom: 15px;">🪟 Установка на Windows</h3>
+                <div class="story" style="margin-bottom: 40px; background: rgba(18, 18, 26, 0.9); border-left: 3px solid #FFE100;">
+                    <h3 style="color: #FFE100; margin-bottom: 15px;">🪟 Установка на Windows</h3>
                     
                     <p><strong>Вариант 1: Установка через установщик</strong></p>
                     <ol style="margin-left: 30px; line-height: 1.8;">
@@ -1003,35 +1110,35 @@
                         <li>Запустите файл <code style="background: rgba(0,0,0,0.2); padding: 3px 8px; border-radius: 5px;">arduino-ide.exe</code></li>
                     </ol>
                     
-                    <p style="margin-top: 20px; color: #ff7675; font-weight: bold;">⚠️ Важно для Windows:</p>
-                    <ul style="margin-left: 30px; color: #ff7675;">
+                    <p style="margin-top: 20px; color: #FF0080; font-weight: bold;">⚠️ Важно для Windows:</p>
+                    <ul style="margin-left: 30px; color: #FF0080;">
                         <li>Если Arduino не узнаёт ваш COM-порт — скачайте драйверы USB FTDI или CH340</li>
                         <li>В Диспетчере устройств может появиться "Unknown Device" — это нормально, нужны драйверы</li>
                         <li>После установки драйверов перезагрузите компьютер</li>
                     </ul>
                 </div>
                 
-                <div class="story" style="margin-bottom: 40px; background: rgba(255, 255, 255, 0.15); border-left: 8px solid #667eea;">
-                    <h3 style="color: #667eea; margin-bottom: 15px;">🐧 Установка на Linux</h3>
+                <div class="story" style="margin-bottom: 40px; background: rgba(18, 18, 26, 0.9); border-left: 3px solid #FFE100;">
+                    <h3 style="color: #FFE100; margin-bottom: 15px;">🐧 Установка на Linux</h3>
                     
                     <p><strong>Ubuntu/Debian (самый простой способ):</strong></p>
                     <p style="margin-top: 10px; margin-bottom: 15px;">Откройте <strong>Терминал</strong> (Ctrl+Alt+T) и выполните команду:</p>
-                    <div class="code-block" style="background: rgba(30, 30, 47, 0.9); padding: 15px; border-radius: 15px; margin-bottom: 15px;">
+                    <div class="code-block" style="background: rgba(0, 0, 0, 0.8); padding: 15px; border-radius: 0; margin-bottom: 15px;">
                         <pre style="color: #a6ff7a; font-size: 13px; margin: 0;">sudo apt update && sudo apt install arduino -y</pre>
                     </div>
                     
                     <p><strong>Или установите через snap:</strong></p>
-                    <div class="code-block" style="background: rgba(30, 30, 47, 0.9); padding: 15px; border-radius: 15px; margin-bottom: 15px;">
+                    <div class="code-block" style="background: rgba(0, 0, 0, 0.8); padding: 15px; border-radius: 0; margin-bottom: 15px;">
                         <pre style="color: #a6ff7a; font-size: 13px; margin: 0;">sudo snap install arduino</pre>
                     </div>
                     
                     <p style="margin-top: 20px;"><strong>Fedora/CentOS/RHEL:</strong></p>
-                    <div class="code-block" style="background: rgba(30, 30, 47, 0.9); padding: 15px; border-radius: 15px; margin-bottom: 15px;">
+                    <div class="code-block" style="background: rgba(0, 0, 0, 0.8); padding: 15px; border-radius: 0; margin-bottom: 15px;">
                         <pre style="color: #a6ff7a; font-size: 13px; margin: 0;">sudo dnf install arduino -y</pre>
                     </div>
                     
                     <p style="margin-top: 20px;"><strong>Arch Linux:</strong></p>
-                    <div class="code-block" style="background: rgba(30, 30, 47, 0.9); padding: 15px; border-radius: 15px; margin-bottom: 15px;">
+                    <div class="code-block" style="background: rgba(0, 0, 0, 0.8); padding: 15px; border-radius: 0; margin-bottom: 15px;">
                         <pre style="color: #a6ff7a; font-size: 13px; margin: 0;">sudo pacman -S arduino -y</pre>
                     </div>
                     
@@ -1041,31 +1148,31 @@
                         <li>Откройте Терминал в папке со скачиванием</li>
                         <li>Выполните команду распаковки:</li>
                     </ol>
-                    <div class="code-block" style="background: rgba(30, 30, 47, 0.9); padding: 15px; border-radius: 15px; margin-bottom: 15px; margin-left: 30px;">
+                    <div class="code-block" style="background: rgba(0, 0, 0, 0.8); padding: 15px; border-radius: 0; margin-bottom: 15px; margin-left: 30px;">
                         <pre style="color: #a6ff7a; font-size: 13px; margin: 0;">tar -xf arduino-ide_linux64.tar.xz -C ~/</pre>
                     </div>
                     
                     <ol style="margin-left: 30px; line-height: 1.8;">
                         <li>Запустите Arduino IDE:</li>
                     </ol>
-                    <div class="code-block" style="background: rgba(30, 30, 47, 0.9); padding: 15px; border-radius: 15px; margin-bottom: 15px; margin-left: 30px;">
+                    <div class="code-block" style="background: rgba(0, 0, 0, 0.8); padding: 15px; border-radius: 0; margin-bottom: 15px; margin-left: 30px;">
                         <pre style="color: #a6ff7a; font-size: 13px; margin: 0;">~/arduino-ide/arduino-ide</pre>
                     </div>
                     
-                    <p style="margin-top: 20px; color: #ff7675; font-weight: bold;">⚠️ Важно для Linux:</p>
-                    <ul style="margin-left: 30px; color: #ff7675;">
+                    <p style="margin-top: 20px; color: #FF0080; font-weight: bold;">⚠️ Важно для Linux:</p>
+                    <ul style="margin-left: 30px; color: #FF0080;">
                         <li>Для доступа к USB-портам, добавьте пользователя в группу <code style="background: rgba(0,0,0,0.2); padding: 3px 8px; border-radius: 5px;">dialout</code>:</li>
                     </ul>
-                    <div class="code-block" style="background: rgba(30, 30, 47, 0.9); padding: 15px; border-radius: 15px; margin-bottom: 15px; margin-left: 30px;">
+                    <div class="code-block" style="background: rgba(0, 0, 0, 0.8); padding: 15px; border-radius: 0; margin-bottom: 15px; margin-left: 30px;">
                         <pre style="color: #a6ff7a; font-size: 13px; margin: 0;">sudo usermod -a -G dialout $USER</pre>
                     </div>
-                    <ul style="margin-left: 30px; color: #ff7675;">
+                    <ul style="margin-left: 30px; color: #FF0080;">
                         <li>После этого перезагрузитесь или выполните: <code style="background: rgba(0,0,0,0.2); padding: 3px 8px; border-radius: 5px;">newgrp dialout</code></li>
                     </ul>
                 </div>
                 
                 <div class="story" style="margin-bottom: 40px;">
-                    <h3 style="color: #667eea; margin-bottom: 15px;">✅ Проверка установки</h3>
+                    <h3 style="color: #FFE100; margin-bottom: 15px;">✅ Проверка установки</h3>
                     <p><strong>Запустите Arduino IDE и проверьте:</strong></p>
                     <ol style="margin-left: 30px; line-height: 1.8;">
                         <li>Откройте <strong>Файл → Примеры → 01. Basics → Blink</strong></li>
@@ -1077,13 +1184,13 @@
                     </ol>
                 </div>
                 
-                <div class="story" style="background: rgba(102, 126, 234, 0.2); border-left: 8px solid #667eea;">
-                    <h3 style="color: #667eea; margin-bottom: 15px;">📚 Полезные ссылки</h3>
+                <div class="story" style="background: rgba(255, 225, 0, 0.1); border-left: 3px solid #FFE100;">
+                    <h3 style="color: #FFE100; margin-bottom: 15px;">📚 Полезные ссылки</h3>
                     <ul style="margin-left: 20px;">
-                        <li>📖 <a href="https://docs.arduino.cc/software/ide-v2" target="_blank" style="color: #667eea; font-weight: bold;">Официальная документация Arduino IDE v2</a></li>
-                        <li>🛠️ <a href="https://docs.arduino.cc/hardware/all" target="_blank" style="color: #667eea; font-weight: bold;">Поддерживаемые платы и датчики</a></li>
-                        <li>🔌 <a href="https://docs.arduino.cc/hardware/uno-rev3" target="_blank" style="color: #667eea; font-weight: bold;">Документация Arduino Uno</a></li>
-                        <li>📝 <a href="https://docs.arduino.cc/language-reference/" target="_blank" style="color: #667eea; font-weight: bold;">Справочник Arduino (язык программирования)</a></li>
+                        <li>📖 <a href="https://docs.arduino.cc/software/ide-v2" target="_blank" style="color: #FFE100; font-weight: bold;">Официальная документация Arduino IDE v2</a></li>
+                        <li>🛠️ <a href="https://docs.arduino.cc/hardware/all" target="_blank" style="color: #FFE100; font-weight: bold;">Поддерживаемые платы и датчики</a></li>
+                        <li>🔌 <a href="https://docs.arduino.cc/hardware/uno-rev3" target="_blank" style="color: #FFE100; font-weight: bold;">Документация Arduino Uno</a></li>
+                        <li>📝 <a href="https://docs.arduino.cc/language-reference/" target="_blank" style="color: #FFE100; font-weight: bold;">Справочник Arduino (язык программирования)</a></li>
                     </ul>
                 </div>
                 </div>
@@ -1138,7 +1245,7 @@
                             <div class="scheme-item"><span>⚡</span><strong><span id="pin4">Резистор 10кОм</span></strong></div>
                         </div>
                     </div>
-                    <h2 style="color: #667eea; margin: 30px 0 20px; text-align: center;" id="componentsTitle">⚡ КОМПОНЕНТЫ МЕТЕОСТАНЦИИ ⚡</h2>
+                    <h2 style="color: #FFE100; margin: 30px 0 20px; text-align: center;" id="componentsTitle">⚡ КОМПОНЕНТЫ МЕТЕОСТАНЦИИ ⚡</h2>
 <div class="components-grid">
                          <div class="component-card"><div class="component-icon">🔹</div><h3 id="comp1">ESP8266 D1 Mini V2</h3><p id="comp1desc">NodeMcu Lua ESP-12 (CH340) Type-C</p><div class="shop-buttons"><a href="https://www.wildberries.ru/catalog/0/search.aspx?search=esp8266+d1+mini+v2" target="_blank" class="shop-btn wb">Wildberries</a><a href="https://www.ozon.ru/search/?text=esp8266+d1+mini+v2" target="_blank" class="shop-btn ozon">Ozon</a><a href="https://aliexpress.ru/wholesale?SearchText=esp8266+d1+mini+v2" target="_blank" class="shop-btn aliexpress">AliExpress</a></div></div>
                          <div class="component-card"><div class="component-icon">🌡️</div><h3 id="comp2">Датчик DHT22</h3><p id="comp2desc">Температура и влажность</p><div class="shop-buttons"><a href="https://www.wildberries.ru/catalog/0/search.aspx?search=dht22" target="_blank" class="shop-btn wb">Wildberries</a><a href="https://www.ozon.ru/search/?text=dht22" target="_blank" class="shop-btn ozon">Ozon</a><a href="https://aliexpress.ru/wholesale?SearchText=dht22" target="_blank" class="shop-btn aliexpress">AliExpress</a></div></div>
@@ -1271,7 +1378,7 @@ void loop() {
                             <div class="scheme-item"><span>🔵</span><strong class="pin-blue"><span id="rgbPin4">B → D3 (GPIO0) + 220 Ом</span></strong></div>
                         </div>
                     </div>
-                    <h2 style="color: #667eea; margin: 30px 0 20px; text-align: center;" id="componentsTitle2">⚡ КОМПОНЕНТЫ ДЛЯ ПРОЕКТА ⚡</h2>
+                    <h2 style="color: #FFE100; margin: 30px 0 20px; text-align: center;" id="componentsTitle2">⚡ КОМПОНЕНТЫ ДЛЯ ПРОЕКТА ⚡</h2>
                     <div id="project2Components" class="components-grid">
                         <div class="component-card"><div class="component-icon">🔹</div><h3>ESP8266 D1 Mini V2</h3><p>NodeMcu Lua ESP-12 (CH340) Type-C</p><div class="shop-buttons"><a href="https://www.wildberries.ru/catalog/0/search.aspx?search=esp8266+d1+mini+v2" target="_blank" class="shop-btn wb">Wildberries</a><a href="https://www.ozon.ru/search/?text=esp8266+d1+mini+v2" target="_blank" class="shop-btn ozon">Ozon</a><a href="https://aliexpress.ru/wholesale?SearchText=esp8266+d1+mini+v2" target="_blank" class="shop-btn aliexpress">AliExpress</a></div></div>
                         <div class="component-card"><div class="component-icon">🌈</div><h3>RGB модуль KY-016 (HW-479)</h3><p>Светодиодный модуль для Arduino</p><div class="shop-buttons"><a href="https://www.wildberries.ru/catalog/0/search.aspx?search=ky-016+arduino" target="_blank" class="shop-btn wb">Wildberries</a><a href="https://www.ozon.ru/search/?text=ky-016+arduino" target="_blank" class="shop-btn ozon">Ozon</a><a href="https://aliexpress.ru/wholesale?SearchText=ky-016" target="_blank" class="shop-btn aliexpress">AliExpress</a></div></div>
@@ -1320,7 +1427,7 @@ void setup() {
 &lt;head&gt;&lt;meta charset="UTF-8"&gt;&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
 &lt;title&gt;RGB Lamp (AP Mode)&lt;/title&gt;
 &lt;style&gt;
-body{font-family:Arial;text-align:center;background:linear-gradient(135deg,#667eea,#764ba2);padding:20px}
+body{font-family:Arial;text-align:center;background:linear-gradient(135deg,#FFE100,#FF0080);padding:20px}
 .container{max-width:500px;margin:0 auto;background:white;padding:20px;border-radius:20px}
 .preview{width:150px;height:150px;border-radius:50%;margin:20px auto;border:3px solid white}
 input[type=range]{width:100%}
@@ -1428,7 +1535,7 @@ void loop() {
                         </div>
                         <p style="text-align: center; margin-top: 15px; color: #ff4757; font-weight: bold;">⚠️ <span id="lcdLibWarning">Для работы нужна библиотека LiquidCrystal_I2C</span></p>
                     </div>
-                    <h2 style="color: #667eea; margin: 30px 0 20px; text-align: center;" id="componentsTitle4">⚡ КОМПОНЕНТЫ ДЛЯ ПРОЕКТА ⚡</h2>
+                    <h2 style="color: #FFE100; margin: 30px 0 20px; text-align: center;" id="componentsTitle4">⚡ КОМПОНЕНТЫ ДЛЯ ПРОЕКТА ⚡</h2>
                     <div id="project4Components" class="components-grid">
                         <div class="component-card"><div class="component-icon">🔧</div><h3>Arduino Uno R3</h3><p>Оригинальный или совместимый</p><div class="shop-buttons"><a href="https://www.wildberries.ru/catalog/0/search.aspx?search=arduino+uno" target="_blank" class="shop-btn wb">Wildberries</a><a href="https://www.ozon.ru/search/?text=arduino+uno" target="_blank" class="shop-btn ozon">Ozon</a><a href="https://aliexpress.ru/wholesale?SearchText=arduino+uno" target="_blank" class="shop-btn aliexpress">AliExpress</a></div></div>
                         <div class="component-card"><div class="component-icon">📟</div><h3>LCD1602 I2C</h3><p>16x2 символов, синий экран</p><div class="shop-buttons"><a href="https://www.wildberries.ru/catalog/0/search.aspx?search=lcd1602+i2c" target="_blank" class="shop-btn wb">Wildberries</a><a href="https://www.ozon.ru/search/?text=lcd1602+i2c" target="_blank" class="shop-btn ozon">Ozon</a><a href="https://aliexpress.ru/wholesale?SearchText=lcd1602+i2c" target="_blank" class="shop-btn aliexpress">AliExpress</a></div></div>
@@ -1499,7 +1606,7 @@ void loop() {}</pre>
                            <div class="scheme-item"><span>🟢</span><strong><span id="lcd6Scl">SCL LCD1602 → A5</span></strong></div>
                      </div>
                  </div>
-                 <h2 style="color: #667eea; margin: 30px 0 20px; text-align: center;" id="componentsTitle5">⚡ КОМПОНЕНТЫ ДЛЯ ПРОЕКТА ⚡</h2>
+                 <h2 style="color: #FFE100; margin: 30px 0 20px; text-align: center;" id="componentsTitle5">⚡ КОМПОНЕНТЫ ДЛЯ ПРОЕКТА ⚡</h2>
                  <div class="components-grid">
                       <div class="component-card"><div class="component-icon">🔧</div><h3 id="comp5">Arduino Uno R3</h3><p id="comp5desc">Оригинальный или совместимый</p><div class="shop-buttons"><a href="https://www.wildberries.ru/catalog/0/search.aspx?search=arduino+uno" target="_blank" class="shop-btn wb">Wildberries</a><a href="https://www.ozon.ru/search/?text=arduino+uno" target="_blank" class="shop-btn ozon">Ozon</a><a href="https://aliexpress.ru/wholesale?SearchText=arduino+uno" target="_blank" class="shop-btn aliexpress">AliExpress</a></div></div>
                       <div class="component-card"><div class="component-icon">📡</div><h3 id="comp6">HC-SR04 Ультразвуковой датчик расстояния</h3><p id="comp6desc">Измеряет расстояние от 2см до 4м</p><div class="shop-buttons"><a href="https://www.wildberries.ru/catalog/0/search.aspx?search=hc-sr04" target="_blank" class="shop-btn wb">Wildberries</a><a href="https://www.ozon.ru/search/?text=hc-sr04" target="_blank" class="shop-btn ozon">Ozon</a><a href="https://aliexpress.ru/wholesale?SearchText=hc+sr04+ultrasonic" target="_blank" class="shop-btn aliexpress">AliExpress</a></div></div>
@@ -1611,7 +1718,7 @@ void loop() {
                           <div class="scheme-item"><span>🔧</span><strong><span id="nanoVin">VIN Arduino Nano → 7-12V внешнее питание</span></strong></div>
                       </div>
                   </div>
-                  <h2 style="color: #667eea; margin: 30px 0 20px; text-align: center;" id="componentsTitle6">⚡ КОМПОНЕНТЫ ДЛЯ ПРОЕКТА ⚡</h2>
+                  <h2 style="color: #FFE100; margin: 30px 0 20px; text-align: center;" id="componentsTitle6">⚡ КОМПОНЕНТЫ ДЛЯ ПРОЕКТА ⚡</h2>
                    <div id="project6Components" class="components-grid">
                        <div class="component-card"><div class="component-icon">🔧</div><h3>Arduino Nano</h3><p>Компактная версия Arduino Uno</p><div class="shop-buttons"><a href="https://www.wildberries.ru/catalog/0/search.aspx?search=arduino+nano" target="_blank" class="shop-btn wb">Wildberries</a><a href="https://www.ozon.ru/search/?text=arduino+nano" target="_blank" class="shop-btn ozon">Ozon</a><a href="https://aliexpress.ru/wholesale?SearchText=arduino+nano" target="_blank" class="shop-btn aliexpress">AliExpress</a></div></div>
                        <div class="component-card"><div class="component-icon">⌨️</div><h3>Мембранная клавиатура 4x4</h3><p>16 кнопок для ввода кодов</p><div class="shop-buttons"><a href="https://www.wildberries.ru/catalog/0/search.aspx?search=клавиатура+4x4" target="_blank" class="shop-btn wb">Wildberries</a><a href="https://www.ozon.ru/search/?text=клавиатура+4x4" target="_blank" class="shop-btn ozon">Ozon</a><a href="https://aliexpress.ru/wholesale?SearchText=4x4+membrane+keypad" target="_blank" class="shop-btn aliexpress">AliExpress</a></div></div>
@@ -2004,7 +2111,7 @@ int16_t ax=Wire.read()<<8|Wire.read(); Serial.println(ax); delay(200); }</pre></
                 <div class="greeting" id="reviewsGreeting">📺 ОБЗОРЫ И 🛒 ТОВАРЫ</div>
                 
                 <div class="story" style="margin-bottom: 40px;">
-                    <h3 style="color: #667eea; margin-bottom: 15px;" id="review1Title">🔪 Нож WORKPRO</h3>
+                    <h3 style="color: #FFE100; margin-bottom: 15px;" id="review1Title">🔪 Нож WORKPRO</h3>
                     <p id="review1p1"><strong>Описание:</strong> Удобный ножик с упором на лезвии — мелочь, а как выручает! Именно этой детали иногда не хватает в обычных канцелярских ножах. Работать стало комфортнее и безопаснее.</p>
                     <p id="review1p2"><strong>Комплектация:</strong> В комплекте уже есть запасные лезвия, которые удобно хранить прямо в рукоятке — своего рода «багажник» всегда под рукой.</p>
                     <p id="review1p3"><strong>Вердикт:</strong> Очень доволен покупкой, рекомендую для резки картона, бумаги, пластика и обоев. Лезвия меняются легко, держатся долго. Для дома, гаража или мастерской — мастхэв.</p>
@@ -2016,7 +2123,7 @@ int16_t ax=Wire.read()<<8|Wire.read(); Serial.println(ax); delay(200); }</pre></
                 </div>
                 
                 <div class="story" style="margin-bottom: 40px;">
-                    <h3 style="color: #667eea; margin-bottom: 15px;" id="review2Title">🛠️ Инструмент для удаления неровностей</h3>
+                    <h3 style="color: #FFE100; margin-bottom: 15px;" id="review2Title">🛠️ Инструмент для удаления неровностей</h3>
                     <p id="review2p1"><strong>Описание:</strong> Универсальный инструмент, который пригодится в любом хозяйстве. Идеально подходит для резки металла (листовой, трубы, профили), пластика и сантехнических материалов. Справляется даже с толстым пластиком и алюминием.</p>
                     <p id="review2p2"><strong>Особенности:</strong> Особенно удобен для подготовки деталей перед пайкой или сваркой — убирает заусенцы, выравнивает края, делает кромки аккуратными и безопасными. Заменяет сразу несколько инструментов в мастерской.</p>
                     <p id="review2p3"><strong>Вердикт:</strong> Компактный, лёгкий, всегда под рукой. Для самодельщика, электрика, сантехника — просто незаменимая вещь. Качество сборки отличное, лезвия держат заточку долго. Рекомендую всем, кто любит мастерить!</p>
@@ -2028,7 +2135,7 @@ int16_t ax=Wire.read()<<8|Wire.read(); Serial.println(ax); delay(200); }</pre></
                 </div>
                 
                 <div class="story" style="margin-bottom: 40px;">
-                    <h3 style="color: #667eea; margin-bottom: 15px;" id="review3Title">🔥 Турбозажигалка</h3>
+                    <h3 style="color: #FFE100; margin-bottom: 15px;" id="review3Title">🔥 Турбозажигалка</h3>
                     <p id="review3p1"><strong>Описание:</strong> Мощная турбозажигалка с ветрозащитой — настоящая находка для радиолюбителя и мастера. Отлично подходит для усадки термоусадочных трубок при пайке проводов, обжигания оплётки, удаления заусенцев на пластике.</p>
                     <p id="review3p2"><strong>Преимущества:</strong> Благодаря турбонаддуву пламя не гаснет на ветру, горит стабильно и горячо (до 1300°C). Можно регулировать интенсивность — от деликатного прогрева до мощного факела. Идеально для работы на улице или в продуваемых помещениях.</p>
                     <p id="review3p3"><strong>Хозяйственное применение:</strong> Многоразовая, заправляется обычным газом для зажигалок. В хозяйстве пригодится не только для электроники, но и для розжига мангала, кулинарных работ (карамелизация), подпаливания ниток и многого другого.</p>
@@ -2041,7 +2148,7 @@ int16_t ax=Wire.read()<<8|Wire.read(); Serial.println(ax); delay(200); }</pre></
                 </div>
                 
                 <div class="story" style="margin-bottom: 40px;">
-                    <h3 style="color: #667eea; margin-bottom: 15px;" id="review4Title">🖋️ Паяльник FMCHIP FM03</h3>
+                    <h3 style="color: #FFE100; margin-bottom: 15px;" id="review4Title">🖋️ Паяльник FMCHIP FM03</h3>
                     <p id="review4p1"><strong>Описание:</strong> Очень дешёвый, но при этом современный цифровой паяльник с качественным жалом. Отлично реагирует на отвод тепла и мгновенно задирает мощность, чтобы температура не падала. С таким паяльником работать одно удовольствие — никаких провалов температуры на массивных контактах.</p>
                     <p id="review4p2"><strong>Питание:</strong> Потребляет всего 20 ватт, поэтому его можно спокойно питать от повербанка (через USB). Это делает паяльник идеальным для выездных работ или когда розетка далеко.</p>
                     <p id="review4p3"><strong>Аксессуары:</strong> 🔋 Всё для автономной пайки: повербанк (ссылка в блоке выше), кейс для паяльника (чтобы носить с собой без риска повредить), специальный провод (подходит для всех паяльников этого типа).</p>
@@ -2054,7 +2161,7 @@ int16_t ax=Wire.read()<<8|Wire.read(); Serial.println(ax); delay(200); }</pre></
                 </div>
                 
                     <div class="story" style="margin-bottom: 40px;">
-                        <h3 style="color: #667eea; margin-bottom: 15px;" id="review5Title">🚀 M5 Stick C Plus 2</h3>
+                        <h3 style="color: #FFE100; margin-bottom: 15px;" id="review5Title">🚀 M5 Stick C Plus 2</h3>
                         <p id="review5p1"><strong>Описание:</strong> Потрясающий подарок! Этот маленький «умный брелок» — полноценный ESP32-компьютер с цветным экраном, аккумулятором и кучей датчиков. Идеален для экспериментов: мониторинг, управление умным домом, носимые гаджеты и даже ретро-игры.</p>
                         <p id="review5p2"><strong>Характеристики:</strong> Встроенный гироскоп, ИК-передатчик, микрофон и кнопки управления. Работает с Arduino IDE, MicroPython и Blockly. Программируется через USB-C, можно менять прошивки и загружать свои проекты.</p>
                     <p id="review5p3"><strong>Что внутри:</strong> ESP32-PICO-V3-02, 4MB Flash, 520KB RAM, 1.14″ LCD 135x240, вибромотор, RGB LED, 120mAh батареи. Время работы до 2 часов, заряжается от любого повербанка.</p>
@@ -2068,7 +2175,7 @@ int16_t ax=Wire.read()<<8|Wire.read(); Serial.println(ax); delay(200); }</pre></
                  </div>
                   
                   <div class="story" style="margin-bottom: 40px;">
-                     <h3 style="color: #667eea; margin-bottom: 15px;" id="review6Title">🔌 Мультиметр Aneng 620A</h3>
+                     <h3 style="color: #FFE100; margin-bottom: 15px;" id="review6Title">🔌 Мультиметр Aneng 620A</h3>
                      <p id="review6p1"><strong>Описание:</strong> Надёжный цифровой мультиметр с точностью измерения до 0.01V/0.1mA. Отличен для проверки цепей питания, измерения напряжения, тока и сопротивления. Диапазон измерения: 6000 сч/ед, автодиапазон, подсветка экрана.</p>
                      <p id="review6p2"><strong>Особенности:</strong> Защита от перенапряжения, функция держания значения (Hold), индикатор заряда батареи, автоматическое выключение. Маленький размер — удобен в мастерской и на выезде.</p>
                      <p id="review6p3"><strong>Вердикт:</strong> Лучший выбор для радиолюбителя и мастера. Точный, прочный, долго работает от батарейки. Рекомендую всем, кто любит сам диагностировать схемы!</p>
@@ -2079,7 +2186,7 @@ int16_t ax=Wire.read()<<8|Wire.read(); Serial.println(ax); delay(200); }</pre></
                      </div>
                  </div>
                  
-                 <h2 style="color: #667eea; margin: 30px 0 20px; text-align: center;" id="shopTitle">⚡ ГДЕ КУПИТЬ КОМПОНЕНТЫ ⚡</h2>
+                 <h2 style="color: #FFE100; margin: 30px 0 20px; text-align: center;" id="shopTitle">⚡ ГДЕ КУПИТЬ КОМПОНЕНТЫ ⚡</h2>
                 <div class="components-grid">
                     <div class="component-card"><div class="component-icon">🔹</div><h3>ESP8266 D1 Mini V2</h3><div class="shop-buttons"><a href="#" class="shop-btn wb">Wildberries</a><a href="#" class="shop-btn ozon">Ozon</a><a href="#" class="shop-btn aliexpress">AliExpress</a></div></div>
                     <div class="component-card"><div class="component-icon">🌡️</div><h3 id="shopComp1">Датчик DHT22</h3><div class="shop-buttons"><a href="#" class="shop-btn wb">Wildberries</a><a href="#" class="shop-btn ozon">Ozon</a><a href="#" class="shop-btn aliexpress">AliExpress</a></div></div>
@@ -2458,16 +2565,16 @@ review6Ozon: 'OZON',
                 </div>
 
                 <div class="story" style="margin-bottom: 40px;">
-                    <h3 style="color: #667eea; margin-bottom: 15px;">🔻 Step 1: Download Arduino IDE</h3>
+                    <h3 style="color: #FFE100; margin-bottom: 15px;">🔻 Step 1: Download Arduino IDE</h3>
                     <p><strong>Official website (may require VPN):</strong></p>
-                    <p style="margin-left: 20px;">🌐 <a href="https://www.arduino.cc/en/software" target="_blank" style="color: #667eea; font-weight: bold;">https://www.arduino.cc/en/software</a></p>
+                    <p style="margin-left: 20px;">🌐 <a href="https://www.arduino.cc/en/software" target="_blank" style="color: #FFE100; font-weight: bold;">https://www.arduino.cc/en/software</a></p>
                     <p><strong>Alternative from Amperka (no VPN):</strong></p>
-                    <p style="margin-left: 20px;">🌐 <a href="https://amperka.ru/page/arduino-ide" target="_blank" style="color: #667eea; font-weight: bold;">https://amperka.ru/page/arduino-ide</a></p>
+                    <p style="margin-left: 20px;">🌐 <a href="https://amperka.ru/page/arduino-ide" target="_blank" style="color: #FFE100; font-weight: bold;">https://amperka.ru/page/arduino-ide</a></p>
                     <p style="color: #666; font-style: italic; margin-top: 15px;">💡 Both versions are identical. Choose what suits you!</p>
                 </div>
 
-                <div class="story" style="margin-bottom: 40px; background: rgba(255, 255, 255, 0.15); border-left: 8px solid #667eea;">
-                    <h3 style="color: #667eea; margin-bottom: 15px;">🪟 Installation on Windows</h3>
+                <div class="story" style="margin-bottom: 40px; background: rgba(18, 18, 26, 0.9); border-left: 3px solid #FFE100;">
+                    <h3 style="color: #FFE100; margin-bottom: 15px;">🪟 Installation on Windows</h3>
 
                     <p><strong>Option 1: Installer</strong></p>
                     <ol style="margin-left: 30px; line-height: 1.8;">
@@ -2490,35 +2597,35 @@ review6Ozon: 'OZON',
                         <li>Run <code style="background: rgba(0,0,0,0.2); padding: 3px 8px; border-radius: 5px;">arduino-ide.exe</code></li>
                     </ol>
 
-                    <p style="margin-top: 20px; color: #ff7675; font-weight: bold;">⚠️ Important for Windows:</p>
-                    <ul style="margin-left: 30px; color: #ff7675;">
+                    <p style="margin-top: 20px; color: #FF0080; font-weight: bold;">⚠️ Important for Windows:</p>
+                    <ul style="margin-left: 30px; color: #FF0080;">
                         <li>If Arduino doesn't recognize your COM port — download USB FTDI or CH340 drivers</li>
                         <li>Device Manager may show "Unknown Device" — this is normal, drivers are needed</li>
                         <li>Restart your computer after driver installation</li>
                     </ul>
                 </div>
 
-                <div class="story" style="margin-bottom: 40px; background: rgba(255, 255, 255, 0.15); border-left: 8px solid #667eea;">
-                    <h3 style="color: #667eea; margin-bottom: 15px;">🐧 Installation on Linux</h3>
+                <div class="story" style="margin-bottom: 40px; background: rgba(18, 18, 26, 0.9); border-left: 3px solid #FFE100;">
+                    <h3 style="color: #FFE100; margin-bottom: 15px;">🐧 Installation on Linux</h3>
 
                     <p><strong>Ubuntu/Debian (easiest way):</strong></p>
                     <p style="margin-top: 10px; margin-bottom: 15px;">Open <strong>Terminal</strong> (Ctrl+Alt+T) and run:</p>
-                    <div class="code-block" style="background: rgba(30, 30, 47, 0.9); padding: 15px; border-radius: 15px; margin-bottom: 15px;">
+                    <div class="code-block" style="background: rgba(0, 0, 0, 0.8); padding: 15px; border-radius: 0; margin-bottom: 15px;">
                         <pre style="color: #a6ff7a; font-size: 13px; margin: 0;">sudo apt update && sudo apt install arduino -y</pre>
                     </div>
 
                     <p><strong>Or install via snap:</strong></p>
-                    <div class="code-block" style="background: rgba(30, 30, 47, 0.9); padding: 15px; border-radius: 15px; margin-bottom: 15px;">
+                    <div class="code-block" style="background: rgba(0, 0, 0, 0.8); padding: 15px; border-radius: 0; margin-bottom: 15px;">
                         <pre style="color: #a6ff7a; font-size: 13px; margin: 0;">sudo snap install arduino</pre>
                     </div>
 
                     <p style="margin-top: 20px;"><strong>Fedora/CentOS/RHEL:</strong></p>
-                    <div class="code-block" style="background: rgba(30, 30, 47, 0.9); padding: 15px; border-radius: 15px; margin-bottom: 15px;">
+                    <div class="code-block" style="background: rgba(0, 0, 0, 0.8); padding: 15px; border-radius: 0; margin-bottom: 15px;">
                         <pre style="color: #a6ff7a; font-size: 13px; margin: 0;">sudo dnf install arduino -y</pre>
                     </div>
 
                     <p style="margin-top: 20px;"><strong>Arch Linux:</strong></p>
-                    <div class="code-block" style="background: rgba(30, 30, 47, 0.9); padding: 15px; border-radius: 15px; margin-bottom: 15px;">
+                    <div class="code-block" style="background: rgba(0, 0, 0, 0.8); padding: 15px; border-radius: 0; margin-bottom: 15px;">
                         <pre style="color: #a6ff7a; font-size: 13px; margin: 0;">sudo pacman -S arduino -y</pre>
                     </div>
 
@@ -2528,31 +2635,31 @@ review6Ozon: 'OZON',
                         <li>Open Terminal in the download folder</li>
                         <li>Extract the archive:</li>
                     </ol>
-                    <div class="code-block" style="background: rgba(30, 30, 47, 0.9); padding: 15px; border-radius: 15px; margin-bottom: 15px; margin-left: 30px;">
+                    <div class="code-block" style="background: rgba(0, 0, 0, 0.8); padding: 15px; border-radius: 0; margin-bottom: 15px; margin-left: 30px;">
                         <pre style="color: #a6ff7a; font-size: 13px; margin: 0;">tar -xf arduino-ide_linux64.tar.xz -C ~/</pre>
                     </div>
 
                     <ol style="margin-left: 30px; line-height: 1.8;">
                         <li>Run Arduino IDE:</li>
                     </ol>
-                    <div class="code-block" style="background: rgba(30, 30, 47, 0.9); padding: 15px; border-radius: 15px; margin-bottom: 15px; margin-left: 30px;">
+                    <div class="code-block" style="background: rgba(0, 0, 0, 0.8); padding: 15px; border-radius: 0; margin-bottom: 15px; margin-left: 30px;">
                         <pre style="color: #a6ff7a; font-size: 13px; margin: 0;">~/arduino-ide/arduino-ide</pre>
                     </div>
 
-                    <p style="margin-top: 20px; color: #ff7675; font-weight: bold;">⚠️ Important for Linux:</p>
-                    <ul style="margin-left: 30px; color: #ff7675;">
+                    <p style="margin-top: 20px; color: #FF0080; font-weight: bold;">⚠️ Important for Linux:</p>
+                    <ul style="margin-left: 30px; color: #FF0080;">
                         <li>To access USB ports, add your user to the <code style="background: rgba(0,0,0,0.2); padding: 3px 8px; border-radius: 5px;">dialout</code> group:</li>
                     </ul>
-                    <div class="code-block" style="background: rgba(30, 30, 47, 0.9); padding: 15px; border-radius: 15px; margin-bottom: 15px; margin-left: 30px;">
+                    <div class="code-block" style="background: rgba(0, 0, 0, 0.8); padding: 15px; border-radius: 0; margin-bottom: 15px; margin-left: 30px;">
                         <pre style="color: #a6ff7a; font-size: 13px; margin: 0;">sudo usermod -a -G dialout $USER</pre>
                     </div>
-                    <ul style="margin-left: 30px; color: #ff7675;">
+                    <ul style="margin-left: 30px; color: #FF0080;">
                         <li>After that, reboot or run: <code style="background: rgba(0,0,0,0.2); padding: 3px 8px; border-radius: 5px;">newgrp dialout</code></li>
                     </ul>
                 </div>
 
                 <div class="story" style="margin-bottom: 40px;">
-                    <h3 style="color: #667eea; margin-bottom: 15px;">✅ Verify Installation</h3>
+                    <h3 style="color: #FFE100; margin-bottom: 15px;">✅ Verify Installation</h3>
                     <p><strong>Launch Arduino IDE and check:</strong></p>
                     <ol style="margin-left: 30px; line-height: 1.8;">
                         <li>Open <strong>File → Examples → 01. Basics → Blink</strong></li>
@@ -2564,13 +2671,13 @@ review6Ozon: 'OZON',
                     </ol>
                 </div>
 
-                <div class="story" style="background: rgba(102, 126, 234, 0.2); border-left: 8px solid #667eea;">
-                    <h3 style="color: #667eea; margin-bottom: 15px;">📚 Useful Links</h3>
+                <div class="story" style="background: rgba(255, 225, 0, 0.1); border-left: 3px solid #FFE100;">
+                    <h3 style="color: #FFE100; margin-bottom: 15px;">📚 Useful Links</h3>
                     <ul style="margin-left: 20px;">
-                        <li>📖 <a href="https://docs.arduino.cc/software/ide-v2" target="_blank" style="color: #667eea; font-weight: bold;">Official Arduino IDE v2 Documentation</a></li>
-                        <li>🛠️ <a href="https://docs.arduino.cc/hardware/all" target="_blank" style="color: #667eea; font-weight: bold;">Supported Boards and Sensors</a></li>
-                        <li>🔌 <a href="https://docs.arduino.cc/hardware/uno-rev3" target="_blank" style="color: #667eea; font-weight: bold;">Arduino Uno Documentation</a></li>
-                        <li>📝 <a href="https://docs.arduino.cc/language-reference/" target="_blank" style="color: #667eea; font-weight: bold;">Arduino Language Reference</a></li>
+                        <li>📖 <a href="https://docs.arduino.cc/software/ide-v2" target="_blank" style="color: #FFE100; font-weight: bold;">Official Arduino IDE v2 Documentation</a></li>
+                        <li>🛠️ <a href="https://docs.arduino.cc/hardware/all" target="_blank" style="color: #FFE100; font-weight: bold;">Supported Boards and Sensors</a></li>
+                        <li>🔌 <a href="https://docs.arduino.cc/hardware/uno-rev3" target="_blank" style="color: #FFE100; font-weight: bold;">Arduino Uno Documentation</a></li>
+                        <li>📝 <a href="https://docs.arduino.cc/language-reference/" target="_blank" style="color: #FFE100; font-weight: bold;">Arduino Language Reference</a></li>
                     </ul>
                 </div>`;
 
