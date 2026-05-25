@@ -95,6 +95,7 @@
             background: var(--dark-panel);
             border: 2px solid rgba(255,225,0,0.25);
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.9), 0 0 60px rgba(255,225,0,0.06);
+            animation: borderFlicker 8s infinite, neonPulse 6s infinite;
         }
 
         body.dark-theme .story,
@@ -193,6 +194,42 @@
             4% { transform: translate(-1px, 2px); filter: hue-rotate(10deg); }
             5% { transform: translate(0); filter: hue-rotate(0deg); }
             100% { transform: translate(0); filter: hue-rotate(0deg); }
+        }
+
+        @keyframes glitchCard {
+            0% { transform: translate(0) scale(1); clip-path: inset(0); }
+            4% { transform: translate(-3px, 1px) scale(1.03); clip-path: inset(10% 0 60% 0); }
+            5% { transform: translate(3px, -1px) scale(1.03); clip-path: inset(50% 0 0 0); }
+            6% { transform: translate(0) scale(1.03); clip-path: inset(0); }
+            100% { transform: translate(0) scale(1); clip-path: inset(0); }
+        }
+
+        @keyframes blinkCursor {
+            0%, 100% { border-color: var(--neon-cyan); }
+            50% { border-color: transparent; }
+        }
+
+        @keyframes glitchBtn {
+            0% { transform: scale(1.05) translate(0); }
+            2% { transform: scale(1.08) translate(-2px, 1px) skewX(-1deg); }
+            4% { transform: scale(1.08) translate(2px, -1px) skewX(1deg); }
+            6% { transform: scale(1.05) translate(0); }
+            100% { transform: scale(1.05) translate(0); }
+        }
+
+        @keyframes hueScan {
+            0% { filter: hue-rotate(0deg); }
+            25% { filter: hue-rotate(5deg); }
+            50% { filter: hue-rotate(0deg); }
+            75% { filter: hue-rotate(-5deg); }
+            100% { filter: hue-rotate(0deg); }
+        }
+
+        @keyframes neonFlicker {
+            0%, 18%, 22%, 25%, 53%, 57%, 100% { opacity: 1; }
+            20% { opacity: 0.6; }
+            24% { opacity: 0.4; }
+            55% { opacity: 0.8; }
         }
 
 
@@ -371,6 +408,7 @@
             border-bottom: 2px solid rgba(255,225,0,0.15);
             position: relative;
             overflow: hidden;
+            animation: hueScan 10s infinite;
         }
 
         .header::before {
@@ -445,7 +483,7 @@
             font-weight: 900;
             letter-spacing: 4px;
             text-transform: uppercase;
-            animation: neonPulse 2s infinite;
+            animation: neonPulse 2s infinite, neonFlicker 4s infinite;
         }
 
         .content {
@@ -462,6 +500,7 @@
             border: 2px solid rgba(255,225,0,0.15);
             flex-wrap: wrap;
             justify-content: center;
+            animation: borderFlicker 10s infinite;
         }
 
         .main-tab-btn {
@@ -485,6 +524,7 @@
             color: var(--neon-yellow);
             border-color: var(--neon-yellow);
             box-shadow: var(--glow-yellow);
+            animation: glitchBtn 0.8s infinite;
         }
 
         .main-tab-btn.active {
@@ -579,6 +619,7 @@
             padding: 10px;
             border: 2px solid rgba(0, 229, 255, 0.12);
             flex-wrap: wrap;
+            animation: borderFlicker 12s infinite;
         }
 
         .project-tab-btn {
@@ -607,6 +648,7 @@
             color: var(--neon-cyan);
             border-color: var(--neon-cyan);
             box-shadow: var(--glow-cyan);
+            animation: glitchBtn 0.6s infinite;
         }
 
         .project-tab-btn.active {
@@ -658,6 +700,7 @@
             border-color: rgba(0, 229, 255, 0.3);
             box-shadow: 0 0 30px rgba(0, 229, 255, 0.06), inset 0 0 20px rgba(0,229,255,0.02);
             transform: translateX(3px);
+            animation: glitchTear 4s infinite;
         }
 
         .story p { margin-bottom: 18px; }
@@ -728,6 +771,7 @@
             box-shadow: 0 0 35px rgba(255,225,0,0.2), var(--glow-yellow);
             background: rgba(10, 10, 20, 0.98);
             border-color: var(--neon-yellow);
+            animation: glitchCard 2s infinite;
         }
 
         .component-card h3 {
@@ -838,6 +882,7 @@
             background: rgba(0, 229, 255, 0.15);
             transform: scale(1.1);
             box-shadow: var(--glow-cyan);
+            animation: glitchBtn 0.5s infinite;
         }
 
         .copy-btn.copied {
@@ -919,7 +964,7 @@
             background: rgba(5, 5, 10, 0.95);
             margin: 30px 0;
             border: 3px solid var(--neon-yellow);
-            animation: neonPulse 2s infinite;
+            animation: neonPulse 2s infinite, borderFlicker 6s infinite;
         }
 
         .big-soon h2 {
@@ -928,7 +973,7 @@
             text-shadow: 0 0 30px rgba(255,225,0,0.5), 0 0 60px rgba(255,225,0,0.3), 0 0 100px rgba(255,225,0,0.1);
             letter-spacing: 20px;
             font-weight: 900;
-            animation: flicker 4s infinite;
+            animation: flicker 4s infinite, glitch 6s infinite;
         }
 
         /* ===== AD BLOCK ===== */
