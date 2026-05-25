@@ -171,12 +171,10 @@
 
         @keyframes borderFlicker {
             0% { border-color: rgba(255,225,0,0.4); }
-            5% { border-color: rgba(255,0,128,0.6); }
-            10% { border-color: rgba(255,225,0,0.4); }
-            15% { border-color: rgba(0,229,255,0.5); }
-            16% { border-color: rgba(255,225,0,0.4); }
-            20% { border-color: rgba(188,0,255,0.4); }
-            21% { border-color: rgba(255,225,0,0.4); }
+            10% { border-color: rgba(255,0,128,0.5); }
+            15% { border-color: rgba(255,225,0,0.4); }
+            25% { border-color: rgba(0,229,255,0.4); }
+            28% { border-color: rgba(255,225,0,0.4); }
             100% { border-color: rgba(255,225,0,0.4); }
         }
 
@@ -436,7 +434,7 @@
             font-weight: 900;
             letter-spacing: 5px;
             text-transform: uppercase;
-            animation: glitch 3s infinite, flicker 5s infinite, glitchFlash 8s infinite;
+            animation: glitch 8s infinite, flicker 8s infinite;
             display: inline-block;
             position: relative;
         }
@@ -524,7 +522,6 @@
             color: var(--neon-yellow);
             border-color: var(--neon-yellow);
             box-shadow: var(--glow-yellow);
-            animation: glitchBtn 0.8s infinite;
         }
 
         .main-tab-btn.active {
@@ -648,7 +645,6 @@
             color: var(--neon-cyan);
             border-color: var(--neon-cyan);
             box-shadow: var(--glow-cyan);
-            animation: glitchBtn 0.6s infinite;
         }
 
         .project-tab-btn.active {
@@ -700,7 +696,6 @@
             border-color: rgba(0, 229, 255, 0.3);
             box-shadow: 0 0 30px rgba(0, 229, 255, 0.06), inset 0 0 20px rgba(0,229,255,0.02);
             transform: translateX(3px);
-            animation: glitchTear 4s infinite;
         }
 
         .story p { margin-bottom: 18px; }
@@ -771,7 +766,6 @@
             box-shadow: 0 0 35px rgba(255,225,0,0.2), var(--glow-yellow);
             background: rgba(10, 10, 20, 0.98);
             border-color: var(--neon-yellow);
-            animation: glitchCard 2s infinite;
         }
 
         .component-card h3 {
@@ -882,7 +876,6 @@
             background: rgba(0, 229, 255, 0.15);
             transform: scale(1.1);
             box-shadow: var(--glow-cyan);
-            animation: glitchBtn 0.5s infinite;
         }
 
         .copy-btn.copied {
@@ -973,7 +966,7 @@
             text-shadow: 0 0 30px rgba(255,225,0,0.5), 0 0 60px rgba(255,225,0,0.3), 0 0 100px rgba(255,225,0,0.1);
             letter-spacing: 20px;
             font-weight: 900;
-            animation: flicker 4s infinite, glitch 6s infinite;
+            animation: flicker 6s infinite, glitch 12s infinite;
         }
 
         /* ===== AD BLOCK ===== */
