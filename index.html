@@ -1118,7 +1118,7 @@
         
         <div class="content">
 <div class="main-tabs">
-    <button class="main-tab-btn" onclick="openMainTab('projects')" id="mainTabProjects">🔧 Проекты</button>
+    <button class="main-tab-btn active" onclick="openMainTab('projects')" id="mainTabProjects">🔧 Проекты</button>
     <button class="main-tab-btn" onclick="openMainTab('reviews')" id="mainTabReviews">📺 Обзоры + 🛒 Товары</button>
     <button class="main-tab-btn" onclick="openMainTab('videos')" id="mainTabVideos">📺 Видео</button>
     <button class="main-tab-btn" onclick="openMainTab('instructions')" id="mainTabInstructions">📖 Инструкции</button>
@@ -2069,11 +2069,12 @@ void drawMatrix(const byte image[8]) {
                       </div>
                   </div>
               </div>
+            </div>
 
               <!-- ВКЛАДКА ОБЗОРЫ И ТОВАРЫ -->
 
               <!-- ВКЛАДКА ДАТЧИКИ (ГЛАВНАЯ) -->
-              <div id="sensors" class="main-tab-content">
+            <div id="sensors" class="main-tab-content">
                   <div id="sensorsContent">
                   <div class="greeting">🧪 Датчики — подключение и примеры</div>
                   <div class="story">
@@ -2162,9 +2163,9 @@ int16_t ax=Wire.read()<<8|Wire.read(); Serial.println(ax); delay(200); }</pre></
                       <p>Если хотите, я могу добавить пример подключения (с картинкой), полные скетчи и ссылки на библиотеки для каждого датчика по отдельности. Напишите, какие датчики приоритетнее.</p>
                   </div>
                   </div>
-              </div>
-              
-              <div id="reviews" class="main-tab-content">
+            </div>
+
+            <div id="reviews" class="main-tab-content">
                 <div class="greeting" id="reviewsGreeting">📺 ОБЗОРЫ И 🛒 ТОВАРЫ</div>
                 
                 <div class="story" style="margin-bottom: 40px;">
