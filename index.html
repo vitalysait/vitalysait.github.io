@@ -720,6 +720,20 @@
             transform: translateX(3px);
         }
 
+        .reviews-notice {
+            background: rgba(255, 0, 60, 0.12);
+            border: 2px solid var(--neon-pink);
+            padding: 20px 28px;
+            margin-bottom: 30px;
+            font-size: 1.2em;
+            font-weight: 700;
+            color: var(--neon-pink);
+            text-align: center;
+            text-shadow: 0 0 12px rgba(255, 0, 60, 0.5);
+            box-shadow: 0 0 25px rgba(255, 0, 60, 0.15), inset 0 0 30px rgba(255, 0, 60, 0.05);
+            animation: borderFlicker 4s infinite step-end;
+        }
+
         .story p { margin-bottom: 18px; }
 
         .story ul { margin-left: 20px; margin-bottom: 15px; line-height: 1.8; }
@@ -1116,6 +1130,7 @@
             .project-tab-btn { min-width: 100%; padding: 10px; font-size: 0.9em; }
             .greeting { padding: 18px; font-size: 1.1em; letter-spacing: 2px; }
             .story { padding: 18px; font-size: 1em; }
+            .reviews-notice { padding: 14px 16px; font-size: 1em; }
             .components-grid { grid-template-columns: 1fr; gap: 12px; }
             .component-card { padding: 18px; }
             .component-card h3 { font-size: 1.3em; }
@@ -2228,6 +2243,8 @@ int16_t ax=Wire.read()<<8|Wire.read(); Serial.println(ax); delay(200); }</pre></
             <div id="reviews" class="main-tab-content">
                 <div class="greeting" id="reviewsGreeting">📺 ОБЗОРЫ И 🛒 ТОВАРЫ</div>
                 
+                <div class="reviews-notice" id="reviewsNotice">⚠️ Я сейчас не могу снять обзоры — нет времени, но на следующей неделе планирую</div>
+                
                 <div class="story" style="margin-bottom: 40px;">
                     <h3 style="color: #FFE100; margin-bottom: 15px;" id="review1Title">🔪 Нож WORKPRO</h3>
                     <p id="review1p1"><strong>Описание:</strong> Удобный ножик с упором на лезвии — мелочь, а как выручает! Именно этой детали иногда не хватает в обычных канцелярских ножах. Работать стало комфортнее и безопаснее.</p>
@@ -2446,6 +2463,7 @@ comp2: 'Датчик DHT22',
                 codeTitle6: '📟 КОД: БОМБА ИЗ КС2 С КЛАВИАТУРОЙ И LCD',
                 soonText: 'СКОРО...',
                 reviewsGreeting: '📺 ОБЗОРЫ И 🛒 ТОВАРЫ',
+                reviewsNotice: '⚠️ Я сейчас не могу снять обзоры — нет времени, но на следующей неделе планирую',
                 review1Title: '🔪 Нож WORKPRO',
                 review1p1: '<strong>Описание:</strong> Удобный ножик с упором на лезвии — мелочь, а как выручает! Именно этой детали иногда не хватает в обычных канцелярских ножах. Работать стало комфортнее и безопаснее.',
                 review1p2: '<strong>Комплектация:</strong> В комплекте уже есть запасные лезвия, которые удобно хранить прямо в рукоятке — своего рода «багажник» всегда под рукой.',
@@ -2617,6 +2635,7 @@ comp8desc: 'Male-to-female, 6 pieces for connection',
                 lcdLibWarning: '⚠️ LiquidCrystal_I2C library is required',
                 soonText: 'SOON...',
                 reviewsGreeting: '📺 REVIEWS AND 🛒 SHOP',
+                reviewsNotice: '⚠️ I can\'t film reviews right now — no time, but planning to next week',
                 review1Title: '🔪 WORKPRO Knife',
                 review1p1: '<strong>Description:</strong> Convenient knife with a blade stop - a small thing, but how it helps!',
                 review1p2: '<strong>What\'s included:</strong> Spare blades stored right in the handle.',
@@ -3036,6 +3055,7 @@ document.getElementById('codeTitle5').textContent = t.codeTitle5;
             document.getElementById('codeTitle4').textContent = t.codeTitle4;
             const soonEl = document.getElementById('soonText'); if (soonEl) soonEl.textContent = t.soonText;
             document.getElementById('reviewsGreeting').textContent = t.reviewsGreeting;
+            document.getElementById('reviewsNotice').innerHTML = t.reviewsNotice;
             document.getElementById('review1Title').textContent = t.review1Title;
             document.getElementById('review1p1').innerHTML = t.review1p1;
             document.getElementById('review1p2').innerHTML = t.review1p2;
