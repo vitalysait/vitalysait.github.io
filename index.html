@@ -1227,6 +1227,7 @@
     <button class="main-tab-btn" onclick="openMainTab('videos')" id="mainTabVideos">📺 Видео</button>
     <button class="main-tab-btn" onclick="openMainTab('instructions')" id="mainTabInstructions">📖 Инструкции</button>
     <button class="main-tab-btn" onclick="openMainTab('sensors')" id="mainTabSensors">🌡️ Датчики</button>
+    <button class="main-tab-btn" onclick="openMainTab('m5stack')" id="mainTabM5stack">🚀 M5 Stack</button>
 </div>
             
             <!-- СОДЕРЖИМОЕ ВКЛАДКИ ИНСТРУКЦИИ -->
@@ -2369,6 +2370,119 @@ int16_t ax=Wire.read()<<8|Wire.read(); Serial.println(ax); delay(200); }</pre></
                     <a href="https://www.youtube.com/@ARDUINOESPPROJECT" target="_blank" style="display:inline-block; background:linear-gradient(135deg,#ff0000,#cc0000); color:white; padding:15px 40px; border-radius:50px; font-size:1.3em; font-weight:bold; text-decoration:none;"><span id="subscribeBtnText">🔔 ПОДПИСАТЬСЯ НА КАНАЛ</span></a>
                 </div>
             </div>
+
+            <!-- ВКЛАДКА M5 STACK -->
+            <div id="m5stack" class="main-tab-content">
+                <div id="m5stackContent">
+                    <div class="greeting">🚀 ВСЁ ОБ M5 STACK</div>
+
+                    <div class="story"><h2>🧠 ОСНОВНЫЕ КОНТРОЛЛЕРЫ</h2>
+
+                        <h3>🟢 M5Stack Core2 (ESP32)</h3>
+                        <p>Флагманский контроллер на ESP32 с 2.0" IPS сенсорным экраном (320x240). Встроенный аккумулятор 390mAh, динамик, микрофон, вибромотор, RTC, слот для TF-карты. Работает с Arduino IDE, UIFlow (Blockly + MicroPython) и PlatformIO.</p>
+                        <p><strong>Характеристики:</strong> ESP32-D0WDQ6-V3, 16MB Flash, 8MB PSRAM, WiFi/BT, 2.0" touch LCD, MPU6886 (6-осевой IMU), SPM1423 (микрофон), NS4168 (I2S аудио), AXP192 (управление питанием).</p>
+                        <p><strong>Применение:</strong> Умный дом, погодные станции, программируемые панели управления, носимые устройства, DIY-консоли, измерительные приборы.</p>
+
+                        <h3>🟢 M5Stack CoreS3 (ESP32-S3)</h3>
+                        <p>Новейшее поколение на ESP32-S3 с 2.0" IPS сенсором (320x240), 16MB Flash и 8MB PSRAM. Встроенный Wi-Fi 2.4ГГц + BLE 5.0, динамик NS4168 (I2S), два микрофона SPM1423, IMU BMI270 + BMM150, вибромотор, датчик Холла, RTC BM8563, слот TF-карты.</p>
+                        <p><strong>Отличия от Core2:</strong> Более мощный процессор S3 (дополнительное ядро + векторные инструкции), два микрофона для beamforming, инфракрасный передатчик (IR), поддержка USB OTG (подключение клавиатуры/мыши/флешки).</p>
+                        <p><strong>Применение:</strong> Продвинутые IoT-системы, AI на границе (TinyML), речевое управление, мультимедиа, киоски самообслуживания.</p>
+
+                        <h3>🟢 M5Stack CoreS3 SE</h3>
+                        <p>Упрощённая и более доступная версия CoreS3. Сохраняет тот же процессор ESP32-S3, 16MB Flash и 8MB PSRAM, 2.0" сенсорный экран, но без некоторых дополнительных датчиков. Идеальна для тех, кому нужна производительность S3 без избыточных сенсоров.</p>
+
+                        <h3>🟢 M5Stack ATOM Lite (ESP32-PICO)</h3>
+                        <p>Крошечный контроллер 25×25×30 мм на ESP32-PICO-D4. RGB LED (WS2812B), кнопка, IR-передатчик, GPIO на GROVE порту. Невероятно компактный, но полноценный.</p>
+                        <p><strong>Характеристики:</strong> 4MB Flash, 520KB RAM, WiFi/BT, 1 кнопка, 1 RGB LED, 1 IR передатчик, порт GROVE (I2C + GPIO), USB Type-C.</p>
+                        <p><strong>Применение:</strong> Умные выключатели, ретрансляторы IR, компактные IoT-сенсоры, настольные индикаторы, встраиваемые системы.</p>
+
+                        <h3>🟢 M5Stack ATOM Matrix (ESP32-PICO)</h3>
+                        <p>ATOM Lite с 5×5 матрицей RGB LED (WS2812B) на лицевой стороне. Добавляет программируемую световую индикацию, анимации и визуальные эффекты.</p>
+                        <p><strong>Дополнительно к ATOM Lite:</strong> 25 программируемых RGB LED (5×5), IMU SH200Q (6-осевой).</p>
+                        <p><strong>Применение:</strong> Световые индикаторы статуса, анимационные панели, мини-дисплеи, носимые украшения, обучение программированию.</p>
+
+                        <h3>🟢 M5Stack ATOM S3R (ESP32-S3)</h3>
+                        <p>Новейший ATOM на ESP32-S3 с 8MB PSRAM, 16MB Flash, встроенным аккумулятором и поддержкой USB OTG. В 4 раза быстрее оригинального ATOM.</p>
+                        <p><strong>Характеристики:</strong> ESP32-S3FN16R8, 16MB Flash, 8MB PSRAM, WiFi 2.4GHz + BLE 5.0, RGB LED, кнопка, GROVE порт, USB OTG, аккумулятор.</p>
+                        <p><strong>Применение:</strong> Компактные AI-системы, USB-аксессуары, продвинутые IoT-шлюзы.</p>
+
+                        <h3>🟢 M5Stack Cardputer (ESP32-S3)</h3>
+                        <p>Миниатюрный портативный компьютер с QWERTY-клавиатурой и 1.14" ST7789V экраном (240×135). Выглядит как карманный компьютер 80-х, но на современном ESP32-S3.</p>
+                        <p><strong>Характеристики:</strong> ESP32-S3, 4MB PSRAM, 16MB Flash, WiFi/BT, 56-кнопочная клавиатура, 1.14" LCD, динамик, слот TF-карты, аккумулятор, GROVE порт.</p>
+                        <p><strong>Применение:</strong> Терминал для хакера, портативный чат-клиент, устройство для пентеста (Wi-Fi анализатор), калькулятор, блокнот, обучение печати.</p>
+
+                        <h3>🟢 M5Stack Dial (ESP32-S3)</h3>
+                        <p>Умная ручка (rotary encoder) с 1.28" круглым TFT-экраном (240×240). Сочетает физический энкодер с тактильной обратной связью и цветной дисплей.</p>
+                        <p><strong>Характеристики:</strong> ESP32-S3, 8MB Flash, 8MB PSRAM, WiFi/BT, 1.28" round LCD GC9A01 (240×240), энкодер с кнопкой, GROVE порт.</p>
+                        <p><strong>Применение:</strong> Регулятор громкости, MIDI-контроллер, умный термостат, панель управления станком, музыкальный синтезатор.</p>
+                    </div>
+
+                    <div class="story"><h2>📦 КОМПАКТНЫЕ И СПЕЦИАЛИЗИРОВАННЫЕ</h2>
+
+                        <h3>📦 M5Stack Stamp / Stamp C6</h3>
+                        <p>Stamp — это ESP32 в формате SMD-модуля (18×24 мм) для пайки прямо на PCB. Stamp C6 — на ESP32-C6 с поддержкой Wi-Fi 6, Thread, Zigbee. Идеальны для производства собственных устройств без лишней обвязки.</p>
+                        <p><strong>Характеристики Stamp C6:</strong> ESP32-C6, 4MB Flash, 384KB RAM, WiFi 6 (2.4GHz), BLE 5.0, Thread, Zigbee, USB Serial/JTAG.</p>
+
+                        <h3>📦 M5Stack Nano C6</h3>
+                        <p>Сверхминиатюрный контроллер на ESP32-C6 размером 21×18 мм. Встроенная антенна PCB, кнопка сброса, RGB LED. Поддерживает Matter protocol.</p>
+                        <p><strong>Применение:</strong> Умный дом (Matter), сверхкомпактные IoT, Wearable, датчики.</p>
+
+                        <h3>📦 M5Stack Paper S3 (4.7" E-Ink)</h3>
+                        <p>Контроллер на ESP32-S3 с 4.7" электронно-чернильным дисплеем (960×540, 16 оттенков серого). Ультранизкое энергопотребление — изображение сохраняется без питания.</p>
+                        <p><strong>Характеристики:</strong> ESP32-S3, 16MB Flash, 8MB PSRAM, WiFi/BT, 4.7" E-Ink (960×540), датчик освещённости, GROVE порт, аккумулятор.</p>
+                        <p><strong>Применение:</strong> Ценники, информационные табло, таблички, меню, навигация, зарядные станции для электромобилей.</p>
+
+                        <h3>📦 M5Stack DinMeter (ESP32-S3)</h3>
+                        <p>Устройство учёта энергии на DIN-рейку. Измеряет напряжение, ток, мощность (до 80A), частоту, коэффициент мощности, накопленную энергию. Двухканальный, с 1.44" TFT экраном.</p>
+                        <p><strong>Характеристики:</strong> ESP32-S3, 16MB Flash, 8MB PSRAM, WiFi/BT, 1.44" TFT, SCT-013 (токовый трансформатор 80А), MODBUS RTU (RS485).</p>
+                        <p><strong>Применение:</strong> Мониторинг электроэнергии в щитке, учёт расхода, автоматизация, умный дом (Home Assistant).</p>
+
+                        <h3>📦 M5Stack Timer CAM (ESP32-S3)</h3>
+                        <p>Камера-контроллер с ESP32-S3 и OV5640 (5MP), слотом TF-карты, аккумулятором и программируемой кнопкой. Может работать как таймлапс-камера или видеоняня.</p>
+                        <p><strong>Применение:</strong> Таймлапс-съёмка, удалённое видеонаблюдение, детектор движения с записью, IoT-камера.</p>
+
+                        <h3>📦 M5Stack UnitV2 (AI Камера)</h3>
+                        <p>Автономная AI-камера на чипе Kendryte K210. Распознавание лиц, объектов, цветов, QR-кодов, жестов. Работает без облака — всё на борту.</p>
+                        <p><strong>Характеристики:</strong> K210 RISC-V (двойное ядро, 400MHz), 6MB SRAM, OV2640 (2MP), 2.0" LCD (320×240), Wi-Fi (ESP32 для передачи данных).</p>
+                        <p><strong>Применение:</strong> Умные замки с лицом, счётчик людей, детектор животных, сортировка объектов.</p>
+                    </div>
+
+                    <div class="story"><h2>🔌 ДАТЧИКИ И МОДУЛИ (UNITS)</h2>
+
+                        <h3>🌡️ ENV III (Температура / Влажность / Давление)</h3>
+                        <p>Универсальный датчик погоды на SHT30 + QMP6988. Измеряет температуру (-40…85°C, ±0.3°C), влажность (0–100% ±2%) и атмосферное давление (300–1200 гПа). I2C интерфейс.</p>
+
+                        <h3>🔴 PM2.5 (Качество воздуха)</h3>
+                        <p>Лазерный датчик твёрдых частиц (PM1.0, PM2.5, PM10) на Plantower PMSA003. UART интерфейс. Идеален для мониторинга чистоты воздуха дома, в мастерской или в лаборатории.</p>
+
+                        <h3>👁️ Thermal Camera (MLX90640)</h3>
+                        <p>Тепловизор 32×24 пикселя на Melexis MLX90640. Диапазон -40…300°C, угол обзора 55°. I2C интерфейс. Позволяет видеть тепло: утечки изоляции, перегрев компонентов, людей в темноте.</p>
+
+                        <h3>🌍 GPS Module</h3>
+                        <p>GPS/GNSS приёмник на NEO-6M / NEO-M9N. Определяет координаты, скорость, высоту, точное время. UART интерфейс. Для проектов навигации, трекеров, геотегов.</p>
+
+                        <h3>📡 IR Unit (Инфракрасный)</h3>
+                        <p>ИК-приёмник и передатчик для управления бытовой техникой. Может учить и воспроизводить команды от пультов. GROVE интерфейс.</p>
+
+                        <h3>🌈 RGB LED Unit (SK6812)</h3>
+                        <p>Один программируемый RGB LED (SK6812) на компактной плате. GROVE интерфейс. Для индикации статуса, ночной подсветки, визуальных оповещений.</p>
+
+                        <h3>🔦 ToF Unit (VL53L0X)</h3>
+                        <p>Лазерный дальномер до 2 метров. Использует времяпролётный (Time-of-Flight) принцип. I2C интерфейс. Для измерения уровня жидкости, определения дистанции до объектов, автофокуса.</p>
+
+                        <h3>💨 CO2 Unit (SCD41)</h3>
+                        <p>Датчик CO₂ с NDIR сенсором Sensirion SCD41. Измеряет 0–40000 ppm, температуру и влажность. I2C интерфейс, компенсация температуры. Для вентиляции, теплиц, офисов.</p>
+
+                        <h3>🎮 Servo Kit</h3>
+                        <p>Набор из 2 сервоприводов MG90S с контроллером PCA9685 (I2C 16-канальный PWM). GROVE интерфейс. Для роботов, манипуляторов, автоматических задвижек.</p>
+                    </div>
+
+                    <div class="story" style="text-align:center;">
+                        <p style="font-size:1.2em;">📌 Все M5Stack устройства программируются через <strong>Arduino IDE</strong>, <strong>UIFlow</strong> (блочное программирование + MicroPython) и <strong>PlatformIO</strong>.</p>
+                        <p style="font-size:1.1em;">🔗 <a href="https://docs.m5stack.com" target="_blank" style="color:var(--neon-yellow);">Официальная документация M5Stack</a></p>
+                    </div>
+                </div>
+            </div>
         </div>
         
         <div class="footer">
@@ -2394,6 +2508,7 @@ int16_t ax=Wire.read()<<8|Wire.read(); Serial.println(ax); delay(200); }</pre></
                 mainTabInstructions: '📖 Инструкции',
                 mainTabVideos: '📺 Видео',
                 mainTabSensors: '🌡️ Датчики',
+                mainTabM5stack: '🚀 M5 Stack',
                 projectTab1: '📋 1. Метеостанция',
                 projectTab2: '💡 2. RGB светодиод',
                 projectTab3: '🔧 3. Arduino Uno/Nano',
@@ -2563,6 +2678,7 @@ review6Ozon: 'OZON',
                 mainTabInstructions: '📖 Instructions',
                 mainTabVideos: '📺 Videos',
                 mainTabSensors: '🌡️ Sensors',
+                mainTabM5stack: '🚀 M5 Stack',
                 projectTab1: '📋 1. Weather Station',
                 projectTab2: '💡 2. RGB LED',
                 projectTab3: '🔧 3. Arduino Uno/Nano',
@@ -2965,6 +3081,114 @@ int16_t ax=Wire.read()<<8|Wire.read(); Serial.println(ax); delay(200); }</pre></
                         <div class="component-card"><div class="component-icon">🔌</div><h3>DuPont Wires</h3><p>Various types, 20 pieces</p><div class="shop-buttons"><a href="https://www.wildberries.ru/catalog/0/search.aspx?search=провода+dupont" target="_blank" class="shop-btn wb">Wildberries</a><a href="https://www.ozon.ru/search/?text=провода+dupont" target="_blank" class="shop-btn ozon">Ozon</a><a href="https://aliexpress.ru/wholesale?SearchText=dupont+cable" target="_blank" class="shop-btn aliexpress">AliExpress</a></div></div>
                         <div class="component-card"><div class="component-icon">🔋</div><h3>Power Supply</h3><p>7-12V adapter or battery pack</p><div class="shop-buttons"><a href="https://www.wildberries.ru/catalog/0/search.aspx?search=блок+питания+12v" target="_blank" class="shop-btn wb">Wildberries</a><a href="https://www.ozon.ru/search/?text=блок+питания+12v" target="_blank" class="shop-btn ozon">Ozon</a><a href="https://aliexpress.ru/wholesale?SearchText=12v+power+supply" target="_blank" class="shop-btn aliexpress">AliExpress</a></div></div>`;
 
+        const enM5StackContent = `                    <div class="greeting">🚀 ALL ABOUT M5 STACK</div>
+
+                    <div class="story"><h2>🧠 MAIN CONTROLLERS</h2>
+
+                        <h3>🟢 M5Stack Core2 (ESP32)</h3>
+                        <p>Flagship controller based on ESP32 with 2.0" IPS touch screen (320x240). Built-in 390mAh battery, speaker, microphone, vibration motor, RTC, TF-card slot. Programmable via Arduino IDE, UIFlow (Blockly + MicroPython), and PlatformIO.</p>
+                        <p><strong>Specs:</strong> ESP32-D0WDQ6-V3, 16MB Flash, 8MB PSRAM, WiFi/BT, 2.0" touch LCD, MPU6886 (6-axis IMU), SPM1423 (mic), NS4168 (I2S audio), AXP192 (power management).</p>
+                        <p><strong>Uses:</strong> Smart home, weather stations, programmable control panels, wearables, DIY consoles, measurement instruments.</p>
+
+                        <h3>🟢 M5Stack CoreS3 (ESP32-S3)</h3>
+                        <p>Newest generation on ESP32-S3 with 2.0" IPS touch (320x240), 16MB Flash, 8MB PSRAM. Built-in Wi-Fi 2.4GHz + BLE 5.0, NS4168 speaker (I2S), dual SPM1423 mics, BMI270 + BMM150 IMU, vibration motor, Hall sensor, RTC BM8563, TF-card slot.</p>
+                        <p><strong>Differences from Core2:</strong> More powerful S3 CPU (dual-core + vector instructions), dual mics for beamforming, IR transmitter, USB OTG support (keyboard/mouse/flash drive).</p>
+                        <p><strong>Uses:</strong> Advanced IoT systems, edge AI (TinyML), voice control, multimedia, self-service kiosks.</p>
+
+                        <h3>🟢 M5Stack CoreS3 SE</h3>
+                        <p>Simplified, more affordable version of CoreS3. Same ESP32-S3 CPU, 16MB Flash, 8MB PSRAM, 2.0" touch screen, but without some extra sensors. Perfect for those who need S3 performance without excessive sensors.</p>
+
+                        <h3>🟢 M5Stack ATOM Lite (ESP32-PICO)</h3>
+                        <p>Tiny controller 25×25×30 mm on ESP32-PICO-D4. RGB LED (WS2812B), button, IR transmitter, GPIO via GROVE port. Incredibly compact yet full-featured.</p>
+                        <p><strong>Specs:</strong> 4MB Flash, 520KB RAM, WiFi/BT, 1 button, 1 RGB LED, 1 IR transmitter, GROVE port (I2C + GPIO), USB Type-C.</p>
+                        <p><strong>Uses:</strong> Smart switches, IR repeaters, compact IoT sensors, desktop indicators, embedded systems.</p>
+
+                        <h3>🟢 M5Stack ATOM Matrix (ESP32-PICO)</h3>
+                        <p>ATOM Lite with a 5×5 RGB LED matrix (WS2812B) on the front. Adds programmable light indication, animations, and visual effects.</p>
+                        <p><strong>Extra vs ATOM Lite:</strong> 25 programmable RGB LEDs (5×5), IMU SH200Q (6-axis).</p>
+                        <p><strong>Uses:</strong> Status light indicators, animation panels, mini displays, wearable jewelry, programming education.</p>
+
+                        <h3>🟢 M5Stack ATOM S3R (ESP32-S3)</h3>
+                        <p>Newest ATOM on ESP32-S3 with 8MB PSRAM, 16MB Flash, built-in battery, and USB OTG support. 4x faster than original ATOM.</p>
+                        <p><strong>Specs:</strong> ESP32-S3FN16R8, 16MB Flash, 8MB PSRAM, WiFi 2.4GHz + BLE 5.0, RGB LED, button, GROVE port, USB OTG, battery.</p>
+                        <p><strong>Uses:</strong> Compact AI systems, USB accessories, advanced IoT gateways.</p>
+
+                        <h3>🟢 M5Stack Cardputer (ESP32-S3)</h3>
+                        <p>Miniature portable computer with QWERTY keyboard and 1.14" ST7789V screen (240×135). Looks like an 80s pocket computer, runs on modern ESP32-S3.</p>
+                        <p><strong>Specs:</strong> ESP32-S3, 4MB PSRAM, 16MB Flash, WiFi/BT, 56-key keyboard, 1.14" LCD, speaker, TF-card slot, battery, GROVE port.</p>
+                        <p><strong>Uses:</strong> Hacker terminal, portable chat client, pentest device (Wi-Fi analyzer), calculator, notepad, typing practice.</p>
+
+                        <h3>🟢 M5Stack Dial (ESP32-S3)</h3>
+                        <p>Smart knob (rotary encoder) with 1.28" round TFT screen (240×240). Combines physical encoder with tactile feedback and color display.</p>
+                        <p><strong>Specs:</strong> ESP32-S3, 8MB Flash, 8MB PSRAM, WiFi/BT, 1.28" round LCD GC9A01 (240×240), encoder with button, GROVE port.</p>
+                        <p><strong>Uses:</strong> Volume control, MIDI controller, smart thermostat, machine control panel, music synthesizer.</p>
+                    </div>
+
+                    <div class="story"><h2>📦 COMPACT & SPECIALIZED</h2>
+
+                        <h3>📦 M5Stack Stamp / Stamp C6</h3>
+                        <p>Stamp is an ESP32 in SMD module format (18×24 mm) for soldering directly onto PCB. Stamp C6 uses ESP32-C6 with Wi-Fi 6, Thread, Zigbee support. Ideal for custom device production without extra wiring.</p>
+                        <p><strong>Stamp C6 Specs:</strong> ESP32-C6, 4MB Flash, 384KB RAM, WiFi 6 (2.4GHz), BLE 5.0, Thread, Zigbee, USB Serial/JTAG.</p>
+
+                        <h3>📦 M5Stack Nano C6</h3>
+                        <p>Ultra-miniature controller on ESP32-C6, size 21×18 mm. Built-in PCB antenna, reset button, RGB LED. Supports Matter protocol.</p>
+                        <p><strong>Uses:</strong> Smart home (Matter), ultra-compact IoT, wearables, sensors.</p>
+
+                        <h3>📦 M5Stack Paper S3 (4.7" E-Ink)</h3>
+                        <p>Controller on ESP32-S3 with 4.7" e-paper display (960×540, 16 grayscale levels). Ultra-low power — image persists without power.</p>
+                        <p><strong>Specs:</strong> ESP32-S3, 16MB Flash, 8MB PSRAM, WiFi/BT, 4.7" E-Ink (960×540), light sensor, GROVE port, battery.</p>
+                        <p><strong>Uses:</strong> Price tags, info displays, signage, menus, navigation, EV charging stations.</p>
+
+                        <h3>📦 M5Stack DinMeter (ESP32-S3)</h3>
+                        <p>Energy metering device on DIN rail. Measures voltage, current, power (up to 80A), frequency, power factor, accumulated energy. Dual-channel, with 1.44" TFT screen.</p>
+                        <p><strong>Specs:</strong> ESP32-S3, 16MB Flash, 8MB PSRAM, WiFi/BT, 1.44" TFT, SCT-013 (current transformer 80A), MODBUS RTU (RS485).</p>
+                        <p><strong>Uses:</strong> Energy monitoring in switchboard, consumption tracking, automation, smart home (Home Assistant).</p>
+
+                        <h3>📦 M5Stack Timer CAM (ESP32-S3)</h3>
+                        <p>Camera controller with ESP32-S3 and OV5640 (5MP), TF-card slot, battery, programmable button. Works as timelapse camera or baby monitor.</p>
+                        <p><strong>Uses:</strong> Timelapse photography, remote video surveillance, motion detection with recording, IoT camera.</p>
+
+                        <h3>📦 M5Stack UnitV2 (AI Camera)</h3>
+                        <p>Standalone AI camera based on Kendryte K210 chip. Face, object, color, QR-code, and gesture recognition. Works offline — all processing on board.</p>
+                        <p><strong>Specs:</strong> K210 RISC-V (dual core, 400MHz), 6MB SRAM, OV2640 (2MP), 2.0" LCD (320×240), Wi-Fi (ESP32 for data relay).</p>
+                        <p><strong>Uses:</strong> Smart face locks, people counting, animal detection, object sorting.</p>
+                    </div>
+
+                    <div class="story"><h2>🔌 SENSORS & UNITS</h2>
+
+                        <h3>🌡️ ENV III (Temperature / Humidity / Pressure)</h3>
+                        <p>All-in-one weather sensor on SHT30 + QMP6988. Measures temperature (-40…85°C, ±0.3°C), humidity (0–100% ±2%), and atmospheric pressure (300–1200 hPa). I2C interface.</p>
+
+                        <h3>🔴 PM2.5 (Air Quality)</h3>
+                        <p>Laser particle sensor (PM1.0, PM2.5, PM10) based on Plantower PMSA003. UART interface. Ideal for monitoring air quality at home, in the workshop, or lab.</p>
+
+                        <h3>👁️ Thermal Camera (MLX90640)</h3>
+                        <p>Thermal imager 32×24 pixels on Melexis MLX90640. Range -40…300°C, FOV 55°. I2C interface. See heat: insulation leaks, component overheating, people in darkness.</p>
+
+                        <h3>🌍 GPS Module</h3>
+                        <p>GPS/GNSS receiver on NEO-6M / NEO-M9N. Determines coordinates, speed, altitude, precise time. UART interface. For navigation, trackers, geotags.</p>
+
+                        <h3>📡 IR Unit (Infrared)</h3>
+                        <p>IR receiver and transmitter for controlling home appliances. Can learn and replay remote commands. GROVE interface.</p>
+
+                        <h3>🌈 RGB LED Unit (SK6812)</h3>
+                        <p>Single programmable RGB LED (SK6812) on a compact board. GROVE interface. For status indication, night lighting, visual alerts.</p>
+
+                        <h3>🔦 ToF Unit (VL53L0X)</h3>
+                        <p>Laser rangefinder up to 2 meters using Time-of-Flight principle. I2C interface. For liquid level measurement, object distance, autofocus.</p>
+
+                        <h3>💨 CO2 Unit (SCD41)</h3>
+                        <p>CO₂ sensor with Sensirion SCD41 NDIR sensor. Measures 0–40000 ppm, temperature, and humidity. I2C interface, temperature compensation. For ventilation, greenhouses, offices.</p>
+
+                        <h3>🎮 Servo Kit</h3>
+                        <p>Set of 2 MG90S servos with PCA9685 controller (I2C 16-channel PWM). GROVE interface. For robots, manipulators, automatic valves.</p>
+                    </div>
+
+                    <div class="story" style="text-align:center;">
+                        <p style="font-size:1.2em;">📌 All M5Stack devices are programmable via <strong>Arduino IDE</strong>, <strong>UIFlow</strong> (block programming + MicroPython), and <strong>PlatformIO</strong>.</p>
+                        <p style="font-size:1.1em;">🔗 <a href="https://docs.m5stack.com" target="_blank" style="color:var(--neon-yellow);">Official M5Stack Documentation</a></p>
+                    </div>`;
+
         function toggleLanguage() {
             currentLang = currentLang === 'ru' ? 'en' : 'ru';
             updateLanguage();
@@ -2987,6 +3211,7 @@ int16_t ax=Wire.read()<<8|Wire.read(); Serial.println(ax); delay(200); }</pre></
             document.getElementById('mainTabInstructions').textContent = t.mainTabInstructions;
             document.getElementById('mainTabVideos').textContent = t.mainTabVideos;
             document.getElementById('mainTabSensors').textContent = t.mainTabSensors;
+            document.getElementById('mainTabM5stack').textContent = t.mainTabM5stack;
             document.getElementById('projectTab1').textContent = t.projectTab1;
             document.getElementById('projectTab2').textContent = t.projectTab2;
             document.getElementById('projectTab3').textContent = t.projectTab3;
@@ -3169,6 +3394,9 @@ document.getElementById('copyBtn6').innerHTML = t.copyBtn;
                 if (document.getElementById('project6Components')) {
                     document.getElementById('project6Components').innerHTML = enProject6Components;
                 }
+                if (document.getElementById('m5stackContent')) {
+                    document.getElementById('m5stackContent').innerHTML = enM5StackContent;
+                }
             } else {
                 if (window.__ruInstructionsContent) {
                     document.getElementById('instructionsContent').innerHTML = window.__ruInstructionsContent;
@@ -3185,6 +3413,9 @@ document.getElementById('copyBtn6').innerHTML = t.copyBtn;
                 }
                 if (window.__ruProject6Components) {
                     document.getElementById('project6Components').innerHTML = window.__ruProject6Components;
+                }
+                if (window.__ruM5StackContent) {
+                    document.getElementById('m5stackContent').innerHTML = window.__ruM5StackContent;
                 }
             }
         }
@@ -3254,7 +3485,8 @@ function openProjectTab(tabId) {
          window.__ruCitrusAdContent = document.getElementById('citrusAdContent') ? document.getElementById('citrusAdContent').innerHTML : '';
          window.__ruProject2Components = document.getElementById('project2Components') ? document.getElementById('project2Components').innerHTML : '';
          window.__ruProject4Components = document.getElementById('project4Components') ? document.getElementById('project4Components').innerHTML : '';
-         window.__ruProject6Components = document.getElementById('project6Components') ? document.getElementById('project6Components').innerHTML : '';
+          window.__ruProject6Components = document.getElementById('project6Components') ? document.getElementById('project6Components').innerHTML : '';
+          window.__ruM5StackContent = document.getElementById('m5stackContent') ? document.getElementById('m5stackContent').innerHTML : '';
          
 const savedTheme = localStorage.getItem('theme');
          const savedFontSize = localStorage.getItem('fontSize');
