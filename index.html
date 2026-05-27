@@ -762,6 +762,21 @@
             }
         }
 
+        .m5stack-img {
+            max-width: 280px;
+            width: 100%;
+            height: auto;
+            display: block;
+            margin: 12px 0;
+            border: 2px solid var(--neon-cyan);
+            box-shadow: 0 0 20px rgba(0,229,255,0.15), inset 0 0 10px rgba(0,229,255,0.05);
+            filter: saturate(1.2) contrast(1.1);
+            transition: all 0.3s;
+        }
+        .m5stack-img:hover {
+            box-shadow: 0 0 35px rgba(0,229,255,0.3), inset 0 0 15px rgba(0,229,255,0.08);
+            transform: scale(1.02);
+        }
         .story p { margin-bottom: 18px; }
 
         .story ul { margin-left: 20px; margin-bottom: 15px; line-height: 1.8; }
@@ -2379,11 +2394,13 @@ int16_t ax=Wire.read()<<8|Wire.read(); Serial.println(ax); delay(200); }</pre></
                     <div class="story"><h2>🧠 ОСНОВНЫЕ КОНТРОЛЛЕРЫ</h2>
 
                         <h3>🟢 M5Stack Core2 (ESP32)</h3>
+                        <img class="m5stack-img" src="https://static-cdn.m5stack.com/resource/docs/products/core/core2/core2_01.webp" alt="M5Stack Core2">
                         <p>Флагманский контроллер на ESP32 с 2.0" IPS сенсорным экраном (320x240). Встроенный аккумулятор 390mAh, динамик, микрофон, вибромотор, RTC, слот для TF-карты. Работает с Arduino IDE, UIFlow (Blockly + MicroPython) и PlatformIO.</p>
                         <p><strong>Характеристики:</strong> ESP32-D0WDQ6-V3, 16MB Flash, 8MB PSRAM, WiFi/BT, 2.0" touch LCD, MPU6886 (6-осевой IMU), SPM1423 (микрофон), NS4168 (I2S аудио), AXP192 (управление питанием).</p>
                         <p><strong>Применение:</strong> Умный дом, погодные станции, программируемые панели управления, носимые устройства, DIY-консоли, измерительные приборы.</p>
 
                         <h3>🟢 M5Stack CoreS3 (ESP32-S3)</h3>
+                        <img class="m5stack-img" src="https://static-cdn.m5stack.com/resource/docs/products/core/CoreS3/img-96063e2a-637a-4d11-ac47-1ce4f1cdfd3e.webp" alt="M5Stack CoreS3">
                         <p>Новейшее поколение на ESP32-S3 с 2.0" IPS сенсором (320x240), 16MB Flash и 8MB PSRAM. Встроенный Wi-Fi 2.4ГГц + BLE 5.0, динамик NS4168 (I2S), два микрофона SPM1423, IMU BMI270 + BMM150, вибромотор, датчик Холла, RTC BM8563, слот TF-карты.</p>
                         <p><strong>Отличия от Core2:</strong> Более мощный процессор S3 (дополнительное ядро + векторные инструкции), два микрофона для beamforming, инфракрасный передатчик (IR), поддержка USB OTG (подключение клавиатуры/мыши/флешки).</p>
                         <p><strong>Применение:</strong> Продвинутые IoT-системы, AI на границе (TinyML), речевое управление, мультимедиа, киоски самообслуживания.</p>
@@ -2391,12 +2408,35 @@ int16_t ax=Wire.read()<<8|Wire.read(); Serial.println(ax); delay(200); }</pre></
                         <h3>🟢 M5Stack CoreS3 SE</h3>
                         <p>Упрощённая и более доступная версия CoreS3. Сохраняет тот же процессор ESP32-S3, 16MB Flash и 8MB PSRAM, 2.0" сенсорный экран, но без некоторых дополнительных датчиков. Идеальна для тех, кому нужна производительность S3 без избыточных сенсоров.</p>
 
+                        <h3>🟢 M5StickC (ESP32-PICO)</h3>
+                        <img class="m5stack-img" src="https://static-cdn.m5stack.com/resource/docs/products/core/m5stickc/m5stickc_01.webp" alt="M5StickC">
+                        <p>Популярнейший контроллер M5Stack в формате «стика» (48×25×14 мм). Ультракомпактный корпус со встроенным аккумулятором 95mAh, 0.96" цветным TFT-экраном (80×160), IMU MPU6886 (6-осевой), микрофоном, ИК-передатчиком, RTC и красным LED. ESP32-PICO-D4, 4MB Flash, 520KB RAM, WiFi/BT.</p>
+                        <p><strong>Применение:</strong> Носимые устройства, пульты дистанционного управления, IoT-контроллеры, трекеры активности, бейджики на конференции, метеостанции в кармане. Огромное комьюнити и куча готовых проектов.</p>
+
+                        <h3>🟢 M5StickC Plus (ESP32-PICO)</h3>
+                        <img class="m5stack-img" src="https://static-cdn.m5stack.com/resource/docs/products/core/m5stickc_plus/m5stickc_plus_01.webp" alt="M5StickC Plus">
+                        <p>Увеличенная версия StickC с 1.14" TFT-экраном (135×240, на 18.7% больше), пассивным зуммером и аккумулятором 120mAh. Тот же ESP32-PICO-D4 с 4MB Flash. Добавлен пассивный буззер для звуковых сигналов.</p>
+                        <p><strong>Применение:</strong> Те же сценарии, что и StickC, но с лучшим дисплеем и звуком. Идеально для интерфейсов с большим объёмом информации.</p>
+
+                        <h3>🟢 M5StickC Plus 2 (ESP32-PICO)</h3>
+                        <img class="m5stack-img" src="https://m5stack.oss-cn-shenzhen.aliyuncs.com/resource/docs/products/core/M5StickC%20PLUS2/4.webp" alt="M5StickC Plus 2">
+                        <p>Новейшая итерация StickC Plus на ESP32-PICO-V3-02 с улучшенным аккумулятором (200mAh вместо 120mAh), MPU6886 6-осевым IMU, микрофоном SPM1423, RTC BM8563, пассивным зуммером и ИК-излучателем. Яркий 1.14" TFT ST7789V2 (135×240).</p>
+                        <p><strong>Характеристики:</strong> ESP32-PICO-V3-02, 8MB Flash, 2MB PSRAM, WiFi 2.4GHz, 1.14" LCD (ST7789V2, 135×240), MPU6886 (6-осей), микрофон SPM1423, RTC BM8563, ИК-излучатель, 200mAh Li-ion, 3 кнопки, пассивный зуммер, USB Type-C, HY2.0-4P (I2C+UART+GPIO).</p>
+                        <p><strong>Применение:</strong> Носимые устройства, IoT-контроллер, STEM-образование, DIY-проекты, умный дом, замена StickC Plus с улучшенной надёжностью.</p>
+
+                        <h3>🟢 M5Stick S3 (ESP32-S3) — НОВИНКА!</h3>
+                        <img class="m5stack-img" src="https://m5stack-doc.oss-cn-shenzhen.aliyuncs.com/1207/K150-stickS3_main-products_01.webp" alt="M5Stick S3">
+                        <p>Новейшее поколение Stick на ESP32-S3-PICO-1-N8R8 с 8MB Flash и 8MB PSRAM. 1.14" IPS-дисплей (135×240), аудиокодек ES8311 I2S, MEMS-микрофон, динамик 1W, 6-осевой IMU BMI270, ИК-приёмник и передатчик, аккумулятор 250mAh, USB OTG, Hat2-Bus и GROVE порт. Поддержка AI-ассистентов (Xiaozhi).</p>
+                        <p><strong>Применение:</strong> AI-голосовые ассистенты, умный дом, IoT-разработка, носимые устройства, замена StickC Plus с радикально лучшей производительностью.</p>
+
                         <h3>🟢 M5Stack ATOM Lite (ESP32-PICO)</h3>
+                        <img class="m5stack-img" src="https://m5stack.oss-cn-shenzhen.aliyuncs.com/image/m5-docs_homepage/core/atom_lite_01.webp" alt="M5Stack ATOM Lite">
                         <p>Крошечный контроллер 25×25×30 мм на ESP32-PICO-D4. RGB LED (WS2812B), кнопка, IR-передатчик, GPIO на GROVE порту. Невероятно компактный, но полноценный.</p>
                         <p><strong>Характеристики:</strong> 4MB Flash, 520KB RAM, WiFi/BT, 1 кнопка, 1 RGB LED, 1 IR передатчик, порт GROVE (I2C + GPIO), USB Type-C.</p>
                         <p><strong>Применение:</strong> Умные выключатели, ретрансляторы IR, компактные IoT-сенсоры, настольные индикаторы, встраиваемые системы.</p>
 
                         <h3>🟢 M5Stack ATOM Matrix (ESP32-PICO)</h3>
+                        <img class="m5stack-img" src="https://m5stack.oss-cn-shenzhen.aliyuncs.com/image/m5-docs_homepage/core/atom_matrix_01.webp" alt="M5Stack ATOM Matrix">
                         <p>ATOM Lite с 5×5 матрицей RGB LED (WS2812B) на лицевой стороне. Добавляет программируемую световую индикацию, анимации и визуальные эффекты.</p>
                         <p><strong>Дополнительно к ATOM Lite:</strong> 25 программируемых RGB LED (5×5), IMU SH200Q (6-осевой).</p>
                         <p><strong>Применение:</strong> Световые индикаторы статуса, анимационные панели, мини-дисплеи, носимые украшения, обучение программированию.</p>
@@ -2407,11 +2447,25 @@ int16_t ax=Wire.read()<<8|Wire.read(); Serial.println(ax); delay(200); }</pre></
                         <p><strong>Применение:</strong> Компактные AI-системы, USB-аксессуары, продвинутые IoT-шлюзы.</p>
 
                         <h3>🟢 M5Stack Cardputer (ESP32-S3)</h3>
+                        <img class="m5stack-img" src="https://static-cdn.m5stack.com/resource/docs/products/core/Cardputer/img-60261bcd-a23f-40e6-994d-ad97477dcec4.webp" alt="M5Stack Cardputer">
                         <p>Миниатюрный портативный компьютер с QWERTY-клавиатурой и 1.14" ST7789V экраном (240×135). Выглядит как карманный компьютер 80-х, но на современном ESP32-S3.</p>
                         <p><strong>Характеристики:</strong> ESP32-S3, 4MB PSRAM, 16MB Flash, WiFi/BT, 56-кнопочная клавиатура, 1.14" LCD, динамик, слот TF-карты, аккумулятор, GROVE порт.</p>
                         <p><strong>Применение:</strong> Терминал для хакера, портативный чат-клиент, устройство для пентеста (Wi-Fi анализатор), калькулятор, блокнот, обучение печати.</p>
+                        <p><em>🎯 Также доступна продвинутая версия → <strong>Cardputer-ADV</strong> (см. ниже)</em></p>
+
+                        <h3>🟢 M5Stack Cardputer-Adv — Advanced (ESP32-S3)</h3>
+                        <img class="m5stack-img" src="https://shop.m5stack.com/cdn/shop/files/1_9b624809-c4b1-4031-b149-54709e72bd53_1024x1024.webp?v=1756977500" alt="M5Stack Cardputer-Adv">
+                        <p>Продвинутая версия Cardputer на Stamp-S3A с улучшенным аудио (ES8311 кодек, 3.5 мм разъём), 6-осевым IMU BMI270 и увеличенной батареей 1750 мА·ч. Мощнее, громче и автономнее.</p>
+                        <p><strong>Характеристики:</strong> Stamp-S3A (ESP32-S3FN8), 8MB Flash, 56-кнопочная клавиатура, 1.14" LCD (240×135), ES8311 аудиокодек + 3.5 мм выход, MEMS микрофон, динамик 1W, BMI270 (6-осей), 1750 мА·ч Li-ion, IR передатчик, microSD, HY2.0-4P Grove + EXT 2.54-14P расширение.</p>
+                        <p><strong>Применение:</strong> Более производительный портативный терминал, Mesh-коммуникация (LoRa/Meshtastic), музыкальные инструменты, IoT-хаб, носимые AI-устройства.</p>
+
+                        <h3>🟢 M5Stack CardputerZero (Raspberry Pi CM0) — НОВИНКА!</h3>
+                        <img class="m5stack-img" src="https://cdn.shopify.com/s/files/1/0056/7689/2250/files/fd1134db93e0f244e96389a00e984235.png?v=1779865970" alt="M5Stack CardputerZero">
+                        <p>Первая Linux-система от M5Stack на базе Raspberry Pi CM0. 1.9" TFT-дисплей, 46-кнопочная QWERTY-клавиатура ISO, HDMI-выход, камера, Ethernet, аккумулятор 1500 мА·ч. Открытый исходный код, документация и 3D-файлы.</p>
+                        <p><strong>Применение:</strong> Полноценный Linux-настольный ПК в кармане, киоск, сервер, DIY-рабочая станция, эмулятор ретро-игр.</p>
 
                         <h3>🟢 M5Stack Dial (ESP32-S3)</h3>
+                        <img class="m5stack-img" src="https://static-cdn.m5stack.com/resource/docs/products/core/M5Dial/img-2afd549e-8af8-47b4-823a-e90e063a0139.webp" alt="M5Stack Dial">
                         <p>Умная ручка (rotary encoder) с 1.28" круглым TFT-экраном (240×240). Сочетает физический энкодер с тактильной обратной связью и цветной дисплей.</p>
                         <p><strong>Характеристики:</strong> ESP32-S3, 8MB Flash, 8MB PSRAM, WiFi/BT, 1.28" round LCD GC9A01 (240×240), энкодер с кнопкой, GROVE порт.</p>
                         <p><strong>Применение:</strong> Регулятор громкости, MIDI-контроллер, умный термостат, панель управления станком, музыкальный синтезатор.</p>
@@ -2420,6 +2474,7 @@ int16_t ax=Wire.read()<<8|Wire.read(); Serial.println(ax); delay(200); }</pre></
                     <div class="story"><h2>📦 КОМПАКТНЫЕ И СПЕЦИАЛИЗИРОВАННЫЕ</h2>
 
                         <h3>📦 M5Stack Stamp / Stamp C6</h3>
+                        <img class="m5stack-img" src="https://m5stack-doc.oss-cn-shenzhen.aliyuncs.com/524/C056-B_01.jpg" alt="M5Stack Stamp-C3">
                         <p>Stamp — это ESP32 в формате SMD-модуля (18×24 мм) для пайки прямо на PCB. Stamp C6 — на ESP32-C6 с поддержкой Wi-Fi 6, Thread, Zigbee. Идеальны для производства собственных устройств без лишней обвязки.</p>
                         <p><strong>Характеристики Stamp C6:</strong> ESP32-C6, 4MB Flash, 384KB RAM, WiFi 6 (2.4GHz), BLE 5.0, Thread, Zigbee, USB Serial/JTAG.</p>
 
@@ -2428,6 +2483,7 @@ int16_t ax=Wire.read()<<8|Wire.read(); Serial.println(ax); delay(200); }</pre></
                         <p><strong>Применение:</strong> Умный дом (Matter), сверхкомпактные IoT, Wearable, датчики.</p>
 
                         <h3>📦 M5Stack Paper S3 (4.7" E-Ink)</h3>
+                        <img class="m5stack-img" src="https://static-cdn.m5stack.com/resource/docs/products/core/m5paper/m5paper_01.webp" alt="M5Stack Paper S3">
                         <p>Контроллер на ESP32-S3 с 4.7" электронно-чернильным дисплеем (960×540, 16 оттенков серого). Ультранизкое энергопотребление — изображение сохраняется без питания.</p>
                         <p><strong>Характеристики:</strong> ESP32-S3, 16MB Flash, 8MB PSRAM, WiFi/BT, 4.7" E-Ink (960×540), датчик освещённости, GROVE порт, аккумулятор.</p>
                         <p><strong>Применение:</strong> Ценники, информационные табло, таблички, меню, навигация, зарядные станции для электромобилей.</p>
@@ -2442,6 +2498,7 @@ int16_t ax=Wire.read()<<8|Wire.read(); Serial.println(ax); delay(200); }</pre></
                         <p><strong>Применение:</strong> Таймлапс-съёмка, удалённое видеонаблюдение, детектор движения с записью, IoT-камера.</p>
 
                         <h3>📦 M5Stack UnitV2 (AI Камера)</h3>
+                        <img class="m5stack-img" src="https://static-cdn.m5stack.com/resource/docs/products/unit/unitv2/unitv2_01.webp" alt="M5Stack UnitV2">
                         <p>Автономная AI-камера на чипе Kendryte K210. Распознавание лиц, объектов, цветов, QR-кодов, жестов. Работает без облака — всё на борту.</p>
                         <p><strong>Характеристики:</strong> K210 RISC-V (двойное ядро, 400MHz), 6MB SRAM, OV2640 (2MP), 2.0" LCD (320×240), Wi-Fi (ESP32 для передачи данных).</p>
                         <p><strong>Применение:</strong> Умные замки с лицом, счётчик людей, детектор животных, сортировка объектов.</p>
@@ -2450,27 +2507,34 @@ int16_t ax=Wire.read()<<8|Wire.read(); Serial.println(ax); delay(200); }</pre></
                     <div class="story"><h2>🔌 ДАТЧИКИ И МОДУЛИ (UNITS)</h2>
 
                         <h3>🌡️ ENV III (Температура / Влажность / Давление)</h3>
+                        <img class="m5stack-img" src="https://static-cdn.m5stack.com/resource/docs/products/unit/envIII/envIII_01.webp" alt="M5Stack ENV III">
                         <p>Универсальный датчик погоды на SHT30 + QMP6988. Измеряет температуру (-40…85°C, ±0.3°C), влажность (0–100% ±2%) и атмосферное давление (300–1200 гПа). I2C интерфейс.</p>
 
                         <h3>🔴 PM2.5 (Качество воздуха)</h3>
                         <p>Лазерный датчик твёрдых частиц (PM1.0, PM2.5, PM10) на Plantower PMSA003. UART интерфейс. Идеален для мониторинга чистоты воздуха дома, в мастерской или в лаборатории.</p>
 
                         <h3>👁️ Thermal Camera (MLX90640)</h3>
+                        <img class="m5stack-img" src="https://static-cdn.m5stack.com/resource/docs/products/unit/thermal/thermal_01.webp" alt="M5Stack Thermal Camera">
                         <p>Тепловизор 32×24 пикселя на Melexis MLX90640. Диапазон -40…300°C, угол обзора 55°. I2C интерфейс. Позволяет видеть тепло: утечки изоляции, перегрев компонентов, людей в темноте.</p>
 
                         <h3>🌍 GPS Module</h3>
+                        <img class="m5stack-img" src="https://static-cdn.m5stack.com/resource/docs/products/unit/gps/gps_01.webp" alt="M5Stack GPS Unit">
                         <p>GPS/GNSS приёмник на NEO-6M / NEO-M9N. Определяет координаты, скорость, высоту, точное время. UART интерфейс. Для проектов навигации, трекеров, геотегов.</p>
 
                         <h3>📡 IR Unit (Инфракрасный)</h3>
+                        <img class="m5stack-img" src="https://static-cdn.m5stack.com/resource/docs/products/unit/ir/ir_01.webp" alt="M5Stack IR Unit">
                         <p>ИК-приёмник и передатчик для управления бытовой техникой. Может учить и воспроизводить команды от пультов. GROVE интерфейс.</p>
 
                         <h3>🌈 RGB LED Unit (SK6812)</h3>
+                        <img class="m5stack-img" src="https://static-cdn.m5stack.com/resource/docs/products/unit/rgb/rgb_01.webp" alt="M5Stack RGB LED Unit">
                         <p>Один программируемый RGB LED (SK6812) на компактной плате. GROVE интерфейс. Для индикации статуса, ночной подсветки, визуальных оповещений.</p>
 
                         <h3>🔦 ToF Unit (VL53L0X)</h3>
+                        <img class="m5stack-img" src="https://static-cdn.m5stack.com/resource/docs/products/unit/tof/tof_01.webp" alt="M5Stack ToF Unit">
                         <p>Лазерный дальномер до 2 метров. Использует времяпролётный (Time-of-Flight) принцип. I2C интерфейс. Для измерения уровня жидкости, определения дистанции до объектов, автофокуса.</p>
 
                         <h3>💨 CO2 Unit (SCD41)</h3>
+                        <img class="m5stack-img" src="https://static-cdn.m5stack.com/resource/docs/products/unit/co2/co2_01.webp" alt="M5Stack CO2 Unit">
                         <p>Датчик CO₂ с NDIR сенсором Sensirion SCD41. Измеряет 0–40000 ppm, температуру и влажность. I2C интерфейс, компенсация температуры. Для вентиляции, теплиц, офисов.</p>
 
                         <h3>🎮 Servo Kit</h3>
@@ -3086,11 +3150,13 @@ int16_t ax=Wire.read()<<8|Wire.read(); Serial.println(ax); delay(200); }</pre></
                     <div class="story"><h2>🧠 MAIN CONTROLLERS</h2>
 
                         <h3>🟢 M5Stack Core2 (ESP32)</h3>
+                        <img class="m5stack-img" src="https://static-cdn.m5stack.com/resource/docs/products/core/core2/core2_01.webp" alt="M5Stack Core2">
                         <p>Flagship controller based on ESP32 with 2.0" IPS touch screen (320x240). Built-in 390mAh battery, speaker, microphone, vibration motor, RTC, TF-card slot. Programmable via Arduino IDE, UIFlow (Blockly + MicroPython), and PlatformIO.</p>
                         <p><strong>Specs:</strong> ESP32-D0WDQ6-V3, 16MB Flash, 8MB PSRAM, WiFi/BT, 2.0" touch LCD, MPU6886 (6-axis IMU), SPM1423 (mic), NS4168 (I2S audio), AXP192 (power management).</p>
                         <p><strong>Uses:</strong> Smart home, weather stations, programmable control panels, wearables, DIY consoles, measurement instruments.</p>
 
                         <h3>🟢 M5Stack CoreS3 (ESP32-S3)</h3>
+                        <img class="m5stack-img" src="https://static-cdn.m5stack.com/resource/docs/products/core/CoreS3/img-96063e2a-637a-4d11-ac47-1ce4f1cdfd3e.webp" alt="M5Stack CoreS3">
                         <p>Newest generation on ESP32-S3 with 2.0" IPS touch (320x240), 16MB Flash, 8MB PSRAM. Built-in Wi-Fi 2.4GHz + BLE 5.0, NS4168 speaker (I2S), dual SPM1423 mics, BMI270 + BMM150 IMU, vibration motor, Hall sensor, RTC BM8563, TF-card slot.</p>
                         <p><strong>Differences from Core2:</strong> More powerful S3 CPU (dual-core + vector instructions), dual mics for beamforming, IR transmitter, USB OTG support (keyboard/mouse/flash drive).</p>
                         <p><strong>Uses:</strong> Advanced IoT systems, edge AI (TinyML), voice control, multimedia, self-service kiosks.</p>
@@ -3098,12 +3164,35 @@ int16_t ax=Wire.read()<<8|Wire.read(); Serial.println(ax); delay(200); }</pre></
                         <h3>🟢 M5Stack CoreS3 SE</h3>
                         <p>Simplified, more affordable version of CoreS3. Same ESP32-S3 CPU, 16MB Flash, 8MB PSRAM, 2.0" touch screen, but without some extra sensors. Perfect for those who need S3 performance without excessive sensors.</p>
 
+                        <h3>🟢 M5StickC (ESP32-PICO)</h3>
+                        <img class="m5stack-img" src="https://static-cdn.m5stack.com/resource/docs/products/core/m5stickc/m5stickc_01.webp" alt="M5StickC">
+                        <p>Popular M5Stack controller in a compact "stick" form factor (48×25×14 mm). Ultra-compact case with built-in 95mAh battery, 0.96" color TFT screen (80×160), MPU6886 IMU (6-axis), microphone, IR transmitter, RTC, and red LED. ESP32-PICO-D4, 4MB Flash, 520KB RAM, WiFi/BT.</p>
+                        <p><strong>Uses:</strong> Wearables, remote controls, IoT controllers, activity trackers, conference badges, pocket weather stations. Huge community with tons of ready-made projects.</p>
+
+                        <h3>🟢 M5StickC Plus (ESP32-PICO)</h3>
+                        <img class="m5stack-img" src="https://static-cdn.m5stack.com/resource/docs/products/core/m5stickc_plus/m5stickc_plus_01.webp" alt="M5StickC Plus">
+                        <p>Upgraded version of StickC with 1.14" TFT screen (135×240, 18.7% larger), passive buzzer, and 120mAh battery. Same ESP32-PICO-D4 with 4MB Flash. Added passive buzzer for sound signals.</p>
+                        <p><strong>Uses:</strong> Same scenarios as StickC but with better display and sound. Ideal for information-rich interfaces.</p>
+
+                        <h3>🟢 M5StickC Plus 2 (ESP32-PICO)</h3>
+                        <img class="m5stack-img" src="https://m5stack.oss-cn-shenzhen.aliyuncs.com/resource/docs/products/core/M5StickC%20PLUS2/4.webp" alt="M5StickC Plus 2">
+                        <p>Newest StickC Plus iteration on ESP32-PICO-V3-02 with upgraded battery (200mAh vs 120mAh), MPU6886 6-axis IMU, SPM1423 microphone, BM8563 RTC, passive buzzer, and IR emitter. Bright 1.14" TFT ST7789V2 (135×240).</p>
+                        <p><strong>Specs:</strong> ESP32-PICO-V3-02, 8MB Flash, 2MB PSRAM, WiFi 2.4GHz, 1.14" LCD (ST7789V2, 135×240), MPU6886 (6-axis), SPM1423 mic, BM8563 RTC, IR transmitter, 200mAh Li-ion, 3 buttons, passive buzzer, USB Type-C, HY2.0-4P (I2C+UART+GPIO).</p>
+                        <p><strong>Uses:</strong> Wearable devices, IoT controller, STEM education, DIY projects, smart home, improved reliability over StickC Plus.</p>
+
+                        <h3>🟢 M5Stick S3 (ESP32-S3) — NEW!</h3>
+                        <img class="m5stack-img" src="https://m5stack-doc.oss-cn-shenzhen.aliyuncs.com/1207/K150-stickS3_main-products_01.webp" alt="M5Stick S3">
+                        <p>Newest Stick generation on ESP32-S3-PICO-1-N8R8 with 8MB Flash & 8MB PSRAM. 1.14" IPS display (135×240), ES8311 I2S audio codec, MEMS mic, 1W speaker, 6-axis BMI270 IMU, IR TX/RX, 250mAh battery, USB OTG, Hat2-Bus & GROVE port. AI assistant support (Xiaozhi).</p>
+                        <p><strong>Uses:</strong> AI voice assistants, smart home, IoT development, wearables, radical performance upgrade over StickC Plus.</p>
+
                         <h3>🟢 M5Stack ATOM Lite (ESP32-PICO)</h3>
+                        <img class="m5stack-img" src="https://m5stack.oss-cn-shenzhen.aliyuncs.com/image/m5-docs_homepage/core/atom_lite_01.webp" alt="M5Stack ATOM Lite">
                         <p>Tiny controller 25×25×30 mm on ESP32-PICO-D4. RGB LED (WS2812B), button, IR transmitter, GPIO via GROVE port. Incredibly compact yet full-featured.</p>
                         <p><strong>Specs:</strong> 4MB Flash, 520KB RAM, WiFi/BT, 1 button, 1 RGB LED, 1 IR transmitter, GROVE port (I2C + GPIO), USB Type-C.</p>
                         <p><strong>Uses:</strong> Smart switches, IR repeaters, compact IoT sensors, desktop indicators, embedded systems.</p>
 
                         <h3>🟢 M5Stack ATOM Matrix (ESP32-PICO)</h3>
+                        <img class="m5stack-img" src="https://m5stack.oss-cn-shenzhen.aliyuncs.com/image/m5-docs_homepage/core/atom_matrix_01.webp" alt="M5Stack ATOM Matrix">
                         <p>ATOM Lite with a 5×5 RGB LED matrix (WS2812B) on the front. Adds programmable light indication, animations, and visual effects.</p>
                         <p><strong>Extra vs ATOM Lite:</strong> 25 programmable RGB LEDs (5×5), IMU SH200Q (6-axis).</p>
                         <p><strong>Uses:</strong> Status light indicators, animation panels, mini displays, wearable jewelry, programming education.</p>
@@ -3114,11 +3203,25 @@ int16_t ax=Wire.read()<<8|Wire.read(); Serial.println(ax); delay(200); }</pre></
                         <p><strong>Uses:</strong> Compact AI systems, USB accessories, advanced IoT gateways.</p>
 
                         <h3>🟢 M5Stack Cardputer (ESP32-S3)</h3>
+                        <img class="m5stack-img" src="https://static-cdn.m5stack.com/resource/docs/products/core/Cardputer/img-60261bcd-a23f-40e6-994d-ad97477dcec4.webp" alt="M5Stack Cardputer">
                         <p>Miniature portable computer with QWERTY keyboard and 1.14" ST7789V screen (240×135). Looks like an 80s pocket computer, runs on modern ESP32-S3.</p>
                         <p><strong>Specs:</strong> ESP32-S3, 4MB PSRAM, 16MB Flash, WiFi/BT, 56-key keyboard, 1.14" LCD, speaker, TF-card slot, battery, GROVE port.</p>
                         <p><strong>Uses:</strong> Hacker terminal, portable chat client, pentest device (Wi-Fi analyzer), calculator, notepad, typing practice.</p>
+                        <p><em>🎯 Advanced version also available → <strong>Cardputer-ADV</strong> (see below)</em></p>
+
+                        <h3>🟢 M5Stack Cardputer-Adv — Advanced (ESP32-S3)</h3>
+                        <img class="m5stack-img" src="https://shop.m5stack.com/cdn/shop/files/1_9b624809-c4b1-4031-b149-54709e72bd53_1024x1024.webp?v=1756977500" alt="M5Stack Cardputer-Adv">
+                        <p>Advanced Cardputer version powered by Stamp-S3A with improved audio (ES8311 codec, 3.5mm jack), 6-axis BMI270 IMU, and larger 1750mAh battery. More power, better sound, longer runtime.</p>
+                        <p><strong>Specs:</strong> Stamp-S3A (ESP32-S3FN8), 8MB Flash, 56-key keyboard, 1.14" LCD (240×135), ES8311 audio codec + 3.5mm output, MEMS microphone, 1W speaker, BMI270 (6-axis), 1750mAh Li-ion, IR transmitter, microSD, HY2.0-4P Grove + EXT 2.54-14P expansion.</p>
+                        <p><strong>Uses:</strong> Advanced portable terminal, Mesh communication (LoRa/Meshtastic), music instruments, IoT hub, wearable AI devices.</p>
+
+                        <h3>🟢 M5Stack CardputerZero (Raspberry Pi CM0) — NEW!</h3>
+                        <img class="m5stack-img" src="https://cdn.shopify.com/s/files/1/0056/7689/2250/files/fd1134db93e0f244e96389a00e984235.png?v=1779865970" alt="M5Stack CardputerZero">
+                        <p>First Linux system from M5Stack powered by Raspberry Pi CM0. 1.9" TFT display, 46-key QWERTY ISO keyboard, HDMI output, camera, Ethernet, 1500mAh battery. Open source hardware, documentation, and 3D files.</p>
+                        <p><strong>Uses:</strong> Full Linux pocket desktop PC, kiosk, server, DIY workstation, retro game emulator.</p>
 
                         <h3>🟢 M5Stack Dial (ESP32-S3)</h3>
+                        <img class="m5stack-img" src="https://static-cdn.m5stack.com/resource/docs/products/core/M5Dial/img-2afd549e-8af8-47b4-823a-e90e063a0139.webp" alt="M5Stack Dial">
                         <p>Smart knob (rotary encoder) with 1.28" round TFT screen (240×240). Combines physical encoder with tactile feedback and color display.</p>
                         <p><strong>Specs:</strong> ESP32-S3, 8MB Flash, 8MB PSRAM, WiFi/BT, 1.28" round LCD GC9A01 (240×240), encoder with button, GROVE port.</p>
                         <p><strong>Uses:</strong> Volume control, MIDI controller, smart thermostat, machine control panel, music synthesizer.</p>
@@ -3127,6 +3230,7 @@ int16_t ax=Wire.read()<<8|Wire.read(); Serial.println(ax); delay(200); }</pre></
                     <div class="story"><h2>📦 COMPACT & SPECIALIZED</h2>
 
                         <h3>📦 M5Stack Stamp / Stamp C6</h3>
+                        <img class="m5stack-img" src="https://m5stack-doc.oss-cn-shenzhen.aliyuncs.com/524/C056-B_01.jpg" alt="M5Stack Stamp-C3">
                         <p>Stamp is an ESP32 in SMD module format (18×24 mm) for soldering directly onto PCB. Stamp C6 uses ESP32-C6 with Wi-Fi 6, Thread, Zigbee support. Ideal for custom device production without extra wiring.</p>
                         <p><strong>Stamp C6 Specs:</strong> ESP32-C6, 4MB Flash, 384KB RAM, WiFi 6 (2.4GHz), BLE 5.0, Thread, Zigbee, USB Serial/JTAG.</p>
 
@@ -3135,6 +3239,7 @@ int16_t ax=Wire.read()<<8|Wire.read(); Serial.println(ax); delay(200); }</pre></
                         <p><strong>Uses:</strong> Smart home (Matter), ultra-compact IoT, wearables, sensors.</p>
 
                         <h3>📦 M5Stack Paper S3 (4.7" E-Ink)</h3>
+                        <img class="m5stack-img" src="https://static-cdn.m5stack.com/resource/docs/products/core/m5paper/m5paper_01.webp" alt="M5Stack Paper S3">
                         <p>Controller on ESP32-S3 with 4.7" e-paper display (960×540, 16 grayscale levels). Ultra-low power — image persists without power.</p>
                         <p><strong>Specs:</strong> ESP32-S3, 16MB Flash, 8MB PSRAM, WiFi/BT, 4.7" E-Ink (960×540), light sensor, GROVE port, battery.</p>
                         <p><strong>Uses:</strong> Price tags, info displays, signage, menus, navigation, EV charging stations.</p>
@@ -3149,6 +3254,7 @@ int16_t ax=Wire.read()<<8|Wire.read(); Serial.println(ax); delay(200); }</pre></
                         <p><strong>Uses:</strong> Timelapse photography, remote video surveillance, motion detection with recording, IoT camera.</p>
 
                         <h3>📦 M5Stack UnitV2 (AI Camera)</h3>
+                        <img class="m5stack-img" src="https://static-cdn.m5stack.com/resource/docs/products/unit/unitv2/unitv2_01.webp" alt="M5Stack UnitV2">
                         <p>Standalone AI camera based on Kendryte K210 chip. Face, object, color, QR-code, and gesture recognition. Works offline — all processing on board.</p>
                         <p><strong>Specs:</strong> K210 RISC-V (dual core, 400MHz), 6MB SRAM, OV2640 (2MP), 2.0" LCD (320×240), Wi-Fi (ESP32 for data relay).</p>
                         <p><strong>Uses:</strong> Smart face locks, people counting, animal detection, object sorting.</p>
@@ -3157,27 +3263,34 @@ int16_t ax=Wire.read()<<8|Wire.read(); Serial.println(ax); delay(200); }</pre></
                     <div class="story"><h2>🔌 SENSORS & UNITS</h2>
 
                         <h3>🌡️ ENV III (Temperature / Humidity / Pressure)</h3>
+                        <img class="m5stack-img" src="https://static-cdn.m5stack.com/resource/docs/products/unit/envIII/envIII_01.webp" alt="M5Stack ENV III">
                         <p>All-in-one weather sensor on SHT30 + QMP6988. Measures temperature (-40…85°C, ±0.3°C), humidity (0–100% ±2%), and atmospheric pressure (300–1200 hPa). I2C interface.</p>
 
                         <h3>🔴 PM2.5 (Air Quality)</h3>
                         <p>Laser particle sensor (PM1.0, PM2.5, PM10) based on Plantower PMSA003. UART interface. Ideal for monitoring air quality at home, in the workshop, or lab.</p>
 
                         <h3>👁️ Thermal Camera (MLX90640)</h3>
+                        <img class="m5stack-img" src="https://static-cdn.m5stack.com/resource/docs/products/unit/thermal/thermal_01.webp" alt="M5Stack Thermal Camera">
                         <p>Thermal imager 32×24 pixels on Melexis MLX90640. Range -40…300°C, FOV 55°. I2C interface. See heat: insulation leaks, component overheating, people in darkness.</p>
 
                         <h3>🌍 GPS Module</h3>
+                        <img class="m5stack-img" src="https://static-cdn.m5stack.com/resource/docs/products/unit/gps/gps_01.webp" alt="M5Stack GPS Unit">
                         <p>GPS/GNSS receiver on NEO-6M / NEO-M9N. Determines coordinates, speed, altitude, precise time. UART interface. For navigation, trackers, geotags.</p>
 
                         <h3>📡 IR Unit (Infrared)</h3>
+                        <img class="m5stack-img" src="https://static-cdn.m5stack.com/resource/docs/products/unit/ir/ir_01.webp" alt="M5Stack IR Unit">
                         <p>IR receiver and transmitter for controlling home appliances. Can learn and replay remote commands. GROVE interface.</p>
 
                         <h3>🌈 RGB LED Unit (SK6812)</h3>
+                        <img class="m5stack-img" src="https://static-cdn.m5stack.com/resource/docs/products/unit/rgb/rgb_01.webp" alt="M5Stack RGB LED Unit">
                         <p>Single programmable RGB LED (SK6812) on a compact board. GROVE interface. For status indication, night lighting, visual alerts.</p>
 
                         <h3>🔦 ToF Unit (VL53L0X)</h3>
+                        <img class="m5stack-img" src="https://static-cdn.m5stack.com/resource/docs/products/unit/tof/tof_01.webp" alt="M5Stack ToF Unit">
                         <p>Laser rangefinder up to 2 meters using Time-of-Flight principle. I2C interface. For liquid level measurement, object distance, autofocus.</p>
 
                         <h3>💨 CO2 Unit (SCD41)</h3>
+                        <img class="m5stack-img" src="https://static-cdn.m5stack.com/resource/docs/products/unit/co2/co2_01.webp" alt="M5Stack CO2 Unit">
                         <p>CO₂ sensor with Sensirion SCD41 NDIR sensor. Measures 0–40000 ppm, temperature, and humidity. I2C interface, temperature compensation. For ventilation, greenhouses, offices.</p>
 
                         <h3>🎮 Servo Kit</h3>
